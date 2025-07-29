@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -34,7 +36,7 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreEmployeeRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -77,7 +79,7 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateEmployeeRequest $request)
     {
         try {
 
@@ -106,9 +108,9 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Employee $employee)
+    public function destroy(Request $request)
     {
-        $Employee = Employee::findOrFail(request->id)->delete();
+        $Employee = Employee::findOrFail($request->id)->delete();
         //return redirect()->route('employee.index');
         return redirect()->route('employee.index')
         ->with('success_message', 'Employee has been deleted successfully!');

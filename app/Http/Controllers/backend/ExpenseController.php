@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreExpenseRequest;
+use App\Http\Requests\StoreExpenseSourceRequest;
+use App\Http\Requests\UpdateExpenseRequest;
 use App\Models\Expense;
 use Illuminate\Http\Request;
 
@@ -32,7 +35,7 @@ class ExpenseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreExpenseRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -73,7 +76,7 @@ class ExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateExpenseRequest $request)
     {
         try {
 
@@ -102,7 +105,7 @@ class ExpenseController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Expense = Expense::findOrFail(request->id)->delete();
+        $Expense = Expense::findOrFail($request->id)->delete();
         //return redirect()->route('Expense.index');
         return redirect()->route('expense.index')
         ->with('success_message', 'Expense Cash has been deleted successfully!');

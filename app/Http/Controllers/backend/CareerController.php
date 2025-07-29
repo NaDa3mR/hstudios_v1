@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCareerRequest;
+use App\Http\Requests\UpdateCareerRequest;
 use App\Models\Career;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class CareerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCareerRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -76,7 +78,7 @@ class CareerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateCareerRequest $request)
     {
         try {
 

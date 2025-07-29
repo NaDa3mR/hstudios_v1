@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreInterviewRequest;
+use App\Http\Requests\UpdateInterviewRequest;
 use App\Models\Interview;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class InterviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreInterviewRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -68,7 +70,7 @@ class InterviewController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateInterviewRequest $request)
     {
         try {
 

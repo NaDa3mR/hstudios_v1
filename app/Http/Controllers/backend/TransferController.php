@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTransferRequest;
 use App\Models\Transfer;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class TransferController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TransferRequest $request)
+    public function store(StoreTransferRequest $request)
     {
         $validated = $request->validated();
         $from = Account::find($validated['account_id_from']);
@@ -69,7 +70,7 @@ class TransferController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Transfer $transfer)
+    public function update()
     {
         //
     }
