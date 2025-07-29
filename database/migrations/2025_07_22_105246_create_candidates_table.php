@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('phone');
             $table->string('country');
             $table->string('city');
+            $table->string('linkedin');
+            $table->string('github');
+            $table->string('behance')->nullable();
+            $table->unsignedTinyInteger('is_hired')->default(1);
             $table->timestamps();
         });
     }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('transfers', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('account_id_from');
-            // $table->foreignId(column: 'account_id_from')->constrained('accounts')->onDelete('cascade');
-            // $table->unsignedBigInteger('account_id_to');
-            // $table->foreignId(column: 'account_id_to')->constrained('accounts')->onDelete('cascade');
+            //$table->unsignedBigInteger('account_id_from');
+            $table->foreignId(column: 'account_id_from')->constrained('accounts')->onDelete('cascade');
+            //$table->unsignedBigInteger('account_id_to');
+            $table->foreignId(column: 'account_id_to')->constrained('accounts')->onDelete('cascade');
             $table->string('title');
             $table->decimal('amount', 15, 2);
             $table->date('transfer_date');

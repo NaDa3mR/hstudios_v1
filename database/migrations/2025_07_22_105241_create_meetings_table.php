@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
             //$table->unsignedBigInteger('client_id');
-            $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
+            $table->foreignId(column: 'client_id')->constrained('clients')->onDelete('cascade');
             $table->string('subject');
             $table->string('type');
+            $table->string('address');
             $table->date('meet_date');
             $table->text('details')->nullable();
             $table->timestamps();

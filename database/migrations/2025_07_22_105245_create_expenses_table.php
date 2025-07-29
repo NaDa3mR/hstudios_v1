@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('expense_source_id')->constrained('expense_sources')->onDelete('cascade');
             $table->string('title');
             $table->decimal('amount', 15, 2);
-            $table->date('income_date');
+            $table->date('expense_date');
             $table->text('details')->nullable();      
             $table->timestamps();
         });
