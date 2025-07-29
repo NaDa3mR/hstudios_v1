@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Http\Controller\backend;
+
+use App\Http\Controllers\Controller;
+use App\Models\Service;
+use Illuminate\Http\Request;
+
+class ServiceController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+       $Services = Service::all();
+      //return view('backend.client.show',compact('$Clients'));
+      return $Services;
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        try {
+            $validated = $request->validated();
+
+            Service::create($validated);
+
+            return redirect()->route('service.index')
+                ->with('success_message', 'Service created successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function showServices(Service $service)
+    {
+        $Services = Service::paginate(5);
+        return view('frontend.service.show', compact('Services'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Service $service)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request)
+    {
+        try {
+
+            $service = Service::findOrFail($request->id);
+            $service->update($request->validated());
+    
+            return redirect()->route('service.index')
+                ->with('success_message', 'Service updated successfully!');
+        }
+        catch
+        (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Request $request)
+    {
+        $service = Service::findOrFail($request->id)->delete();
+        return redirect()->route('service.index');
+    }
+}

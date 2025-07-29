@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             //$table->unsignedBigInteger('deal_id');
             $table->foreignId('deal_id')->constrained('deals')->onDelete('cascade');
+            $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
             $table->decimal('amount', 15, 2);
             $table->date('pay_date');
             $table->text('details')->nullable();

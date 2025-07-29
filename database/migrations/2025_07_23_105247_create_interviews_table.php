@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('interviews', function (Blueprint $table) {
             $table->id();
             //$table->unsignedBigInteger('job_app_id');
-            $table->foreignId(column: 'job_app_id')->constrained('job_applications')->onDelete('cascade');
+            $table->foreignId(column: 'job_application_id')->constrained('job_applications')->onDelete('cascade');
             $table->string('type');
             $table->date('interview_date');
             $table->decimal('duration');
