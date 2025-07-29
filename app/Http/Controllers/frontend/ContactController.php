@@ -36,13 +36,7 @@ class ContactController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Contact = new Contact();                          
-            $Contact->name = $request->name;
-            $Contact->email = $request->email;
-            $Contact->phone = $request->phone;
-            $Contact->subject = $request->subject;
-            $Contact->message = $request->message;
-            $Contact->save();
+            Contact::create($validated);
             //return redirect()->view('frontend.contact.ShowForm');
             // return redirect()->view('frontend.contact.ShowForm')
             // ->with('success_message', 'Contact has been created successfully!');
@@ -78,13 +72,7 @@ class ContactController extends Controller
 
             $validated = $request->validated();
             $Contact = Contact::findOrFail($request->id);
-            $Contact->update([                  
-                $Contact->name = $request->name,
-                $Contact->email = $request->email,
-                $Contact->phone = $request->phone,
-                $Contact->subject = $request->subject,
-                $Contact->message = $request->message,
-            ]);
+            $Contact->update($validated);
             //return redirect()->route('contact.index');
             return redirect()->route('contact.index')
             ->with('success_message', 'Contact has been updated successfully!');

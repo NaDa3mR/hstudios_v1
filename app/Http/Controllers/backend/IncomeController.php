@@ -38,14 +38,7 @@ class IncomeController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Income = new Income();                          
-            $Income->account_id = $request->account_id;
-            $Income->income_source_id = $request->income_source_id;
-            $Income->title = $request->title;
-            $Income->amount = $request->amount;
-            $Income->income_date = $request->income_date;
-            $Income->details = $request->details;
-            $Income->save();
+            Income::create($validated);
             //return redirect()->route('income.index');
             return redirect()->route('income.index')
             ->with('success_message', 'Income Cash has been created successfully!');
@@ -81,14 +74,7 @@ class IncomeController extends Controller
 
             $validated = $request->validated();
             $Income = Income::findOrFail($request->id);
-            $Income->update([                  
-            $Income->account_id = $request->account_id,
-            $Income->income_source_id = $request->income_source_id,
-            $Income->title = $request->title,
-            $Income->amount = $request->amount,
-            $Income->income_date = $request->income_date,
-            $Income->details = $request->details,
-            ]);
+            $Income->update($validated);
             //return redirect()->route('income.index');
             return redirect()->route('income.index')
             ->with('success_message', 'Income Cash has been updated successfully!');

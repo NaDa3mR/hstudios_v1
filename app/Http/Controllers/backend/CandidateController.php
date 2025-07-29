@@ -38,18 +38,7 @@ class CandidateController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Candidate = new Candidate();                          
-            $Candidate->first_name = $request->first_name;
-            $Candidate->last_name = $request->last_name;
-            $Candidate->email = $request->email;
-            $Candidate->phone = $request->phone;
-            $Candidate->country = $request->country;
-            $Candidate->city = $request->city;
-            $Candidate->linkedin = $request->linkedin;
-            $Candidate->github = $request->github;
-            $Candidate->behance = $request->behance;
-            $Candidate->is_hired = $request->is_hired;
-            $Candidate->save();
+            Candidate::create($validated);
             //return redirect()->route('candidate.index');
             return redirect()->route('candidate.index')
             ->with('success_message', 'Candidate has been created successfully!');
@@ -85,18 +74,7 @@ class CandidateController extends Controller
 
             $validated = $request->validated();
             $Candidate = Candidate::findOrFail($request->id);
-            $Candidate->update([                  
-            $Candidate->first_name = $request->first_name,
-            $Candidate->last_name = $request->last_name,
-            $Candidate->email = $request->email,
-            $Candidate->phone = $request->phone,
-            $Candidate->country = $request->country,
-            $Candidate->city = $request->city,
-            $Candidate->linkedin = $request->linkedin,
-            $Candidate->github = $request->github,
-            $Candidate->behance = $request->behance,
-            $Candidate->is_hired = $request->is_hired,
-            ]);
+            $Candidate->update($validated);
             //return redirect()->route('candidate.index');
             return redirect()->route('candidate.index')
             ->with('success_message', 'Candidate has been updated successfully!');

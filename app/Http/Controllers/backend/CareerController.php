@@ -38,17 +38,7 @@ class CareerController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Career = new Career();                          
-            $Career->title = $request->title;
-            $Career->currency = $request->currency;
-            $Career->type = $request->type;
-            $Career->experience_level= $request->experience_level;
-            $Career->details = $request->details;
-            $Career->min_salary = $request->min_salary;
-            $Career->max_salary = $request->max_salary;
-            $Career->is_active = $request->is_active;
-            $Career->is_published = $request->is_published;
-            $Career->save();
+            Career::create($validated);
             //return redirect()->route('career.index');
             return redirect()->route('career.index')
             ->with('success_message', 'Career has been created successfully!');
@@ -84,17 +74,7 @@ class CareerController extends Controller
 
             $validated = $request->validated();
             $Career = Career::findOrFail($request->id);
-            $Career->update([                  
-            $Career->title = $request->title,
-            $Career->currency = $request->currency,
-            $Career->type = $request->type,
-            $Career->experience_level= $request->experience_level ,
-            $Career->details = $request->details,
-            $Career->min_salary = $request->min_salary,
-            $Career->max_salary = $request->max_salary,
-            $Career->is_active = $request->is_active,
-            $Career->is_published = $request->is_published,
-            ]);
+            $Career->update($validated);
             //return redirect()->route('career.index');
             return redirect()->route('career.index')
             ->with('success_message', 'Career has been updated successfully!');

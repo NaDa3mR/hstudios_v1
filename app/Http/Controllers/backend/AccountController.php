@@ -35,11 +35,7 @@ class AccountController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Account = new Account();
-            $Account->name = $request->name;
-            $Account->balance = $request->balance;
-            $Account->is_active = $request->is_active;
-            $Account->save();
+            Account::create($validated);
             //return redirect()->route('account.index');
             return redirect()->route('account.index')
             ->with('success_message', 'Client data has been created successfully!');
@@ -74,11 +70,7 @@ class AccountController extends Controller
         try{
             $validated = $request->validated();
             $Account = Account::findOrFail($request->id);
-            $Account->update([
-                $Account->name = $request->name,
-                $Account->balance = $request->balance,
-                $Account->is_active = $request->is_active,
-            ]);
+            $Account->update($validated);
             //return redirect()->route('account.index');
             return redirect()->route('account.index')
             ->with('success_message', 'Client data has been updated successfully!');

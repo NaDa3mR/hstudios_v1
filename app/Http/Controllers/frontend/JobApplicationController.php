@@ -36,19 +36,7 @@ class JobApplicationController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Job_app = new Job_Application();
-            $Job_app-> career_id = $request->career_id;
-            $Job_app->candidate_id = $request->candidate_id;
-            $Job_app->first_name = $request->first_name;
-            $Job_app->last_name = $request->last_name;
-            $Job_app->email = $request->email;
-            $Job_app->phone = $request->phone;
-            $Job_app->country = $request->country;
-            $Job_app->city = $request->city;
-            $Job_app->linkedin = $request->linkedin;
-            $Job_app->github = $request->github;
-            $Job_app->behance = $request->behance;
-            $Job_app->save();
+            Job_Application::create($validated);
             //return redirect()->route('Job_app.index');
             return view('frontend.job_app.showForm')
                 ->with('success_message', 'Application has been created successfully!');
@@ -82,19 +70,7 @@ class JobApplicationController extends Controller
 
             $validated = $request->validated();
             $Job_app = Job_Application::findOrFail($request->id);
-            $Job_app->update([
-                $Job_app->career_id = $request->career_id,
-                $Job_app->candidate_id = $request->candidate_id,
-                $Job_app->first_name = $request->first_name,
-                $Job_app->last_name = $request->last_name,
-                $Job_app->email = $request->email,
-                $Job_app->phone = $request->phone,
-                $Job_app->country = $request->country,
-                $Job_app->city = $request->city,
-                $Job_app->linkedin = $request->linkedin,
-                $Job_app->github = $request->github,
-                $Job_app->behance = $request->behance,
-            ]);
+            $Job_app->update($validated);
             //return redirect()->route('Job_app.index');
             return redirect()->route('job_app.index')
                 ->with('success_message', 'Application has been updated successfully!');

@@ -76,13 +76,7 @@ class InterviewController extends Controller
 
             $validated = $request->validated();
             $Interview = Interview::findOrFail($request->id);
-            $Interview->update([
-                'job_application_id' => $request->job_application_id,
-                'type' => $request->type,
-                'interview_date' => $request->interview_date,
-                'duration' => $request->duration,
-                'details' => $request->details,
-            ]);
+            $Interview->update($validated);
             //return redirect()->route('interview.index');
             return redirect()->route('interview.index')
                 ->with('success_message', 'Interview has been updated successfully!');

@@ -36,13 +36,7 @@ class ServiceRequestController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Service_Request = new Service_Request();                          
-            $Service_Request->name = $request->name;
-            $Service_Request->client_id = $request->client_id;
-            $Service_Request->service_id = $request->service_id;
-            $Service_Request->status = $request->status;
-            $Service_Request->details = $request->details;
-            $Service_Request->save();
+            Service_Request::create($validated);
             //return redirect()->route('serviceRequest.index');
             return redirect()->view('backend.serviceRequest.showForm')
             ->with('success_message', 'Request has been created successfully!');
@@ -78,13 +72,7 @@ class ServiceRequestController extends Controller
 
             $validated = $request->validated();
             $Service_Request = Service_Request::findOrFail($request->id);
-            $Service_Request->update([                  
-            $Service_Request->name = $request->name,
-            $Service_Request->client_id = $request->client_id,
-            $Service_Request->service_id = $request->service_id,
-            $Service_Request->status = $request->status,
-            $Service_Request->details = $request->details,
-            ]);
+            $Service_Request->update($validated);
             //return redirect()->route('serviceRequest.index');
             return redirect()->route('serviceRequest.index')
             ->with('success_message', 'Request has been updated successfully!');
@@ -100,7 +88,7 @@ class ServiceRequestController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Blog = Service_Request::findOrFail(request->id)->delete();
+        $Blog = Service_Request::findOrFail($request->id)->delete();
         //return redirect()->route('serviceRequest.index');
         return redirect()->route('serviceRequest.index')
         ->with('success_message', 'Request has been deleted successfully!');
