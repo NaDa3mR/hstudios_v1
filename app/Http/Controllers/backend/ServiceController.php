@@ -3,6 +3,8 @@
 namespace App\Http\Controller\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreServiceRequest;
+use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -30,7 +32,7 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreServiceRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -47,7 +49,7 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showServices(Service $service)
+    public function showServices()
     {
         $Services = Service::paginate(5);
         return view('frontend.service.show', compact('Services'));
@@ -64,7 +66,7 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateServiceRequest $request)
     {
         try {
 

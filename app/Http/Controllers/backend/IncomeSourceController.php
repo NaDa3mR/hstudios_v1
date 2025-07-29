@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreIncomeSourceRequest;
+use App\Http\Requests\UpdateIncomeSourceRequest;
 use App\Models\Income_Source;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class IncomeSourceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreIncomeSourceRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -70,7 +72,7 @@ class IncomeSourceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateIncomeSourceRequest $request)
     {
         try {
 
@@ -96,7 +98,7 @@ class IncomeSourceController extends Controller
      */
     public function destroy(Request $request)
     {
-        $In_source = Income_Source::findOrFail(request->id)->delete();
+        $In_source = Income_Source::findOrFail($request->id)->delete();
         //return redirect()->route('In_source.index');
         return redirect()->route('In_source.index')
         ->with('success_message', 'Income Source has been deleted successfully!');

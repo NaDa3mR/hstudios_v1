@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreMeetingRequest;
+use App\Http\Requests\UpdateMeetingRequest;
 use App\Models\Meeting;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class MeetingController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreMeetingRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -66,7 +68,7 @@ class MeetingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateMeetingRequest $request)
     {
         try {
             $validated = $request->validated();

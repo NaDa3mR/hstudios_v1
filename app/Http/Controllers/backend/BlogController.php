@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBlogRequest;
+use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreBlogRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -77,7 +79,7 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateBlogRequest $request)
     {
         try {
 
@@ -108,7 +110,7 @@ class BlogController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Blog = Blog::findOrFail(request->id)->delete();
+        $Blog = Blog::findOrFail($request->id)->delete();
         //return redirect()->route('blog.index');
         return redirect()->route('blog.index')
         ->with('success_message', 'Blog has been deleted successfully!');

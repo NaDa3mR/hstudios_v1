@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDealRequest;
+use App\Http\Requests\UpdateDealRequest;
 use App\Models\Deal;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class DealController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreDealRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -70,7 +72,7 @@ class DealController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateDealRequest $request)
     {
         try {
 
@@ -96,7 +98,7 @@ class DealController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Deal = Deal::findOrFail(request->id)->delete();
+        $Deal = Deal::findOrFail($request->id)->delete();
         //return redirect()->route('deal.index');
         return redirect()->route('deal.index')
         ->with('success_message', 'Deal has been deleted successfully!');

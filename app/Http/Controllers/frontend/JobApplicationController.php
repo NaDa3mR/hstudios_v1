@@ -109,7 +109,7 @@ class JobApplicationController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Job_app = Job_Application::findOrFail(request->id)->delete();
+        $Job_app = Job_Application::findOrFail($request->id)->delete();
         //return redirect()->route('job_app.index');
         return redirect()->route('job_app.index')
             ->with('success_message', 'Application has been deleted successfully!');

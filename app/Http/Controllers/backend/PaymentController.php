@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePaymentRequest;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,7 @@ class PaymentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePaymentRequest $request)
     {
         try {
             $validated = $request->validated();

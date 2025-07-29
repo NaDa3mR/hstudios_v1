@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreExpenseSourceRequest;
+use App\Http\Requests\UpdateExpenseSourceRequest;
 use App\Models\Expense_Source;
 use Illuminate\Http\Request;
 
@@ -32,7 +34,7 @@ class ExpenseSourceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreExpenseSourceRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -70,7 +72,7 @@ class ExpenseSourceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateExpenseSourceRequest $request)
     {
         try {
 
@@ -96,7 +98,7 @@ class ExpenseSourceController extends Controller
      */
     public function destroy(Request $request)
     {
-        $E_source = Expense_Source::findOrFail(request->id)->delete();
+        $E_source = Expense_Source::findOrFail($request->id)->delete();
         //return redirect()->route('e_source.index');
         return redirect()->route('e_source.index')
         ->with('success_message', 'Expense Source has been deleted successfully!');

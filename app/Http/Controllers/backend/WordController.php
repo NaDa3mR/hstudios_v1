@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreWordRequest;
+use App\Http\Requests\UpdateWordRequest;
 use App\Models\Word;
 use Illuminate\Http\Request;
 
@@ -31,7 +33,7 @@ class WordController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(WordRequest $request)
+    public function store(StoreWordRequest $request)
     {
         try {
             $validated = $request->validated();
@@ -64,7 +66,7 @@ class WordController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(WordRequest $request)
+    public function update(UpdateWordRequest $request)
     {
         $word = Word::findOrFail($request->id);
         $word->update($request->validated());
