@@ -38,11 +38,7 @@ class DealController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Deal = new Deal();                          
-            $Deal->service_request_id = $request->service_request_id;
-            $Deal->status = $request->status;
-            $Deal->details = $request->details;
-            $Deal->save();
+            Deal::create($validated);
             //return redirect()->route('Deal.index');
             return redirect()->route('deal.index')
             ->with('success_message', 'Deal has been created successfully!');
@@ -78,11 +74,7 @@ class DealController extends Controller
 
             $validated = $request->validated();
             $Deal = Deal::findOrFail($request->id);
-            $Deal->update([                  
-            $Deal->service_request_id = $request->service_request_id,
-            $Deal->status = $request->status,
-            $Deal->details = $request->details,
-            ]);
+            $Deal->update($validated);
             //return redirect()->route('deal.index');
             return redirect()->route('deal.index')
             ->with('success_message', 'Deal has been updated successfully!');

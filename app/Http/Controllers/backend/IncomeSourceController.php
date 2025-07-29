@@ -38,11 +38,7 @@ class IncomeSourceController extends Controller
     {
         try {
             $validated = $request->validated();
-            $In_source = new Income_Source();                          
-            $In_source->name = $request->name;
-            $In_source->details = $request->details;
-            $In_source->is_active = $request->is_active;
-            $In_source->save();
+            Income_Source::create($validated);
             //return redirect()->route('In_source.index');
             return redirect()->route('In_source.index')
             ->with('success_message', 'Income Source has been created successfully!');
@@ -78,11 +74,7 @@ class IncomeSourceController extends Controller
 
             $validated = $request->validated();
             $In_source = Income_Source::findOrFail($request->id);
-            $In_source->update([                  
-            $In_source->name = $request->name,
-            $In_source->details = $request->details,
-            $In_source->is_active = $request->is_active,
-            ]);
+            $In_source->update($validated);
             //return redirect()->route('In_source.index');
             return redirect()->route('In_source.index')
             ->with('success_message', 'Income Source has been updated successfully!');

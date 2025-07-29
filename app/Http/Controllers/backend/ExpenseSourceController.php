@@ -38,11 +38,7 @@ class ExpenseSourceController extends Controller
     {
         try {
             $validated = $request->validated();
-            $E_source = new Expense_Source();                          
-            $E_source->name = $request->name;
-            $E_source->details = $request->details;
-            $E_source->is_active = $request->is_active;
-            $E_source->save();
+            Expense_Source::create($validated);
             //return redirect()->route('E_source.index');
             return redirect()->route('E_source.index')
             ->with('success_message', 'Expense Source has been created successfully!');
@@ -78,11 +74,7 @@ class ExpenseSourceController extends Controller
 
             $validated = $request->validated();
             $E_source = Expense_Source::findOrFail($request->id);
-            $E_source->update([                  
-            $E_source->name = $request->name,
-            $E_source->details = $request->details,
-            $E_source->is_active = $request->is_active,
-            ]);
+            $E_source->update($validated);
             //return redirect()->route('E_source.index');
             return redirect()->route('E_source.index')
             ->with('success_message', 'Expense Source has been updated successfully!');

@@ -39,14 +39,7 @@ class ExpenseController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Expense = new Expense();                          
-            $Expense->account_id = $request->account_id;
-            $Expense->expense_source_id = $request->expense_source_id;
-            $Expense->title = $request->title;
-            $Expense->amount = $request->amount;
-            $Expense->expense_date = $request->expense_date;
-            $Expense->details = $request->details;
-            $Expense->save();
+            Expense::create($validated);
             //return redirect()->route('Expense.index');
             return redirect()->route('expense.index')
             ->with('success_message', 'Expense Cash has been created successfully!');
@@ -82,14 +75,7 @@ class ExpenseController extends Controller
 
             $validated = $request->validated();
             $Expense = Expense::findOrFail($request->id);
-            $Expense->update([                  
-            $Expense->account_id = $request->account_id,
-            $Expense->expense_source_id = $request->expense_source_id,
-            $Expense->title = $request->title,
-            $Expense->amount = $request->amount,
-            $Expense->expense_date = $request->expense_date,
-            $Expense->details = $request->details,
-            ]);
+            $Expense->update($validated);
             //return redirect()->route('Expense.index');
             return redirect()->route('Expense.index')
             ->with('success_message', 'Expense Cash has been updated successfully!');

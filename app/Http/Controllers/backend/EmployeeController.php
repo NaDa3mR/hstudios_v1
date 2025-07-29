@@ -40,16 +40,7 @@ class EmployeeController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Employee = new Employee();                          
-            $Employee->name = $request->name;
-            $Employee->email = $request->email;
-            $Employee->phone = $request->phone;
-            $Employee->job = $request->job;
-            $Employee->linkedin = $request->linkedin;
-            $Employee->github = $request->github;
-            $Employee->behance = $request->behance;
-            $Employee->salary = $request->salary;
-            $Employee->save();
+            Employee::create($validated);
             //return redirect()->route('employee.index');
             return redirect()->route('employee.index')
             ->with('success_message', 'Employee has been created successfully!');
@@ -85,16 +76,7 @@ class EmployeeController extends Controller
 
             $validated = $request->validated();
             $Employee = Employee::findOrFail($request->id);
-            $Employee->update([                                           
-                $Employee->name = $request->name,
-                $Employee->email = $request->email,
-                $Employee->phone = $request->phone,
-                $Employee->job = $request->job,
-                $Employee->linkedin = $request->linkedin,
-                $Employee->github = $request->github,
-                $Employee->behance = $request->behance,
-                $Employee->salary = $request->salary,
-            ]);
+            $Employee->update($validated);
             //return redirect()->route('employee.index');
             return redirect()->route('employee.index')
             ->with('success_message', 'Employee has been updated successfully!');

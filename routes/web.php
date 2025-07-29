@@ -1,14 +1,30 @@
 <?php
 
+use App\Http\Controllers\backend\AccountController;
 use App\Http\Controllers\backend\BlogController;
+use App\Http\Controllers\backend\CandidateController;
+use App\Http\Controllers\backend\CareerController;
 use App\Http\Controllers\backend\ClientController;
+use App\Http\Controllers\backend\DealController;
+use App\Http\Controllers\backend\EmployeeController;
+use App\Http\Controllers\backend\ExpenseController;
+use App\Http\Controllers\backend\ExpenseSourceController;
+use App\Http\Controllers\backend\IncomeController;
+use App\Http\Controllers\backend\IncomeSourceController;
+use App\Http\Controllers\backend\InterviewController;
+use App\Http\Controllers\backend\MeetingController;
+use App\Http\Controllers\backend\PaymentController;
+use App\Http\Controllers\backend\TransferController;
+use App\Http\Controllers\backend\WordController;
+use App\Http\Controllers\frontend\ContactController;
+use App\Http\Controllers\frontend\JobApplicationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\frontend\ServiceRequestController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('profile.edit');
 });
 
 Route::get('/dashboard', function () {
@@ -26,8 +42,46 @@ Route::middleware('auth')->group(function () {
     Route::resource('/blog', BlogController::class);
     //Services
     Route::resource('/service', ServiceController::class);
-    //Approved Request
+    //Account
+    Route::resource('/account', AccountController::class);
+    //Blog
+    Route::resource('/blog', BlogController::class);
+    //Cadidate
+    Route::resource('/candidate', CandidateController::class);
+    //Career
+    Route::resource('/career', CareerController::class);
+    //Client
+    Route::resource('/client', ClientController::class);
+    //Deal
+    Route::resource('/deal', DealController::class);
+    //Employee
+    Route::resource('/employee', EmployeeController::class);
+    //Expense
+    Route::resource('/expense', ExpenseController::class);
+    //Expense Source
+    Route::resource('/ex-source', ExpenseSourceController::class);
+    //Income
+    Route::resource('/income', IncomeController::class);
+    //Income Source
+    Route::resource('/in-source', IncomeSourceController::class);
+    //Interview
+    Route::resource('/interview', InterviewController::class);
+    //Meeting
+    Route::resource('/meeting', MeetingController::class);
+    //Payment
+    Route::resource('/payment', PaymentController::class);
+    //Transfer
+    Route::resource('/transfer', TransferController::class);
+    //Word
+    Route::resource('/word', WordController::class);
+    //Contact
+    Route::resource('/contact', ContactController::class);
+    //Job Application
+    Route::resource('/job-app', JobApplicationController::class);
+    //Service Request
     Route::post('/service-request/approve-request/{id}', [ServiceRequestController::class, 'ApproveRequest'])->name('service_request.approve_request');
+    //Approved Request
+    Route::resource('/service-req', ServiceRequestController::class);
 
                
 });

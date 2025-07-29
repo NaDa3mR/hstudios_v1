@@ -38,7 +38,6 @@ class MeetingController extends Controller
     {
         try {
             $validated = $request->validated();
-
             $client = Client::findOrFail($validated['client_id']);
             $client->meetings()->create($validated);
 

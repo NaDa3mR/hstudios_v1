@@ -19,8 +19,8 @@ class BlogController extends Controller
       //$Blogs = Blog::paginate(5);
       //return view('backend.blog.show', compact('Blogs'))
       $Blogs = Blog::all();
-      //return view('backend.blog.show',compact('Blogs'));
-      return $Blogs;
+      return view('backend.blogs.show',compact('Blogs'));
+      //return $Blogs;
     }
 
     /**
@@ -38,16 +38,7 @@ class BlogController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Blog = new Blog();                          
-            $Blog->title = $request->title;
-            $Blog->sub_title = $request->sub_title;
-            $Blog->slug = $request->slug;
-            $Blog->meta_keyword = $request->meta_keyword;
-            $Blog->meta_description = $request->meta_description;
-            $Blog->meta_title = $request->meta_title;
-            $Blog->details = $request->details;
-            $Blog->is_active = $request->is_active;
-            $Blog->save();
+            Blog::create($validated);
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
             ->with('success_message', 'Blog has been created successfully!');
@@ -64,7 +55,7 @@ class BlogController extends Controller
     public function show(Request $request)
     {
         $Blog = Blog::findOrFail($request->id);
-        return view('backend.blog.show',compact('Blog'));
+        return view('frontend.show-blog-information',compact('Blog'));
     }
 
 
@@ -85,16 +76,7 @@ class BlogController extends Controller
 
             $validated = $request->validated();
             $Blog = Blog::findOrFail($request->id);
-            $Blog->update([                  
-            $Blog->title = $request->title,
-            $Blog->sub_title = $request->sub_title,
-            $Blog->slug = $request->slug,
-            $Blog->meta_keyword = $request->meta_keyword,
-            $Blog->meta_description = $request->meta_description,
-            $Blog->meta_title = $request->meta_title,
-            $Blog->details = $request->details,
-            $Blog->is_active = $request->is_active,
-            ]);
+            $Blog->update($validated);
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
             ->with('success_message', 'Blog has been updated successfully!');

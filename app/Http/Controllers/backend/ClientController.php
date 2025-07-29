@@ -35,13 +35,7 @@ class ClientController extends Controller
     {
         try {
             $validated = $request->validated();
-            $Client = new Client();
-            $Client->name = $request->name;
-            $Client->email = $request->email;
-            $Client->password = Hash::make($request->password);
-            $Client->company_name = $request->company_name;
-            $Client->company_field = $request->company_field;
-            $Client->save();
+            Client::create($validated);
             return redirect()->route('client.index');
         }
     
@@ -75,13 +69,7 @@ class ClientController extends Controller
 
             $validated = $request->validated();
             $Client = Client::findOrFail($request->id);
-            $Client->update([
-                $Client->name = $request->name,
-                $Client->email = $request->email,
-                $Client->password = Hash::make($request->password),
-                $Client->company_name = $request->company_name,
-                $Client->company_field = $request->company_field,
-            ]);
+            $Client->update($validated);
             return redirect()->route('client.index');
         }
         catch
