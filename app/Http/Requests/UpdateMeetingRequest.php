@@ -11,7 +11,7 @@ class UpdateMeetingRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -19,10 +19,21 @@ class UpdateMeetingRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    
+     public function rules(): array
     {
         return [
-            //
+            // 'client_id' => 'required|exists:clients,id',
+            'subject' => 'required|string|max:255',
+            'type' => 'nullable|string|max:100',
+            'address' => 'nullable|string|max:255',
+            'meet_date' => 'required|date|after_or_equal:today',
+            'details' => 'nullable|string',
         ];
+    }
+
+    public function messages(){
+
+        return (new StoreMeetingRequest())->messages();
     }
 }

@@ -11,7 +11,7 @@ class UpdateTransferRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,10 @@ class UpdateTransferRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        return (new StoreTransferRequest)->rules;
+    }
+    public function messages(): array
+    {
+        return (new StoreTransferRequest)->messages();
     }
 }
