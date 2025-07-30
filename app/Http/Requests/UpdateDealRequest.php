@@ -11,7 +11,7 @@ class UpdateDealRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,24 @@ class UpdateDealRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'service_request_id' => 'required|exists:service_requests,id',
+            'status' => 'required|string|max:100',
+            'details' => 'nullable|string|max:1000',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'service_request_id.required' => 'A service request must be selected.',
+            'service_request_id.exists' => 'The selected service request does not exist.',
+
+            'status.required' => 'Status is required.',
+            'status.string' => 'Status must be a valid string.',
+            'status.max' => 'Status may not exceed 100 characters.',
+
+            'details.string' => 'Details must be text.',
+            'details.max' => 'Details may not exceed 1000 characters.',
         ];
     }
 }

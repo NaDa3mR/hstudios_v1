@@ -21,8 +21,10 @@ class UpdateServiceRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        return (new StoreServiceRequest())->rules();
+    }
+    public function messages(): array
+    {
+        return (new StoreServiceRequest())->messages();
     }
 }

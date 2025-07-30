@@ -11,7 +11,7 @@ class UpdatePaymentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -19,10 +19,20 @@ class UpdatePaymentRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    
+     public function rules(): array
     {
         return [
-            //
+            'deal_id' => 'required|exists:deals,id',
+            'client_id' => 'required|exists:clients,id',
+            'amount' => 'required|numeric|min:0',
+            'pay_date' => 'required|date',
+            'details' => 'nullable|string',
         ];
+    }
+
+    public function messages(): array
+    {
+        return (new StorePaymentRequest())->messages();
     }
 }
