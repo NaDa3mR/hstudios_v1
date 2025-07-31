@@ -106,10 +106,10 @@ class BlogController extends Controller
         }
     }
 
-    public function toggleStatus(Request $request)
+    public function toggleStatus(Request $request, $id)
     {
-        $blog = Blog::findOrFail($request->id);
-        $blog->is_active = $request->is_active;
+        $blog = Blog::findOrFail($id);
+        $blog->is_active = $request->input('is_active');
         $blog->save();
 
         return response()->json(['message' => 'Status updated successfully.']);
