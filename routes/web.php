@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     //Blogs
     Route::resource('/blog', BlogController::class);
     //Services
-    Route::resource('/service', ServiceController::class);
+    Route::resource('/service', ServiceController::class); //
     //Account
     Route::resource('/account', AccountController::class);
     //Blog
