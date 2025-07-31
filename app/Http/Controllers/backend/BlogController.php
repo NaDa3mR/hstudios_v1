@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
@@ -15,12 +16,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-      //Pagination
-      //$Blogs = Blog::paginate(5);
-      //return view('backend.blog.show', compact('Blogs'))
-      $Blogs = Blog::all();
-      return view('admin.backend.blogs.blogs',compact('Blogs'));
-      //return $Blogs;
+        //Pagination
+        //$Blogs = Blog::paginate(5);
+        //return view('backend.blog.show', compact('Blogs'))
+        $blogs = Blog::all();
+        return view('admin.blogs', compact('blogs'));
+        //return $Blogs;
     }
 
     /**
@@ -38,13 +39,20 @@ class BlogController extends Controller
     {
         try {
             $validated = $request->validated();
+            $slug = Str::slug($request->title);
+            $originalSlug = $slug;
+            $counter = 1;
+
+            while (Blog::where('slug', $slug)->exists()) {
+                $slug = $originalSlug . '-' . $counter++;
+            }
+
+            $validated['slug'] = $slug;
             Blog::create($validated);
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
-            ->with('success_message', 'Blog has been created successfully!');
-        }
-    
-        catch (\Exception $e){
+                ->with('success_message', 'Blog has been created successfully!');
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -55,7 +63,7 @@ class BlogController extends Controller
     public function show(Request $request)
     {
         $Blog = Blog::findOrFail($request->id);
-        return view('frontend.show-blog-information',compact('Blog'));
+        return view('frontend.show-blog-information', compact('Blog'));
     }
 
 
@@ -64,7 +72,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return view('backend.blogs.NewShow',compact('blog'));
+        return view('backend.blogs.NewShow', compact('blog'));
     }
 
     /**
@@ -79,12 +87,20 @@ class BlogController extends Controller
             $blog->update($validated);
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
-            ->with('status', 'blog-updated');
-        }
-        catch
+                ->with('status', 'blog-updated');
+        } catch
         (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+
+    public function toggleStatus(Request $request, $id)
+{
+    $blog = Blog::findOrFail($id);
+        $blog->is_active = $request->input('is_active');
+        $blog->save();
+
+        return response()->json(['message' => 'Blog status updated.']);
     }
 
     /**
@@ -95,6 +111,6 @@ class BlogController extends Controller
         $Blog = Blog::findOrFail($request->id)->delete();
         //return redirect()->route('blog.index');
         return redirect()->route('blog.index')
-        ->with('success_message', 'Blog has been deleted successfully!');
+            ->with('success_message', 'Blog has been deleted successfully!');
     }
 }

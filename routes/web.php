@@ -39,13 +39,12 @@ Route::middleware('auth')->group(function () {
     //Clients
     Route::resource('/client', ClientController::class);
     //Blogs
-    Route::resource('/blog', BlogController::class);
+    Route::resource('admin/blog', BlogController::class);
+    Route::post('admin/blog/toggle-status', [BlogController::class, 'toggleStatus'])->name('blog.toggleStatus');
     //Services
     Route::resource('/service', ServiceController::class); //
     //Account
     Route::resource('/account', AccountController::class);
-    //Blog
-    Route::resource('/blog', BlogController::class);
     //Cadidate
     Route::resource('/candidate', CandidateController::class);
     //Career
