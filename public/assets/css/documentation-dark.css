@@ -1,0 +1,331 @@
+/* Dark Mode Styles for Habiby Clinic Documentation */
+
+html[data-theme="dark"],
+body.dark-theme {
+    background-color: #121212 !important;
+    color: #e4e6eb !important;
+}
+
+/* More specific selector for documentation body */
+body.documentation-body.dark-theme {
+    background-color: #121212 !important;
+    color: #e4e6eb !important;
+}
+
+/* Dark Navbar */
+body.dark-theme .top-navbar {
+    background-color: #1e1e1e;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Sidebar */
+body.dark-theme .sidebar {
+    background-color: #1e1e1e;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Content Wrapper */
+body.dark-theme .content-wrapper {
+    background-color: #1e1e1e;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Headings and Titles */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme .h1,
+body.dark-theme .h2,
+body.dark-theme .h3,
+body.dark-theme .h4,
+body.dark-theme .h5,
+body.dark-theme .h6 {
+    color: #ffffff !important;
+}
+
+/* Specific title classes */
+body.dark-theme .doc-title {
+    color: #ffffff !important;
+}
+
+body.dark-theme .card-title {
+    color: #ffffff !important;
+}
+
+body.dark-theme .modal-title {
+    color: #ffffff !important;
+}
+
+/* Dark Footer */
+body.dark-theme .footer {
+    background-color: #1e1e1e !important;
+    color: #e4e6eb;
+    border-top: 1px solid #2d2d2d;
+}
+
+/* Dark Cards */
+body.dark-theme .card {
+    background-color: #1e1e1e;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .card-header {
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+body.dark-theme .card-body {
+    color: #e4e6eb;
+}
+
+/* Dark Navigation */
+body.dark-theme .nav-item .nav-link {
+    color: #b0b3b8;
+}
+
+body.dark-theme .nav-item .nav-link:hover {
+    color: #fff;
+    background-color: #2d2d2d;
+}
+
+body.dark-theme .nav-item .nav-link.active {
+    color: #fff;
+    background-color: #2d2d2d;
+}
+
+/* Dark Text Colors */
+body.dark-theme .text-muted {
+    color: #b0b3b8 !important;
+}
+
+/* Dark Borders */
+body.dark-theme .border-bottom {
+    border-bottom-color: #3d3d3d !important;
+}
+
+/* Dark Code Blocks */
+body.dark-theme code:not(.hljs) {
+    background-color: #2d2d2d;
+    color: #e83e8c;
+}
+
+/* Dark Tables */
+body.dark-theme .table {
+    color: #e4e6eb;
+}
+
+body.dark-theme .table-bordered {
+    border-color: #3d3d3d;
+}
+
+body.dark-theme .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .table-hover > tbody > tr:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+}
+
+/* Dark Form Elements */
+body.dark-theme .form-control,
+body.dark-theme .input-group-text {
+    background-color: #2d2d2d;
+    border-color: #3d3d3d;
+    color: #e4e6eb;
+}
+
+body.dark-theme .form-control:focus {
+    background-color: #2d2d2d;
+    color: #e4e6eb;
+    border-color: #4d4d4d;
+}
+
+/* Dark Mode for Inputs */
+body.dark-theme .input-group-text {
+    background-color: #2d2d2d;
+}
+
+/* Background Colors */
+body.dark-theme .bg-light {
+    background-color: #2d2d2d !important;
+}
+
+body.dark-theme .bg-white {
+    background-color: #1e1e1e !important;
+}
+
+/* Dark Mode for Lists */
+body.dark-theme .list-group-item {
+    background-color: #1e1e1e;
+    border-color: #3d3d3d;
+    color: #e4e6eb;
+}
+
+body.dark-theme .list-group-flush .list-group-item {
+    border-color: #3d3d3d;
+}
+
+/* Dark Modal */
+body.dark-theme .modal-content {
+    background-color: #1e1e1e;
+    border-color: #3d3d3d;
+}
+
+/* Admin Authentication Section */
+body.dark-theme .admin-auth-section,
+body.dark-theme .admin-auth-container,
+body.dark-theme [data-section="admin-authentication"],
+body.dark-theme section:has(h1:contains("Admin Authentication")),
+body.dark-theme section:has(h2:contains("Admin Authentication")),
+body.dark-theme div:has(> h1:contains("Admin Authentication")),
+body.dark-theme div:has(> h2:contains("Admin Authentication")),
+body.dark-theme .admin-panel-auth {
+    background-color: #1e1e1e !important;
+    color: #e4e6eb !important;
+}
+
+body.dark-theme .admin-auth-section *,
+body.dark-theme .admin-panel-auth * {
+    color: #e4e6eb !important;
+}
+
+body.dark-theme .admin-auth-section h1,
+body.dark-theme .admin-auth-section h2,
+body.dark-theme .admin-auth-section h3,
+body.dark-theme .admin-panel-auth h1,
+body.dark-theme .admin-panel-auth h2,
+body.dark-theme .admin-panel-auth h3,
+body.dark-theme [data-section="admin-authentication"] h1,
+body.dark-theme [data-section="admin-authentication"] h2,
+body.dark-theme [data-section="admin-authentication"] h3 {
+    color: #ffffff !important;
+}
+
+body.dark-theme .modal-header {
+    border-bottom-color: #3d3d3d;
+}
+
+body.dark-theme .modal-footer {
+    border-top-color: #3d3d3d;
+}
+
+/* Dark Dropdown */
+body.dark-theme .dropdown-menu {
+    background-color: #1e1e1e;
+    border-color: #3d3d3d;
+}
+
+body.dark-theme .dropdown-item {
+    color: #e4e6eb;
+}
+
+body.dark-theme .dropdown-item:hover,
+body.dark-theme .dropdown-item:focus {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+/* Dark Breadcrumb */
+body.dark-theme .breadcrumb {
+    background-color: #2d2d2d;
+}
+
+body.dark-theme .breadcrumb-item a {
+    color: #4e73df;
+}
+
+/* Keep border colors for colored elements */
+body.dark-theme .border-primary {
+    border-color: #4e73df !important;
+}
+
+body.dark-theme .border-success {
+    border-color: #1cc88a !important;
+}
+
+body.dark-theme .border-info {
+    border-color: #36b9cc !important;
+}
+
+body.dark-theme .border-warning {
+    border-color: #f6c23e !important;
+}
+
+body.dark-theme .border-danger {
+    border-color: #e74a3b !important;
+}
+
+body.dark-theme .border-secondary {
+    border-color: #858796 !important;
+}
+
+body.dark-theme .border-indigo {
+    border-color: #6610f2 !important;
+}
+
+/* Dark Mode Scrollbars */
+
+/* Webkit browsers (Chrome, Safari, newer Edge) */
+html[data-theme="dark"]::-webkit-scrollbar,
+body.dark-theme::-webkit-scrollbar,
+body.dark-theme *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+html[data-theme="dark"]::-webkit-scrollbar-track,
+body.dark-theme::-webkit-scrollbar-track,
+body.dark-theme *::-webkit-scrollbar-track {
+    background: #2d2d2d;
+    border-radius: 8px;
+}
+
+html[data-theme="dark"]::-webkit-scrollbar-thumb,
+body.dark-theme::-webkit-scrollbar-thumb,
+body.dark-theme *::-webkit-scrollbar-thumb {
+    background: #5a78e0; /* Brighter shade of primary color for dark mode */
+    border-radius: 8px;
+    border: 2px solid #2d2d2d;
+}
+
+html[data-theme="dark"]::-webkit-scrollbar-thumb:hover,
+body.dark-theme::-webkit-scrollbar-thumb:hover,
+body.dark-theme *::-webkit-scrollbar-thumb:hover {
+    background: #7b92e7; /* Even brighter on hover */
+}
+
+html[data-theme="dark"]::-webkit-scrollbar-corner,
+body.dark-theme::-webkit-scrollbar-corner,
+body.dark-theme *::-webkit-scrollbar-corner {
+    background: #2d2d2d;
+}
+
+/* For Firefox */
+html[data-theme="dark"],
+body.dark-theme,
+body.dark-theme * {
+    scrollbar-width: thin;
+    scrollbar-color: #5a78e0 #2d2d2d;
+}
+
+/* Sidebar scrollbar - possibly tighter space */
+body.dark-theme .sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+body.dark-theme .sidebar::-webkit-scrollbar-thumb {
+    background: rgba(90, 120, 224, 0.8);
+    border-width: 1px;
+}
+
+/* Code block scrollbars */
+body.dark-theme pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+body.dark-theme pre::-webkit-scrollbar-thumb {
+    background: rgba(90, 120, 224, 0.6);
+}

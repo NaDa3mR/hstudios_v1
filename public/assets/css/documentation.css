@@ -1,0 +1,473 @@
+/* Habiby Clinic Documentation Custom CSS */
+
+/* CSS Variables for colors */
+:root {
+    --main-color: #4a609c;
+    --main-color-light: rgba(74, 96, 156, 0.1);
+    --main-color-medium: rgba(74, 96, 156, 0.3);
+    --main-color-hover: #3e5184;
+    --primary-color: #4a609c; /* Replacing previous #4e73df */
+    --dark-bg-color: #222;
+    --dark-text-color: #e5e5e5;
+    --dark-border-color: #444;
+    --dark-hover-bg: rgba(74, 96, 156, 0.15);
+    --dark-card-header-bg: #333;
+}
+
+/* Custom Scrollbars - Light Mode */
+
+/* Webkit browsers (Chrome, Safari, newer Edge) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-color); /* Primary brand color */
+    border-radius: 8px;
+    border: 2px solid #f1f1f1;
+    transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--main-color-hover); /* Darker shade of primary color */
+}
+
+::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) #f1f1f1;
+}
+
+/* Sidebar scrollbar - possibly tighter space */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(74, 96, 156, 0.7);
+    border-width: 1px;
+}
+
+/* Code block scrollbars */
+pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: rgba(74, 96, 156, 0.5);
+}
+
+/* Floating Dark Mode Toggle */
+.theme-switch {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color, #4a609c);
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    z-index: 1040;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-switch:hover {
+    background-color: #2e59d9;
+    transform: translateY(-3px);
+}
+
+/* Search Functionality Styles */
+.search-wrapper {
+    position: relative;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: -35%;
+    right: -35%;
+    width: 250%; /* Increased width for better appearance */
+    max-height: 0;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15), 0 0.5rem 3rem rgba(74, 96, 156, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+    z-index: 1040;
+    border: 1px solid rgba(0, 0, 0, 0.075);
+}
+
+.search-dropdown:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    transform: rotate(45deg);
+    border-left: 1px solid rgba(0, 0, 0, 0.075);
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
+    z-index: -1;
+}
+
+body.dark-mode .search-dropdown:before {
+    background-color: var(--dark-bg-color);
+    border-color: var(--dark-border-color);
+}
+
+.search-dropdown.active {
+    max-height: 70vh;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s;
+    overflow-y: auto;
+}
+
+body.dark-mode .search-dropdown {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+    border: 1px solid var(--dark-border-color);
+}
+
+.search-header-dropdown {
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-header-dropdown:after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(74, 96, 156, 0.3), transparent);
+    margin-left: 10px;
+}
+
+body.dark-mode .search-header-dropdown {
+    background-color: var(--dark-card-header-bg);
+    border-bottom: 1px solid var(--dark-border-color);
+    color: #aaa;
+}
+
+body.dark-mode .search-header-dropdown:after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.search-result-item {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-left: 4px solid transparent;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover:before {
+    background-color: var(--primary-color);
+}
+
+body.dark-mode .search-result-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.search-result-item:hover {
+    background-color: var(--main-color-light);
+    border-left-color: var(--main-color);
+}
+
+body.dark-mode .search-result-item:hover {
+    background-color: var(--dark-hover-bg);
+}
+
+.search-result-context {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.search-result-context:before {
+    content: '\f15c'; /* Document icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 6px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.search-result-preview {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 20px;
+}
+
+.search-result-preview:before {
+    content: '\f105'; /* Angle right icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    color: #aaa;
+}
+
+.search-result-item:hover .search-result-preview:before {
+    color: var(--primary-color);
+}
+
+body.dark-mode .search-result-preview {
+    color: #bbb;
+}
+
+body.dark-mode .search-result-preview:before {
+    color: #666;
+}
+
+body.dark-mode .search-result-item:hover .search-result-preview:before {
+    color: var(--primary-color);
+}
+
+.searching-message {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+body.dark-mode .searching-message {
+    color: #aaa;
+}
+
+.no-results {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+body.dark-mode .no-results {
+    color: var(--main-color);
+}
+
+/* Search highlight styles */
+.search-highlight {
+    background-color: var(--main-color-medium);
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: bold;
+    color: #222;
+    position: relative;
+    display: inline-block;
+    animation: highlight-pulse 2s infinite;
+}
+
+body.dark-mode .search-highlight {
+    background-color: rgba(255, 193, 7, 0.3);
+    color: #fff;
+}
+
+@keyframes highlight-pulse {
+    0% { background-color: var(--main-color-medium); }
+    50% { background-color: rgba(74, 96, 156, 0.5); }
+    100% { background-color: var(--main-color-medium); }
+}
+
+.content-highlighted-section {
+    background-color: var(--main-color-light);
+    border-left: 3px solid var(--main-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.25rem;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(74, 96, 156, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(74, 96, 156, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 96, 156, 0); }
+}
+
+/* Custom scrollbar for search dropdown */
+.search-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.search-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+body.dark-mode .search-dropdown::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+body.dark-mode .search-dropdown::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+body.dark-mode .search-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Enhanced animations */
+.search-dropdown.active {
+    animation: dropdown-appear 0.3s ease forwards;
+}
+
+@keyframes dropdown-appear {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 991.98px) {
+    .search-dropdown.active {
+        max-height: 50vh;
+    }
+}
+
+.bg-habiby{
+    background-color: #4a609c!important ;
+}
+
+.border-habiby{
+    --bs-border-opacity: 1!important;
+    border-color: #4a609c!important;
+}
+
+.alert-habiby{
+    background-color: rgba(74, 96, 156, 0.1)!important;
+    color: #4a609c!important;
+}
+
+.btn-habiby{
+    background-color: #4a609c!important;
+    color: #fff!important;
+}
+
+.btn-habiby:hover{
+    background-color: #3e5184!important;
+}
+
+.text-habiby{
+    color: #4a609c!important;
+}
+/* Add your additional custom styles below */
+
+/* Sidebar toggle functionality */
+/* Default state for mobile: hidden */
+@media (max-width: 991.98px) {
+    .sidebar {
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+        position: fixed;
+        top: 56px; /* Match the height of your header */
+        left: 0;
+        bottom: 0;
+        width: 250px;
+        z-index: 1030;
+        background: white;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        overflow-y: auto;
+    }
+
+    .sidebar.show-sidebar {
+        transform: translateX(0);
+    }
+
+    .doc-content {
+        transition: margin-left 0.3s ease;
+        width: 100%;
+    }
+
+    body.dark-mode .sidebar {
+        background: var(--dark-bg-color);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+    }
+}
+
+/* Desktop state: always visible */
+@media (min-width: 992px) {
+    .sidebar {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* Additional mobile sidebar styling */
+@media (max-width: 991.98px) {
+    /* Ensure sidebar contents are visible */
+    .sidebar .sidebar-inner,
+    .sidebar .sidebar-body,
+    .sidebar .nav,
+    .sidebar .nav-item,
+    .sidebar .nav-link {
+        display: block;
+        visibility: visible;
+    }
+
+    /* Prevent content from shifting when sidebar opens */
+    .hk-wrapper {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    /* Ensure sidebar scrolls if content is taller than viewport */
+    .sidebar-body {
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+    }
+}

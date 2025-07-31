@@ -5,7 +5,7 @@
                 <h5 class="modal-title" id="addModal">Add User </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('users.store') }}" method="POST">
+            <form action="#" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
@@ -25,9 +25,9 @@
                             <label for="role" class="form-label">Select Role</label>
                             <select name="role" id="role" class="form-control" required>
                                 <option value="" disabled selected>Select a role</option>
-                                @foreach ($roles as $role)
+                                {{-- @foreach ($roles as $role)
                                     <option value="{{ $role->name }}">{{ $role->name }}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                     </div><!--end row-->

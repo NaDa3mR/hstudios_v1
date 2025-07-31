@@ -79,11 +79,16 @@ Route::middleware('auth')->group(function () {
     //Job Application
     Route::resource('/job-app', JobApplicationController::class);
     //Service Request
+    // Route::resource('/service', ServiceController::class);
+    //Approved Request
     Route::post('/service-request/approve-request/{id}', [ServiceRequestController::class, 'ApproveRequest'])->name('service_request.approve_request');
     //Approved Request
     Route::resource('/service-req', ServiceRequestController::class);
 
-               
+    route::get('admin/users', function () {
+        return view('admin.page');
+    })->name('users.index');
+
 });
 
 require __DIR__.'/auth.php';
