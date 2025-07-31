@@ -23,9 +23,9 @@ use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\frontend\ServiceRequestController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('profile.edit');
-});
+// Route::get('/', function () {
+//     return view('backend.blogs.NewShow');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -19,7 +19,7 @@ class BlogController extends Controller
       //$Blogs = Blog::paginate(5);
       //return view('backend.blog.show', compact('Blogs'))
       $Blogs = Blog::all();
-      return view('backend.blogs.show',compact('Blogs'));
+      return view('backend.blogs.NewShow',compact('Blogs'));
       //return $Blogs;
     }
 
@@ -64,22 +64,22 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('backend.blogs.NewShow',compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBlogRequest $request)
+    public function update(UpdateBlogRequest $request, Blog $blog)
     {
         try {
 
             $validated = $request->validated();
-            $Blog = Blog::findOrFail($request->id);
-            $Blog->update($validated);
+            // $Blog = Blog::findOrFail($blog);
+            $blog->update($validated);
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
-            ->with('success_message', 'Blog has been updated successfully!');
+            ->with('status', 'blog-updated');
         }
         catch
         (\Exception $e) {
