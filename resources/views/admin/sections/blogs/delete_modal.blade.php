@@ -1,5 +1,3 @@
-
-
 <div class="modal fade" id="deleteModal{{$blog->id}}" tabindex="-1" aria-labelledby="deleteModalgridLabel" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">

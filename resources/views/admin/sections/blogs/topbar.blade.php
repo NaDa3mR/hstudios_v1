@@ -20,7 +20,7 @@
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
-                        <button class="btn btn-custom btn-white text-primary btn-floating rounded-8 ms-3" data-bs-toggle="modal" data-bs-target="#addModal" >
+                        <a href="{{ route('blog.create') }}" class="btn btn-custom btn-white text-primary btn-floating rounded-8 ms-3">
                             <span>
                                 <span class="icon shadow-xl bg-white rounded-8">
                                     <span class="svg-icon">
@@ -33,14 +33,14 @@
                                 </span>
                                 <span class="fs-7">Add new Blog</span>
                             </span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
         <ul class="nav nav-tabs nav-line nav-icon nav-light mt-3">
             <li class="nav-item">
-                <a class="nav-link active" data-bs-toggle="tab" href="#tab_boards">
+                <a class="nav-link active" data-bs-toggle="tab" href="{{ route('blog.index') }}">
                     <span class="nav-icon-wrap"><span class="svg-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-id" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

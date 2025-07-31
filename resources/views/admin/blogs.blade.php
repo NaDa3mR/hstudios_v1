@@ -94,14 +94,15 @@
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
                             @include('admin.sections.blogs.topbar')
+                            @section('blog-header-action')
+                        @endsection
+
                             @include('admin.sections.blogs.table')
                         </div>
 
-                      
-
-                        @include('admin.sections.blogs.add_modal')
+                        {{-- @include('admin.sections.blogs.add_modal') --}}
                         @foreach ($blogs as $blog)
-                            @include('admin.sections.blogs.update_modal')
+                            {{-- @include('admin.sections.blogs.update_modal') --}}
                             @include('admin.sections.blogs.delete_modal')
                         @endforeach
                     </div>
