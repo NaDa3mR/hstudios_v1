@@ -94,6 +94,7 @@
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
                             {{-- @include('admin.sections.blogs.topbar') --}}
+<<<<<<< HEAD
                             {{-- Topbar for Add Blog --}}
                             <header class="hk-pg-header pg-header-wth-tab">
                                 <div>
@@ -116,6 +117,20 @@
                                                         <path
                                                             d="M17 17v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2">
                                                         </path>
+=======
+                            {{--Topbar for Add Blog--}}
+                            <header class="hk-pg-header pg-header-wth-tab">
+                                <div>
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle me-2 d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+                                        <div class="avatar avatar-sm avatar-icon avatar-info me-3">
+                                            <span class="initial-wrap rounded-8">
+                                                <span class="svg-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-box-multiple" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <rect x="7" y="3" width="14" height="14" rx="2"></rect>
+                                                        <path d="M17 17v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2"></path>
+>>>>>>> 4480478 (blogs views updates)
                                                     </svg>
                                                 </span>
                                             </span>
