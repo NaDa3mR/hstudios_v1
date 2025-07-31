@@ -25,35 +25,6 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav flex-column d-lg-none">
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-toggle no-caret" href="">
-                                <span class="nav-icon-wrap">
-                                    <span class="svg-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
-                                            <line x1="9" y1="9" x2="10" y2="9" />
-                                            <line x1="9" y1="13" x2="15" y2="13" />
-                                            <line x1="9" y1="17" x2="15" y2="17" />
-                                        </svg>
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-toggle no-caret" href="" >
-                                <span class="nav-icon-wrap">
-                                    <span class="svg-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path>
-                                        <circle cx="12" cy="12" r="3"></circle>
-                                        </svg>
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
                         <li class="nav-item nav-link">
                             <a href="javascript:void(0)" class="mx-auto d-block avatar avatar-xs avatar-primary avatar-rounded dropdown-toggle no-caret" data-bs-toggle="dropdown">
                                 <span class="initial-wrap">{{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}</span>
@@ -70,7 +41,7 @@
                                             <a href="#" class="d-block name">{{auth()->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
                                             <a href="#" class="d-block fs-7 link-secondary text-truncate">{{auth()->user()->email}}</a>
                                             <div class="dropdown-divider"></div>
-                                            <form action="" method="POST">
+                                            <form action="#" method="POST">
                                                 @csrf
                                                 <button type="submit" class="dropdown-item" href="#">Logout </button>
                                             </form>
@@ -88,7 +59,7 @@
                 <div class="menu-group">
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle no-caret" href="">
+                            <a class="nav-link dropdown-toggle no-caret" href="#">
                                 <span class="nav-icon-wrap">
                                     <span class="svg-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -104,7 +75,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle no-caret" href="" >
+                            <a class="nav-link dropdown-toggle no-caret" href="#" >
                                 <span class="nav-icon-wrap">
                                     <span class="svg-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -133,7 +104,7 @@
                                             <a href="#" class="d-block name">{{auth()->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
                                             <a href="#" class="d-block fs-7 link-secondary text-truncate">{{auth()->user()->email}}</a>
                                             <div class="dropdown-divider"></div>
-                                            <form action="" method="POST">
+                                            <form action="#" method="POST">
                                                 @csrf
                                                 <button type="submit" class="dropdown-item" href="#">Logout </button>
                                             </form>
