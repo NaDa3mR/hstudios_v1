@@ -1,5 +1,3 @@
-
-
 <div class="modal fade" id="deleteModal{{$blog->id}}" tabindex="-1" aria-labelledby="deleteModalgridLabel" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -7,7 +5,8 @@
                 <h5 class="modal-title" id="deleteModalgridLabel">Delete the Blog : {{$blog->title}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="#" method="POST">
+            <form action="{{route('blog.destroy' , $blog->id)}}" method="POST">
+                @method('Delete')
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
