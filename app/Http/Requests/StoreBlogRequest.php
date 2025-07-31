@@ -24,12 +24,12 @@ class StoreBlogRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'sub_title' => 'nullable|string|max:255',
-            //'slug' => 'required|string|max:255|unique:pages,slug',
+            'slug' => 'required|unique:blogs,slug,' . ($this->blog->id ?? ''),
             'meta_keyword' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'meta_title' => 'nullable|string|max:255',
             'details' => 'required|string',
-            //'is_active' => 'nullable|boolean',
+            'is_active' => 'nullable|in:0,1',
         ];
     }
 

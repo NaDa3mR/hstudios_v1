@@ -121,16 +121,16 @@
                                             <span class="feather-icon"><i data-feather="briefcase"></i></span>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">Clinic Management</span>
+                                    <span class="fs-6 text-dark fw-medium">website Management</span>
                                 </div>
                             </div>
                             <ul class="nav nav-light navbar-nav flex-column">
-                                {{-- <li class="nav-item {{ request()->url() == route('contacts.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('contacts.index') }}">
+                                <li class="nav-item {{ request()->url() == route(name: 'blog.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('blog.index') }}">
                                         <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Contacts</span>
+                                        <span class="nav-link-text">blogs</span>
                                     </a>
-                                </li> --}}
+                                </li>
                                 {{-- <li class="nav-item {{ request()->url() == route('deals.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('deals.index') }}">
                                         <i class="ri-award-line fs-5" style="margin-right: 15px;"></i>

@@ -1,7 +1,9 @@
 <!-- jQuery -->
 <script src="{{ URL::asset('/vendors/jquery/dist/jquery.min.js') }}"></script>
+
 <!-- Bootstrap Core JS -->
 <script src="{{ URL::asset('/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <!-- FeatherIcons JS -->
 <script src="{{ URL::asset('/dist/js/feather.min.js') }}"></script>
 <!-- Fancy Dropdown JS -->

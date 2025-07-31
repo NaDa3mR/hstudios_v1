@@ -6,13 +6,19 @@
             </a>
         </div>
         @php
-            $user_arr = ['admin','roles','users','clinics','questions','time-slots','clients'];
+            $pages = ['blogs','about'];
+            $user_arr = ['admin','roles','users'];
             $crm_arr = ['deals','companies','contacts','leads','pipelines','stages','custom-email'];
         @endphp
         <div data-simplebar class="nicescroll-bar">
             <div class="menu-content-wrap">
                 <div class="menu-group">
                     <ul class="navbar-nav flex-column">
+                        <li class="nav-item {{in_array(Request::segment(2), $pages) ? 'active' : '' }} {{Request::segment(2) == NULL ? 'active' : '' }}">
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="website pages" data-bs-trigger="hover" data-target="#submenu_3">
+                                <i class="bi bi-cash-coin fs-3"></i>
+                            </a>
+                        </li>
                         <li class="nav-item {{in_array(Request::segment(2), $crm_arr) ? 'active' : '' }} {{Request::segment(2) == NULL ? 'active' : '' }}">
                             <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="CRM" data-bs-trigger="hover" data-target="#submenu_2">
                                 <i class="bi bi-cash-coin fs-3"></i>
