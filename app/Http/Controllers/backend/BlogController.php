@@ -29,7 +29,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sections.blogs.add_blog');
     }
 
     /**
@@ -70,9 +70,10 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        return view('backend.blogs.NewShow', compact('blog'));
+        $blog = Blog::findOrFail($id);
+        return view('admin.sections.blogs.update_blog', compact('blog'));
     }
 
     /**
@@ -93,10 +94,17 @@ class BlogController extends Controller
         }
     }
 
+<<<<<<< HEAD
     public function toggleStatus(Request $request)
     {
         $blog = Blog::findOrFail($request->id);
         $blog->is_active = $request->is_active;
+=======
+    public function toggleStatus(Request $request, $id)
+    {
+        $blog = Blog::findOrFail($id);
+        $blog->is_active = $request->input('is_active');
+>>>>>>> 4480478 (blogs views updates)
         $blog->save();
 
         return response()->json(['message' => 'Status updated successfully.']);

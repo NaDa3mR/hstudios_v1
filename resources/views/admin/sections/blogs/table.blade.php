@@ -8,9 +8,10 @@
                         <div class="card-header card-header-action"
                             style="color: #fff; border-bottom: 2px solid rgba(74,96,156,1);">
                             <h6 class="mb-0">Blogs <span
-                                    class="badge bg-light text-dark ms-1">{{$blogs->count()}}</span></h6>
+                                    class="badge bg-light text-dark ms-1">{{ $blogs->count() }}</span></h6>
                         </div>
                         <div class="card-body">
+
                             <div class="role-list-view">
                                 <table id="datable_4c"
                                     class="table table-hover table-striped table-bordered nowrap w-100">
@@ -43,7 +44,10 @@
                                                                     class="btn btn-icon btn-xs btn-flush-dark btn-rounded flush-soft-hover dropdown-toggle no-caret"
                                                                     type="button" data-bs-toggle="dropdown">
                                                                     <span class="icon">
-                                                                        <span class="feather-icon" data-bs-toggle="modal" data-bs-target="#deleteModal{{$blog->id}}"><i data-feather="trash-2"></i></span>
+                                                                        <span class="feather-icon"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#deleteModal{{ $blog->id }}"><i
+                                                                                data-feather="trash-2"></i></span>
                                                                     </span>
                                                                 </button>
 
@@ -97,11 +101,16 @@
                                                     <div class="d-flex align-items-center">
                                                         {{-- <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i> --}}
-                                                        <input type="checkbox" class="toggle-status" data-toggle="toggle" data-id="{{ $blog->id }}" {{ $blog->is_active ? 'checked' : '' }}>
+                                                        <input type="checkbox" class="toggle-status"
+                                                            data-toggle="toggle" data-id="{{ $blog->id }}"
+                                                            {{ $blog->is_active ? 'checked' : '' }}>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                <span class="feather-icon" data-bs-toggle="modal" data-bs-target="#updatemodel{{$blog->id}}"><i data-feather="edit-2"></i></span>
+                                                    {{-- <span class="feather-icon" data-bs-toggle="modal" data-bs-target="#updatemodel{{$blog->id}}"><i data-feather="edit-2"></i></span> --}}
+                                                    <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-sm btn-primary">
+                                                        <i data-feather="edit-2"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -115,6 +124,29 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
 
 
+=======
+$('.toggle-status').on('change', function() {
+let is_active = $(this).is(':checked') ? 1 : 0;
+let id = $(this).data('id');
+
+$.ajax({
+url: "{{ route('blog.toggleStatus') }}",
+method: "POST",
+data: {
+_token: "{{ csrf_token() }}",
+id: id,
+is_active: is_active
+},
+success: function(response) {
+console.log(response.message);
+},
+error: function(xhr) {
+console.error("Toggle failed:", xhr.responseText);
+}
+});
+});
+>>>>>>> 4480478 (blogs views updates)
