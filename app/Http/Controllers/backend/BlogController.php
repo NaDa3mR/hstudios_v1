@@ -19,7 +19,7 @@ class BlogController extends Controller
       //$Blogs = Blog::paginate(5);
       //return view('backend.blog.show', compact('Blogs'))
       $Blogs = Blog::all();
-      return view('backend.blogs.NewShow',compact('Blogs'));
+      return view('admin.backend.blogs.blogs',compact('Blogs'));
       //return $Blogs;
     }
 

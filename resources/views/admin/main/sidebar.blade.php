@@ -26,7 +26,7 @@
                     </ul>
                     <ul class="navbar-nav flex-column d-lg-none">
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle no-caret" href="{{ route('documentation.index') }}">
+                            <a class="nav-link dropdown-toggle no-caret" href="">
                                 <span class="nav-icon-wrap">
                                     <span class="svg-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle no-caret" href="{{ route('admin.settings') }}" >
+                            <a class="nav-link dropdown-toggle no-caret" href="" >
                                 <span class="nav-icon-wrap">
                                     <span class="svg-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -70,7 +70,7 @@
                                             <a href="#" class="d-block name">{{auth()->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
                                             <a href="#" class="d-block fs-7 link-secondary text-truncate">{{auth()->user()->email}}</a>
                                             <div class="dropdown-divider"></div>
-                                            <form action="{{ route('admin.logout') }}" method="POST">
+                                            <form action="" method="POST">
                                                 @csrf
                                                 <button type="submit" class="dropdown-item" href="#">Logout </button>
                                             </form>
@@ -88,7 +88,7 @@
                 <div class="menu-group">
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle no-caret" href="{{ route('documentation.index') }}">
+                            <a class="nav-link dropdown-toggle no-caret" href="">
                                 <span class="nav-icon-wrap">
                                     <span class="svg-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-text" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -104,7 +104,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle no-caret" href="{{ route('admin.settings') }}" >
+                            <a class="nav-link dropdown-toggle no-caret" href="" >
                                 <span class="nav-icon-wrap">
                                     <span class="svg-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -133,7 +133,7 @@
                                             <a href="#" class="d-block name">{{auth()->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
                                             <a href="#" class="d-block fs-7 link-secondary text-truncate">{{auth()->user()->email}}</a>
                                             <div class="dropdown-divider"></div>
-                                            <form action="{{ route('admin.logout') }}" method="POST">
+                                            <form action="" method="POST">
                                                 @csrf
                                                 <button type="submit" class="dropdown-item" href="#">Logout </button>
                                             </form>
