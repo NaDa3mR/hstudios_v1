@@ -88,19 +88,18 @@ class BlogController extends Controller
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
                 ->with('status', 'blog-updated');
-        } catch
-        (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
 
-    public function toggleStatus(Request $request, $id)
-{
-    $blog = Blog::findOrFail($id);
-        $blog->is_active = $request->input('is_active');
+    public function toggleStatus(Request $request)
+    {
+        $blog = Blog::findOrFail($request->id);
+        $blog->is_active = $request->is_active;
         $blog->save();
 
-        return response()->json(['message' => 'Blog status updated.']);
+        return response()->json(['message' => 'Status updated successfully.']);
     }
 
     /**
