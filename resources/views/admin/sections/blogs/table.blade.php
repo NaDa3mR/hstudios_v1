@@ -11,7 +11,13 @@
                                     class="badge bg-light text-dark ms-1">{{ $blogs->count() }}</span></h6>
                         </div>
                         <div class="card-body">
-
+                            @if (session('success_message'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success_message') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                             <div class="role-list-view">
                                 <table id="datable_4c"
                                     class="table table-hover table-striped table-bordered nowrap w-100">
