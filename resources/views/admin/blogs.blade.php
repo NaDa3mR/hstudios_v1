@@ -100,7 +100,9 @@
                             @include('admin.sections.blogs.table')
                         </div>
 
-                        {{-- @include('admin.sections.blogs.add_modal') --}}
+                        @include('admin.sections.blogs.add_modal')
+
+
                         @foreach ($blogs as $blog)
                             {{-- @include('admin.sections.blogs.update_modal') --}}
                             @include('admin.sections.blogs.delete_modal')
@@ -111,6 +113,29 @@
         </div>
     </div>
     @include('admin.main.scripts')
+
+<script>
+    $('.toggle-status').on('change', function() {
+        let is_active = $(this).is(':checked') ? 1 : 0;
+        let id = $(this).data('id');
+
+        $.ajax({
+            url: "{{ route('blog.toggleStatus') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                id: id,
+                is_active: is_active
+            },
+            success: function(response) {
+                console.log(response.message);
+            },
+            error: function(xhr) {
+                console.error("Toggle failed:", xhr.responseText);
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>
