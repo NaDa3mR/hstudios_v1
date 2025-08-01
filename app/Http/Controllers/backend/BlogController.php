@@ -60,10 +60,10 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request)
+    public function show($id)
     {
-        $Blog = Blog::findOrFail($request->id);
-        return view('frontend.show-blog-information', compact('Blog'));
+        $blog = Blog::findOrFail($id);
+        return view('admin.sections.blogs.show-blog-info', compact('blog'));
     }
 
 
