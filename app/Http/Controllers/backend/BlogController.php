@@ -91,6 +91,7 @@ class BlogController extends Controller
             while (
                 Blog::where('slug', $slug)
                     ->where('id', '!=', $blog->id)
+
                     ->exists()
             ) {
                 $slug = $originalSlug . '-' . $counter++;
@@ -102,6 +103,7 @@ class BlogController extends Controller
             return redirect()->route('blog.index')
                 ->with('status', 'blog-updated');
         } catch (\Exception $e) {
+
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -110,6 +112,7 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail($request->id);
         $blog->is_active = $request->is_active;
+
         $blog->save();
 
         return response()->json(['message' => 'Status updated successfully.']);
