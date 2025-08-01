@@ -38,7 +38,9 @@
                                                                 class="initial-wrap">{{ substr($blog->title, 0, 1) }}</span>
                                                         </div>
                                                         <div>
-                                                            <span class="fw-medium">{{ $blog->title }}</span>
+                                                            <a href="{{ route('blog.show', $blog->id) }}" class="fw-medium text-decoration-none text-dark">
+                                                                {{ $blog->title }}
+                                                            </a>
                                                             <div class="d-inline-block ms-2">
                                                                 <button
                                                                     class="btn btn-icon btn-xs btn-flush-dark btn-rounded flush-soft-hover dropdown-toggle no-caret"
