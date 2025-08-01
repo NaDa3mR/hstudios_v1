@@ -85,10 +85,22 @@ class BlogController extends Controller
 
             $validated = $request->validated();
             // $Blog = Blog::findOrFail($blog);
+            $slug = Str::slug($request->title);
+            $originalSlug = $slug;
+            $counter = 1;
+            while (
+                Blog::where('slug', $slug)
+                    ->where('id', '!=', $blog->id) 
+                    ->exists()
+            ) {
+                $slug = $originalSlug . '-' . $counter++;
+            }
+
+            $validated['slug'] = $slug;
             $blog->update($validated);
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
-                ->with('status', 'blog-updated');
+            ->with('success_message', 'Blog has been updated successfully!');
         } catch
         (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

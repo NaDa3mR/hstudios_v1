@@ -94,18 +94,28 @@
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
                             {{-- @include('admin.sections.blogs.topbar') --}}
-                            {{--Topbar for Add Blog--}}
+                            {{-- Topbar for Add Blog --}}
                             <header class="hk-pg-header pg-header-wth-tab">
                                 <div>
                                     <div class="d-flex align-items-center">
-                                        <button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle me-2 d-xl-none"><span class="icon"><span class="feather-icon"><i data-feather="align-left"></i></span></span></button>
+                                        <button
+                                            class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle me-2 d-xl-none"><span
+                                                class="icon"><span class="feather-icon"><i
+                                                        data-feather="align-left"></i></span></span></button>
                                         <div class="avatar avatar-sm avatar-icon avatar-info me-3">
                                             <span class="initial-wrap rounded-8">
                                                 <span class="svg-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-box-multiple" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                                        class="icon icon-tabler icon-tabler-box-multiple" width="24"
+                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                        stroke="currentColor" fill="none" stroke-linecap="round"
+                                                        stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <rect x="7" y="3" width="14" height="14" rx="2"></rect>
-                                                        <path d="M17 17v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2"></path>
+                                                        <rect x="7" y="3" width="14" height="14" rx="2">
+                                                        </rect>
+                                                        <path
+                                                            d="M17 17v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2">
+                                                        </path>
                                                     </svg>
                                                 </span>
                                             </span>
@@ -121,22 +131,42 @@
                                         <li class="nav-item">
                                             <a class="nav-link active" data-bs-toggle="tab" href="#tab_boards">
                                                 <span class="nav-icon-wrap"><span class="svg-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-id" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <rect x="3" y="4" width="18" height="16" rx="3"></rect>
-                                                        <circle cx="9" cy="10" r="2"></circle>
-                                                        <line x1="15" y1="8" x2="17" y2="8"></line>
-                                                        <line x1="15" y1="12" x2="17" y2="12"></line>
-                                                        <line x1="7" y1="16" x2="17" y2="16"></line>
-                                                    </svg>
-                                                </span></span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="icon icon-tabler icon-tabler-id" width="24"
+                                                            height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                            stroke="currentColor" fill="none" stroke-linecap="round"
+                                                            stroke-linejoin="round">
+                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none">
+                                                            </path>
+                                                            <rect x="3" y="4" width="18" height="16"
+                                                                rx="3"></rect>
+                                                            <circle cx="9" cy="10" r="2"></circle>
+                                                            <line x1="15" y1="8" x2="17"
+                                                                y2="8"></line>
+                                                            <line x1="15" y1="12" x2="17"
+                                                                y2="12"></line>
+                                                            <line x1="7" y1="16" x2="17"
+                                                                y2="16"></line>
+                                                        </svg>
+                                                    </span></span>
                                                 <span class="nav-link-text">Add New Blog</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </header>
-
+                            {{-- Alert Messages --}}
+                            @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
                             {{-- the main part --}}
                             <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -144,32 +174,38 @@
                                     <div class="row g-4">
                                         <div class="col-md-6">
                                             <label for="title" class="form-label">Title</label>
-                                            <input type="text" name="title" id="title" class="form-control form-control-lg" required>
+                                            <input type="text" name="title" id="title"
+                                                class="form-control form-control-lg" required>
                                         </div>
 
                                         <div class="col-md-6">
                                             <label for="sub_title" class="form-label">Subtitle</label>
-                                            <input type="text" name="sub_title" id="sub_title" class="form-control form-control-lg" required>
+                                            <input type="text" name="sub_title" id="sub_title"
+                                                class="form-control form-control-lg" required>
                                         </div>
 
                                         <div class="col-md-6">
                                             <label for="slug" class="form-label">Slug</label>
-                                            <input type="text" name="slug" id="slug" class="form-control form-control-lg" readonly>
+                                            <input type="text" name="slug" id="slug"
+                                                class="form-control form-control-lg" readonly>
                                         </div>
 
                                         <div class="col-md-6">
                                             <label for="meta_keyword" class="form-label">Meta Keyword</label>
-                                            <input type="text" name="meta_keyword" id="meta_keyword" class="form-control form-control-lg" required>
+                                            <input type="text" name="meta_keyword" id="meta_keyword"
+                                                class="form-control form-control-lg" required>
                                         </div>
 
                                         <div class="col-md-12">
                                             <label for="meta_description" class="form-label">Meta Description</label>
-                                            <input type="text" name="meta_description" id="meta_description" class="form-control form-control-lg" required>
+                                            <input type="text" name="meta_description" id="meta_description"
+                                                class="form-control form-control-lg" required>
                                         </div>
 
                                         <div class="col-md-6">
                                             <label for="meta_title" class="form-label">Meta Title</label>
-                                            <input type="text" name="meta_title" id="meta_title" class="form-control form-control-lg" required>
+                                            <input type="text" name="meta_title" id="meta_title"
+                                                class="form-control form-control-lg" required>
                                         </div>
 
                                         <div class="col-md-12">
@@ -179,7 +215,8 @@
 
                                         <div class="col-md-6">
                                             <label for="image" class="form-label">Image</label>
-                                            <input type="file" name="image" id="image" class="form-control" accept="image/*">
+                                            <input type="file" name="image" id="image" class="form-control"
+                                                accept="image/*">
                                         </div>
 
                                     </div>
@@ -210,49 +247,17 @@
             .toString()
             .toLowerCase()
             .trim()
-            .replace(/[^a-z0-9\s-]/g, '')   // Remove non-alphanumeric chars
-            .replace(/\s+/g, '-')           // Replace spaces with -
-            .replace(/-+/g, '-');           // Replace multiple - with single -
+            .replace(/[^a-z0-9\s-]/g, '') // Remove non-alphanumeric chars
+            .replace(/\s+/g, '-') // Replace spaces with -
+            .replace(/-+/g, '-'); // Replace multiple - with single -
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const title = document.getElementById('title');
         const slug = document.getElementById('slug');
 
-        title.addEventListener('input', function () {
+        title.addEventListener('input', function() {
             slug.value = slugify(title.value);
         });
     });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
