@@ -8,7 +8,7 @@
                         <div class="card-header card-header-action"
                             style="color: #fff; border-bottom: 2px solid rgba(74,96,156,1);">
                             <h6 class="mb-0">Blogs <span
-                                    class="badge bg-light text-dark ms-1">{{ $blogs->count() }}</span></h6>
+                                    class="badge bg-light text-dark ms-1">{{ $services->count() }}</span></h6>
                         </div>
                         <div class="card-body">
 
@@ -34,10 +34,10 @@
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar avatar-sm avatar-rounded avatar-info me-2">
                                                             <span
-                                                                class="initial-wrap">{{ substr($blog->title, 0, 1) }}</span>
+                                                                class="initial-wrap">{{ substr($service->name, 0, 1) }}</span>
                                                         </div>
                                                         <div>
-                                                            <span class="fw-medium">{{ $blog->title }}</span>
+                                                            <span class="fw-medium">{{ $service->name }}</span>
                                                             <div class="d-inline-block ms-2">
                                                                 <button
                                                                     class="btn btn-icon btn-xs btn-flush-dark btn-rounded flush-soft-hover dropdown-toggle no-caret"
@@ -45,7 +45,7 @@
                                                                     <span class="icon">
                                                                         <span class="feather-icon"
                                                                             data-bs-toggle="modal"
-                                                                            data-bs-target="#deleteModal{{ $blog->id }}"><i
+                                                                            data-bs-target="#deleteModal{{ $service->id }}"><i
                                                                                 data-feather="trash-2"></i></span>
                                                                     </span>
                                                                 </button>
@@ -58,55 +58,47 @@
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $blog->sub_title }}</span>
+                                                        <span>{{ $service->title }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="info" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $blog->slug }}</span>
+                                                        <span>{{ $service->slug }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $blog->meta_keyword }}</span>
+                                                        <span>{{ $service->meta_keyword }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $blog->meta_description }}</span>
+                                                        <span>{{ $service->meta_description }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $blog->meta_title }}</span>
+                                                        <span>{{ $service->meta_title }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $blog->details }}</span>
+                                                        <span>{{ $service->details }}</span>
                                                     </div>
                                                 </td>
+
                                                 <td>
-                                                    <div class="d-flex align-items-center">
-                                                        {{-- <i data-feather="mail" class="text-muted me-2"
-                                                            style="width: 16px; height: 16px;"></i> --}}
-                                                        <input type="checkbox" class="toggle-status"
-                                                            data-toggle="toggle" data-id="{{ $blog->id }}"
-                                                            {{ $blog->is_active ? 'checked' : '' }}>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    {{-- <span class="feather-icon" data-bs-toggle="modal" data-bs-target="#updatemodel{{$blog->id}}"><i data-feather="edit-2"></i></span> --}}
+                                                    {{-- <span class="feather-icon" data-bs-toggle="modal" data-bs-target="#updatemodel{{$service->id}}"><i data-feather="edit-2"></i></span> --}}
                                                     <a href=""></a>
                                                 </td>
                                             </tr>
@@ -121,23 +113,3 @@
         </div>
     </div>
 </div>
-$('.toggle-status').on('change', function() {
-let is_active = $(this).is(':checked') ? 1 : 0;
-let id = $(this).data('id');
-
-$.ajax({
-url: "{{ route('blog.toggleStatus') }}",
-method: "POST",
-data: {
-_token: "{{ csrf_token() }}",
-id: id,
-is_active: is_active
-},
-success: function(response) {
-console.log(response.message);
-},
-error: function(xhr) {
-console.error("Toggle failed:", xhr.responseText);
-}
-});
-});

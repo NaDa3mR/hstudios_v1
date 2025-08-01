@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/blog', BlogController::class);
     Route::post('admin/blog/toggle-status', [BlogController::class, 'toggleStatus'])->name('blog.toggleStatus');
     //Services
-    Route::resource('/service', ServiceController::class); //
+    Route::resource('/service', ServiceController::class); 
     //Account
     Route::resource('/account', AccountController::class);
     //Cadidate
