@@ -100,8 +100,9 @@ class BlogController extends Controller
             $blog->update($validated);
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
-                ->with('status', 'blog-updated');
-        } catch (\Exception $e) {
+            ->with('success_message', 'Blog has been updated successfully!');
+        } catch
+        (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
