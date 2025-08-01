@@ -17,19 +17,18 @@
                                     class="table table-hover table-striped table-bordered nowrap w-100">
                                     <thead style="background-color: #f8f8f8;">
                                         <tr>
+                                            <th class="fw-bold">Name</th>
                                             <th class="fw-bold">Title</th>
-                                            <th class="fw-bold">Sub title</th>
                                             <th class="fw-bold">Slug</th>
                                             <th class="fw-bold">Meta Keyword</th>
                                             <th class="fw-bold">Meta Description</th>
                                             <th class="fw-bold">Meta Title</th>
                                             <th class="fw-bold">Details</th>
-                                            <th class="fw-bold">Is Active</th>
                                             <th class="fw-bold">Operations</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($blogs as $blog)
+                                        @foreach ($services as $service)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex align-items-center">

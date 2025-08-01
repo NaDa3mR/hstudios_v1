@@ -15,9 +15,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-       $Services = Service::all();
-      //return view('backend.client.show',compact('$Clients'));
-      return $Services;
+    $services = Service::all();
+    return view('admin.services',compact('$sevices'));
 
     }
 
@@ -51,8 +50,8 @@ class ServiceController extends Controller
      */
     public function showServices()
     {
-        $Services = Service::paginate(5);
-        return view('frontend.service.show', compact('Services'));
+        $services = Service::paginate(5);
+        return view('frontend.service.show', compact('services'));
     }
 
     /**
@@ -71,8 +70,8 @@ class ServiceController extends Controller
         try {
 
             $service = Service::findOrFail($request->id);
+
             $service->update($request->validated());
-    
             return redirect()->route('service.index')
                 ->with('success_message', 'Service updated successfully!');
         }
@@ -88,6 +87,7 @@ class ServiceController extends Controller
     public function destroy(Request $request)
     {
         $service = Service::findOrFail($request->id)->delete();
-        return redirect()->route('service.index');
+        return redirect()->route('service.index')
+        ->with('success_message', 'Service has been deleted successfully!');;
     }
 }
