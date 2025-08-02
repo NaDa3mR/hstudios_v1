@@ -16,7 +16,7 @@ return new class extends Migration
             //$table->unsignedBigInteger('career_id');
             $table->foreignId(column: 'career_id')->constrained('careers')->onDelete('cascade');
             $table->foreignId(column: 'candidate_id')->unique()->constrained('candidates')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            // $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();

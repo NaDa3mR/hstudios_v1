@@ -16,11 +16,10 @@ class CareerController extends Controller
     public function index()
     {
         //Pagination
-      //$Careers = Career::paginate(5);
-      //return view('backend.career.show', compact('Careers'))
-      $Careers = Career::all();
-      //return view('backend.career.show',compact('Careers'));
-      return $Careers;
+        $careers = Career::paginate(5);
+        //return view('backend.career.show', compact('Careers'))
+        //$Careers = Career::all();
+        return view('admin.careers', compact('careers'));
     }
 
     /**
@@ -41,13 +40,30 @@ class CareerController extends Controller
             Career::create($validated);
             //return redirect()->route('career.index');
             return redirect()->route('career.index')
-            ->with('success_message', 'Career has been created successfully!');
-        }
-    
-        catch (\Exception $e){
+                ->with('success_message', 'Career has been created successfully!');
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+    public function toggleActive(Request $request, $id)
+    {
+        $career = Career::findOrFail($id);
+        $career->is_active = $request->is_active;
+        $career->save();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function togglePublished(Request $request, $id)
+    {
+        $career = Career::findOrFail($id);
+        $career->is_published = $request->is_published;
+        $career->save();
+
+        return response()->json(['success' => true]);
+    }
+
 
     /**
      * Display the specified resource.
@@ -77,79 +93,11 @@ class CareerController extends Controller
             $Career->update($validated);
             //return redirect()->route('career.index');
             return redirect()->route('career.index')
-            ->with('success_message', 'Career has been updated successfully!');
-        }
-        catch
+                ->with('success_message', 'Career has been updated successfully!');
+        } catch
         (\Exception $e) {
             return redirect()->back()->
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            withErrors(['error' => $e->getMessage()]);
+                withErrors(['error' => $e->getMessage()]);
         }
     }
 
@@ -161,6 +109,6 @@ class CareerController extends Controller
         $Career = Career::findOrFail($request->id)->delete();
         //return redirect()->route('career.index');
         return redirect()->route('career.index')
-        ->with('success_message', 'Career has been deleted successfully!');
+            ->with('success_message', 'Career has been deleted successfully!');
     }
 }

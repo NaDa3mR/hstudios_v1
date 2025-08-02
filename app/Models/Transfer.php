@@ -8,7 +8,6 @@ class Transfer extends Model
 {
     protected $fillable = ['title', 'amount', 'transfer_date', 'details'];
     protected $table = 'transfers';
-    protected $timestamps = true;
 
     public function fromAccount()
     {

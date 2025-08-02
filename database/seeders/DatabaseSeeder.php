@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,8 +15,26 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-           // BlogSeeder::class,
-            ServicesTableSeeder::class,
+            //BlogSeeder::class,
+            // AccountTableSeeder::class,
+            // IncomeSourceTableSeeder::class,
+            // IncomeTableSeeder::class,
+            // ExpenseSourceTableSeeder::class,
+            // ExpenseTableSeeder::class,
+            // TransferTableSeeder::class,
+            // MeetingTableSeeder::class,
+            // CareerTableSeeder::class,
+            // CandidateTableSeeder::class,
+            //JobApplicationTableSeeder::class,
+            // InterviewTableSeeder::class,
+            // ClientTableSeeder::class,
+            // ServicesTableSeeder::class,
+            // ServiceRequestTableSeeder::class,
+            // DealTableSeeder::class,
+            // PaymentTableSeeder::class,
+            // WordTableSeeder::class,
+            ContactTableSeeder::class
+
         ]);
 
         // User::factory(10)->create();

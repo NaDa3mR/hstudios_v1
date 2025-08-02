@@ -6,7 +6,7 @@
             </a>
         </div>
         @php
-            $pages = ['blogs','about'];
+            $pages = ['blogs','service','career','about'];
             $user_arr = ['admin','roles','users'];
             $crm_arr = ['deals','companies','contacts','leads','pipelines','stages','custom-email'];
         @endphp

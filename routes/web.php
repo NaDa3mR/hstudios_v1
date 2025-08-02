@@ -42,13 +42,16 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/blog', BlogController::class);
     Route::post('admin/blog/toggle-status', [BlogController::class, 'toggleStatus'])->name('blog.toggleStatus');
     //Services
-    Route::resource('/service', ServiceController::class); 
+    Route::resource('/admin/service', ServiceController::class);
     //Account
     Route::resource('/account', AccountController::class);
     //Cadidate
     Route::resource('/candidate', CandidateController::class);
     //Career
-    Route::resource('/career', CareerController::class);
+    Route::resource('admin/career', CareerController::class);
+    Route::post('admin/careers/{id}/toggle-active', [CareerController::class, 'toggleActive']);
+    Route::post('admin/careers/{id}/toggle-published', [CareerController::class, 'togglePublished']);
+
     //Client
     Route::resource('/client', ClientController::class);
     //Deal
@@ -90,4 +93,4 @@ Route::middleware('auth')->group(function () {
 
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

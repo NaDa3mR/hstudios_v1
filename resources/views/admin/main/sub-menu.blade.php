@@ -131,6 +131,18 @@
                                         <span class="nav-link-text">blogs</span>
                                     </a>
                                 </li>
+                                <li class="nav-item {{ request()->url() == route(name: 'service.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('service.index') }}">
+                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">services</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item {{ request()->url() == route(name: 'career.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('career.index') }}">
+                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">careers</span>
+                                    </a>
+                                </li>
                                 {{-- <li class="nav-item {{ request()->url() == route('deals.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('deals.index') }}">
                                         <i class="ri-award-line fs-5" style="margin-right: 15px;"></i>
