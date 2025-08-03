@@ -107,6 +107,19 @@
         },
         onClose: () => { clearInterval(timerInterval) }
     })
+    
+    $(document).ready(function () {
+        if ($.fn.DataTable.isDataTable('#datable_4c')) {
+            $('#datable_4c').DataTable().clear().destroy();
+        }
+
+        $('#datable_4c').DataTable({
+            "pageLength": 10,
+            "ordering": true,
+            "searching": true
+        });
+    });
+
 </script>
 @endif
 

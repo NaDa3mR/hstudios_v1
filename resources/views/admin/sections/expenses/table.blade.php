@@ -8,7 +8,7 @@
                         <div class="card-header card-header-action"
                             style="color: #fff; border-bottom: 2px solid rgba(74,96,156,1);">
                             <h6 class="mb-0">Expense<span
-                                    class="badge bg-light text-dark ms-1">{{ $expenses->total() }}</span></h6>
+                                    class="badge bg-light text-dark ms-1">{{ $expenses->count() }}</span></h6>
                         </div>
                         <div class="card-body">
                             {{-- Alert Messages --}}
@@ -115,7 +115,6 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                {{ $expenses->links() }}
                             </div>
                         </div>
                     </div>

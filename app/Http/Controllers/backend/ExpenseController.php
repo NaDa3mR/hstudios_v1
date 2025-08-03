@@ -19,7 +19,8 @@ class ExpenseController extends Controller
     public function index()
     {
         //Pagination
-        $expenses = Expense::with(['account', 'e_source'])->paginate(5);
+        // $expenses = Expense::with(['account', 'e_source'])->paginate(10);
+        $expenses = Expense::with('account', 'e_source')->get();
         $accounts = Account::where('is_active', true)->get();
         $expense_sources = Expense_Source::all();
 
