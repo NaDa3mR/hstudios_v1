@@ -7,8 +7,8 @@
                     <div class="mb-0 shadow-sm card rounded-8">
                         <div class="card-header card-header-action"
                             style="color: #fff; border-bottom: 2px solid rgba(74,96,156,1);">
-                            <h6 class="mb-0">Services <span
-                                    class="badge bg-light text-dark ms-1">{{ $services->count() }}</span></h6>
+                            <h6 class="mb-0">Emloyees <span
+                                    class="badge bg-light text-dark ms-1">{{ $employees->count() }}</span></h6>
                         </div>
                         <div class="card-body">
                             {{-- Alert Messages --}}
@@ -36,26 +36,27 @@
                                     <thead style="background-color: #f8f8f8;">
                                         <tr>
                                             <th class="fw-bold">Name</th>
-                                            <th class="fw-bold">Title</th>
-                                            <th class="fw-bold">Slug</th>
-                                            <th class="fw-bold">Meta Keyword</th>
-                                            <th class="fw-bold">Meta Description</th>
-                                            <th class="fw-bold">Meta Title</th>
-                                            <th class="fw-bold">Details</th>
+                                            <th class="fw-bold">email</th>
+                                            <th class="fw-bold">phone</th>
+                                            <th class="fw-bold">job</th>
+                                            <th class="fw-bold">LinkedIn</th>
+                                            <th class="fw-bold">GitHub</th>
+                                            <th class="fw-bold">Behance</th>
+                                            <th class="fw-bold">Salary</th>
                                             <th class="fw-bold">Operations</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($services as $service)
+                                        @foreach ($employees as $employee)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar avatar-sm avatar-rounded avatar-info me-2">
                                                             <span
-                                                                class="initial-wrap">{{ substr($service->name, 0, 1) }}</span>
+                                                                class="initial-wrap">{{ substr($employee->name, 0, 1) }}</span>
                                                         </div>
                                                         <div>
-                                                            <span class="fw-medium">{{ $service->name }}</span>
+                                                            <span class="fw-medium">{{ $employee->name }}</span>
                                                             <div class="d-inline-block ms-2">
                                                                 <button
                                                                     class="btn btn-icon btn-xs btn-flush-dark btn-rounded flush-soft-hover dropdown-toggle no-caret"
@@ -63,7 +64,7 @@
                                                                     <span class="icon">
                                                                         <span class="feather-icon"
                                                                             data-bs-toggle="modal"
-                                                                            data-bs-target="#deleteModal{{ $service->id }}"><i
+                                                                            data-bs-target="#deleteModal{{ $employee->id }}"><i
                                                                                 data-feather="trash-2"></i></span>
                                                                     </span>
                                                                 </button>
@@ -76,48 +77,55 @@
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $service->title }}</span>
+                                                        <span>{{ $employee->email }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="info" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $service->slug }}</span>
+                                                        <span>{{ $employee->phone }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $service->meta_keyword }}</span>
+                                                        <span>{{ $employee->job }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $service->meta_description }}</span>
+                                                        <span>{{ $employee->linkedin }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $service->meta_title }}</span>
+                                                        <span>{{ $employee->github }}</span>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
-                                                        <span>{{ $service->details }}</span>
+                                                        <span>{{ $employee->behance }}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i data-feather="mail" class="text-muted me-2"
+                                                            style="width: 16px; height: 16px;"></i>
+                                                        <span>{{ $employee->salary }}</span>
                                                     </div>
                                                 </td>
 
                                                 <td>
                                                     <span class="feather-icon" data-bs-toggle="modal"
-                                                        data-bs-target="#updatemodel{{ $service->id }}"><i
+                                                        data-bs-target="#updatemodel{{ $employee->id }}"><i
                                                             data-feather="edit-2"></i></span>
                                                 </td>
                                             </tr>

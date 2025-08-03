@@ -24,7 +24,7 @@ class UpdateIncomeSourceRequest extends FormRequest
         return [
             'name' => 'required|string|max:255|unique:income_sources,name',
             'details' => 'nullable|string|max:1000',
-            'is_active' => 'required|boolean',
+            // 'is_active' => 'required|boolean',
         ];
     }
 
@@ -39,8 +39,8 @@ class UpdateIncomeSourceRequest extends FormRequest
             'details.string' => 'Details must be a valid string.',
             'details.max' => 'Details may not exceed 1000 characters.',
 
-            'is_active.required' => 'Please specify if the income source is active.',
-            'is_active.boolean' => 'The active status must be true or false.',
+            // 'is_active.required' => 'Please specify if the income source is active.',
+            // 'is_active.boolean' => 'The active status must be true or false.',
         ];
     }
 }

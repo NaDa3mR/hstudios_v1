@@ -15,9 +15,10 @@ class AccountController extends Controller
      */
     public function index()
     {
-      $Accounts = Account::all();
-      //return view('backend..show'account,compact('$Accounts'));
-      return $Accounts ;
+    //   $Accounts = Account::all();
+        $accounts = Account::paginate(5);
+        return view('admin.accounts',compact('accounts'));
+    //return $$account ;
     }
 
     /**
@@ -38,9 +39,9 @@ class AccountController extends Controller
             Account::create($validated);
             //return redirect()->route('account.index');
             return redirect()->route('account.index')
-            ->with('success_message', 'Client data has been created successfully!');
+            ->with('success_message', 'Account data has been created successfully!');
         }
-    
+
         catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -69,11 +70,11 @@ class AccountController extends Controller
     {
         try{
             $validated = $request->validated();
-            $Account = Account::findOrFail($request->id);
-            $Account->update($validated);
+            $account = Account::findOrFail($request->id);
+            $account->update($validated);
             //return redirect()->route('account.index');
             return redirect()->route('account.index')
-            ->with('success_message', 'Client data has been updated successfully!');
+            ->with('success_message', 'Account data has been updated successfully!');
 
         }
         catch
@@ -81,16 +82,25 @@ class AccountController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+    public function toggleStatus(Request $request)
+    {
+        $account = Account::findOrFail($request->id);
+        $account->is_active = $request->is_active;
 
+        $account->save();
+
+        return response()->with('success_message', 'Status updated successfully.');
+        //->json(['message' => 'Status updated successfully.']);
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Request $request)
     {
-        $Account = Account::findOrFail($request->id)->delete();
+        $account = Account::findOrFail($request->id)->delete();
         //return redirect()->route('account.index');
         return redirect()->route('account.index')
-        ->with('success_message', 'Client has been deleted successfully!');
+        ->with('success_message', 'Account has been deleted successfully!');
 
     }
 }

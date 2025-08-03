@@ -1,47 +1,38 @@
-<div class="modal fade" id="updatemodel{{$service->id}}" tabindex="-1" aria-labelledby="updatemodel" aria-modal="true">
+<div class="modal fade" id="updatemodel{{$client->id}}" tabindex="-1" aria-labelledby="updatemodel" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updatemodel">Edit Service</h5>
+                <h5 class="modal-title" id="updatemodel">Edit Client</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="editBlogForm" method="POST" action="{{route('service.update', $service->id)}}">
+            <form id="editBlogForm" method="POST" action="{{route('client.update', $client->id)}}">
                 @method('PUT')
                 @csrf
-                {{-- <input type="hidden" name="id" id="edit_service_id" value="{{$service->id}}"> --}}
+                {{-- <input type="hidden" name="id" id="edit_service_id" value="{{$client->id}}"> --}}
                 <div class="modal-body">
                     <div class="row g-3">
                         <input id="id" type="hidden" name="id" class="form-control"
-                        value="{{ $service->id }}">
+                        value="{{ $client->id }}">
                         <div class="col-12">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" id="name" class="form-control"value="{{ $service->name }}" required>
+                            <input type="text" name="name" id="name" class="form-control"value="{{ $client->name }}" >
                         </div>
                         <div class="col-12">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title" id="title" class="form-control" value="{{ $service->title }}" required>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" value="{{ $client->email }}" >
                         </div>
                         <div class="col-12">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" name="slug" id="slug" class="form-control" value="{{ $service->slug }}" readonly>
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" value="{{ $client->password }}">
                         </div>
                         <div class="col-12">
-                            <label for="meta_keyword" class="form-label">Meta_Keyword</label>
-                            <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value="{{ $service->meta_keyword }}" required>
+                            <label for="company_name" class="form-label">Company Name</label>
+                            <input type="text" name="company_name" id="company_name" class="form-control" value="{{ $client->company_name }}">
                         </div>
                         <div class="col-12">
-                            <label for="meta_description" class="form-label">Meta_Description</label>
-                            <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ $service->meta_description }}" required>
+                            <label for="company_field" class="form-label">Company Field</label>
+                            <input type="text" name="company_field" id="company_field" class="form-control" value="{{ $client->company_field }}">
                         </div>
-                        <div class="col-12">
-                            <label for="meta_title" class="form-label">Meta_Title</label>
-                            <input type="text" name="meta_title" id="meta_title" class="form-control"value="{{ $service->meta_title }}" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="details" class="form-label">Details</label>
-                            <input type="text" name="details" id="details" class="form-control" value="{{ $service->details }}" required>
-                        </div>
-
                     </div><!--end row-->
                 </div>
                 <div class="modal-footer">
@@ -51,31 +42,5 @@
         </div>
     </div>
 </div>
-<script>
-    function slugify(text) {
-        return text
-            .toString()
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '') // Remove non-alphanumeric chars
-            .replace(/\s+/g, '-') // Replace spaces with -
-            .replace(/-+/g, '-'); // Replace multiple - with single -
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        // Select all modals
-        document.querySelectorAll('.modal').forEach(function (modal) {
-            const titleInput = modal.querySelector('input[name="title"]');
-            const slugInput = modal.querySelector('input[name="slug"]');
-
-            if (titleInput && slugInput) {
-                titleInput.addEventListener('input', function () {
-                    slugInput.value = slugify(titleInput.value);
-                });
-            }
-        });
-    });
-</script>
-
 
 

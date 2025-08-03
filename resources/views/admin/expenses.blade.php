@@ -93,17 +93,17 @@
                 <div class="taskboardapp-wrap">
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
-                            @include('admin.sections.services.topbar')
+                            @include('admin.sections.expenses.topbar')
                             @section('blog-header-action')
                         @endsection
 
-                            @include('admin.sections.services.table')
+                            @include('admin.sections.expenses.table')
                         </div>
 
-                        @include('admin.sections.services.add_modal')
-                        @foreach ($services as $service)
-                            @include('admin.sections.services.update_modal')
-                            @include('admin.sections.services.delete_modal')
+                        @include('admin.sections.expenses.add_modal')
+                        @foreach ($expenses as $expense)
+                            @include('admin.sections.expenses.update_modal')
+                            @include('admin.sections.expenses.delete_modal')
                         @endforeach
                     </div>
                 </div>
@@ -111,7 +111,7 @@
         </div>
     </div>
     @include('admin.main.scripts')
-    
+
 </body>
 
 </html>

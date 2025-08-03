@@ -16,7 +16,7 @@
             <div class="d-flex flex-wrap justify-content-between flex-1">
                 <div>
                     <div class="pg-subtitle">Overview</div>
-                    <h5 class="pg-title fs-5">Services Board</h5>
+                    <h5 class="pg-title fs-5">Accounts Board</h5>
                 </div>
                 <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
@@ -31,7 +31,7 @@
                                         </svg>
                                     </span>
                                 </span>
-                                <span class="fs-7">Add new Service</span>
+                                <span class="fs-7">Add new Account</span>
                             </span>
                         </button>
                     </div>
@@ -51,7 +51,7 @@
                             <line x1="7" y1="16" x2="17" y2="16"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">All Services</span>
+                    <span class="nav-link-text">All Accounts</span>
                 </a>
             </li>
         </ul>

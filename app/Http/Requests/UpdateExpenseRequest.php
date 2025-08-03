@@ -19,43 +19,41 @@ class UpdateExpenseRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:employees,email',
-            'phone' => 'nullable|string|max:20',
-            'job' => 'nullable|string|max:100',
-            'linkedin' => 'nullable|url|max:255',
-            'github' => 'nullable|url|max:255',
-            'behance' => 'nullable|url|max:255',
-            'salary' => 'nullable|numeric|min:0',
-        ];
-    }
 
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'Employee name is required.',
-            'name.string' => 'The name must be a valid string.',
-            'name.max' => 'The name may not be greater than 255 characters.',
+     public function rules(): array
+     {
+         return [
+             'account_id' => 'required|exists:accounts,id',
+             'expense_source_id' => 'required|exists:expense_sources,id',
+             'title' => 'required|string|max:255',
+             'amount' => 'required|numeric|min:0',
+             'expense_date' => 'required|date',
+             'details' => 'nullable|string|max:1000',
+         ];
+     }
 
-            'email.required' => 'Email is required.',
-            'email.email' => 'Please provide a valid email address.',
-            'email.unique' => 'This email is already in use.',
+     public function messages(): array
+     {
+         return [
+             'account_id.required' => 'Please select an account.',
+             'account_id.exists' => 'Selected account does not exist.',
 
-            'phone.string' => 'Phone must be a valid string.',
-            'phone.max' => 'Phone may not be greater than 20 characters.',
+             'expense_source_id.required' => 'Please select an expense source.',
+             'expense_source_id.exists' => 'Selected expense source does not exist.',
 
-            'job.string' => 'Job title must be a valid string.',
-            'job.max' => 'Job title may not exceed 100 characters.',
+             'title.required' => 'Expense title is required.',
+             'title.string' => 'Title must be a valid string.',
+             'title.max' => 'Title may not exceed 255 characters.',
 
-            'linkedin.url' => 'LinkedIn must be a valid URL.',
-            'github.url' => 'GitHub must be a valid URL.',
-            'behance.url' => 'Behance must be a valid URL.',
+             'amount.required' => 'Amount is required.',
+             'amount.numeric' => 'Amount must be a number.',
+             'amount.min' => 'Amount must be at least 0.',
 
-            'salary.numeric' => 'Salary must be a numeric value.',
-            'salary.min' => 'Salary must be at least 0.',
-        ];
-    }
+             'expense_date.required' => 'Expense date is required.',
+             'expense_date.date' => 'Please enter a valid date.',
+
+             'details.string' => 'Details must be a valid string.',
+             'details.max' => 'Details may not exceed 1000 characters.',
+         ];
+     }
 }

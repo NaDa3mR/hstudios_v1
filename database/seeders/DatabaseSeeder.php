@@ -33,7 +33,8 @@ class DatabaseSeeder extends Seeder
             // DealTableSeeder::class,
             // PaymentTableSeeder::class,
             // WordTableSeeder::class,
-            ContactTableSeeder::class
+            //ContactTableSeeder::class,
+            EmployeeTableSeeder::class
 
         ]);
 

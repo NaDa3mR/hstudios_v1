@@ -15,9 +15,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-      $Clients = Client::all();
-      return view('backend.client.show',compact('Clients'));
-      //return $Clients;
+        //$Clients = Client::all();
+        $clients = Client::paginate(5);
+        return view('admin.clients', compact('clients'));
+        //return $Clients;
 
     }
 
@@ -27,7 +28,7 @@ class ClientController extends Controller
     public function create()
     {
     }
-    
+
     /**
      * Store a newly created resource in storage.
      */
@@ -36,12 +37,18 @@ class ClientController extends Controller
         try {
             $validated = $request->validated();
             Client::create($validated);
-            return redirect()->route('client.index');
-        }
-    
-        catch (\Exception $e){
+            return redirect()->route('client.index')
+                ->with('success_message', 'Client has been created successfully!');
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
+    }
+
+    public function serviceRequests(Client $client)
+    {
+        $serviceRequests = $client->serviceRequests;
+        return view('admin.service-requests', compact('client', 'serviceRequests'));
     }
 
     /**
@@ -68,11 +75,12 @@ class ClientController extends Controller
         try {
 
             $validated = $request->validated();
-            $Client = Client::findOrFail($request->id);
-            $Client->update($validated);
-            return redirect()->route('client.index');
-        }
-        catch
+            $client = Client::findOrFail($request->id);
+            $client->update($validated);
+            return redirect()->route('client.index')
+                ->with('success_message', 'CLient has been updated successfully!');
+            ;
+        } catch
         (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -84,6 +92,8 @@ class ClientController extends Controller
     public function destroy(Request $request)
     {
         $Client = Client::findOrFail($request->id)->delete();
-        return redirect()->route('client.index');
+        return redirect()->route('client.index')
+            ->with('success_message', 'CLient has been deleted successfully!');
+        ;
     }
 }

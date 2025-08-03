@@ -132,3 +132,24 @@
         </div>
     </div>
 </div>
+{{-- payment logic --}}
+<table>
+    <thead>
+        <tr>
+            <th>Account</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($payments as $payment)
+            <tr>
+                <td>{{ $payment->account->name }}</td>
+                <td>{{ $payment->amount }}</td>
+                <td>{{ $payment->description }}</td>
+                <td>{{ $payment->created_at->format('Y-m-d') }}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>

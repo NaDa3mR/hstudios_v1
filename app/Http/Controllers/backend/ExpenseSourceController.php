@@ -16,11 +16,11 @@ class ExpenseSourceController extends Controller
     public function index()
     {
       //Pagination
-      //$E_sources = E_source::paginate(5);
-      //return view('backend.E_source.show', compact('E_sources'))
-      $E_sources = Expense_Source::all();
+      $expense_sources = Expense_Source::paginate(5);
+      return view('admin.expense-sources', compact('expense_sources'));
+      //$E_sources = Expense_Source::all();
       //return view('backend.E_source.show',compact('E_sources'));
-      return $E_sources;
+      //return $E_sources;
     }
 
     /**
@@ -40,10 +40,10 @@ class ExpenseSourceController extends Controller
             $validated = $request->validated();
             Expense_Source::create($validated);
             //return redirect()->route('E_source.index');
-            return redirect()->route('E_source.index')
+            return redirect()->route('ex-source.index')
             ->with('success_message', 'Expense Source has been created successfully!');
         }
-    
+
         catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -73,10 +73,10 @@ class ExpenseSourceController extends Controller
         try {
 
             $validated = $request->validated();
-            $E_source = Expense_Source::findOrFail($request->id);
-            $E_source->update($validated);
+            $expense_source = Expense_Source::findOrFail($request->id);
+            $expense_source->update($validated);
             //return redirect()->route('E_source.index');
-            return redirect()->route('E_source.index')
+            return redirect()->route('ex-source.index')
             ->with('success_message', 'Expense Source has been updated successfully!');
         }
         catch
@@ -85,14 +85,25 @@ class ExpenseSourceController extends Controller
         }
     }
 
+    public function toggleStatus(Request $request)
+    {
+        $expense_source = Expense_Source::findOrFail($request->id);
+        $expense_source->is_active = $request->is_active;
+
+        $expense_source->save();
+
+        return response()->with('success_message', 'Status updated successfully.');
+        //->json(['message' => 'Status updated successfully.']);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Request $request)
     {
-        $E_source = Expense_Source::findOrFail($request->id)->delete();
+        $expense_source = Expense_Source::findOrFail($request->id)->delete();
         //return redirect()->route('e_source.index');
-        return redirect()->route('e_source.index')
+        return redirect()->route('ex-source.index')
         ->with('success_message', 'Expense Source has been deleted successfully!');
     }
 }
