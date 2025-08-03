@@ -23,8 +23,8 @@ class UpdateClientRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:clients,email',
-            'password' => 'required|string|min:8|confirmed',
+            'email' => 'required|email',
+            'password' => 'required|string|min:8',
             'company_name' => 'required|string|max:255',
             'company_field' => 'nullable|string|max:255',
         ];

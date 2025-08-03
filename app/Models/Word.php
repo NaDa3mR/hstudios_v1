@@ -8,6 +8,5 @@ class Word extends Model
 {
     protected $fillable = ['param', 'ar', 'fr', 'en', 'wordable_type', 'wordable_id'];
     protected $table = 'words';
-    protected $timestamps = true;
 
 }

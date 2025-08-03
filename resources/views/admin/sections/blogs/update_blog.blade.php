@@ -95,7 +95,7 @@
                         <div class="taskboardapp-detail-wrap">
                             {{-- @include('admin.sections.blogs.topbar') --}}
                             {{-- Topbar for Add Blog --}}
-                            <header class="hk-pg-header pg-header-wth-tab">
+                            {{-- <header class="hk-pg-header pg-header-wth-tab">
                                 <div>
                                     <div class="d-flex align-items-center">
                                         <button
@@ -115,7 +115,7 @@
                                                         </rect>
                                                         <path
                                                             d="M17 17v2a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h2">
-                                                        </path>
+                                                        </path> --}}
 
                             <header class="hk-pg-header pg-header-wth-tab">
                                 <div>
@@ -150,7 +150,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <ul class="nav nav-tabs nav-line nav-icon nav-light mt-3">
+                                    {{-- <ul class="nav nav-tabs nav-line nav-icon nav-light mt-3">
                                         <li class="nav-item">
                                             <a class="nav-link active" data-bs-toggle="tab" href="#tab_boards">
                                                 <span class="nav-icon-wrap"><span class="svg-icon">
@@ -175,7 +175,7 @@
                                                 <span class="nav-link-text">Add New Blog</span>
                                             </a>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                             </header>
                             {{-- main part --}}
@@ -265,26 +265,26 @@
         </div>
     </div>
     @include('admin.main.scripts')
+    <script>
+        function slugify(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9\s-]/g, '') // Remove non-alphanumeric chars
+                .replace(/\s+/g, '-') // Replace spaces with -
+                .replace(/-+/g, '-'); // Replace multiple - with single -
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.getElementById('title');
+            const slug = document.getElementById('slug');
+
+            title.addEventListener('input', function() {
+                slug.value = slugify(title.value);
+            });
+        });
+    </script>
 </body>
 
 </html>
-<script>
-    function slugify(text) {
-        return text
-            .toString()
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '') // Remove non-alphanumeric chars
-            .replace(/\s+/g, '-') // Replace spaces with -
-            .replace(/-+/g, '-'); // Replace multiple - with single -
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const title = document.getElementById('title');
-        const slug = document.getElementById('slug');
-
-        title.addEventListener('input', function() {
-            slug.value = slugify(title.value);
-        });
-    });
-</script>

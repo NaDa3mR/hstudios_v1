@@ -16,11 +16,11 @@ class IncomeSourceController extends Controller
     public function index()
     {
       //Pagination
-      //$In_sources = In_source::paginate(5);
+      $income_sources = Income_source::paginate(5);
       //return view('backend.In_source.show', compact('In_sources'))
-      $In_sources = Income_Source::all();
-      //return view('backend.In_source.show',compact('In_sources'));
-      return $In_sources;
+      //$income_sources = Income_Source::all();
+      return view('admin.income-sources',compact('income_sources'));
+      //return $In_sources;
     }
 
     /**
@@ -40,10 +40,10 @@ class IncomeSourceController extends Controller
             $validated = $request->validated();
             Income_Source::create($validated);
             //return redirect()->route('In_source.index');
-            return redirect()->route('In_source.index')
+            return redirect()->route('in-source.index')
             ->with('success_message', 'Income Source has been created successfully!');
         }
-    
+
         catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -73,10 +73,10 @@ class IncomeSourceController extends Controller
         try {
 
             $validated = $request->validated();
-            $In_source = Income_Source::findOrFail($request->id);
-            $In_source->update($validated);
+            $income_source = Income_Source::findOrFail($request->id);
+            $income_source->update($validated);
             //return redirect()->route('In_source.index');
-            return redirect()->route('In_source.index')
+            return redirect()->route('in-source.index')
             ->with('success_message', 'Income Source has been updated successfully!');
         }
         catch
@@ -84,15 +84,26 @@ class IncomeSourceController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+    public function toggleStatus(Request $request)
+    {
+        $income_source = Income_Source::findOrFail($request->id);
+        $income_source->is_active = $request->is_active;
+
+        $income_source->save();
+
+        return response()->with('success_message', 'Status updated successfully.');
+        //->json(['message' => 'Status updated successfully.']);
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Request $request)
     {
-        $In_source = Income_Source::findOrFail($request->id)->delete();
+        $income_source= Income_Source::findOrFail($request->id)->delete();
         //return redirect()->route('In_source.index');
-        return redirect()->route('In_source.index')
+        return redirect()->route('in-source.index')
         ->with('success_message', 'Income Source has been deleted successfully!');
     }
 }

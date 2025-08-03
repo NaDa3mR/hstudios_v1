@@ -8,7 +8,6 @@ class Payment extends Model
 {
     protected $fillable = ['deal_id', 'client_id', 'amount', 'pay_date', 'details'];
     protected $table = 'payments';
-    protected $timestamps = true;
 
     public function deal()
     {

@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreExpenseRequest;
 use App\Http\Requests\StoreExpenseSourceRequest;
 use App\Http\Requests\UpdateExpenseRequest;
+use App\Models\Account;
 use App\Models\Expense;
+use App\Models\Expense_Source;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -16,12 +18,13 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-      //Pagination
-      //$Expenses = Expense::paginate(5);
-      //return view('backend.expense.show', compact('Expenses'))
-      $Expenses = Expense::all();
-      //return view('backend.expense.show',compact('Expenses'));
-      return $Expenses;
+        //Pagination
+        $expenses = Expense::with(['account', 'e_source'])->paginate(5);
+        $accounts = Account::where('is_active', true)->get();
+        $expense_sources = Expense_Source::all();
+
+        return view('admin.expenses', compact('expenses', 'accounts', 'expense_sources'));
+
     }
 
     /**
@@ -42,10 +45,8 @@ class ExpenseController extends Controller
             Expense::create($validated);
             //return redirect()->route('Expense.index');
             return redirect()->route('expense.index')
-            ->with('success_message', 'Expense Cash has been created successfully!');
-        }
-    
-        catch (\Exception $e){
+                ->with('success_message', 'Expense Cash has been created successfully!');
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -72,15 +73,13 @@ class ExpenseController extends Controller
     public function update(UpdateExpenseRequest $request)
     {
         try {
-
             $validated = $request->validated();
-            $Expense = Expense::findOrFail($request->id);
-            $Expense->update($validated);
-            //return redirect()->route('Expense.index');
-            return redirect()->route('Expense.index')
-            ->with('success_message', 'Expense Cash has been updated successfully!');
-        }
-        catch
+            $expense = Expense::findOrFail($request->id);
+            $expense->update($validated);
+            //return redirect()->route('expense.index');
+            return redirect()->route('expense.index')
+                ->with('success_message', 'Expense Cash has been updated successfully!');
+        } catch
         (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -91,9 +90,9 @@ class ExpenseController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Expense = Expense::findOrFail($request->id)->delete();
+        $expense = Expense::findOrFail($request->id)->delete();
         //return redirect()->route('Expense.index');
         return redirect()->route('expense.index')
-        ->with('success_message', 'Expense Cash has been deleted successfully!');
+            ->with('success_message', 'Expense Cash has been deleted successfully!');
     }
 }

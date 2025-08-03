@@ -100,7 +100,7 @@
                             @include('admin.sections.blogs.table')
                         </div>
 
-                        @include('admin.sections.blogs.add_modal')
+                        {{-- @include('admin.sections.blogs.add_modal') --}}
 
 
                         @foreach ($blogs as $blog)

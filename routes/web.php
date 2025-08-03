@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\backend\AccountController;
 use App\Http\Controllers\backend\BlogController;
 use App\Http\Controllers\backend\CandidateController;
@@ -42,41 +41,48 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/blog', BlogController::class);
     Route::post('admin/blog/toggle-status', [BlogController::class, 'toggleStatus'])->name('blog.toggleStatus');
     //Services
-    Route::resource('/service', ServiceController::class); //
+    Route::resource('/admin/service', ServiceController::class);
     //Account
-    Route::resource('/account', AccountController::class);
+    Route::resource('admin/account', AccountController::class);
+    Route::post('admin/account/toggle-status', [AccountController::class, 'toggleStatus'])->name('account.toggleStatus');
+
     //Cadidate
     Route::resource('/candidate', CandidateController::class);
     //Career
-    Route::resource('/career', CareerController::class);
+    Route::resource('admin/career', CareerController::class);
+    Route::post('admin/careers/{id}/toggle-active', [CareerController::class, 'toggleActive']);
+    Route::post('admin/careers/{id}/toggle-published', [CareerController::class, 'togglePublished']);
+
     //Client
-    Route::resource('/client', ClientController::class);
+    Route::resource('admin/client', ClientController::class);
     //Deal
-    Route::resource('/deal', DealController::class);
+    Route::resource('admin/deal', DealController::class);
     //Employee
-    Route::resource('/employee', EmployeeController::class);
+    Route::resource('admin/employee', EmployeeController::class);
     //Expense
-    Route::resource('/expense', ExpenseController::class);
+    Route::resource('admin/expense', ExpenseController::class);
     //Expense Source
-    Route::resource('/ex-source', ExpenseSourceController::class);
+    Route::resource('admin/ex-source', ExpenseSourceController::class);
+    Route::post('admin/ex-source/toggle-status', [ExpenseSourceController::class, 'toggleStatus'])->name('ex-source.toggleStatus');
     //Income
-    Route::resource('/income', IncomeController::class);
+    Route::resource('admin/income', IncomeController::class);
     //Income Source
-    Route::resource('/in-source', IncomeSourceController::class);
+    Route::resource('admin/in-source', IncomeSourceController::class);
+    Route::post('admin/in-source/toggle-status', [IncomeSourceController::class, 'toggleStatus'])->name('in-source.toggleStatus');
     //Interview
-    Route::resource('/interview', InterviewController::class);
+    Route::resource('admin/interview', InterviewController::class);
     //Meeting
-    Route::resource('/meeting', MeetingController::class);
+    Route::resource('admin/meeting', MeetingController::class);
     //Payment
-    Route::resource('/payment', PaymentController::class);
+    Route::resource('admin/payment', PaymentController::class);
     //Transfer
-    Route::resource('/transfer', TransferController::class);
+    Route::resource('admin/transfer', TransferController::class);
     //Word
-    Route::resource('/word', WordController::class);
+    Route::resource('admin/word', WordController::class);
     //Contact
-    Route::resource('/contact', ContactController::class);
+    Route::resource('admin/contact', ContactController::class);
     //Job Application
-    Route::resource('/job-app', JobApplicationController::class);
+    Route::resource('admin/job-app', JobApplicationController::class);
     //Service Request
     // Route::resource('/service', ServiceController::class);
     //Approved Request
@@ -90,4 +96,4 @@ Route::middleware('auth')->group(function () {
 
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -24,11 +24,10 @@ class Expense extends Model
         static::created(function ($expense) {
             $expense->account->decrement('balance', $expense->amount);
             if ($expense->account->name === 'cash') {
-                $expense->source->update([
-                    'is_active' => 0 
+                $expense->e_source->update([
+                    'is_active' => 0
                 ]);
             }
         });
     }
-
 }

@@ -19,7 +19,10 @@ class Client extends Model
     {
         return $this->hasMany(Payment::class);
     }
-
+    public function serviceRequests()
+    {
+        return $this->hasMany(Service_Request::class);
+    }
 
 
 }

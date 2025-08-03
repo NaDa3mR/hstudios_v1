@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
@@ -15,8 +16,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-    $services = Service::all();
-    return view('admin.services',compact('$sevices'));
+        $services = Service::all();
+        return view('admin.services', compact('services'));
 
     }
 
@@ -35,6 +36,16 @@ class ServiceController extends Controller
     {
         try {
             $validated = $request->validated();
+
+            $slug = Str::slug($request->title);
+            $originalSlug = $slug;
+            $counter = 1;
+
+            while (Service::where('slug', $slug)->exists()) {
+                $slug = $originalSlug . '-' . $counter++;
+            }
+
+            $validated['slug'] = $slug;
 
             Service::create($validated);
 
@@ -65,18 +76,32 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateServiceRequest $request)
+    public function update(UpdateServiceRequest $request, Service $service)
     {
         try {
+            // Validate input first
+            $validated = $request->validated();
 
-            $service = Service::findOrFail($request->id);
+            // Generate slug based on updated title
+            $slug = Str::slug($validated['title']);
+            $originalSlug = $slug;
+            $counter = 1;
 
-            $service->update($request->validated());
+            while (
+                Service::where('slug', $slug)
+                    ->where('id', '!=', $service->id)
+                    ->exists()
+            ) {
+                $slug = $originalSlug . '-' . $counter++;
+            }
+
+            $validated['slug'] = $slug;
+
+            $service->update($validated);
+
             return redirect()->route('service.index')
                 ->with('success_message', 'Service updated successfully!');
-        }
-        catch
-        (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -88,6 +113,7 @@ class ServiceController extends Controller
     {
         $service = Service::findOrFail($request->id)->delete();
         return redirect()->route('service.index')
-        ->with('success_message', 'Service has been deleted successfully!');;
+            ->with('success_message', 'Service has been deleted successfully!');
+        ;
     }
 }

@@ -16,21 +16,21 @@ class EmployeeController extends Controller
     public function index()
     {
       //Pagination
-      //$Employees = Employee::paginate(5);
+      $employees = Employee::paginate(5);
       //return view('backend.employee.show', compact('Employees'))
-      $Employees = Employee::all();
-      //return view('backend.employee.show',compact('Employees'));
-      return $Employees;
+      //$Employees = Employee::all();
+      return view('admin.employees',compact('employees'));
+      //return $Employees;
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function ShowEmployee()
+    public function ShowEmployee(Request $request)
     {
       //Pagination
-      $Employees = Employee::paginate(5);
-      return view('frontend.employee.ShowEmployee', compact('Employees'));
+      $employee = Employee::findOrFail($request->id);
+      return view('frontend.employee.ShowEmployee', compact('employee'));
     }
 
     /**
@@ -45,7 +45,7 @@ class EmployeeController extends Controller
             return redirect()->route('employee.index')
             ->with('success_message', 'Employee has been created successfully!');
         }
-    
+
         catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -70,13 +70,13 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateEmployeeRequest $request)
+    public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
         try {
 
             $validated = $request->validated();
-            $Employee = Employee::findOrFail($request->id);
-            $Employee->update($validated);
+            $employee = Employee::findOrFail($request->id);
+            $employee->update($validated);
             //return redirect()->route('employee.index');
             return redirect()->route('employee.index')
             ->with('success_message', 'Employee has been updated successfully!');
@@ -92,7 +92,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Employee = Employee::findOrFail($request->id)->delete();
+        $employee = Employee::findOrFail($request->id)->delete();
         //return redirect()->route('employee.index');
         return redirect()->route('employee.index')
         ->with('success_message', 'Employee has been deleted successfully!');
