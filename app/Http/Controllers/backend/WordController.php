@@ -18,8 +18,8 @@ class WordController extends Controller
         //Pagination
         //$words = Word::paginate(5);
          $words= Word::all();
-        //return view('backend.word.show', compact('words'))
-        return $words;
+        return view('admin.words', compact('words'));
+        // return $words;
     }
 
     /**

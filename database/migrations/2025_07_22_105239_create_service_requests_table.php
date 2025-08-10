@@ -16,10 +16,8 @@ return new class extends Migration
             $table->string('name');
             //$table->unsignedBigInteger('client_id');
             $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
-            //$table->unsignedBigInteger('service_id');
-            $table->foreignId('service_id')->constrained('services')->onDelete('cascade');
-            $table->string(column: 'status');
             $table->text('details')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('service__requests');
+        Schema::dropIfExists('service_requests');
     }
 };

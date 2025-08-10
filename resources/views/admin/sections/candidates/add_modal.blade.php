@@ -3,67 +3,73 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addModal">Add service </h5>
+                <h5 class="modal-title" id="addModal">Add Candidate</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('service.store')}}" method="POST">
+            <form action="{{route('candidate.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
+                            <label for="first_name" class="form-label">First Name</label>
+                            <input type="text" name="first_name" id="first_name" class="form-control" required>
                         </div>
                         <div class="col-12">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title" id="title" class="form-control" required>
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" name="last_name" id="last_name" class="form-control" required>
                         </div>
                         <div class="col-12">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" name="slug" id="slug" class="form-control" readonly>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" required>
                         </div>
                         <div class="col-12">
-                            <label for="meta_keyword" class="form-label">Meta_Keyword</label>
-                            <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" required>
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" name="phone" id="phone" class="form-control" required>
                         </div>
                         <div class="col-12">
-                            <label for="meta_description" class="form-label">Meta_Description</label>
-                            <input type="text" name="meta_description" id="meta_description" class="form-control" required>
+                            <label class="form-label">Career</label>
+                            <select id="career" name="career_id" class="form-select">
+                                <option value="" disabled selected>Select Career</option>
+                                @foreach($careers as $career)
+                                    <option value="{{ $career->id }}">{{ $career->title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-12">
-                            <label for="meta_title" class="form-label">Meta_Title</label>
-                            <input type="text" name="meta_title" id="meta_title" class="form-control" required>
+                            <label for="country" class="form-label">Country</label>
+                            <select name="country" id="country" class="form-select" required>
+                                <option value="" disabled selected>Select country</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="United States">United States</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Canada">Canada</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label for="city" class="form-label">City</label>
+                            <select name="city" id="city" class="form-select" required>
+                                <option value="" disabled selected>Select city</option>
+                            </select>
                         </div>
                         <div class="col-12">
-                            <label for="details" class="form-label">Details</label>
-                            <input type="text" name="details" id="details" class="form-control" required>
+                            <label for="linkedin" class="form-label">LinkedIn</label>
+                            <input type="text" name="linkedin" id="linkedin" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="github" class="form-label">GitHub</label>
+                            <input type="text" name="github" id="github" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="behance" class="form-label">Behance</label>
+                            <input type="text" name="behance" id="behance" class="form-control" required>
                         </div>
                     </div><!--end row-->
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark">Add Service</button>
+                    <button type="submit" class="btn btn-dark">Add Candidate</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script>
-    function slugify(text) {
-        return text
-            .toString()
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '')   // Remove non-alphanumeric chars
-            .replace(/\s+/g, '-')           // Replace spaces with -
-            .replace(/-+/g, '-');           // Replace multiple - with single -
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const title = document.getElementById('title');
-        const slug = document.getElementById('slug');
-
-        title.addEventListener('input', function () {
-            slug.value = slugify(title.value);
-        });
-    });
-</script>

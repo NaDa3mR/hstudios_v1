@@ -93,17 +93,17 @@
                 <div class="taskboardapp-wrap">
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
-                            @include('admin.sections.services.topbar')
+                            @include('admin.sections.deals.topbar')
                             @section('blog-header-action')
                         @endsection
 
-                            @include('admin.sections.services.table')
+                            @include('admin.sections.deals.table')
                         </div>
 
-                        @include('admin.sections.services.add_modal')
-                        @foreach ($services as $service)
-                            @include('admin.sections.services.update_modal')
-                            @include('admin.sections.services.delete_modal')
+                        @include('admin.sections.deals.add_modal')
+                        @foreach ($deals as $deal)
+                            @include('admin.sections.deals.update_modal')
+                            @include('admin.sections.deals.delete_modal')
                         @endforeach
                     </div>
                 </div>
@@ -111,7 +111,32 @@
         </div>
     </div>
     @include('admin.main.scripts')
-    
+
+       <script>
+    document.getElementById('service_request_id').addEventListener('change', function () {
+        const requestId = this.value;
+        if (!requestId) return;
+
+        fetch(`/get-service-request-data/${requestId}`)
+            .then(res => res.json())
+            .then(data => {
+                // Show client name
+                document.getElementById('client_name').value = data.client.name;
+
+                // Populate services
+                const servicesSelect = document.getElementById('services');
+                servicesSelect.innerHTML = '';
+
+                data.services.forEach(service => {
+                    const option = document.createElement('option');
+                    option.value = service.id;
+                    option.text = service.name;
+                    servicesSelect.appendChild(option);
+                });
+            });
+    });
+</script>
+
 </body>
 
 </html>

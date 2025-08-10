@@ -5,7 +5,10 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreInterviewRequest;
 use App\Http\Requests\UpdateInterviewRequest;
+use App\Models\Candidate;
+use App\Models\Career;
 use App\Models\Interview;
+use App\Models\Job_Application;
 use Illuminate\Http\Request;
 
 class InterviewController extends Controller
@@ -17,10 +20,10 @@ class InterviewController extends Controller
     {
         //Pagination
         //$Interviews = Interview::paginate(5);
-        //return view('backend.interview.show', compact('Interviews'))
-        $Interviews = Interview::all();
-        //return view('backend.interview.show',compact('Interviews'));
-        return $Interviews;
+        $interviews = Interview::with('career', 'candidate')->get();
+        $careers = Career::all();
+        $candidates = Candidate::all();
+        return view('admin.interviews', compact('interviews', 'careers', 'candidates'));
     }
 
     /**
@@ -38,12 +41,8 @@ class InterviewController extends Controller
     {
         try {
             $validated = $request->validated();
-
-            $application = JobApplication::findOrFail($validated['job_application_id']);
-
-            $application->interviews()->create($validated);
-
-            return redirect()->route('job_app.index')
+            Interview::create($validated);
+            return redirect()->route('interview.index')
                 ->with('success_message', 'Interview has been created successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -75,8 +74,8 @@ class InterviewController extends Controller
         try {
 
             $validated = $request->validated();
-            $Interview = Interview::findOrFail($request->id);
-            $Interview->update($validated);
+            $interview = Interview::findOrFail($request->id);
+            $interview->update($validated);
             //return redirect()->route('interview.index');
             return redirect()->route('interview.index')
                 ->with('success_message', 'Interview has been updated successfully!');
@@ -91,9 +90,19 @@ class InterviewController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Interview = Interview::findOrFail($request->id)->delete();
+        Interview::findOrFail($request->id)->delete();
         //return redirect()->route('interview.index');
         return redirect()->route('interview.index')
             ->with('success_message', 'Interview has been deleted successfully!');
     }
+
+    public function getCandidatesByCareer($careerId)
+    {
+        $candidates = Candidate::where('career_id', $careerId)
+            ->get(['id', 'first_name', 'last_name']);
+
+        return response()->json($candidates);
+    }
+
+
 }

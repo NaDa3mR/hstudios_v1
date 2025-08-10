@@ -1,45 +1,51 @@
-<div class="modal fade" id="updatemodel{{$service->id}}" tabindex="-1" aria-labelledby="updatemodel" aria-modal="true">
+<div class="modal fade" id="updatemodel{{ $income->id }}" tabindex="-1" aria-labelledby="updatemodel" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updatemodel">Edit Service</h5>
+                <h5 class="modal-title" id="updatemodel">Edit Income</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="editBlogForm" method="POST" action="{{route('service.update', $service->id)}}">
+            <form id="editBlogForm" method="POST" action="{{route('income.update', $income->id)}}">
                 @method('PUT')
                 @csrf
-                {{-- <input type="hidden" name="id" id="edit_service_id" value="{{$service->id}}"> --}}
+                {{-- <input type="hidden" name="id" id="edit_service_id" value="{{$income->id}}"> --}}
                 <div class="modal-body">
                     <div class="row g-3">
                         <input id="id" type="hidden" name="id" class="form-control"
-                        value="{{ $service->id }}">
-                        <div class="col-12">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" id="name" class="form-control"value="{{ $service->name }}" required>
-                        </div>
+                        value="{{ $income->id }}">
                         <div class="col-12">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title" id="title" class="form-control" value="{{ $service->title }}" required>
+                            <input type="text" name="title" id="title" class="form-control"value="{{ $income->title }}" required>
                         </div>
                         <div class="col-12">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" name="slug" id="slug" class="form-control" value="{{ $service->slug }}" readonly>
+                            <label for="account_id" class="form-label">Account</label>
+                            <select name="account_id" id="account_id" class="form-select" required>
+                                <option value="">{{ $income->account->name }}</option>
+                                @foreach ($accounts as $account)
+                                    <option value="{{ $account->id }}">{{ $account->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-12">
-                            <label for="meta_keyword" class="form-label">Meta_Keyword</label>
-                            <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value="{{ $service->meta_keyword }}" required>
+                            <label for="income_source_id" class="form-label">Income Source</label>
+                            <select name="income_source_id" id="income_source_id" class="form-select" required>
+                                <option value="">{{ $income->in_source->name }}</option>
+                                @foreach ($income_sources as $income_source)
+                                    <option value="{{ $income_source->id }}">{{ $income_source->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-12">
-                            <label for="meta_description" class="form-label">Meta_Description</label>
-                            <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ $service->meta_description }}" required>
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="text" name="amount" id="amount" class="form-control" value="{{ $income->amount }}" required>
                         </div>
                         <div class="col-12">
-                            <label for="meta_title" class="form-label">Meta_Title</label>
-                            <input type="text" name="meta_title" id="meta_title" class="form-control"value="{{ $service->meta_title }}" required>
+                            <label for="income_date" class="form-label">Income Date/label>
+                            <input type="date" name="income_date" id="income_date" class="form-control" value="{{ $income->income_date }}" required>
                         </div>
                         <div class="col-12">
                             <label for="details" class="form-label">Details</label>
-                            <input type="text" name="details" id="details" class="form-control" value="{{ $service->details }}" required>
+                            <input type="text" name="details" id="details" class="form-control" value="{{ $income->details }}" required>
                         </div>
 
                     </div><!--end row-->
@@ -51,31 +57,3 @@
         </div>
     </div>
 </div>
-<script>
-    function slugify(text) {
-        return text
-            .toString()
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '') // Remove non-alphanumeric chars
-            .replace(/\s+/g, '-') // Replace spaces with -
-            .replace(/-+/g, '-'); // Replace multiple - with single -
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        // Select all modals
-        document.querySelectorAll('.modal').forEach(function (modal) {
-            const titleInput = modal.querySelector('input[name="title"]');
-            const slugInput = modal.querySelector('input[name="slug"]');
-
-            if (titleInput && slugInput) {
-                titleInput.addEventListener('input', function () {
-                    slugInput.value = slugify(titleInput.value);
-                });
-            }
-        });
-    });
-</script>
-
-
-

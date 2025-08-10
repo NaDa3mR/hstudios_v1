@@ -16,9 +16,9 @@ class CareerController extends Controller
     public function index()
     {
         //Pagination
-        $careers = Career::paginate(5);
+        // $careers = Career::paginate(5);
         //return view('backend.career.show', compact('Careers'))
-        //$Careers = Career::all();
+        $careers = Career::all();
         return view('admin.careers', compact('careers'));
     }
 
@@ -111,4 +111,7 @@ class CareerController extends Controller
         return redirect()->route('career.index')
             ->with('success_message', 'Career has been deleted successfully!');
     }
+
+
+
 }

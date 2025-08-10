@@ -20,7 +20,7 @@
                         <div class="col-12">
                             <label for="account_id" class="form-label">Account</label>
                             <select name="account_id" id="account_id" class="form-select" required>
-                                <option value="">{{ $expense->account->name }}</option>
+                                <option value="">{{ $expense->e_source->name }}</option>
                                 @foreach ($accounts as $account)
                                     <option value="{{ $account->id }}">{{ $account->name }}</option>
                                 @endforeach

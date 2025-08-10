@@ -22,6 +22,7 @@ class StoreCandidateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'career_id' => 'required|exists:careers,id',
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
             'email' => 'required|email|unique:candidates,email',
@@ -38,6 +39,9 @@ class StoreCandidateRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'career_id.required' => 'The job application is required.',
+            'career_id.exists' => 'The selected job application does not exist.',
+
             'first_name.required' => 'First name is required.',
             'first_name.string' => 'First name must be a string.',
             'first_name.max' => 'First name may not exceed 100 characters.',

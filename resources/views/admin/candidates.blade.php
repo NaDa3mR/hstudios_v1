@@ -93,17 +93,17 @@
                 <div class="taskboardapp-wrap">
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
-                            @include('admin.sections.services.topbar')
+                            @include('admin.sections.candidates.topbar')
                             @section('blog-header-action')
-                        @endsection
+                            @endsection
 
-                            @include('admin.sections.services.table')
+                            @include('admin.sections.candidates.table')
                         </div>
 
-                        @include('admin.sections.services.add_modal')
-                        @foreach ($services as $service)
-                            @include('admin.sections.services.update_modal')
-                            @include('admin.sections.services.delete_modal')
+                        @include('admin.sections.candidates.add_modal')
+                        @foreach ($candidates as $candidate)
+                            @include('admin.sections.candidates.update_modal')
+                            @include('admin.sections.candidates.delete_modal')
                         @endforeach
                     </div>
                 </div>
@@ -111,7 +111,104 @@
         </div>
     </div>
     @include('admin.main.scripts')
-    
+
+    <script>
+        /* -----------------------------
+               Country -> City (works for many forms/modals)
+               ----------------------------- */
+        document.addEventListener("DOMContentLoaded", function() {
+            const citiesByCountry = {
+                "Egypt": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan", "Port Said"],
+                "United States": ["New York", "Los Angeles", "Chicago", "Houston", "Miami"],
+                "United Kingdom": ["London", "Manchester", "Birmingham", "Liverpool", "Glasgow"],
+                "Canada": ["Toronto", "Vancouver", "Montreal", "Calgary", "Ottawa"]
+            };
+
+            // For each country select on the page
+            document.querySelectorAll("select[name='country']").forEach(function(countrySelect) {
+                // try to find the corresponding city select within the same form/modal
+                const container = countrySelect.closest('form') || countrySelect.closest('.modal') ||
+                    document;
+                const citySelect = container.querySelector("select[name='city']");
+                if (!citySelect) return;
+
+                // populate initial city if country already selected (edit modal)
+                if (countrySelect.value && citiesByCountry[countrySelect.value]) {
+                    citySelect.innerHTML = '<option value="" disabled>Select city</option>';
+                    citiesByCountry[countrySelect.value].forEach(function(city) {
+                        const opt = document.createElement('option');
+                        opt.value = city;
+                        opt.textContent = city;
+                        // try to preserve existing value if present (edit modal)
+                        if (citySelect.dataset.current === city || citySelect.value === city) opt
+                            .selected = true;
+                        citySelect.appendChild(opt);
+                    });
+                }
+
+                countrySelect.addEventListener("change", function() {
+                    const selectedCountry = this.value;
+                    citySelect.innerHTML =
+                    '<option value="" disabled selected>Select city</option>';
+
+                    if (selectedCountry && citiesByCountry[selectedCountry]) {
+                        citiesByCountry[selectedCountry].forEach(function(city) {
+                            const option = document.createElement("option");
+                            option.value = city;
+                            option.textContent = city;
+                            citySelect.appendChild(option);
+                        });
+                    }
+                });
+            });
+        });
+
+        /* -----------------------------
+           Toggle is_hired (jQuery)
+           - Delegated handler so it works for dynamic content
+           - Uses X-CSRF-TOKEN header
+           ----------------------------- */
+        $(function() {
+            // make sure ajax always sends the token
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            // delegated handler
+            $(document).on('change', '.toggle-hired', function() {
+                const $checkbox = $(this);
+                const id = $checkbox.data('id');
+                const isHired = $checkbox.prop('checked') ? 1 : 0;
+
+                if (!id) {
+                    console.error('toggle-hired element missing data-id');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/admin/candidate/' + id + '/toggle-hired', // matches your new route
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: {
+                        is_hired: isHired
+                    },
+                    success: function(response) {
+                        console.log('is_hired updated');
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                        alert('Error updating hired status.');
+                    }
+                });
+
+            });
+        });
+    </script>
+
 </body>
 
 </html>

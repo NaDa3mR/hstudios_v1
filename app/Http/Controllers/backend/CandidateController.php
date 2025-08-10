@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCandidateRequest;
 use App\Http\Requests\UpdateCandidateRequest;
 use App\Models\Candidate;
+use App\Models\Career;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
@@ -15,12 +16,12 @@ class CandidateController extends Controller
      */
     public function index()
     {
-       //Pagination
-      //$Candidates = Candidate::paginate(5);
-      //return view('backend.candidate.show', compact('Candidates'))
-      $Candidates = Candidate::all();
-      //return view('backend.candidate.show',compact('Candidates'));
-      return $Candidates;
+        //Pagination
+        //$Candidates = Candidate::paginate(5);
+        //return view('backend.candidate.show', compact('Candidates'))
+        $candidates = Candidate::with('career')->get();
+        $careers = Career::all();
+        return view('admin.candidates', compact('candidates', 'careers'));
     }
 
     /**
@@ -41,10 +42,8 @@ class CandidateController extends Controller
             Candidate::create($validated);
             //return redirect()->route('candidate.index');
             return redirect()->route('candidate.index')
-            ->with('success_message', 'Candidate has been created successfully!');
-        }
-    
-        catch (\Exception $e){
+                ->with('success_message', 'Candidate has been created successfully!');
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
@@ -73,26 +72,35 @@ class CandidateController extends Controller
         try {
 
             $validated = $request->validated();
-            $Candidate = Candidate::findOrFail($request->id);
-            $Candidate->update($validated);
+            $candidate = Candidate::findOrFail($request->id);
+            $candidate->update($validated);
             //return redirect()->route('candidate.index');
             return redirect()->route('candidate.index')
-            ->with('success_message', 'Candidate has been updated successfully!');
-        }
-        catch
+                ->with('success_message', 'Candidate has been updated successfully!');
+        } catch
         (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+    public function toggleHired(Request $request, $id)
+    {
+        $candidate = Candidate::findOrFail($id);
+        $candidate->is_hired = $request->input('is_hired');
+        $candidate->save();
+
+        return response()->json(['success' => true]);
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Request $request)
     {
-        $Candidate = Candidate::findOrFail($request->id)->delete();
+        Candidate::findOrFail($request->id)->delete();
         //return redirect()->route('candidate.index');
         return redirect()->route('candidate.index')
-        ->with('success_message', 'Candidate has been deleted successfully!');
+            ->with('success_message', 'Candidate has been deleted successfully!');
     }
 }

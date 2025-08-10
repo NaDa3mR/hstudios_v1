@@ -6,12 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Interview extends Model
 {
-    protected $fillable = ['job_application_id', 'type', 'interview_date', 'duration', 'details'];
+    protected $fillable = ['career_id', 'candidate_id', 'type', 'interview_date', 'duration', 'details'];
     protected $table = 'interviews';
 
-    public function jobApplication()
+        public function jobApplication()
 {
     return $this->belongsTo(Job_Application::class);
+}
+    public function candidate()
+{
+    return $this->belongsTo(Candidate::class);
+}
+    public function career()
+{
+    return $this->belongsTo(Career::class);
 }
 
 }

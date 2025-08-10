@@ -93,17 +93,17 @@
                 <div class="taskboardapp-wrap">
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
-                            @include('admin.sections.services.topbar')
+                            @include('admin.sections.interviews.topbar')
                             @section('blog-header-action')
-                        @endsection
+                            @endsection
 
-                            @include('admin.sections.services.table')
+                            @include('admin.sections.interviews.table')
                         </div>
 
-                        @include('admin.sections.services.add_modal')
-                        @foreach ($services as $service)
-                            @include('admin.sections.services.update_modal')
-                            @include('admin.sections.services.delete_modal')
+                        @include('admin.sections.interviews.add_modal')
+                        @foreach ($interviews as $interview)
+                            @include('admin.sections.interviews.update_modal')
+                            @include('admin.sections.interviews.delete_modal')
                         @endforeach
                     </div>
                 </div>
@@ -111,7 +111,41 @@
         </div>
     </div>
     @include('admin.main.scripts')
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle Career → Candidate for both add & edit
+            function attachCareerListener(careerIdPrefix, candidateIdPrefix) {
+                document.querySelectorAll(`[id^="${careerIdPrefix}"]`).forEach(function(careerSelect) {
+                    careerSelect.addEventListener('change', function () {
+                        let careerId = this.value;
+                        let candidateSelectId = this.id.replace(careerIdPrefix, candidateIdPrefix);
+                        let candidateSelect = document.getElementById(candidateSelectId);
+
+                        candidateSelect.innerHTML = '<option value="" disabled selected>Loading...</option>';
+
+                        fetch(`/candidates/by-career/${careerId}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                candidateSelect.innerHTML = '<option value="" disabled selected>Select Candidate</option>';
+                                data.forEach(function(candidate) {
+                                    candidateSelect.innerHTML += `<option value="${candidate.id}">${candidate.first_name} ${candidate.last_name}</option>`;
+                                });
+                            });
+                    });
+                });
+            }
+
+            // Add modal
+            attachCareerListener('career_add', 'candidate_add');
+
+            // Edit modals
+            attachCareerListener('career_edit', 'candidate_edit');
+        });
+        </script>
+
+
+
+
 </body>
 
 </html>

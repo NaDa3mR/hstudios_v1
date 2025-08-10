@@ -23,7 +23,7 @@ class UpdateJobApplicationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'career_id' => 'required|exists:careers,id',
+            'career_id' => 'required|exists:careers,id',
             // 'candidate_id' => 'required|exists:candidates,id',
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',

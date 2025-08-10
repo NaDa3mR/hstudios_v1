@@ -15,6 +15,7 @@ class CandidateTableSeeder extends Seeder
     {
             $candidates = [
                 [
+                    'career_id' => 1,
                     'first_name' => 'Ahmed',
                     'last_name' => 'Hassan',
                     'email' => 'ahmed@example.com',
@@ -27,6 +28,7 @@ class CandidateTableSeeder extends Seeder
                     'is_hired' => 0,
                 ],
                 [
+                    'career_id' => 2,
                     'first_name' => 'Salma',
                     'last_name' => 'Mohamed',
                     'email' => 'salma@example.com',

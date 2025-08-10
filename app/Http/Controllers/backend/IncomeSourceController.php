@@ -16,7 +16,7 @@ class IncomeSourceController extends Controller
     public function index()
     {
       //Pagination
-      $income_sources = Income_source::paginate(5);
+      $income_sources = Income_source::all();
       //return view('backend.In_source.show', compact('In_sources'))
       //$income_sources = Income_Source::all();
       return view('admin.income-sources',compact('income_sources'));

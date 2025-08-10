@@ -22,9 +22,10 @@ class UpdateCandidateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => 'required|string|max:100',
-            'last_name' => 'required|string|max:100',
-            'email' => 'required|email|unique:candidates,email,' . $this->candidate->id,
+            'career_id' => 'nullable|exists:careers,id',
+            'first_name' => 'nullable|string|max:100',
+            'last_name' => 'nullable|string|max:100',
+            'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:20',
             'country' => 'nullable|string|max:100',
             'city' => 'nullable|string|max:100',
@@ -38,6 +39,9 @@ class UpdateCandidateRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'career_id.required' => 'The job application is required.',
+            'career_id.exists' => 'The selected job application does not exist.',
+
             'first_name.required' => 'First name is required.',
             'first_name.string' => 'First name must be a string.',
             'first_name.max' => 'First name may not exceed 100 characters.',
