@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('interviews', function (Blueprint $table) {
             $table->id();
             //$table->unsignedBigInteger('job_app_id');
-            $table->foreignId(column: 'job_application_id')->constrained('job_applications')->onDelete('cascade');
+            $table->foreignId(column: 'career_id')->constrained('careers')->onDelete('cascade');
+            // $table->foreignId(column: 'job_application_id')->constrained('job_applications')->nullable()->onDelete('cascade');
+            $table->foreignId(column: 'candidate_id')->constrained('candidates')->onDelete('cascade');
             $table->string('type');
             $table->date('interview_date');
             $table->decimal('duration');
-            $table->text('details')->nullable();      
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }

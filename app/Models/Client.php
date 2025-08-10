@@ -8,7 +8,7 @@ class Client extends Model
 {
     protected $fillable = ['name', 'email', 'password', 'company_name', 'company_field'];
     protected $table = 'clients';
-    protected $hidden = 'password';
+    protected $hidden = ['password'];
     public $timestamps = true;
 
     public function meetings()
@@ -23,6 +23,11 @@ class Client extends Model
     {
         return $this->hasMany(Service_Request::class);
     }
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
 
 
 }

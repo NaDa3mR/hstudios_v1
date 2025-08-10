@@ -93,17 +93,17 @@
                 <div class="taskboardapp-wrap">
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
-                            @include('admin.sections.services.topbar')
+                            @include('admin.sections.job-applications.topbar')
                             @section('blog-header-action')
-                        @endsection
+                            @endsection
 
-                            @include('admin.sections.services.table')
+                            @include('admin.sections.job-applications.table')
                         </div>
 
-                        @include('admin.sections.services.add_modal')
-                        @foreach ($services as $service)
-                            @include('admin.sections.services.update_modal')
-                            @include('admin.sections.services.delete_modal')
+                        @include('admin.sections.job-applications.add_modal')
+                        @foreach ($applications as $application)
+                            @include('admin.sections.job-applications.update_modal')
+                            @include('admin.sections.job-applications.delete_modal')
                         @endforeach
                     </div>
                 </div>
@@ -111,7 +111,82 @@
         </div>
     </div>
     @include('admin.main.scripts')
-    
+    <script>
+        $('.promote-btn').click(function() {
+            let id = $(this).data('id');
+
+            if (!confirm('Are you sure you want to promote this Job Application to a Candidate?')) {
+                return;
+            }
+
+            $.ajax({
+                url: `/job-applications/${id}/promote-to-candidate`,
+                method: 'POST',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.message);
+                        location.reload();
+                    }
+                },
+                error: function() {
+                    alert('Error promoting Job Application.');
+                }
+            });
+        });
+
+        /* -----------------------------
+               Country -> City (works for many forms/modals)
+               ----------------------------- */
+        document.addEventListener("DOMContentLoaded", function() {
+            const citiesByCountry = {
+                "Egypt": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan", "Port Said"],
+                "United States": ["New York", "Los Angeles", "Chicago", "Houston", "Miami"],
+                "United Kingdom": ["London", "Manchester", "Birmingham", "Liverpool", "Glasgow"],
+                "Canada": ["Toronto", "Vancouver", "Montreal", "Calgary", "Ottawa"]
+            };
+
+            // For each country select on the page
+            document.querySelectorAll("select[name='country']").forEach(function(countrySelect) {
+                // try to find the corresponding city select within the same form/modal
+                const container = countrySelect.closest('form') || countrySelect.closest('.modal') ||
+                    document;
+                const citySelect = container.querySelector("select[name='city']");
+                if (!citySelect) return;
+
+                // populate initial city if country already selected (edit modal)
+                if (countrySelect.value && citiesByCountry[countrySelect.value]) {
+                    citySelect.innerHTML = '<option value="" disabled>Select city</option>';
+                    citiesByCountry[countrySelect.value].forEach(function(city) {
+                        const opt = document.createElement('option');
+                        opt.value = city;
+                        opt.textContent = city;
+                        // try to preserve existing value if present (edit modal)
+                        if (citySelect.dataset.current === city || citySelect.value === city) opt
+                            .selected = true;
+                        citySelect.appendChild(opt);
+                    });
+                }
+
+                countrySelect.addEventListener("change", function() {
+                    const selectedCountry = this.value;
+                    citySelect.innerHTML =
+                        '<option value="" disabled selected>Select city</option>';
+
+                    if (selectedCountry && citiesByCountry[selectedCountry]) {
+                        citiesByCountry[selectedCountry].forEach(function(city) {
+                            const option = document.createElement("option");
+                            option.value = city;
+                            option.textContent = city;
+                            citySelect.appendChild(option);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

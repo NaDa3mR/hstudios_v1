@@ -21,7 +21,7 @@ class ExpenseController extends Controller
         //Pagination
         // $expenses = Expense::with(['account', 'e_source'])->paginate(10);
         $expenses = Expense::with('account', 'e_source')->get();
-        $accounts = Account::where('is_active', true)->get();
+        $accounts = Account::where('is_active', 1)->get();
         $expense_sources = Expense_Source::all();
 
         return view('admin.expenses', compact('expenses', 'accounts', 'expense_sources'));

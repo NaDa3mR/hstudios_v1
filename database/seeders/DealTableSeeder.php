@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Client;
 use App\Models\Deal;
 use App\Models\Service_Request;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,14 +15,18 @@ class DealTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $serviceRequests = Service_Request::take(3)->get(); // adjust count as needed
+        $serviceRequests = Service_Request::with('services')->take(3)->get();
 
         foreach ($serviceRequests as $request) {
-            Deal::create([
+            $deal = Deal::create([
+                'client_id' => $request->client_id,
                 'service_request_id' => $request->id,
                 'status' => 'pending',
                 'details' => 'This deal is automatically generated for testing.',
             ]);
+
+            // ربط الخدمات اللي كانت مربوطة بالـ service_request مع الـ deal
+            $deal->services()->sync($request->services->pluck('id')->toArray());
         }
     }
 }

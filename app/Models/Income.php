@@ -21,10 +21,33 @@ class Income extends Model
     }
     protected static function booted()
     {
+        // static::created(function ($income) {
+        //     $income->account->increment('balance', $income->amount);
+        //     if ($income->account->name === 'income_cash') {
+        //         $income->source->update([
+        //             'is_active' => 0
+        //         ]);
+        //     }
+        // });
+
+        static::creating(function ($income) {
+            $account = $income->account;
+
+            if (!$account) {
+                throw new \Exception('Account not found.');
+            }
+
+            if ($account->balance < $income->amount) {
+                throw new \Exception('Insufficient account balance to create this income.');
+            }
+        });
+
         static::created(function ($income) {
-            $income->account->increment('balance', $income->amount);
-            if ($income->account->name === 'income_cash') {
-                $income->source->update([
+            // Safe to decrement now
+            $income->account->decrement('balance', $income->amount);
+
+            if ($income->account->name === 'cash' && $income->e_source) {
+                $income->e_source->update([
                     'is_active' => 0
                 ]);
             }

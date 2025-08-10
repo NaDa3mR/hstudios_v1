@@ -23,6 +23,8 @@ class StoreInterviewRequest extends FormRequest
     {
         return [
             // 'job_application_id' => 'required|exists:job_applications,id',
+            'career_id' => 'required|exists:careers,id',
+            'candidate_id' => 'required|exists:candidates,id',
             'type' => 'required|string|max:255',
             'interview_date' => 'required|date|after_or_equal:today',
             'duration' => 'nullable|integer|min:1',
@@ -35,6 +37,12 @@ class StoreInterviewRequest extends FormRequest
         return [
             // 'job_application_id.required' => 'The job application is required.',
             // 'job_application_id.exists' => 'The selected job application does not exist.',
+
+            'career_id.required' => 'The job application is required.',
+            'career_id.exists' => 'The selected job application does not exist.',
+
+            'candidate_id.required' => 'The job application is required.',
+            'candidate_id.exists' => 'The selected job application does not exist.',
 
             'type.required' => 'The interview type is required.',
             'type.string' => 'The type must be a valid string.',

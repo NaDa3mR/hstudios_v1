@@ -4,6 +4,8 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePaymentRequest;
+use App\Models\Client;
+use App\Models\Deal;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 
@@ -17,11 +19,11 @@ class PaymentController extends Controller
         //Pagination
         //$Payments = Payment::paginate(5);
         //return view('backend.payment.show', compact('Payments'))
-        $Payments = Payment::all();
-        $Clients = Client::all();
-        $Deals = Deal::all();
-        //return view('backend.payment.show',compact('Payments','Clients', 'Deals'));
-        return $Payments;
+        $payments = Payment::with('client', 'deal')->get();
+        $clients = Client::all();
+        $deals = Deal::all();
+        return view('admin.payments',compact('payments','clients', 'deals'));
+        //return $Payments;
     }
 
     /**
@@ -70,7 +72,7 @@ class PaymentController extends Controller
      */
     public function update(Request $request)
     {
-        
+
     }
 
     /**

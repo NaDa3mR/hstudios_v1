@@ -19,11 +19,11 @@ class StoreJobApplicationRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    
+
      public function rules(): array
     {
         return [
-            // 'career_id' => 'required|exists:careers,id',
+            'career_id' => 'required|exists:careers,id',
             // 'candidate_id' => 'required|exists:candidates,id',
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
@@ -40,8 +40,8 @@ class StoreJobApplicationRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // 'career_id.required' => 'The career field is required.',
-            // 'career_id.exists' => 'The selected career does not exist.',
+            'career_id.required' => 'The career field is required.',
+            'career_id.exists' => 'The selected career does not exist.',
 
             // 'candidate_id.required' => 'The candidate field is required.',
             // 'candidate_id.exists' => 'The selected candidate does not exist.',

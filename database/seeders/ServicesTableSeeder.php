@@ -16,6 +16,7 @@ class ServicesTableSeeder extends Seeder
     {
         $services = [
             [
+                'client_id' => 1,
                 'name' => 'Web Development',
                 'title' => 'Professional Web Development Services',
                 'slug' => Str::slug('Web Development'),
@@ -25,6 +26,7 @@ class ServicesTableSeeder extends Seeder
                 'details' => 'We build modern, responsive websites tailored to your business needs.',
             ],
             [
+                'client_id' => 2,
                 'name' => 'SEO Optimization',
                 'title' => 'Effective SEO Services',
                 'slug' => Str::slug('SEO Optimization'),

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreIncomeRequest;
 use App\Http\Requests\UpdateIncomeRequest;
+use App\Models\Account;
 use App\Models\Income;
+use App\Models\Income_Source;
 use Illuminate\Http\Request;
 
 class IncomeController extends Controller
@@ -18,9 +20,11 @@ class IncomeController extends Controller
       //Pagination
       //$Incomes = Income::paginate(5);
       //return view('backend.income.show', compact('Incomes'))
-      $Incomes = Income::all();
-      //return view('backend.income.show',compact('Incomes'));
-      return $Incomes;
+      $incomes = Income::with('account', 'in_source')->get();
+      $accounts = Account::where('is_active', 1)->get();
+      $income_sources = Income_Source::all();
+
+      return view('admin.incomes', compact('incomes', 'accounts', 'income_sources'));
     }
 
     /**
@@ -41,9 +45,9 @@ class IncomeController extends Controller
             Income::create($validated);
             //return redirect()->route('income.index');
             return redirect()->route('income.index')
-            ->with('success_message', 'Income Cash has been created successfully!');
+            ->with('success_message', 'Income cash has been created successfully!');
         }
-    
+
         catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -73,8 +77,8 @@ class IncomeController extends Controller
         try {
 
             $validated = $request->validated();
-            $Income = Income::findOrFail($request->id);
-            $Income->update($validated);
+            $income = Income::findOrFail($request->id);
+            $income->update($validated);
             //return redirect()->route('income.index');
             return redirect()->route('income.index')
             ->with('success_message', 'Income Cash has been updated successfully!');
@@ -90,7 +94,7 @@ class IncomeController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Income = Income::findOrFail($request->id)->delete();
+        $income = Income::findOrFail($request->id)->delete();
         //return redirect()->route('income.index');
         return redirect()->route('income.index')
         ->with('success_message', 'Income Cash has been deleted successfully!');

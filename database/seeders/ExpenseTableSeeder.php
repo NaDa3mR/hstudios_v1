@@ -17,21 +17,27 @@ class ExpenseTableSeeder extends Seeder
     {
         $accountIds = Account::pluck('id')->toArray();
         $sourceIds = Expense_Source::pluck('id')->toArray();
-
-        // Skip if dependencies are missing
-        if (empty($accountIds) || empty($sourceIds)) {
-            return;
-        }
-
         foreach (range(1, 15) as $i) {
+            $account = Account::inRandomOrder()->first();
+            $sourceId = fake()->randomElement($sourceIds);
+
+            $maxAmount = $account->balance;
+            $amount = fake()->randomFloat(2, 10, $maxAmount ?: 10); // avoid 0
+
+            // Skip if account balance is zero
+            if ($amount > $maxAmount) {
+                continue;
+            }
+
             Expense::create([
-                'account_id' => fake()->randomElement($accountIds),
-                'expense_source_id' => fake()->randomElement($sourceIds),
+                'account_id' => $account->id,
+                'expense_source_id' => $sourceId,
                 'title' => fake()->words(3, true),
-                'amount' => fake()->randomFloat(2, 100, 10000),
+                'amount' => $amount,
                 'expense_date' => now()->subDays(rand(1, 30)),
                 'details' => fake()->optional()->sentence(),
             ]);
         }
+
     }
 }

@@ -15,8 +15,8 @@ class AccountController extends Controller
      */
     public function index()
     {
-    //   $Accounts = Account::all();
-        $accounts = Account::paginate(5);
+        $accounts = Account::all();
+        // $accounts = Account::paginate(5);
         return view('admin.accounts',compact('accounts'));
     //return $$account ;
     }

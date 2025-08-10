@@ -1,81 +1,98 @@
-<div class="modal fade" id="updatemodel{{$service->id}}" tabindex="-1" aria-labelledby="updatemodel" aria-modal="true">
+<div class="modal fade" id="updatemodel{{$candidate->id}}" tabindex="-1" aria-labelledby="updatemodel" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updatemodel">Edit Service</h5>
+                <h5 class="modal-title" id="updatemodel">Edit Candidate</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="editBlogForm" method="POST" action="{{route('service.update', $service->id)}}">
-                @method('PUT')
+            <form id="editBlogForm" action="{{ route('candidate.update', $candidate->id) }}" method="POST">
                 @csrf
-                {{-- <input type="hidden" name="id" id="edit_service_id" value="{{$service->id}}"> --}}
+                @method('PATCH')
+
                 <div class="modal-body">
                     <div class="row g-3">
-                        <input id="id" type="hidden" name="id" class="form-control"
-                        value="{{ $service->id }}">
                         <div class="col-12">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" id="name" class="form-control"value="{{ $service->name }}" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title" id="title" class="form-control" value="{{ $service->title }}" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" name="slug" id="slug" class="form-control" value="{{ $service->slug }}" readonly>
-                        </div>
-                        <div class="col-12">
-                            <label for="meta_keyword" class="form-label">Meta_Keyword</label>
-                            <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" value="{{ $service->meta_keyword }}" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="meta_description" class="form-label">Meta_Description</label>
-                            <input type="text" name="meta_description" id="meta_description" class="form-control" value="{{ $service->meta_description }}" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="meta_title" class="form-label">Meta_Title</label>
-                            <input type="text" name="meta_title" id="meta_title" class="form-control"value="{{ $service->meta_title }}" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="details" class="form-label">Details</label>
-                            <input type="text" name="details" id="details" class="form-control" value="{{ $service->details }}" required>
+                            <label for="first_name-{{ $candidate->id }}" class="form-label">First Name</label>
+                            <input type="text" name="first_name" id="first_name-{{ $candidate->id }}"
+                                   class="form-control" value="{{ $candidate->first_name }}" required>
                         </div>
 
+                        <input id="id" type="hidden" name="id" class="form-control"
+                        value="{{ $candidate->id }}">
+
+                        <div class="col-12">
+                            <label for="last_name-{{ $candidate->id }}" class="form-label">Last Name</label>
+                            <input type="text" name="last_name" id="last_name-{{ $candidate->id }}"
+                                   class="form-control" value="{{ $candidate->last_name }}" required>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="email-{{ $candidate->id }}" class="form-label">Email</label>
+                            <input type="email" name="email" id="email-{{ $candidate->id }}"
+                                   class="form-control" value="{{ $candidate->email }}" required>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="phone-{{ $candidate->id }}" class="form-label">Phone</label>
+                            <input type="text" name="phone" id="phone-{{ $candidate->id }}"
+                                   class="form-control" value="{{ $candidate->phone }}" required>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="career_id" class="form-label">Career</label>
+                            <select name="career_id" class="form-select" required>
+                                <option value="" disabled>Select career</option>
+                                @foreach ($careers as $career)
+                                    <option value="{{ $career->id }}"
+                                        {{ $candidate->career_id == $career->id ? 'selected' : '' }}>
+                                        {{ $career->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="country-{{ $candidate->id }}" class="form-label">Country</label>
+                            <select name="country" id="country-{{ $candidate->id }}" class="form-select" required>
+                                <option value="" disabled>Select country</option>
+                                <option value="Egypt" {{ $candidate->country == 'Egypt' ? 'selected' : '' }}>Egypt</option>
+                                <option value="United States" {{ $candidate->country == 'United States' ? 'selected' : '' }}>United States</option>
+                                <option value="United Kingdom" {{ $candidate->country == 'United Kingdom' ? 'selected' : '' }}>United Kingdom</option>
+                                <option value="Canada" {{ $candidate->country == 'Canada' ? 'selected' : '' }}>Canada</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label for="city-{{ $candidate->id }}" class="form-label">City</label>
+                            <select name="city" id="city-{{ $candidate->id }}" class="form-select" required>
+                                <option value="{{ $candidate->city }}" selected>{{ $candidate->city }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="linkedin-{{ $candidate->id }}" class="form-label">LinkedIn</label>
+                            <input type="text" name="linkedin" id="linkedin-{{ $candidate->id }}"
+                                   class="form-control" value="{{ $candidate->linkedin }}" required>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="github-{{ $candidate->id }}" class="form-label">GitHub</label>
+                            <input type="text" name="github" id="github-{{ $candidate->id }}"
+                                   class="form-control" value="{{ $candidate->github }}" required>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="behance-{{ $candidate->id }}" class="form-label">Behance</label>
+                            <input type="text" name="behance" id="behance-{{ $candidate->id }}"
+                                   class="form-control" value="{{ $candidate->behance }}">
+                        </div>
                     </div><!--end row-->
                 </div>
+
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-dark">Update Candidate</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script>
-    function slugify(text) {
-        return text
-            .toString()
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '') // Remove non-alphanumeric chars
-            .replace(/\s+/g, '-') // Replace spaces with -
-            .replace(/-+/g, '-'); // Replace multiple - with single -
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        // Select all modals
-        document.querySelectorAll('.modal').forEach(function (modal) {
-            const titleInput = modal.querySelector('input[name="title"]');
-            const slugInput = modal.querySelector('input[name="slug"]');
-
-            if (titleInput && slugInput) {
-                titleInput.addEventListener('input', function () {
-                    slugInput.value = slugify(titleInput.value);
-                });
-            }
-        });
-    });
-</script>
-
-
-

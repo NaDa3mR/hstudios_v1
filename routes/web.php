@@ -47,7 +47,9 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/account/toggle-status', [AccountController::class, 'toggleStatus'])->name('account.toggleStatus');
 
     //Cadidate
-    Route::resource('/candidate', CandidateController::class);
+    Route::resource('admin/candidate', CandidateController::class);
+    Route::post('admin/candidate/{id}/toggle-hired', [CandidateController::class, 'toggleHired']);
+
     //Career
     Route::resource('admin/career', CareerController::class);
     Route::post('admin/careers/{id}/toggle-active', [CareerController::class, 'toggleActive']);
@@ -57,6 +59,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/client', ClientController::class);
     //Deal
     Route::resource('admin/deal', DealController::class);
+    // Route::post('admin/deal/from-request/{serviceRequest}', [DealController::class, 'createFromServiceRequest'])->name('deals.create.fromRequest');
+    Route::get('/get-service-request-data/{id}', [DealController::class, 'getServiceRequestData']);
     //Employee
     Route::resource('admin/employee', EmployeeController::class);
     //Expense
@@ -71,6 +75,9 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/in-source/toggle-status', [IncomeSourceController::class, 'toggleStatus'])->name('in-source.toggleStatus');
     //Interview
     Route::resource('admin/interview', InterviewController::class);
+    Route::get('/candidates/by-career/{careerId}', [InterviewController::class, 'getCandidatesByCareer']);
+
+    // Route::get('/get-candidates-by-career/{careerId}', [InterviewController::class, 'getCandidatesByCareer']);
     //Meeting
     Route::resource('admin/meeting', MeetingController::class);
     //Payment
@@ -82,13 +89,13 @@ Route::middleware('auth')->group(function () {
     //Contact
     Route::resource('admin/contact', ContactController::class);
     //Job Application
-    Route::resource('admin/job-app', JobApplicationController::class);
+    Route::resource('admin/application', \App\Http\Controllers\backend\JobApplicationController::class);
+    Route::post('/job-applications/{id}/promote-to-candidate', [\App\Http\Controllers\backend\JobApplicationController::class, 'promoteToCandidate'])->name('job_applications.promote');
+
     //Service Request
-    // Route::resource('/service', ServiceController::class);
+    Route::resource('admin/service-request', \App\Http\Controllers\backend\ServiceRequestController::class);
     //Approved Request
-    Route::post('/service-request/approve-request/{id}', [ServiceRequestController::class, 'ApproveRequest'])->name('service_request.approve_request');
-    //Approved Request
-    Route::resource('/service-req', ServiceRequestController::class);
+    Route::get('admin/deals/create-from-request/{service_request}', [DealController::class, 'createFromRequest'])->name('deals.create.fromRequest');
 
     route::get('admin/users', function () {
         return view('admin.page');

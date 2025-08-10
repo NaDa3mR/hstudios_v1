@@ -22,9 +22,13 @@ class StoreDealRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'service_request_id' => 'required|exists:service_requests,id',
+            'service_request_id' => 'required|exists:service_requests,id',
+            // 'client_id' => 'required|exists:clients,id',
             'status' => 'required|string|max:100',
             'details' => 'nullable|string|max:1000',
+            'name' => 'required|string|max:255',
+            'services' => 'required|array',
+            'services.*' => 'exists:services,id',
         ];
     }
 

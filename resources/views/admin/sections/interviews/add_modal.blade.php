@@ -1,69 +1,60 @@
-
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addModal">Add service </h5>
+                <h5 class="modal-title" id="addModal">Add Interview</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('service.store')}}" method="POST">
+            <form action="{{ route('interview.store') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
+                        <!-- Career -->
                         <div class="col-12">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
+                            <label class="form-label">Career</label>
+                            <select id="career_add" name="career_id" class="form-select">
+                                <option value="" disabled selected>Select Career</option>
+                                @foreach ($careers as $career)
+                                    <option value="{{ $career->id }}">{{ $career->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <!-- Candidate -->
+                        <div class="col-12">
+                            <label class="form-label">Select Candidate</label>
+                            <select id="candidate_add" name="candidate_id" class="form-select">
+                                <option value="" disabled selected>Select Candidate</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="type" class="form-label">Type</label>
+                            <select id="type" name="type" class="form-select" required>
+                                <option value="" disabled selected>Select Type</option>
+                                <option value="online">Online</option>
+                                <option value="offline">Offline</option>
+                            </select>
                         </div>
                         <div class="col-12">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title" id="title" class="form-control" required>
+                            <label for="interview_date" class="form-label">Interview Date</label>
+                            <input type="date" name="interview_date" id="interview_date" class="form-control"
+                                required>
                         </div>
                         <div class="col-12">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" name="slug" id="slug" class="form-control" readonly>
-                        </div>
-                        <div class="col-12">
-                            <label for="meta_keyword" class="form-label">Meta_Keyword</label>
-                            <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="meta_description" class="form-label">Meta_Description</label>
-                            <input type="text" name="meta_description" id="meta_description" class="form-control" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="meta_title" class="form-label">Meta_Title</label>
-                            <input type="text" name="meta_title" id="meta_title" class="form-control" required>
+                            <label for="duration" class="form-label">Duration</label>
+                            <input type="text" name="duration" id="duration" class="form-control" required>
                         </div>
                         <div class="col-12">
                             <label for="details" class="form-label">Details</label>
                             <input type="text" name="details" id="details" class="form-control" required>
                         </div>
                     </div><!--end row-->
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark">Add Service</button>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-dark">Add Interview</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script>
-    function slugify(text) {
-        return text
-            .toString()
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '')   // Remove non-alphanumeric chars
-            .replace(/\s+/g, '-')           // Replace spaces with -
-            .replace(/-+/g, '-');           // Replace multiple - with single -
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const title = document.getElementById('title');
-        const slug = document.getElementById('slug');
-
-        title.addEventListener('input', function () {
-            slug.value = slugify(title.value);
-        });
-    });
-</script>

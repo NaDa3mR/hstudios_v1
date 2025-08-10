@@ -16,9 +16,9 @@ class ExpenseSourceController extends Controller
     public function index()
     {
       //Pagination
-      $expense_sources = Expense_Source::paginate(5);
+    //   $expense_sources = Expense_Source::paginate(5);
+      $expense_sources  = Expense_Source::all();
       return view('admin.expense-sources', compact('expense_sources'));
-      //$E_sources = Expense_Source::all();
       //return view('backend.E_source.show',compact('E_sources'));
       //return $E_sources;
     }

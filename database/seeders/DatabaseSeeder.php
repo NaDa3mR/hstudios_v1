@@ -12,29 +12,33 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+
+     public function run(): void
     {
         $this->call([
-            //BlogSeeder::class,
-            // AccountTableSeeder::class,
-            // IncomeSourceTableSeeder::class,
-            // IncomeTableSeeder::class,
-            // ExpenseSourceTableSeeder::class,
-            // ExpenseTableSeeder::class,
-            // TransferTableSeeder::class,
-            // MeetingTableSeeder::class,
-            // CareerTableSeeder::class,
-            // CandidateTableSeeder::class,
-            //JobApplicationTableSeeder::class,
-            // InterviewTableSeeder::class,
-            // ClientTableSeeder::class,
-            // ServicesTableSeeder::class,
-            // ServiceRequestTableSeeder::class,
-            // DealTableSeeder::class,
-            // PaymentTableSeeder::class,
-            // WordTableSeeder::class,
-            //ContactTableSeeder::class,
-            EmployeeTableSeeder::class
+            BlogSeeder::class,
+            AccountTableSeeder::class,
+            IncomeSourceTableSeeder::class,
+            IncomeTableSeeder::class,
+            ExpenseSourceTableSeeder::class,
+            ExpenseTableSeeder::class,
+            TransferTableSeeder::class,
+            MeetingTableSeeder::class,
+            CareerTableSeeder::class,
+            CandidateTableSeeder::class,
+            JobApplicationTableSeeder::class,
+            InterviewTableSeeder::class,
+            ClientTableSeeder::class,
+            ServicesTableSeeder::class,
+            ServiceRequestTableSeeder::class,
+            DealTableSeeder::class,
+            PaymentTableSeeder::class,
+            WordTableSeeder::class,
+            ContactTableSeeder::class,
+            EmployeeTableSeeder::class,
+            DealServiceTableSeeder::class,
+            ServiceRequestServiceSeeder::class,
+
 
         ]);
 

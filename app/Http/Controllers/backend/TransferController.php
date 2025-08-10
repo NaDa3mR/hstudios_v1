@@ -4,8 +4,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTransferRequest;
+use App\Models\Account;
 use App\Models\Transfer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransferController extends Controller
 {
@@ -15,7 +17,8 @@ class TransferController extends Controller
     public function index()
     {
         $transfers = Transfer::paginate(5);
-        return view('backend.transfer.show', compact('tranfers'));
+        $transfers = Transfer::all();
+        return view('admin.transfers', compact('tranfers'));
     }
 
     /**

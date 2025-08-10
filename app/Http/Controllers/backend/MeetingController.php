@@ -5,6 +5,10 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMeetingRequest;
 use App\Http\Requests\UpdateMeetingRequest;
+use App\Models\Account;
+use App\Models\Client;
+use App\Models\Expense;
+use App\Models\Expense_Source;
 use App\Models\Meeting;
 use Illuminate\Http\Request;
 
@@ -16,11 +20,15 @@ class MeetingController extends Controller
     public function index()
     {
         //Pagination
-        $data['Meetings'] = Meeting::all();
+        // $data['Meetings'] = Meeting::all();
         //$Meetings = Meeting::paginate(5);
-         $data['$Clients'] = Client::all();
+        //  $data['$Clients'] = Client::all();
         //return view('backend.meeting.show', compact('data'))
-        return $data;
+        // return $data;
+        $meetings = Meeting::with('client')->get();
+        $clients = Client::all();
+        return view('admin.expenses', compact('meetings','clients'));
+
     }
 
     /**
@@ -71,10 +79,10 @@ class MeetingController extends Controller
     {
         try {
             $validated = $request->validated();
-    
+
             $meeting = Meeting::findOrFail($request->id);
             $meeting->update($validated);
-    
+
             return redirect()->route('meeting.index')
                 ->with('success_message', 'Meeting has been updated successfully!');
         } catch (\Exception $e) {
@@ -87,7 +95,7 @@ class MeetingController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Meeting = Meeting::findOrFail($request->id)->delete();
+        $meeting = Meeting::findOrFail($request->id)->delete();
         //return redirect()->route('meeting.index');
         return redirect()->route('meeting.index')
             ->with('success_message', 'Meeting has been deleted successfully!');
