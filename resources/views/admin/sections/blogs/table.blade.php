@@ -17,7 +17,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                                     aria-label="Close"></button>
                             </div>
-                        @endif
+                            @endif
                             <div class="role-list-view">
                                 <table id="datable_4c"
                                     class="table table-hover table-striped table-bordered nowrap w-100">
