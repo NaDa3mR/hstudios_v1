@@ -19,11 +19,12 @@ class StoreMeetingRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    
+
      public function rules(): array
     {
         return [
-            // 'client_id' => 'required|exists:clients,id',
+            'client_id' => 'required|exists:clients,id',
+            'deal_id' => 'required|exists:deals,id',
             'subject' => 'required|string|max:255',
             'type' => 'nullable|string|max:100',
             'address' => 'nullable|string|max:255',
@@ -35,8 +36,11 @@ class StoreMeetingRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // 'client_id.required' => 'The client field is required.',
-            // 'client_id.exists' => 'The selected client does not exist.',
+            'client_id.required' => 'The client field is required.',
+            'client_id.exists' => 'The selected client does not exist.',
+
+            'deal_id.required' => 'The client field is required.',
+            'deal_id.exists' => 'The selected client does not exist.',
 
             'subject.required' => 'Meeting subject is required.',
             'subject.string' => 'Subject must be a valid string.',

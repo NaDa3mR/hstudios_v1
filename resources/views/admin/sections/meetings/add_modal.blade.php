@@ -1,69 +1,65 @@
-
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addModal">Add service </h5>
+                <h5 class="modal-title" id="addModal">Add Meeting</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('service.store')}}" method="POST">
+            <form action="{{route('meeting.store')}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-12">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" required>
+                            <label class="form-label">Clients</label>
+                            <select id="client_add" name="client_id" class="form-select">
+                                <option value="" disabled selected>Select Clients</option>
+                                @foreach ($clients as $client)
+                                    <option value="{{ $client->id }}">{{ $client->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Deal</label>
+                            <select id="deal_add" name="deal_id" class="form-select">
+                                <option value="" disabled selected>Select Deal</option>
+                                @foreach ($deals as $deal)
+                                    <option value="{{ $deal->id }}">{{ $deal->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" name="subject"  class="form-control" required>
                         </div>
                         <div class="col-12">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" name="title" id="title" class="form-control" required>
+                            <label for="type" class="form-label">Type</label>
+                            <select name="type" id="type" class="form-select" required>
+                                @foreach (['Online', 'In-person', 'Phone Call'] as $type)
+                                    <option value="{{ $type }}" {{ old('type') == $type ? 'selected' : '' }}>{{ $type }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-12">
-                            <label for="slug" class="form-label">Slug</label>
-                            <input type="text" name="slug" id="slug" class="form-control" readonly>
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" name="address" id="address" class="form-control" required>
                         </div>
                         <div class="col-12">
-                            <label for="meta_keyword" class="form-label">Meta_Keyword</label>
-                            <input type="text" name="meta_keyword" id="meta_keyword" class="form-control" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="meta_description" class="form-label">Meta_Description</label>
-                            <input type="text" name="meta_description" id="meta_description" class="form-control" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="meta_title" class="form-label">Meta_Title</label>
-                            <input type="text" name="meta_title" id="meta_title" class="form-control" required>
+                            <label for="meet_date" class="form-label">Meeting Date</label>
+                            <input type="date" name="meet_date" id="meet_date" class="form-control" required>
                         </div>
                         <div class="col-12">
                             <label for="details" class="form-label">Details</label>
-                            <input type="text" name="details" id="details" class="form-control" required>
+                            <textarea name="details" id="details" rows="4" class="form-control" required></textarea>
                         </div>
                     </div><!--end row-->
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark">Add Service</button>
+                    <button type="submit" class="btn btn-dark">Add Meeting</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script>
-    function slugify(text) {
-        return text
-            .toString()
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9\s-]/g, '')   // Remove non-alphanumeric chars
-            .replace(/\s+/g, '-')           // Replace spaces with -
-            .replace(/-+/g, '-');           // Replace multiple - with single -
-    }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const title = document.getElementById('title');
-        const slug = document.getElementById('slug');
-
-        title.addEventListener('input', function () {
-            slug.value = slugify(title.value);
-        });
-    });
-</script>

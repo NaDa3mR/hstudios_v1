@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             //$table->unsignedBigInteger('client_id');
             $table->foreignId(column: 'client_id')->constrained('clients')->onDelete('cascade');
+            $table->foreignId(column: 'deal_id')->constrained('deals')->onDelete('cascade');
             $table->string('subject');
             $table->string('type');
             $table->string('address');
