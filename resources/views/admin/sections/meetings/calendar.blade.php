@@ -9,11 +9,12 @@
     @include('admin.main.meta')
     <style>
         #calendar {
-            height: auto;
-            width: auto;
+            /* height: auto;
+            width: auto; */
             overflow-y: visible;
             background-color: #fff;
-            margin-top: 44px;
+            /* margin-top: 44px; */
+            margin: 25px;
             border-radius: 25px;
             /* big radius for oval corners */
             border: 1px solid #ccc;
@@ -200,7 +201,7 @@
                                     </ul>
                                 </div>
                             </header>
-                            <div class="container">
+                            <div class="container-fluid">
                                 {{-- <h1>Meetings Calendar</h1> --}}
 
                                 <!-- Your Add Meeting Modal Trigger -->

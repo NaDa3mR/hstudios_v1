@@ -112,6 +112,30 @@
     </div>
     @include('admin.main.scripts')
 
+    <script>
+        $(document).on('submit', '#meetingForm', function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: "{{ route('meetings.ajaxStore') }}",
+                method: "POST",
+                data: $(this).serialize(),
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    console.log("Meeting created:", response);
+                    alert("Meeting created successfully!");
+                },
+                error: function(xhr) {
+                    console.error(xhr.responseText);
+                    alert("Something went wrong.");
+                }
+            });
+        });
+        </script>
+
+
 </body>
 
 </html>
