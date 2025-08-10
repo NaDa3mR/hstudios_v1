@@ -19,11 +19,12 @@ class UpdateMeetingRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    
+
      public function rules(): array
     {
         return [
-            // 'client_id' => 'required|exists:clients,id',
+            'client_id' => 'required|exists:clients,id',
+            'deal_id' => 'required|exists:deals,id',
             'subject' => 'required|string|max:255',
             'type' => 'nullable|string|max:100',
             'address' => 'nullable|string|max:255',

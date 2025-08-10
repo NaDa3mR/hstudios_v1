@@ -80,6 +80,13 @@ Route::middleware('auth')->group(function () {
     // Route::get('/get-candidates-by-career/{careerId}', [InterviewController::class, 'getCandidatesByCareer']);
     //Meeting
     Route::resource('admin/meeting', MeetingController::class);
+
+    Route::get('/meetings/calendar', [MeetingController::class, 'calendar'])->name('meetings.calendar');
+
+    Route::post('/meetings/ajax-store', [MeetingController::class, 'ajaxStore'])->name('meetings.ajaxStore');
+
+    Route::patch('/meetings/ajax-update/{meeting}', [MeetingController::class, 'ajaxUpdate'])->name('meetings.ajaxUpdate');
+
     //Payment
     Route::resource('admin/payment', PaymentController::class);
     //Transfer

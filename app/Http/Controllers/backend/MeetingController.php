@@ -7,6 +7,7 @@ use App\Http\Requests\StoreMeetingRequest;
 use App\Http\Requests\UpdateMeetingRequest;
 use App\Models\Account;
 use App\Models\Client;
+use App\Models\Deal;
 use App\Models\Expense;
 use App\Models\Expense_Source;
 use App\Models\Meeting;
@@ -25,9 +26,10 @@ class MeetingController extends Controller
         //  $data['$Clients'] = Client::all();
         //return view('backend.meeting.show', compact('data'))
         // return $data;
-        $meetings = Meeting::with('client')->get();
+        $meetings = Meeting::with('client', 'deal')->get();
         $clients = Client::all();
-        return view('admin.expenses', compact('meetings','clients'));
+        $deals = Deal::all();
+        return view('admin.meetings', compact('meetings', 'clients', 'deals'));
 
     }
 
@@ -46,10 +48,11 @@ class MeetingController extends Controller
     {
         try {
             $validated = $request->validated();
-            $client = Client::findOrFail($validated['client_id']);
-            $client->meetings()->create($validated);
+            // $client = Client::findOrFail($validated['client_id']);
+            // $client->meetings()->create($validated);
 
-            return redirect()->route('clients.index')
+            Meeting::create($validated);
+            return redirect()->route('meeting.index')
                 ->with('success_message', 'Meeting created successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -95,9 +98,45 @@ class MeetingController extends Controller
      */
     public function destroy(Request $request)
     {
-        $meeting = Meeting::findOrFail($request->id)->delete();
+        Meeting::findOrFail($request->id)->delete();
         //return redirect()->route('meeting.index');
         return redirect()->route('meeting.index')
             ->with('success_message', 'Meeting has been deleted successfully!');
     }
+
+    public function ajaxStore(StoreMeetingRequest $request)
+    {
+        $data = $request->validated();
+
+        $data['start_time'] = $data['meet_date'] . ' 09:00:00';
+        $data['end_time'] = $data['meet_date'] . ' 10:00:00';
+        $meeting = Meeting::create($data);
+
+        $meeting->load(['client', 'deal']);
+
+        return response()->json($meeting);
+    }
+
+    public function ajaxUpdate(Request $request, Meeting $meeting)
+    {
+        $data = $request->validate([
+            'meet_date' => 'required|date',
+        ]);
+
+        $meeting->update([
+            'meet_date' => $data['meet_date']
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
+    public function calendar()
+    {
+        $meetings = Meeting::with(['client', 'deal'])->get();
+        $clients = Client::all();
+        $deals = Deal::all();
+
+        return view('admin.sections.meetings.calendar', compact('meetings', 'clients', 'deals'));
+    }
+
 }
