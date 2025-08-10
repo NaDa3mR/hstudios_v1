@@ -11,6 +11,8 @@ use App\Models\Deal;
 use App\Models\Expense;
 use App\Models\Expense_Source;
 use App\Models\Meeting;
+use App\Mail\MeetingCreated;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class MeetingController extends Controller
@@ -110,9 +112,12 @@ class MeetingController extends Controller
 
         $data['start_time'] = $data['meet_date'] . ' 09:00:00';
         $data['end_time'] = $data['meet_date'] . ' 10:00:00';
+
         $meeting = Meeting::create($data);
 
         $meeting->load(['client', 'deal']);
+
+        Mail::to($meeting->client->email)->send(new MeetingCreated($meeting));
 
         return response()->json($meeting);
     }
