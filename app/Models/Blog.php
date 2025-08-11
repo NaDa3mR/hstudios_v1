@@ -12,11 +12,4 @@ class Blog extends Model implements HasMedia
     use InteractsWithMedia;
     protected $fillable = ['title', 'sub_title', 'slug', 'meta_keyword', 'meta_description', 'meta_title', 'details', 'is_active'];
     protected $table = 'blogs';
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')
-            ->width(400)
-            ->height(200)
-            ->sharpen(10);
-    }
 }

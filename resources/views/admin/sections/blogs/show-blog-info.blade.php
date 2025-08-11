@@ -220,13 +220,15 @@
                                                     <img src="{{ $blog->getFirstMediaUrl('blog_images') }}"
                                                         alt="Thumbnail" class="img-fluid rounded shadow-sm border"
                                                         style="max-height: 400px; object-fit: cover;">
-                                                    <form action="{{ route('blogs.deleteImage', $blog->id) }}"
-                                                        method="POST" style="display:inline;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit"
-                                                            onclick="return confirm('Are you sure you want to delete this image?')">Delete</button>
-                                                    </form>
+                                                    <div class="mt-4">
+                                                        <form action="{{ route('blogs.deleteImage', $blog->id) }}"
+                                                            method="POST" style="display:inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm btn-primary"
+                                                                onclick="return confirm('Are you sure you want to delete this image?')">Delete image</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                                 {{-- @endif --}}
                                                 <h1 class="card-title">{{ $blog->title }}</h1>

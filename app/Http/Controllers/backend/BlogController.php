@@ -103,6 +103,9 @@ class BlogController extends Controller
             $validated['slug'] = $slug;
             $blog->update($validated);
             //return redirect()->route('blog.index');
+            if ($request->hasFile('image')) {
+                $blog->addMediaFromRequest('image')->toMediaCollection('blog_images');
+            }
             return redirect()->route('blog.index')
                 ->with('success_message', 'Blog has been updated successfully!');
         } catch (\Exception $e) {

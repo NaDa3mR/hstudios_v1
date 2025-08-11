@@ -8,78 +8,85 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.main.meta')
     <style>
-    .btn-link{
-        color: #33475b;
-    }
-    .btn-link:hover{
-        color: rgba(74,96,156,1);
-    }
-    #datable_4c_filter{
-        float: right;
-    }
-    .avatar.avatar-info > .initial-wrap {
-        background-color: rgba(74,96,156,1) !important;
-        color: #fff;
-    }
-    .feather-search {
-      display: none;
-    }
-    /* Enhanced Table Styling */
-    #datable_4c thead th {
-        border-bottom: 2px solid rgba(74,96,156,1) !important;
-        font-weight: 600;
-        padding: 12px 15px;
-    }
+        .btn-link {
+            color: #33475b;
+        }
 
-    #datable_4c tbody td {
-        padding: 12px 15px;
-        vertical-align: middle;
-    }
+        .btn-link:hover {
+            color: rgba(74, 96, 156, 1);
+        }
 
-    .role-dropdown {
-        min-width: 120px;
-        text-align: left;
-        position: relative;
-        transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+        #datable_4c_filter {
+            float: right;
+        }
 
-    .role-dropdown:hover {
-        border-color: rgba(74,96,156,1) !important;
-    }
+        .avatar.avatar-info>.initial-wrap {
+            background-color: rgba(74, 96, 156, 1) !important;
+            color: #fff;
+        }
 
-    .role-item.active {
-        background-color: #f0f0f0;
-        font-weight: 500;
-    }
+        .feather-search {
+            display: none;
+        }
 
-    .role-item:hover {
-        color: rgba(74,96,156,1);
-    }
+        /* Enhanced Table Styling */
+        #datable_4c thead th {
+            border-bottom: 2px solid rgba(74, 96, 156, 1) !important;
+            font-weight: 600;
+            padding: 12px 15px;
+        }
 
-    /* Loading animation */
-    .role-loading {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border: 2px solid rgba(0, 0, 0, 0.1);
-        border-left-color: rgba(74,96,156,1);
-        border-radius: 50%;
-        animation: role-spin 1s linear infinite;
-        margin-left: 5px;
-        vertical-align: middle;
-    }
+        #datable_4c tbody td {
+            padding: 12px 15px;
+            vertical-align: middle;
+        }
 
-    @keyframes role-spin {
-        to { transform: rotate(360deg); }
-    }
+        .role-dropdown {
+            min-width: 120px;
+            text-align: left;
+            position: relative;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .role-dropdown:hover {
+            border-color: rgba(74, 96, 156, 1) !important;
+        }
+
+        .role-item.active {
+            background-color: #f0f0f0;
+            font-weight: 500;
+        }
+
+        .role-item:hover {
+            color: rgba(74, 96, 156, 1);
+        }
+
+        /* Loading animation */
+        .role-loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-left-color: rgba(74, 96, 156, 1);
+            border-radius: 50%;
+            animation: role-spin 1s linear infinite;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        @keyframes role-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="hk-wrapper" data-layout="twocolumn" data-menu="light" data-footer="simple" data-hover="active" >
+    <div class="hk-wrapper" data-layout="twocolumn" data-menu="light" data-footer="simple" data-hover="active">
         @include('admin.main.sidebar')
         <div class="py-0 hk-pg-wrapper">
             <div class="py-0 hk-pg-body">
@@ -127,7 +134,8 @@
                         const roleMenu = roleItem.closest('.role-menu');
                         const userId = roleMenu.dataset.userId;
                         const roleName = roleItem.dataset.role;
-                        const dropdownButton = roleItem.closest('.dropdown').querySelector('.role-dropdown');
+                        const dropdownButton = roleItem.closest('.dropdown').querySelector(
+                            '.role-dropdown');
                         const currentRoleLabel = dropdownButton.querySelector('.role-label');
 
                         // Don't do anything if this is already the active role
@@ -149,13 +157,16 @@
                                     currentRoleLabel.textContent = roleName;
 
                                     // Clear all dropdown items first
-                                    roleMenu.querySelectorAll('.role-item').forEach(function(ri) {
+                                    roleMenu.querySelectorAll('.role-item').forEach(function(
+                                    ri) {
                                         // Remove active class
                                         ri.classList.remove('active');
 
                                         // Remove ALL existing check icons completely
-                                        const icons = ri.querySelectorAll('i[data-feather="check"]');
-                                        icons.forEach(icon => icon.parentNode.removeChild(icon));
+                                        const icons = ri.querySelectorAll(
+                                            'i[data-feather="check"]');
+                                        icons.forEach(icon => icon.parentNode
+                                            .removeChild(icon));
                                     });
 
                                     // Mark the selected role as active
@@ -178,14 +189,18 @@
                                     roleUpdateToast.show();
                                 } else {
                                     // Reset label and show error
-                                    currentRoleLabel.textContent = document.querySelector('.role-item.active').dataset.role || 'N/A';
-                                    alert('Error updating role: ' + (response.message || 'Unknown error'));
+                                    currentRoleLabel.textContent = document.querySelector(
+                                        '.role-item.active').dataset.role || 'N/A';
+                                    alert('Error updating role: ' + (response.message ||
+                                        'Unknown error'));
                                 }
                             })
                             .catch(function(error) {
                                 console.error('Error:', error);
-                                currentRoleLabel.textContent = document.querySelector('.role-item.active').dataset.role || 'N/A';
-                                alert('An error occurred while updating the role. Please try again.');
+                                currentRoleLabel.textContent = document.querySelector(
+                                    '.role-item.active').dataset.role || 'N/A';
+                                alert(
+                                    'An error occurred while updating the role. Please try again.');
                             });
                     });
                 });

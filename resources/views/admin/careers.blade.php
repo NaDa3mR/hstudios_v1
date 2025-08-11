@@ -155,6 +155,10 @@
                 });
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            feather.replace();
+        });
     </script>
 
 </body>

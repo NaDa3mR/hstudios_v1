@@ -114,8 +114,8 @@
 
     <script>
         /* -----------------------------
-               Country -> City (works for many forms/modals)
-               ----------------------------- */
+                   Country -> City (works for many forms/modals)
+                   ----------------------------- */
         document.addEventListener("DOMContentLoaded", function() {
             const citiesByCountry = {
                 "Egypt": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan", "Port Said"],
@@ -149,7 +149,7 @@
                 countrySelect.addEventListener("change", function() {
                     const selectedCountry = this.value;
                     citySelect.innerHTML =
-                    '<option value="" disabled selected>Select city</option>';
+                        '<option value="" disabled selected>Select city</option>';
 
                     if (selectedCountry && citiesByCountry[selectedCountry]) {
                         citiesByCountry[selectedCountry].forEach(function(city) {
@@ -206,6 +206,10 @@
                 });
 
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            feather.replace();
         });
     </script>
 
