@@ -213,7 +213,7 @@
                                             <textarea name="details" id="details" class="form-control form-control-lg" rows="4" required></textarea>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label for="image" class="form-label">Image</label>
                                             <input type="file" name="image" id="image" class="form-control"
                                                 accept="image/*">

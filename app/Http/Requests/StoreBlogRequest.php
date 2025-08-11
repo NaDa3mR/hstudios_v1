@@ -30,6 +30,8 @@ class StoreBlogRequest extends FormRequest
             'meta_title' => 'nullable|string|max:255',
             'details' => 'required|string',
             'is_active' => 'nullable|in:0,1',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+
         ];
     }
 
@@ -54,6 +56,10 @@ class StoreBlogRequest extends FormRequest
 
             'details.required' => 'Details are required.',
             'details.string' => 'Details must be valid text.',
+
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'Only JPG and PNG formats are allowed.',
+            'image.max' => 'The image size must not exceed 2 MB.',
         ];
     }
 }

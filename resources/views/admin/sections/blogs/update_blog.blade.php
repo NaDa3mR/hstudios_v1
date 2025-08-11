@@ -208,8 +208,8 @@
 
                                         <div class="col-md-6">
                                             <label for="sub_title" class="form-label">Subtitle</label>
-                                            <input type="text" name="sub_title" id="sub_title"
-                                                class="form-control" value="{{ $blog->sub_title }}" required>
+                                            <input type="text" name="sub_title" id="sub_title" class="form-control"
+                                                value="{{ $blog->sub_title }}" required>
                                         </div>
 
                                         <div class="col-md-6">
@@ -241,10 +241,14 @@
                                             <textarea name="details" id="details" class="form-control" rows="4" required>{{ $blog->details }}</textarea>
                                         </div>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label for="image" class="form-label">Image</label>
                                             <input type="file" name="image" id="image" class="form-control"
                                                 accept="image/*">
+                                            <a href="{{ $blog->getFirstMediaUrl('blog_images') }}" target="_blank" class="nav-link active">
+                                                <img src="{{ $blog->getFirstMediaUrl('blog_images', 'thumb') }}"
+                                                    alt="Thumbnail">
+                                            </a>
                                         </div>
 
                                     </div>
