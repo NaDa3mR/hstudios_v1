@@ -111,6 +111,11 @@
         </div>
     </div>
     @include('admin.main.scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            feather.replace();
+        });
+    </script>
 
 </body>
 

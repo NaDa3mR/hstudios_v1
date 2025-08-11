@@ -29,6 +29,7 @@ class UpdateBlogRequest extends FormRequest
             'meta_description' => 'nullable|string|max:500',
             'meta_title' => 'nullable|string|max:255',
             'details' => 'required|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             //'is_active' => 'nullable|boolean',
         ];
     }
@@ -54,6 +55,10 @@ class UpdateBlogRequest extends FormRequest
 
             'details.required' => 'Details are required.',
             'details.string' => 'Details must be valid text.',
+
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'Only JPG and PNG formats are allowed.',
+            'image.max' => 'The image size must not exceed 2 MB.',
         ];
     }
 }

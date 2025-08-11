@@ -95,7 +95,7 @@
                         <div class="taskboardapp-detail-wrap">
                             @include('admin.sections.deals.topbar')
                             @section('blog-header-action')
-                        @endsection
+                            @endsection
 
                             @include('admin.sections.deals.table')
                         </div>
@@ -112,30 +112,34 @@
     </div>
     @include('admin.main.scripts')
 
-       <script>
-    document.getElementById('service_request_id').addEventListener('change', function () {
-        const requestId = this.value;
-        if (!requestId) return;
+    <script>
+        document.getElementById('service_request_id').addEventListener('change', function() {
+            const requestId = this.value;
+            if (!requestId) return;
 
-        fetch(`/get-service-request-data/${requestId}`)
-            .then(res => res.json())
-            .then(data => {
-                // Show client name
-                document.getElementById('client_name').value = data.client.name;
+            fetch(`/get-service-request-data/${requestId}`)
+                .then(res => res.json())
+                .then(data => {
+                    // Show client name
+                    document.getElementById('client_name').value = data.client.name;
 
-                // Populate services
-                const servicesSelect = document.getElementById('services');
-                servicesSelect.innerHTML = '';
+                    // Populate services
+                    const servicesSelect = document.getElementById('services');
+                    servicesSelect.innerHTML = '';
 
-                data.services.forEach(service => {
-                    const option = document.createElement('option');
-                    option.value = service.id;
-                    option.text = service.name;
-                    servicesSelect.appendChild(option);
+                    data.services.forEach(service => {
+                        const option = document.createElement('option');
+                        option.value = service.id;
+                        option.text = service.name;
+                        servicesSelect.appendChild(option);
+                    });
                 });
-            });
-    });
-</script>
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            feather.replace();
+        });
+    </script>
 
 </body>
 

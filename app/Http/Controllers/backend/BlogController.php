@@ -48,7 +48,10 @@ class BlogController extends Controller
             }
 
             $validated['slug'] = $slug;
-            Blog::create($validated);
+            $blog = Blog::create($validated);
+            if ($request->hasFile('image')) {
+                $blog->addMediaFromRequest('image')->toMediaCollection('blog_images');
+            }
             //return redirect()->route('blog.index');
             return redirect()->route('blog.index')
                 ->with('success_message', 'Blog has been created successfully!');
@@ -100,8 +103,11 @@ class BlogController extends Controller
             $validated['slug'] = $slug;
             $blog->update($validated);
             //return redirect()->route('blog.index');
+            if ($request->hasFile('image')) {
+                $blog->addMediaFromRequest('image')->toMediaCollection('blog_images');
+            }
             return redirect()->route('blog.index')
-            ->with('success_message', 'Blog has been updated successfully!');
+                ->with('success_message', 'Blog has been updated successfully!');
         } catch (\Exception $e) {
 
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -123,9 +129,17 @@ class BlogController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Blog = Blog::findOrFail($request->id)->delete();
+        Blog::findOrFail($request->id)->delete();
         //return redirect()->route('blog.index');
         return redirect()->route('blog.index')
             ->with('success_message', 'Blog has been deleted successfully!');
     }
+
+    public function deleteImage(Blog $blog)
+    {
+        $blog->clearMediaCollection('blog_images');
+
+        return redirect()->back()->with('success', 'Image deleted successfully.');
+    }
+
 }

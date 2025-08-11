@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     //Blogs
     Route::resource('admin/blog', BlogController::class);
     Route::post('admin/blog/toggle-status', [BlogController::class, 'toggleStatus'])->name('blog.toggleStatus');
+    Route::delete('/blogs/{blog}/image', [BlogController::class, 'deleteImage'])->name('blogs.deleteImage');
     //Services
     Route::resource('/admin/service', ServiceController::class);
     //Account

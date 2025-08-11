@@ -8,6 +8,33 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.main.meta')
     <style>
+        .hk-wrapper,
+        .taskboardapp-wrap,
+        .container {
+            height: auto !important;
+            overflow: visible !important;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            height: auto;
+            /* allow the height to expand */
+            overflow-y: auto;
+            /* enable vertical scrolling */
+        }
+
+        .container {
+            margin: 25px auto;
+            /* auto centers horizontally */
+            padding: 2rem;
+            max-width: 100%;
+            background-color: #fff;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+
+        }
+
         .btn-link {
             color: #33475b;
         }
@@ -180,80 +207,92 @@
                             </header>
                             {{-- main part --}}
                             {{-- Alert Messages --}}
-                            @if ($errors->any())
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <ul class="mb-0">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                            @endif
-
-                            <form method="POST" action="{{ route('blog.update', $blog->id) }}"
-                                enctype="multipart/form-data">
-                                @method('PUT')
-                                @csrf
-                                <input type="hidden" name="id" value="{{ $blog->id }}">
-
-                                <div class="container py-4">
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <label for="title" class="form-label">Title</label>
-                                            <input type="text" name="title" id="title" class="form-control"
-                                                value="{{ $blog->title }}" required>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="sub_title" class="form-label">Subtitle</label>
-                                            <input type="text" name="sub_title" id="sub_title"
-                                                class="form-control" value="{{ $blog->sub_title }}" required>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="slug" class="form-label">Slug</label>
-                                            <input type="text" name="slug" id="slug" class="form-control"
-                                                value="{{ $blog->slug }}" readonly>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="meta_keyword" class="form-label">Meta Keyword</label>
-                                            <input type="text" name="meta_keyword" id="meta_keyword"
-                                                class="form-control" value="{{ $blog->meta_keyword }}" required>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="meta_description" class="form-label">Meta Description</label>
-                                            <input type="text" name="meta_description" id="meta_description"
-                                                class="form-control" value="{{ $blog->meta_description }}" required>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="meta_title" class="form-label">Meta Title</label>
-                                            <input type="text" name="meta_title" id="meta_title"
-                                                class="form-control" value="{{ $blog->meta_title }}" required>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label for="details" class="form-label">Details</label>
-                                            <textarea name="details" id="details" class="form-control" rows="4" required>{{ $blog->details }}</textarea>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="image" class="form-label">Image</label>
-                                            <input type="file" name="image" id="image" class="form-control"
-                                                accept="image/*">
-                                        </div>
-
+                            <div class="container-fluid d-flex justify-content-center">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <ul class="mb-0">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
                                     </div>
-                                    <div class="text-end mt-4">
-                                        <button type="submit" class="btn btn-lg btn-primary">Edit Blog</button>
-                                    </div>
-                                </div>
-                            </form>
+                                @endif
 
+                                <form method="POST" action="{{ route('blog.update', $blog->id) }}"
+                                    enctype="multipart/form-data">
+                                    @method('PUT')
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $blog->id }}">
+
+                                    <div class="container py-4">
+                                        <div class="row g-4">
+                                            <div class="col-md-6">
+                                                <label for="title" class="form-label">Title</label>
+                                                <input type="text" name="title" id="title" class="form-control"
+                                                    value="{{ $blog->title }}" required>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="sub_title" class="form-label">Subtitle</label>
+                                                <input type="text" name="sub_title" id="sub_title"
+                                                    class="form-control" value="{{ $blog->sub_title }}" required>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="slug" class="form-label">Slug</label>
+                                                <input type="text" name="slug" id="slug" class="form-control"
+                                                    value="{{ $blog->slug }}" readonly>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="meta_keyword" class="form-label">Meta Keyword</label>
+                                                <input type="text" name="meta_keyword" id="meta_keyword"
+                                                    class="form-control" value="{{ $blog->meta_keyword }}" required>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="meta_description" class="form-label">Meta
+                                                    Description</label>
+                                                <input type="text" name="meta_description" id="meta_description"
+                                                    class="form-control" value="{{ $blog->meta_description }}" required>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="meta_title" class="form-label">Meta Title</label>
+                                                <input type="text" name="meta_title" id="meta_title"
+                                                    class="form-control" value="{{ $blog->meta_title }}" required>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label for="details" class="form-label">Details</label>
+                                                <textarea name="details" id="details" class="form-control" rows="4" required>{{ $blog->details }}</textarea>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label for="image" class="form-label">Image</label>
+                                                <input type="file" name="image" id="image"
+                                                    class="form-control" accept="image/*">
+                                                <div class="mt-2">
+                                                    <a href="{{ $blog->getFirstMediaUrl('blog_images') }}"
+                                                        target="_blank" class="btn btn-outline-primary btn-sm">
+                                                        View Blog Image
+                                                        {{-- <img src="{{ $blog->getFirstMediaUrl('blog_images', 'thumb') }}"
+                                                    alt="Thumbnail" class="img-fluid rounded shadow-sm border"
+                                                    style="max-height: 400px; object-fit: cover;"> --}}
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="text-end mt-4">
+                                            <button type="submit" class="btn btn-lg btn-primary">Edit Blog</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
                         </div>
                         <div>
                         </div>

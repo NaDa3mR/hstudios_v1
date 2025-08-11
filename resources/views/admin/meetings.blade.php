@@ -95,7 +95,7 @@
                         <div class="taskboardapp-detail-wrap">
                             @include('admin.sections.meetings.topbar')
                             @section('blog-header-action')
-                        @endsection
+                            @endsection
 
                             @include('admin.sections.meetings.table')
                         </div>
@@ -132,8 +132,14 @@
                     alert("Something went wrong.");
                 }
             });
+
+
         });
-        </script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            feather.replace();
+        });
+    </script>
 
 
 </body>

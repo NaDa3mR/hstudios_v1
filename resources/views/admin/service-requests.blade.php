@@ -95,7 +95,7 @@
                         <div class="taskboardapp-detail-wrap">
                             @include('admin.sections.service-requests.topbar')
                             @section('blog-header-action')
-                        @endsection
+                            @endsection
 
                             @include('admin.sections.service-requests.table')
                         </div>
@@ -111,7 +111,11 @@
         </div>
     </div>
     @include('admin.main.scripts')
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            feather.replace();
+        });
+    </script>
 </body>
 
 </html>

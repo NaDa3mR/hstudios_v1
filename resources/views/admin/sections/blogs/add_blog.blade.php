@@ -8,6 +8,33 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.main.meta')
     <style>
+        .hk-wrapper,
+        .taskboardapp-wrap,
+        .container {
+            height: auto !important;
+            overflow: visible !important;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            height: auto;
+            /* allow the height to expand */
+            overflow-y: auto;
+            /* enable vertical scrolling */
+        }
+
+        .container {
+            margin: 25px auto;
+            /* auto centers horizontally */
+            padding: 2rem;
+            max-width: 100%;
+            background-color: #fff;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+
+        }
+
         .btn-link {
             color: #33475b;
         }
@@ -156,6 +183,7 @@
                                 </div>
                             </header>
                             {{-- Alert Messages --}}
+                            <div class="container-fluid d-flex justify-content-center">
                             @if ($errors->any())
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <ul class="mb-0">
@@ -167,66 +195,68 @@
                                         aria-label="Close"></button>
                                 </div>
                             @endif
-                            {{-- the main part --}}
-                            <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="container py-4">
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <label for="title" class="form-label">Title</label>
-                                            <input type="text" name="title" id="title"
-                                                class="form-control form-control-lg" required>
+                                {{-- the main part --}}
+                                <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="container py-4">
+                                        <div class="row g-4">
+                                            <div class="col-md-6">
+                                                <label for="title" class="form-label">Title</label>
+                                                <input type="text" name="title" id="title"
+                                                    class="form-control" required>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="sub_title" class="form-label">Subtitle</label>
+                                                <input type="text" name="sub_title" id="sub_title"
+                                                    class="form-control" required>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="slug" class="form-label">Slug</label>
+                                                <input type="text" name="slug" id="slug"
+                                                    class="form-control" readonly>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="meta_keyword" class="form-label">Meta Keyword</label>
+                                                <input type="text" name="meta_keyword" id="meta_keyword"
+                                                    class="form-control" required>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="meta_description" class="form-label">Meta
+                                                    Description</label>
+                                                <input type="text" name="meta_description" id="meta_description"
+                                                    class="form-control" required>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="meta_title" class="form-label">Meta Title</label>
+                                                <input type="text" name="meta_title" id="meta_title"
+                                                    class="form-control" required>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label for="details" class="form-label">Details</label>
+                                                <textarea name="details" id="details" class="form-control" rows="4" required></textarea>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label for="image" class="form-label">Image</label>
+                                                <input type="file" name="image" id="image"
+                                                    class="form-control" accept="image/*">
+                                            </div>
+
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <label for="sub_title" class="form-label">Subtitle</label>
-                                            <input type="text" name="sub_title" id="sub_title"
-                                                class="form-control form-control-lg" required>
+                                        <div class="text-end mt-4">
+                                            <button type="submit" class="btn btn-lg btn-primary">Add Blog</button>
                                         </div>
-
-                                        <div class="col-md-6">
-                                            <label for="slug" class="form-label">Slug</label>
-                                            <input type="text" name="slug" id="slug"
-                                                class="form-control form-control-lg" readonly>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="meta_keyword" class="form-label">Meta Keyword</label>
-                                            <input type="text" name="meta_keyword" id="meta_keyword"
-                                                class="form-control form-control-lg" required>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <label for="meta_description" class="form-label">Meta Description</label>
-                                            <input type="text" name="meta_description" id="meta_description"
-                                                class="form-control form-control-lg" required>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="meta_title" class="form-label">Meta Title</label>
-                                            <input type="text" name="meta_title" id="meta_title"
-                                                class="form-control form-control-lg" required>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <label for="details" class="form-label">Details</label>
-                                            <textarea name="details" id="details" class="form-control form-control-lg" rows="4" required></textarea>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="image" class="form-label">Image</label>
-                                            <input type="file" name="image" id="image" class="form-control"
-                                                accept="image/*">
-                                        </div>
-
                                     </div>
+                                </form>
 
-                                    <div class="text-end mt-4">
-                                        <button type="submit" class="btn btn-lg btn-primary">Add Blog</button>
-                                    </div>
-                                </div>
-                            </form>
-
+                            </div>
                         </div>
                         <div>
                         </div>
@@ -260,4 +290,8 @@
             slug.value = slugify(title.value);
         });
     });
+</script>
+
+
+
 </script>

@@ -95,7 +95,7 @@
                         <div class="taskboardapp-detail-wrap">
                             @include('admin.sections.expense-sources.topbar')
                             @section('blog-header-action')
-                        @endsection
+                            @endsection
 
                             @include('admin.sections.expense-sources.table')
                         </div>
@@ -132,7 +132,11 @@
                 }
             });
         });
-        </script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            feather.replace();
+        });
+    </script>
 
 </body>
 

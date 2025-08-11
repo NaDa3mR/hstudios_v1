@@ -177,7 +177,7 @@
                                         <div class="d-flex flex-wrap justify-content-between flex-1">
                                             <div>
                                                 <div class="pg-subtitle">Blogs</div>
-                                                <h5 class="pg-title fs-5">{{$blog->title}}</h5>
+                                                <h5 class="pg-title fs-5">{{ $blog->title }}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -217,9 +217,18 @@
                                             <div class="card-body p-4">
                                                 {{-- @if ($blog->image) --}}
                                                 <div class="mb-4 text-center">
-                                                    <img src="{{ asset('dist/img/503.png') }}" alt="Blog Image"
-                                                        class="img-fluid rounded shadow-sm border"
+                                                    <img src="{{ $blog->getFirstMediaUrl('blog_images') }}"
+                                                        alt="Thumbnail" class="img-fluid rounded shadow-sm border"
                                                         style="max-height: 400px; object-fit: cover;">
+                                                    <div class="mt-4">
+                                                        <form action="{{ route('blogs.deleteImage', $blog->id) }}"
+                                                            method="POST" style="display:inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm btn-primary"
+                                                                onclick="return confirm('Are you sure you want to delete this image?')">Delete image</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                                 {{-- @endif --}}
                                                 <h1 class="card-title">{{ $blog->title }}</h1>
