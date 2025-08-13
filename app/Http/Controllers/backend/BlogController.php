@@ -49,6 +49,7 @@ class BlogController extends Controller
 
             $validated['slug'] = $slug;
             $blog = Blog::create($validated);
+            
             if ($request->hasFile('image')) {
                 $blog->addMediaFromRequest('image')->toMediaCollection('blog_images');
             }

@@ -34,6 +34,10 @@ class UpdateJobApplicationRequest extends FormRequest
             'linkedin' => 'nullable|url|max:255',
             'github' => 'nullable|url|max:255',
             'behance' => 'nullable|url|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'cv' => 'required|mimes:pdf,doc,docx|max:2048',
+
+
         ];
     }
 

@@ -40,7 +40,10 @@ class EmployeeController extends Controller
     {
         try {
             $validated = $request->validated();
-            Employee::create($validated);
+            $employee = Employee::create($validated);
+            if ($request->hasFile('image')) {
+                $employee->addMediaFromRequest('image')->toMediaCollection('employee_images');
+            }
             //return redirect()->route('employee.index');
             return redirect()->route('employee.index')
             ->with('success_message', 'Employee has been created successfully!');
@@ -77,6 +80,10 @@ class EmployeeController extends Controller
             $validated = $request->validated();
             $employee = Employee::findOrFail($request->id);
             $employee->update($validated);
+            
+            if ($request->hasFile('image')) {
+                $employee->addMediaFromRequest('image')->toMediaCollection('employee_images');
+            }
             //return redirect()->route('employee.index');
             return redirect()->route('employee.index')
             ->with('success_message', 'Employee has been updated successfully!');

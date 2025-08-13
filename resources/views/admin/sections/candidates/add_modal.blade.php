@@ -1,4 +1,3 @@
-
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModal" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -6,7 +5,7 @@
                 <h5 class="modal-title" id="addModal">Add Candidate</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('candidate.store')}}" method="POST">
+            <form action="{{ route('candidate.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
@@ -30,7 +29,7 @@
                             <label class="form-label">Career</label>
                             <select id="career" name="career_id" class="form-select">
                                 <option value="" disabled selected>Select Career</option>
-                                @foreach($careers as $career)
+                                @foreach ($careers as $career)
                                     <option value="{{ $career->id }}">{{ $career->title }}</option>
                                 @endforeach
                             </select>
@@ -64,6 +63,17 @@
                             <label for="behance" class="form-label">Behance</label>
                             <input type="text" name="behance" id="behance" class="form-control" required>
                         </div>
+
+                        <div class="col-md-12">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" name="image" id="image" class="form-control" accept="image/*">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="cv" class="form-label">CV</label>
+                            <input type="file" name="cv" id="cv" class="form-control"
+                                accept=".pdf,.doc,.docx">
+                        </div>
+
                     </div><!--end row-->
                 </div>
                 <div class="modal-footer">

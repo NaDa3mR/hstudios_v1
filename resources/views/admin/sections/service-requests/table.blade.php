@@ -39,6 +39,7 @@
                                             <th class="fw-bold">Client Name</th>
                                             <th class="fw-bold">Service</th>
                                             <th class="fw-bold">Details</th>
+                                            <th class="fw-bold">Request File</th>
                                             <th class="fw-bold">Operations</th>
                                             <th class="fw-bold">Approved Request</th>
                                         </tr>
@@ -93,6 +94,21 @@
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
                                                         <span>{{ $service_request->details }}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="mt-2">
+                                                            @if ($service_request->hasMedia('service_file'))
+                                                                <a href="{{ $service_request->getFirstMediaUrl('service_file') }}"
+                                                                    target="_blank"
+                                                                    class="btn btn-outline-primary btn-sm">
+                                                                    View Request File
+                                                                </a>
+                                                            @else
+                                                                <span class="text-muted">No File available</span>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                 </td>
                                                 <td>

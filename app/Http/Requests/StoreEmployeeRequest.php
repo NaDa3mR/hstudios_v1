@@ -30,6 +30,7 @@ class StoreEmployeeRequest extends FormRequest
             'github' => 'nullable|url|max:255',
             'behance' => 'nullable|url|max:255',
             'salary' => 'nullable|numeric|min:0',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 
@@ -56,6 +57,10 @@ class StoreEmployeeRequest extends FormRequest
 
             'salary.numeric' => 'Salary must be a number.',
             'salary.min' => 'Salary can\'t be negative.',
+
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'Only JPG and PNG formats are allowed.',
+            'image.max' => 'The image size must not exceed 2 MB.',
         ];
     }
 }

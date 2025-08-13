@@ -34,6 +34,10 @@ class StoreJobApplicationRequest extends FormRequest
             'linkedin' => 'nullable|url|max:255',
             'github' => 'nullable|url|max:255',
             'behance' => 'nullable|url|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'cv' => 'required|mimes:pdf,doc,docx|max:2048',
+
+
         ];
     }
 
@@ -66,6 +70,16 @@ class StoreJobApplicationRequest extends FormRequest
             'linkedin.url' => 'LinkedIn must be a valid URL.',
             'github.url' => 'GitHub must be a valid URL.',
             'behance.url' => 'Behance must be a valid URL.',
+
+
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'Only JPG and PNG formats are allowed.',
+            'image.max' => 'The image size must not exceed 2 MB.',
+
+            'cv.required' => 'Please upload your CV.',
+            'cv.mimes' => 'The CV must be a file of type: PDF, DOC, or DOCX.',
+            'cv.max' => 'The CV may not be greater than 2MB.',
+
         ];
     }
 }

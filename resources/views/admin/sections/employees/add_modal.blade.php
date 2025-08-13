@@ -6,7 +6,7 @@
                 <h5 class="modal-title" id="addModal">Add employee </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('employee.store')}}" method="POST">
+            <form action="{{route('employee.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
@@ -42,7 +42,7 @@
                             <label for="salary" class="form-label">Salary</label>
                             <input type="text" name="salary" id="salary" class="form-control" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label for="image" class="form-label">Image</label>
                             <input type="file" name="image" id="image" class="form-control"
                                 accept="image/*">

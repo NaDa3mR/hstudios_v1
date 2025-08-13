@@ -6,7 +6,7 @@
                 <h5 class="modal-title" id="addModal">Add New client</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('client.store')}}" method="POST">
+            <form action="{{route('client.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
@@ -29,6 +29,10 @@
                         <div class="col-12">
                             <label for="company_field" class="form-label">Company Field</label>
                             <input type="text" name="company_field" id="company_field" class="form-control">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" name="image" id="image" class="form-control" accept="image/*">
                         </div>
                     </div><!--end row-->
                 </div>

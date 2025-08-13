@@ -28,6 +28,7 @@ class StoreServiceReqRequest extends FormRequest
         'services' => 'required|array',
         'services.*' => 'exists:services,id',
         'details' => 'required|string',
+        'request_file' => 'required|mimes:pdf,doc,docx|max:2048',
     ];
 }
 
@@ -50,6 +51,10 @@ public function messages(): array
         'status.in' => 'The status must be one of: pending, approved, rejected.',
 
         'details.string' => 'The details must be a valid string.',
+
+        'request_file.required' => 'Please upload your File.',
+        'request_file.mimes' => 'The File must be a file of type: PDF, DOC, or DOCX.',
+        'request_file.max' => 'The File may not be greater than 2MB.',
     ];
 }
 

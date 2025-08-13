@@ -6,7 +6,8 @@
                 <h5 class="modal-title" id="updatemodel">Edit Application</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="editBlogForm" action="{{ route('application.update', $application->id) }}" method="POST">
+            <form id="editBlogForm" action="{{ route('application.update', $application->id) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
@@ -82,6 +83,38 @@
                             <label for="behance" class="form-label">Behance</label>
                             <input type="text" name="behance" value="{{ $application->behance }}"
                                 class="form-control">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" name="image" id="image" class="form-control"
+                                accept="image/*">
+                            <div class="mt-2">
+                                @if ($application->hasMedia('application_images'))
+                                <a href="{{ $application->getFirstMediaUrl('application_images') }}" target="_blank"
+                                    class="btn btn-outline-primary btn-sm">
+                                    View Applicant Image
+                                </a>
+                                @else
+                                <span class="text-muted">No image available</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="cv" class="form-label">CV</label>
+                            <input type="file" name="cv" id="cv" class="form-control"
+                                accept=".pdf,.doc,.docx">
+                            <div class="mt-2">
+                                @if ($application->hasMedia('application_cv'))
+                                <a href="{{ $application->getFirstMediaUrl('application_cv') }}" target="_blank"
+                                    class="btn btn-outline-primary btn-sm">
+                                    View Applicant CV
+                                </a>
+                                @else
+                                <span class="text-muted">No CV available</span>
+                                @endif
+                            </div>
                         </div>
                     </div><!-- end row -->
                 </div>
