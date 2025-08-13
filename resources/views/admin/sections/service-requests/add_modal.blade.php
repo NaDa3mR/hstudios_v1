@@ -5,7 +5,8 @@
                 <h5 class="modal-title" id="addModal">Add service request</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('service-request.store') }}" method="POST">
+            <form action="{{ route('service-request.store') }}" method="POST"
+            enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
@@ -33,6 +34,11 @@
                         <div class="col-12">
                             <label for="details" class="form-label">Details</label>
                             <textarea name="details" id="details" rows="4" class="form-control" required></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="request_file" class="form-label">Request File</label>
+                            <input type="file" name="request_file" id="request_file" class="form-control"
+                                accept=".pdf,.doc,.docx">
                         </div>
                     </div><!--end row-->
                 </div>

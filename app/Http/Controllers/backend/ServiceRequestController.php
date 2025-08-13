@@ -45,6 +45,11 @@ class ServiceRequestController extends Controller
                 'client_id' => $validated['client_id'],
                 'details' => $validated['details'],
             ]);
+            
+            if ($request->hasFile('request_file')) {
+                $service_request->addMediaFromRequest('request_file')->toMediaCollection('service_file');
+            }
+
             $service_request->services()->attach($validated['services']);
             return redirect()->route('service-request.index')->with('success_message', 'Service request created successfully.');
         } catch (\Exception $e) {
@@ -78,6 +83,9 @@ class ServiceRequestController extends Controller
             $service_request = Service_Request::findOrFail($request->id);
             $service_request->update($validated);
 
+            if ($request->hasFile('request_file')) {
+                $service_request->addMediaFromRequest('request_file')->toMediaCollection('service_file');
+            }
             if ($request->has('services')) {
                 $service_request->services()->sync($request->input('services'));
             }

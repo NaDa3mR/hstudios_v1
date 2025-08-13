@@ -45,6 +45,8 @@
                                             <th class="fw-bold">GitHub</th>
                                             <th class="fw-bold">Behance</th>
                                             <th class="fw-bold">Is hired</th>
+                                            <th class="fw-bold">Image</th>
+                                            <th class="fw-bold">CV</th>
                                             <th class="fw-bold">Operations</th>
                                         </tr>
                                     </thead>
@@ -58,7 +60,8 @@
                                                                 class="initial-wrap">{{ substr($candidate->first_name, 0, 1) }}</span>
                                                         </div>
                                                         <div>
-                                                            <span class="fw-medium">{{ $candidate->first_name.' '.$candidate->last_name }}</span>
+                                                            <span
+                                                                class="fw-medium">{{ $candidate->first_name . ' ' . $candidate->last_name }}</span>
                                                             <div class="d-inline-block ms-2">
                                                                 <button
                                                                     class="btn btn-icon btn-xs btn-flush-dark btn-rounded flush-soft-hover dropdown-toggle no-caret"
@@ -135,11 +138,44 @@
                                                     <div class="d-flex align-items-center">
                                                         {{-- <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i> --}}
-                                                            <input type="checkbox" class="toggle-hired"  data-toggle="toggle" data-id="{{ $candidate->id }}"
-                                                             {{ $candidate->is_hired ? 'checked' : '' }}>
+                                                        <input type="checkbox" class="toggle-hired" data-toggle="toggle"
+                                                            data-id="{{ $candidate->id }}"
+                                                            {{ $candidate->is_hired ? 'checked' : '' }}>
 
                                                     </div>
                                                 </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="mt-2">
+                                                            @if ($candidate->hasMedia('candidate_images'))
+                                                                <a href="{{ $candidate->getFirstMediaUrl('candidate_images') }}"
+                                                                    target="_blank"
+                                                                    class="btn btn-outline-primary btn-sm">
+                                                                    View Candidate Image
+                                                                </a>
+                                                            @else
+                                                                <span class="text-muted">No image available</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="mt-2">
+                                                            @if ($candidate->hasMedia('candidate_cv'))
+                                                                <a href="{{ $candidate->getFirstMediaUrl('candidate_cv') }}"
+                                                                    target="_blank"
+                                                                    class="btn btn-outline-primary btn-sm">
+                                                                    View Candidate CV
+                                                                </a>
+                                                            @else
+                                                                <span class="text-muted">No CV available</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </td>
+
                                                 <td>
                                                     <span class="feather-icon" data-bs-toggle="modal"
                                                         data-bs-target="#updatemodel{{ $candidate->id }}"><i

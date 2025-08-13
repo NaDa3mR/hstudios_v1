@@ -43,6 +43,7 @@
                                             <th class="fw-bold">GitHub</th>
                                             <th class="fw-bold">Behance</th>
                                             <th class="fw-bold">Salary</th>
+                                            <th class="fw-bold">Image</th>
                                             <th class="fw-bold">Operations</th>
                                         </tr>
                                     </thead>
@@ -120,6 +121,21 @@
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
                                                         <span>{{ $employee->salary }}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="mt-2">
+                                                            @if ($employee->hasMedia('employee_images'))
+                                                                <a href="{{ $employee->getFirstMediaUrl('employee_images') }}"
+                                                                    target="_blank"
+                                                                    class="btn btn-outline-primary btn-sm">
+                                                                    View Employee Image
+                                                                </a>
+                                                            @else
+                                                                <span class="text-muted">No image available</span>
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                 </td>
 

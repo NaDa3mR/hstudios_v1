@@ -7,7 +7,7 @@
                     <div class="mb-0 shadow-sm card rounded-8">
                         <div class="card-header card-header-action"
                             style="color: #fff; border-bottom: 2px solid rgba(74,96,156,1);">
-                            <h6 class="mb-0">Candidates<span
+                            <h6 class="mb-0">Job Applications<span
                                     class="badge bg-light text-dark ms-1">{{ $applications->count() }}</span></h6>
                         </div>
                         <div class="card-body">
@@ -44,6 +44,8 @@
                                             <th class="fw-bold">LinkedIn</th>
                                             <th class="fw-bold">GitHub</th>
                                             <th class="fw-bold">Behance</th>
+                                            <th class="fw-bold">Image</th>
+                                            <th class="fw-bold">CV</th>
                                             <th class="fw-bold">Candidate Approved</th>
                                             <th class="fw-bold">Operations</th>
                                         </tr>
@@ -132,6 +134,38 @@
                                                         <span>{{ $application->behance }}</span>
                                                     </div>
                                                 </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="mt-2">
+                                                            @if ($application->hasMedia('application_images'))
+                                                                <a href="{{ $application->getFirstMediaUrl('application_images') }}"
+                                                                    target="_blank"
+                                                                    class="btn btn-outline-primary btn-sm">
+                                                                    View Applicant Image
+                                                                </a>
+                                                            @else
+                                                                <span class="text-muted">No image available</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="mt-2">
+                                                            @if ($application->hasMedia('application_cv'))
+                                                                <a href="{{ $application->getFirstMediaUrl('application_cv') }}"
+                                                                    target="_blank"
+                                                                    class="btn btn-outline-primary btn-sm">
+                                                                    View Applicant CV
+                                                                </a>
+                                                            @else
+                                                                <span class="text-muted">No CV available</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </td>
+
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <button class="btn btn-sm btn-success promote-btn"

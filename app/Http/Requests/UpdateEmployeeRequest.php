@@ -23,13 +23,15 @@ class UpdateEmployeeRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:employees,email',
+            'email' => 'required|email|unique:employees,email,'. $this->employee->id,
             'phone' => 'nullable|string|max:20',
             'job' => 'nullable|string|max:100',
             'linkedin' => 'nullable|url|max:255',
             'github' => 'nullable|url|max:255',
             'behance' => 'nullable|url|max:255',
             'salary' => 'nullable|numeric|min:0',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+
         ];
     }
 
@@ -56,6 +58,10 @@ class UpdateEmployeeRequest extends FormRequest
 
             'salary.numeric' => 'Salary must be a number.',
             'salary.min' => 'Salary can\'t be negative.',
+
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'Only JPG and PNG formats are allowed.',
+            'image.max' => 'The image size must not exceed 2 MB.',
         ];
     }
 }

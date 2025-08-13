@@ -39,7 +39,15 @@ class JobApplicationController extends Controller
     {
         try {
             $validated = $request->validated();
-            Job_Application::create($validated);
+            $application = Job_Application::create($validated);
+
+            if ($request->hasFile('image')) {
+                $application->addMediaFromRequest('image')->toMediaCollection('application_images');
+            }
+
+            if ($request->hasFile('cv')) {
+                $application->addMediaFromRequest('cv')->toMediaCollection('application_cv');
+            }
             //return redirect()->route('Job_app.index');
             return redirect()->route('application.index')
                 ->with('success_message', 'Application has been created successfully!');
@@ -72,8 +80,16 @@ class JobApplicationController extends Controller
         try {
 
             $validated = $request->validated();
-            $Job_app = Job_Application::findOrFail($request->id);
-            $Job_app->update($validated);
+            $application = Job_Application::findOrFail($request->id);
+            $application->update($validated);
+
+            if ($request->hasFile('image')) {
+                $application->addMediaFromRequest('image')->toMediaCollection('application_images');
+            }
+
+            if ($request->hasFile('cv')) {
+                $application->addMediaFromRequest('cv')->toMediaCollection('application_cv');
+            }
             //return redirect()->route('Job_app.index');
             return redirect()->route('application.index')
                 ->with('success_message', 'Application has been updated successfully!');
@@ -114,6 +130,17 @@ class JobApplicationController extends Controller
             'behance'           => $jobApplication->behance,
             'is_hired'          => 0,
         ]);
+
+        if ($jobApplication->hasMedia('application_images')) {
+            $jobApplication->getFirstMedia('application_images')
+                ->copy($candidate, 'candidate_images');
+        }
+
+        if ($jobApplication->hasMedia('application_cv')) {
+            $jobApplication->getFirstMedia('application_cv')
+                ->copy($candidate, 'candidate_cv');
+        }
+
         $jobApplication->delete();
         // Optional: update job application status
         // $jobApplication->update(['status' => 'promoted']);

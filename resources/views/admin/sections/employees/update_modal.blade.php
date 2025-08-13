@@ -5,7 +5,8 @@
                 <h5 class="modal-title" id="updatemodel">Edit Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="editBlogForm" method="POST" action="{{route('employee.update', $employee->id)}}">
+            <form id="editBlogForm" method="POST" action="{{route('employee.update', $employee->id)}}"
+                enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 {{-- <input type="hidden" name="id" id="edit_service_id" value="{{$employee->id}}"> --}}
@@ -45,10 +46,16 @@
                             <label for="salary" class="form-label">Salary</label>
                             <input type="text" name="salary" id="salary" class="form-control" value="{{$employee->salary}}">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label for="image" class="form-label">Image</label>
                             <input type="file" name="image" id="image" class="form-control"
                                 accept="image/*">
+                            <div class="mt-2">
+                                <a href="{{ $employee->getFirstMediaUrl('employee_images') }}" target="_blank"
+                                    class="btn btn-outline-primary btn-sm">
+                                    View Employee Image
+                                </a>
+                            </div>
                         </div>
 
 

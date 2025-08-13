@@ -32,6 +32,8 @@ class StoreCandidateRequest extends FormRequest
             'linkedin' => 'nullable|url|max:255',
             'github' => 'nullable|url|max:255',
             'behance' => 'nullable|url|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'cv' => 'required|mimes:pdf,doc,docx|max:2048',
             // 'is_hired' => 'nullable|boolean',
         ];
     }
@@ -70,6 +72,14 @@ class StoreCandidateRequest extends FormRequest
             'linkedin.max' => 'LinkedIn URL must not exceed 255 characters.',
             'github.max' => 'GitHub URL must not exceed 255 characters.',
             'behance.max' => 'Behance URL must not exceed 255 characters.',
+
+            'cv.required' => 'Please upload your CV.',
+            'cv.mimes' => 'The CV must be a file of type: PDF, DOC, or DOCX.',
+            'cv.max' => 'The CV may not be greater than 2MB.',
+
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'Only JPG and PNG formats are allowed.',
+            'image.max' => 'The image size must not exceed 2 MB.',
         ];
     }
 }

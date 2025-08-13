@@ -39,8 +39,17 @@ class CandidateController extends Controller
     {
         try {
             $validated = $request->validated();
-            Candidate::create($validated);
+            $candidate = Candidate::create($validated);
             //return redirect()->route('candidate.index');
+
+            if ($request->hasFile('cv')) {
+                $candidate->addMediaFromRequest('cv')->toMediaCollection('candidate_cv');
+            }
+
+            if ($request->hasFile('image')) {
+                $candidate->addMediaFromRequest('image')->toMediaCollection('candidate_images');
+            }
+
             return redirect()->route('candidate.index')
                 ->with('success_message', 'Candidate has been created successfully!');
         } catch (\Exception $e) {
@@ -74,6 +83,15 @@ class CandidateController extends Controller
             $validated = $request->validated();
             $candidate = Candidate::findOrFail($request->id);
             $candidate->update($validated);
+            
+            if ($request->hasFile('cv')) {
+                $candidate->addMediaFromRequest('cv')->toMediaCollection('candidate_cv');
+            }
+
+            if ($request->hasFile('image')) {
+                $candidate->addMediaFromRequest('image')->toMediaCollection('candidate_images');
+            }
+
             //return redirect()->route('candidate.index');
             return redirect()->route('candidate.index')
                 ->with('success_message', 'Candidate has been updated successfully!');
@@ -91,7 +109,6 @@ class CandidateController extends Controller
 
         return response()->json(['success' => true]);
     }
-
 
     /**
      * Remove the specified resource from storage.

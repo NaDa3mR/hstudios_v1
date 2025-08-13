@@ -40,6 +40,7 @@
                                             <th class="fw-bold">Password</th>
                                             <th class="fw-bold">Company Name</th>
                                             <th class="fw-bold">Company Field</th>
+                                            <th class="fw-bold">Image</th>
                                             <th class="fw-bold">Operations</th>
                                         </tr>
                                     </thead>
@@ -98,6 +99,22 @@
                                                         <span>{{ $client->company_field }}</span>
                                                     </div>
                                                 </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="mt-2">
+                                                            @if ($client->hasMedia('client_images'))
+                                                                <a href="{{ $client->getFirstMediaUrl('client_images') }}"
+                                                                    target="_blank"
+                                                                    class="btn btn-outline-primary btn-sm">
+                                                                    View Client Image
+                                                                </a>
+                                                            @else
+                                                                <span class="text-muted">No image available</span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </td>
+
                                                 <td>
                                                     <span class="feather-icon" data-bs-toggle="modal"
                                                         data-bs-target="#updatemodel{{ $client->id }}"><i

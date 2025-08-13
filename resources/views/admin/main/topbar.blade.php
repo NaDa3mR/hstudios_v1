@@ -1,4 +1,3 @@
-
 @switch( request()->url() )
     @case(route('contacts.index'))
         @include('admin.sections.contacts.topbar')

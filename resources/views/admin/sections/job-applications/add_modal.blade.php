@@ -5,7 +5,7 @@
                 <h5 class="modal-title" id="addModal">Add Applicant</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('application.store') }}" method="POST">
+            <form action="{{ route('application.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
@@ -61,6 +61,15 @@
                         <div class="col-12">
                             <label for="behance" class="form-label">Behance</label>
                             <input type="text" name="behance" id="behance" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" name="image" id="image" class="form-control" accept="image/*">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="cv" class="form-label">CV</label>
+                            <input type="file" name="cv" id="cv" class="form-control"
+                                accept=".pdf,.doc,.docx">
                         </div>
                     </div><!--end row-->
                 </div>
