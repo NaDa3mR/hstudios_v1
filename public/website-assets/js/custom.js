@@ -6,7 +6,7 @@
 	});
 
 	const sidebarButton = document.querySelector('.sidebar-button');
-
+	
 	if (sidebarButton) {
 		sidebarButton.addEventListener('click', () => {
 			document.querySelector('.main-menu').classList.toggle('show-menu');
@@ -38,20 +38,20 @@
 	jQuery(function ($) {
 		$(document).on('click', '.portfolio-drop-down', function (e) {
 			e.preventDefault(); // Prevent default anchor behavior
-
+	
 			let submenu = $(this).siblings('.sub-menu'); // Get submenu
-
+	
 			if (submenu.length) {
 				// Close other submenus at the same level
 				$(this).parent().siblings().find('.sub-menu').slideUp();
-
+	
 				// Toggle clicked submenu
 				submenu.stop(true, true).slideToggle();
 			}
 		});
 	});
-
-
+	
+	
 	// FancyBox Js
 	$('[data-fancybox="gallery-01"]').fancybox({
 		buttons: [
@@ -67,7 +67,7 @@
 		loop: false,
 		protect: true,
 	  });
-
+	  	  
 	// sticky header
 
 	window.addEventListener('scroll', function () {
@@ -139,9 +139,9 @@
 			nextEl: ".testimonial-slider-next",
 			prevEl: ".testimonial-slider-prev",
 		},
-
+		
 	});
-
+	
 	var swiper = new Swiper(".home2-testimonial-slider", {
 		slidesPerView: 1,
 		speed: 1500,
@@ -402,7 +402,7 @@
 		  nextEl: ".related-product-slider-next",
 		  prevEl: ".related-product-slider-prev",
 		},
-
+	
 		breakpoints: {
 		  280: {
 			slidesPerView: 1,
@@ -474,12 +474,12 @@
 			pauseOnMouseEnter: true,
             disableOnInteraction: false,
 		},
-
+		
 		navigation: {
 			nextEl: ".about-page-team-slider-next",
 			prevEl: ".about-page-team-slider-prev",
 		},
-
+	  
 		breakpoints: {
 		  280: {
 			slidesPerView: 1,
@@ -596,8 +596,8 @@
 
 	gotoSection(0, 1);
 	}
-
-	//wow js
+	
+	//wow js 
     jQuery(window).on('load', function () {
         new WOW().init();
         window.wow = new WOW({
@@ -610,7 +610,7 @@
         })
         window.wow.init();
     });
-
+	
 	// niceSelect
 	if ($('select').length) {
 		$("select").niceSelect();
@@ -649,7 +649,7 @@
 			appbackimg.classList.toggle("active", 700 >= getAppBlockHeight);
 		}
 	});
-
+	
 	// services Images
 	const serviceImgItem = document.querySelectorAll(
 		".sevices-wrap .single-services "
@@ -724,40 +724,40 @@
 		$(this).find("span").css({ top: 0, left: 0 });
 		$(this).find("span").css({ top: relY, left: relX });
 	});
-
+	  
 	document.addEventListener("DOMContentLoaded", () => {
 		const paths = document.querySelectorAll(".blinking-svg .circle");
-
+	
 		// Check if paths exist on the current page
 		if (paths.length > 0) {
 			function randomHide() {
 				// Select a random path
 				const randomIndex = Math.floor(Math.random() * paths.length);
 				const randomPath = paths[randomIndex];
-
+	
 				// Add the "hide" class
 				randomPath.classList.add("hide");
-
+	
 				// Remove the "hide" class after 0.8s
 				setTimeout(() => {
 					randomPath.classList.remove("hide");
 				}, 800);
 			}
-
+	
 			// Run the randomHide function repeatedly
 			setInterval(randomHide, 500);
 		}
 	});
-
+	
 	document.addEventListener("DOMContentLoaded", () => {
 		const contactSection = document.querySelector(".home4-contact-btn-area");
 		const btnArea = document.querySelector(".home4-contact-btn-area");
-
+	  
 		const observerOptions = {
 		  root: null, // Use the viewport as the root
 		  threshold: 0.1, // Trigger when 10% of the section is visible
 		};
-
+	  
 		const observer = new IntersectionObserver((entries) => {
 		  entries.forEach((entry) => {
 			if (entry.isIntersecting) {
@@ -767,12 +767,12 @@
 			}
 		  });
 		}, observerOptions);
-
+	  
 		if (contactSection) {
 		  observer.observe(contactSection);
 		}
 	});
-
+	
 	// Home4 Industry Hover
 	$(".industry-list ul li").on({
 		mouseenter: function () {
@@ -780,20 +780,20 @@
 			$(".industry-list ul li").removeClass("active");
 			// Add the 'active' class to the hovered content list item
 			$(this).addClass("active");
-
+	
 			// Get the index of the hovered content list item
 			var index = $(this).index();
-
+	
 			// Remove the 'active' class from all image list items in both industry-img containers
 			$(".industry-img ul li").removeClass("active");
-
+	
 			// Add the 'active' class to the corresponding image list items in both industry-img containers
 			$(".industry-img").each(function () {
 				$(this).find("ul li:eq(" + index + ")").addClass("active");
 			});
 		},
 	});
-
+	
 	// Serch Btn
 	$(".search-btn").on("click", function (e) {
 
@@ -826,180 +826,103 @@
 	});
 
 
-    document.addEventListener("DOMContentLoaded", function () {
-        gsap.registerPlugin(ScrollTrigger);
-
-        let mm = gsap.matchMedia();
-
-        gsap.to(".home3-video-wrapper .video-area", {
-            y: 420,
-            width: "97vw",
-            height: "80vh",
-            right: "auto",
-            x: 120,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".home3-video-wrapper",
-                start: "top 25%",
-                end: "bottom top",
-                scrub: 3,
-            }
-        });
-
-        mm.add("(max-width: 1700px)", () => {
-            gsap.to(".home3-video-wrapper .video-area", {
-                x: 70,
-                scrollTrigger: {
-                    trigger: ".home3-video-wrapper",
-                    start: "top 25%",
-                    end: "bottom top",
-                    scrub: 3,
-                }
-            });
-        });
-
-        mm.add("(max-width: 1600px)", () => {
-            gsap.to(".home3-video-wrapper .video-area", {
-                y: 500,
-                x: 25,
-                width: "95vw",
-                scrollTrigger: {
-                    trigger: ".home3-video-wrapper",
-                    start: "top 25%",
-                    end: "bottom top",
-                    scrub: 3,
-                }
-            });
-        });
-
-        mm.add("(max-width: 1470px)", () => {
-            gsap.to(".home3-video-wrapper .video-area", {
-                y: 500,
-                x: 20,
-                width: "95vw",
-                scrollTrigger: {
-                    trigger: ".home3-video-wrapper",
-                    start: "top 25%",
-                    end: "bottom top",
-                    scrub: 3,
-                }
-            });
-        });
-
-        mm.add("(max-width: 1199px)", () => {
-            gsap.to(".home3-video-wrapper .video-area", {
-                y: 500,
-                x: 12,
-                width: "95vw",
-                height: "70vh",
-                scrollTrigger: {
-                    trigger: ".home3-video-wrapper",
-                    start: "top 25%",
-                    end: "bottom top",
-                    scrub: 3,
-                }
-            });
-        });
-    });
-
-
-	// gsap.registerPlugin(ScrollTrigger);
-	// let mm = gsap.matchMedia();
-	// gsap.to(".home3-video-wrapper .video-area", {
-	// 	y: 420, // Move 500px down
-	// 	width: "97vw",  // Expand to full window width
-	// 	height: "80vh", // Ensure it also takes full height
-	// 	right: "auto",      // Set right to 0 to make sure the expansion happens from the right side
-	// 	x: 120,
-	// 	ease: "power2.out",
-	// 	scrollTrigger: {
-	// 		trigger: ".home3-video-wrapper",
-	// 		start: "top 25%",  // Trigger when the top of the video-wrapper reaches 30% of the viewport
-	// 		end: "bottom top", // Animation ends when the video-wrapper leaves the viewport
-	// 		scrub: 3,  // Smooth transition
-	// 		// markers: true // Optional, for debugging purposes
-	// 	}
-	// });
-	// // Adjust x value for screens ≤ 1700px without overwriting the animation
-	// mm.add("(max-width: 1700px)", () => {
-	// 	gsap.to(".home3-video-wrapper .video-area", {
-	// 		x: 70, // Update x only for screens ≤ 1700px
-	// 		scrollTrigger: {
-	// 			trigger: ".home3-video-wrapper",
-	// 			start: "top 25%",
-	// 			end: "bottom top",
-	// 			scrub: 3,
-	// 		}
-	// 	});
-  	// });
-	// mm.add("(max-width: 1600px)", () => {
-	// 	gsap.to(".home3-video-wrapper .video-area", {
-	// 		y: 500,
-	// 		x: 25,
-	// 		width: "95vw",
-	// 		scrollTrigger: {
-	// 			trigger: ".home3-video-wrapper",
-	// 			start: "top 25%",
-	// 			end: "bottom top",
-	// 			scrub: 3,
-	// 		}
-	// 	});
-  	// });
-	// mm.add("(max-width: 1470px)", () => {
-	// 	gsap.to(".home3-video-wrapper .video-area", {
-	// 		y: 500,
-	// 		x: 20,
-	// 		width: "95vw",
-	// 		scrollTrigger: {
-	// 			trigger: ".home3-video-wrapper",
-	// 			start: "top 25%",
-	// 			end: "bottom top",
-	// 			scrub: 3,
-	// 		}
-	// 	});
-  	// });
-	// mm.add("(max-width: 1199px)", () => {
-	// 	gsap.to(".home3-video-wrapper .video-area", {
-	// 		y: 500,
-	// 		x: 12,
-	// 		width: "95vw",
-	// 		height: "70vh",
-	// 		scrollTrigger: {
-	// 			trigger: ".home3-video-wrapper",
-	// 			start: "top 25%",
-	// 			end: "bottom top",
-	// 			scrub: 3,
-	// 		}
-	// 	});
-  	// });
+	gsap.registerPlugin(ScrollTrigger);
+	let mm = gsap.matchMedia();
+	gsap.to(".home3-video-wrapper .video-area", {
+		y: 420, // Move 500px down
+		width: "97vw",  // Expand to full window width
+		height: "80vh", // Ensure it also takes full height
+		right: "auto",      // Set right to 0 to make sure the expansion happens from the right side
+		x: 120,
+		ease: "power2.out",
+		scrollTrigger: {
+			trigger: ".home3-video-wrapper",
+			start: "top 25%",  // Trigger when the top of the video-wrapper reaches 30% of the viewport
+			end: "bottom top", // Animation ends when the video-wrapper leaves the viewport
+			scrub: 3,  // Smooth transition
+			// markers: true // Optional, for debugging purposes
+		}
+	});
+	// Adjust x value for screens ≤ 1700px without overwriting the animation
+	mm.add("(max-width: 1700px)", () => {
+		gsap.to(".home3-video-wrapper .video-area", {
+			x: 70, // Update x only for screens ≤ 1700px
+			scrollTrigger: {
+				trigger: ".home3-video-wrapper",
+				start: "top 25%",
+				end: "bottom top",
+				scrub: 3,
+			}
+		});
+  	});
+	mm.add("(max-width: 1600px)", () => {
+		gsap.to(".home3-video-wrapper .video-area", {
+			y: 500,
+			x: 25, 
+			width: "95vw", 
+			scrollTrigger: {
+				trigger: ".home3-video-wrapper",
+				start: "top 25%",
+				end: "bottom top",
+				scrub: 3,
+			}
+		});
+  	});
+	mm.add("(max-width: 1470px)", () => {
+		gsap.to(".home3-video-wrapper .video-area", {
+			y: 500,
+			x: 20, 
+			width: "95vw", 
+			scrollTrigger: {
+				trigger: ".home3-video-wrapper",
+				start: "top 25%",
+				end: "bottom top",
+				scrub: 3,
+			}
+		});
+  	});
+	mm.add("(max-width: 1199px)", () => {
+		gsap.to(".home3-video-wrapper .video-area", {
+			y: 500,
+			x: 12, 
+			width: "95vw", 
+			height: "70vh",
+			scrollTrigger: {
+				trigger: ".home3-video-wrapper",
+				start: "top 25%",
+				end: "bottom top",
+				scrub: 3,
+			}
+		});
+  	});
 
 	$(window).scroll(function() {
 		if ($(window).width() <= 767) { // Adjust the breakpoint as needed (576px is Bootstrap's sm breakpoint)
 			return; // Disable animation for small devices
 		}
-
+	
 		var scroll = $(window).scrollTop();
-
+	
 		// Move banner down and scale down gradually
 		var translateYBanner = Math.min(scroll / 2, 500); // Moves down, limit to 500px
 		var scale = Math.max((100 - scroll / 5) / 100, 0); // Ensure scale never goes below 0
 		var opacity = Math.max(1 - scroll / 500, 0); // Ensure opacity never goes below 0
-
+	
 		$(".home6-banner-section .banner-wrapper").css({
 			transform: 'translate3d(0%, ' + translateYBanner + 'px, 0) scale(' + scale + ')',
 			opacity: opacity > 0 ? opacity : 0, // Prevent negative opacity
 		});
-
+	
 		// Dashboard effect: Move up and rotateX from 45deg to 0deg
 		var translateYDashboard = Math.min(scroll / 2, 300); // Move up, limit to 300px
 		var rotateXValue = Math.max(30 - (scroll / 10), 0); // Gradually reduce rotateX from 45deg to 0deg
-
+	
 		// Apply smooth transition of rotateX from 45deg to 0deg
 		$(".dashboard-img-section .dashboard-img-wrap .dashboard-img").css({
 			"transform": "translate3d(0, -" + translateYDashboard + "px, 0) rotateX(" + rotateXValue + "deg)",
 		});
 	});
-
+	
 	const celebrateBtn = document.getElementById('celebrateBtn');
 
 	if (celebrateBtn) {
@@ -1034,12 +957,12 @@
 					transform: "scale(0.5)",
 				});
 			});
-
+	
 			// Fix for passive event listener issue on mobile
 			$(document).on("touchmove", function (event) {
 				event.preventDefault();
 			}, { passive: false });
-
+	
 			// Check if the throwable function is available before using it
 			if ($.fn.throwable) {
 				$(".throwable-item").throwable({
@@ -1053,7 +976,7 @@
 				console.warn("Throwable plugin is not loaded.");
 			}
 		}
-
+	
 		// Intersection Observer to trigger animation when visible
 		let observer = new IntersectionObserver(
 			function (entries) {
@@ -1065,7 +988,7 @@
 							opacity: 0,
 							transform: "scale(0.5)",
 						});
-
+	
 						// Animate when in viewport
 						target.animate({ opacity: 1, transform: "scale(1)" }, 500, function () {
 							initializeThrowable(); // Reinitialize throwable
@@ -1081,12 +1004,12 @@
 			},
 			{ threshold: 0.2 }
 		);
-
+	
 		$(".throwable-item").each(function () {
 			observer.observe(this);
 		});
 	});
-
+	
 
 	$(".award-table tbody tr").on("mouseenter", function (e) {
 		// // Get the index of the hovered content list item
@@ -1096,7 +1019,7 @@
 		// Add the 'active' class to the corresponding image list item
 		$(".award-img-group li:eq(" + index + ")").addClass("active");
 	});
-
+	
 	//Project Info Flow
 	const infoflow1TextItem = document.querySelectorAll(".portfolio-caption-card");
 	function followImageCursor2(event, infoflow1TextItem) {
@@ -1112,10 +1035,10 @@
 		});
 	});
 
-
+	
 	//Scroll Down Button
 	const scrollBtn = document.querySelector('#scroll-btn');
-	if (scrollBtn) {
+	if (scrollBtn) { 
 		scrollBtn.addEventListener('click', function(e) {
 			e.preventDefault();
 			document.querySelector('#scroll-section').scrollIntoView({
@@ -1131,22 +1054,22 @@
 			trialWarn: false,
 		  });
 		  $(".magnetic-item").wrap('<div class="magnetic-wrap"></div>');
-
+	
 		  if ($("a.magnetic-item").length) {
 			$("a.magnetic-item").addClass("not-hide-cursor");
 		  }
-
+	
 		  var $mouse = { x: 0, y: 0 }; // Cursor position
 		  var $pos = { x: 0, y: 0 }; // Cursor position
 		  var $ratio = 0.15; // delay follow cursor
 		  var $active = false;
 		  var $ball = $("#ball");
-
+	
 		  var $ballWidth = 20; // Ball default width
 		  var $ballHeight = 20; // Ball default height
 		  var $ballOpacity = 0.5; // Ball default opacity
 		  var $ballBorderWidth = 2; // Ball default border width
-
+	
 		  gsap.set($ball, {
 			// scale from middle and style ball
 			xPercent: -50,
@@ -1156,39 +1079,39 @@
 			borderWidth: $ballBorderWidth,
 			opacity: $ballOpacity,
 		  });
-
+	
 		  document.addEventListener("mousemove", mouseMove);
-
+	
 		  function mouseMove(e) {
 			$mouse.x = e.clientX;
 			$mouse.y = e.clientY;
 		  }
-
+	
 		  gsap.ticker.add(updatePosition);
-
+	
 		  function updatePosition() {
 			if (!$active) {
 			  $pos.x += ($mouse.x - $pos.x) * $ratio;
 			  $pos.y += ($mouse.y - $pos.y) * $ratio;
-
+	
 			  gsap.set($ball, { x: $pos.x, y: $pos.y });
 			}
 		  }
-
+	
 		  $(".magnetic-wrap").mousemove(function (e) {
 			parallaxCursor(e, this, 2); // magnetic ball = low number is more attractive
 			callParallax(e, this);
 		  });
-
+	
 		  function callParallax(e, parent) {
 			parallaxIt(e, parent, parent.querySelector(".magnetic-item"), 25); // magnetic area = higher number is more attractive
 		  }
-
+	
 		  function parallaxIt(e, parent, target, movement) {
 			var boundingRect = parent.getBoundingClientRect();
 			var relX = e.clientX - boundingRect.left;
 			var relY = e.clientY - boundingRect.top;
-
+	
 			gsap.to(target, {
 			  duration: 0.3,
 			  x: ((relX - boundingRect.width / 2) / boundingRect.width) * movement,
@@ -1197,7 +1120,7 @@
 			  ease: Power2.easeOut,
 			});
 		  }
-
+	
 		  function parallaxCursor(e, parent, movement) {
 			var rect = parent.getBoundingClientRect();
 			var relX = e.clientX - rect.left;
@@ -1208,10 +1131,10 @@
 			  rect.top + rect.height / 2 + (relY - rect.height / 2) / movement;
 			gsap.to($ball, { duration: 0.3, x: $pos.x, y: $pos.y });
 		  }
-
+	
 		  // Magic cursor behavior
 		  // ======================
-
+	
 		  // Magnetic item hover.
 		  $(".magnetic-wrap")
 			.on("mouseenter mouseover", function (e) {
@@ -1235,7 +1158,7 @@
 			  });
 			  $active = false;
 			});
-
+	
 		  // Alternative cursor style on hover.
 		  $(
 			".cursor-alter, .tt-main-menu-list > li > a, .tt-main-menu-list > li > .tt-submenu-trigger > a"
@@ -1261,8 +1184,8 @@
 				height: $ballHeight,
 				clearProps: "backgroundColor",
 			  });
-			});
-
+			});	
+		
 		  // Cursor view on hover (data attribute "data-cursor="...").
 		  $("[data-cursor]").each(function () {
 			$(this)
@@ -1298,7 +1221,7 @@
 			  });
 			$(this).addClass("not-hide-cursor");
 		  });
-
+	
 		  // Cursor drag on hover (class "cursor-drag"). For Swiper sliders.
 		  $(".swiper").each(function () {
 			if ($(this).parent().attr("data-simulate-touch") === "true") {
@@ -1323,7 +1246,7 @@
 					});
 				  });
 				$(this).addClass("not-hide-cursor");
-
+	
 				// Ignore "data-cursor" on hover.
 				$(this)
 				  .find("[data-cursor]")
@@ -1343,7 +1266,7 @@
 			  }
 			}
 		  });
-
+	
 		  // Cursor drag on mouse down / click and hold effect (class "cursor-drag-mouse-down"). For Swiper sliders.
 		  $(".swiper").each(function () {
 			if ($(this).parent().attr("data-simulate-touch") === "true") {
@@ -1382,14 +1305,14 @@
 					  opacity: $ballOpacity,
 					});
 				  });
-
+	
 				// Ignore "data-cursor" on mousedown.
 				$(this)
 				  .find("[data-cursor]")
 				  .on("mousedown pointerdown", function () {
 					return false;
 				  });
-
+	
 				// Ignore "data-cursor" on hover.
 				$(this)
 				  .find("[data-cursor]")
@@ -1400,7 +1323,7 @@
 			  }
 			}
 		  });
-
+	
 		  // Cursor close on hover.
 		  $(".cursor-close").each(function () {
 			$(this).addClass("ball-close-enabled");
@@ -1428,7 +1351,7 @@
 				});
 				$ball.find(".ball-close").remove();
 			  });
-
+	
 			// Hover on "cursor-close" inner elements.
 			$(
 			  ".cursor-close a, .cursor-close button, .cursor-close .tt-btn, .cursor-close .hide-cursor"
@@ -1441,36 +1364,36 @@
 				$ball.addClass("ball-close-enabled");
 			  });
 		  });
-
+	
 		  // ================================================================
 		  // Scroll between anchors
 		  // ================================================================
-
+	
 		  $('a[href^="#"]')
 			.not('[href$="#"]') // omit from selection
 			.not('[href$="#0"]') // omit from selection
 			.on("click", function () {
 			  var target = this.hash;
-
+	
 			  // If fixed header position enabled.
 			  if ($("#tt-header").hasClass("tt-header-fixed")) {
 				var $offset = $("#tt-header").height();
 			  } else {
 				var $offset = 0;
 			  }
-
+	
 			  // You can use data attribute (for example: data-offset="100") to set top offset in HTML markup if needed.
 			  if ($(this).data("offset") != undefined)
 				$offset = $(this).data("offset");
-
-
+	
+			  
 			  return false;
 			});
-
-
+	
+		 
 		  // Show/hide magic cursor
 		  // =======================
-
+	
 		  // Hide on hover.
 		  $(
 			"a, button, .tt-btn, .tt-form-control, .tt-form-radio, .tt-form-check, .hide-cursor"
@@ -1485,7 +1408,7 @@
 			.on("mouseleave", function () {
 			  gsap.to($ball, { duration: 0.3, scale: 1, opacity: $ballOpacity });
 			});
-
+	
 		  // Hide on click.
 		  $("a")
 			.not('[target="_blank"]') // omit from selection.
@@ -1507,7 +1430,7 @@
 			.on("mouseenter", function () {
 			  gsap.to("#magic-cursor", { duration: 0.3, autoAlpha: 1 });
 			});
-
+	
 		  // Show as the mouse moves.
 		  $(document).mousemove(function () {
 			gsap.to("#magic-cursor", { duration: 0.3, autoAlpha: 1 });
@@ -1518,7 +1441,7 @@
 	gsap.registerPlugin(ScrollTrigger);
 
 	let drawLine = gsap.timeline();
-
+  
 	ScrollTrigger.create({
 	  trigger: "#about-section",
 	  animation: drawLine,
@@ -1533,82 +1456,42 @@
 	);
 
 	// Back To Top
-	// jQuery(function($) {
-	// 	"use strict";
+	jQuery(function($) {
+		"use strict";
 
-	// 	var progressPath = document.querySelector('.progress-wrap .progress-circle path');
-	// 	var pathLength = progressPath.getTotalLength();
-	// 	progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
-	// 	progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
-	// 	progressPath.style.strokeDashoffset = pathLength;
-	// 	progressPath.getBoundingClientRect();
-	// 	progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+		var progressPath = document.querySelector('.progress-wrap .progress-circle path');
+		var pathLength = progressPath.getTotalLength();
+		progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+		progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+		progressPath.style.strokeDashoffset = pathLength;
+		progressPath.getBoundingClientRect();
+		progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
 
-	// 	var updateProgress = function () {
-	// 		var scroll = $(window).scrollTop();
-	// 		var height = $(document).height() - $(window).height();
-	// 		var progress = pathLength - (scroll * pathLength / height);
-	// 		progressPath.style.strokeDashoffset = progress;
-	// 	};
+		var updateProgress = function () {
+			var scroll = $(window).scrollTop();
+			var height = $(document).height() - $(window).height();
+			var progress = pathLength - (scroll * pathLength / height);
+			progressPath.style.strokeDashoffset = progress;
+		};
 
-	// 	updateProgress();
-	// 	$(window).on('scroll', updateProgress);
+		updateProgress();
+		$(window).on('scroll', updateProgress);
 
-	// 	var offset = 50;
-	// 	var duration = 550;
+		var offset = 50;
+		var duration = 550;
 
-	// 	$(window).on('scroll', function() {
-	// 		if ($(this).scrollTop() > offset) {
-	// 			$('.progress-wrap').addClass('active-progress');
-	// 		} else {
-	// 			$('.progress-wrap').removeClass('active-progress');
-	// 		}
-	// 	});
+		$(window).on('scroll', function() {
+			if ($(this).scrollTop() > offset) {
+				$('.progress-wrap').addClass('active-progress');
+			} else {
+				$('.progress-wrap').removeClass('active-progress');
+			}
+		});
 
-	// 	$('.progress-wrap').on('click', function() {
-	// 		window.scrollTo({ top: 0, behavior: "smooth" });
-	// 	});
-	// });
-
-    jQuery(function($) {
-        "use strict";
-
-        var progressPath = document.querySelector('.progress-wrap .progress-circle path');
-
-        if (progressPath) { // ✅ Only run if element exists
-            var pathLength = progressPath.getTotalLength();
-            progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
-            progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
-            progressPath.style.strokeDashoffset = pathLength;
-            progressPath.getBoundingClientRect();
-            progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
-
-            var updateProgress = function () {
-                var scroll = $(window).scrollTop();
-                var height = $(document).height() - $(window).height();
-                var progress = pathLength - (scroll * pathLength / height);
-                progressPath.style.strokeDashoffset = progress;
-            };
-
-            updateProgress();
-            $(window).on('scroll', updateProgress);
-
-            var offset = 50;
-            var duration = 550;
-
-            $(window).on('scroll', function() {
-                if ($(this).scrollTop() > offset) {
-                    $('.progress-wrap').addClass('active-progress');
-                } else {
-                    $('.progress-wrap').removeClass('active-progress');
-                }
-            });
-
-            $('.progress-wrap').on('click', function() {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-        }
-    });
+		$('.progress-wrap').on('click', function() {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		});
+	});
 
 
 	$(".interactive-link").each(function () {
@@ -1626,7 +1509,7 @@
 	const body = document.body;
 	const icon = dayNight.querySelector("i");
 	body.classList.toggle("dark");
-
+	
 	icon.classList.toggle("bi-brightness-low-fill", body.classList.contains("dark"));
 	icon.classList.toggle("bi-moon", !body.classList.contains("dark"));
 
