@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreContactRequest;
 use App\Models\Contact;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -16,9 +18,8 @@ class ContactController extends Controller
         //Pagination
       //$Contacts = Contact::paginate(5);
       //return view('backend.contact.show', compact('Contacts'))
-      $Contacts = Contact::all();
-      //return view('backend.contact.show',compact('Contacts'));
-      return $Contacts;
+      $contacts = Contact::all();
+      return view('backend.contact.show',compact('contacts'));
     }
 
     /**
@@ -26,33 +27,25 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.contact');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreContactRequest $request)
     {
         try {
             $validated = $request->validated();
             Contact::create($validated);
             //return redirect()->view('frontend.contact.ShowForm');
-            // return redirect()->view('frontend.contact.ShowForm')
-            // ->with('success_message', 'Contact has been created successfully!');
+            return redirect()->view('frontend.contact')
+            ->with('success_message', 'Contact has been created successfully!');
         }
-    
+
         catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Contact $contact)
-    {
-        //
     }
 
     /**
@@ -71,8 +64,8 @@ class ContactController extends Controller
         try {
 
             $validated = $request->validated();
-            $Contact = Contact::findOrFail($request->id);
-            $Contact->update($validated);
+            $contact = Contact::findOrFail($request->id);
+            $contact->update($validated);
             //return redirect()->route('contact.index');
             return redirect()->route('contact.index')
             ->with('success_message', 'Contact has been updated successfully!');
@@ -88,7 +81,7 @@ class ContactController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Contact = Contact::findOrFail($request->id)->delete();
+         Contact::findOrFail($request->id)->delete();
         //return redirect()->route('contact.index');
         return redirect()->route('contact.index')
         ->with('success_message', 'Contact has been deleted successfully!');

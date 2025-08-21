@@ -27,9 +27,9 @@
 <!-- Gsap JS -->
 <script src="{{ asset('website-assets/js/gsap.min.js') }}"></script>
 <script src="{{ asset('website-assets/js/ScrollTrigger.min.js') }}"></script>
+<script src="{{ asset('website-assets/js/DrawSVGPlugin3.min.js') }}"></script>
 
 <script src="{{ asset('website-assets/js/jquery.fancybox.min.js') }}"></script>
-<script src="{{ asset('website-assets/js/jquery.throwable.js') }}"></script>
 
 <!-- Custom JS -->
 <script src="{{ asset('website-assets/js/custom.js') }}"></script>

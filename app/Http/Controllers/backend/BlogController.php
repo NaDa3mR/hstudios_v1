@@ -49,7 +49,7 @@ class BlogController extends Controller
 
             $validated['slug'] = $slug;
             $blog = Blog::create($validated);
-            
+
             if ($request->hasFile('image')) {
                 $blog->addMediaFromRequest('image')->toMediaCollection('blog_images');
             }
@@ -69,7 +69,19 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         return view('admin.sections.blogs.show-blog-info', compact('blog'));
     }
+    public function showSingleBlog(Request $request)
+    {
+        $blog = Blog::findOrFail($request->id);
+        $previous = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
+        $next = Blog::where('id', '>', $blog->id)->orderBy('id', 'asc')->first();
+        return view('frontend.sections.blogs.ShowSingleBlog', compact('blog' , 'previous', 'next'));
+    }
 
+    public function showAll()
+    {
+        $blogs = Blog::paginate(4);
+        return view('frontend.blog', compact('blogs'));
+    }
 
     /**
      * Show the form for editing the specified resource.

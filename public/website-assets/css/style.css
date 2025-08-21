@@ -5,7 +5,7 @@ Support: https://www.account.egenslab.com/
 Developer: Abid Hossain Chowdhury --> hello@egenslab.com
 Version: 1.0
 
-01.COMMON CSS 
+01.COMMON CSS
 02. Mixins Css
 03. Header CSS
 04. Home1 Banner Section CSS
@@ -103,7 +103,7 @@ Version: 1.0
 
 
 /*===========================
-  01.COMMON CSS 
+  01.COMMON CSS
 ===========================*/
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Lora:ital,wght@0,400..700;1,400..700&amp;family=SUSE:wght@100..800&amp;display=swap");
 * {
@@ -130,12 +130,12 @@ Version: 1.0
   --text-color: #545454;
   --global-text-color: #545454;
   --text-color-opc: 84, 84, 84;
-  --primary-color1: #5841D8;
+  --primary-color1: #8b422e;
   --primary-color1-opc: 88, 65, 216;
   --primary-color2: #78EB54;
   --primary-color2-opc: 120, 235, 84;
   --secondary-color: #003C30;
-  --primary-color3: #5956E9;
+  --primary-color3: #8b422e;
   --primary-color3-opc: 89, 86, 233;
   --primary-color4: #60E59D;
   --primary-color4-opc: 96, 229, 157;

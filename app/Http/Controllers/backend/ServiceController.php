@@ -59,12 +59,19 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showServices()
+    public function show(Request $request)
     {
-        $services = Service::paginate(5);
-        return view('frontend.service.show', compact('services'));
+        $service = Service::findOrFail($request->id);
+        $previous = Service::where('id', '<', $service->id)->orderBy('id', 'desc')->first();
+        $next = Service::where('id', '>', $service->id)->orderBy('id', 'asc')->first();
+        return view('frontend.sections.services.ShowSingleService', compact('service' , 'previous', 'next'));
     }
 
+    public function showAll()
+    {
+        $services = Service::all();
+        return view('frontend.service', compact('services'));
+    }
     /**
      * Show the form for editing the specified resource.
      */
