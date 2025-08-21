@@ -20,7 +20,11 @@ class Service extends Model
 
     public function serviceRequests()
     {
-        return $this->belongsToMany(Service_Request::class, 'service_request_service','service_id' , 'service_request_id');
+        return $this->belongsToMany(Service_Request::class, 'service_request_service', 'service_id', 'service_request_id');
+    }
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class, 'project_service');
     }
 
 }

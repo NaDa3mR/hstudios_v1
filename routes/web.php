@@ -16,10 +16,8 @@ use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\TransferController;
 use App\Http\Controllers\backend\WordController;
 use App\Http\Controllers\frontend\ContactController;
-use App\Http\Controllers\frontend\JobApplicationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\ServiceController;
-use App\Http\Controllers\frontend\ServiceRequestController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/home', function () {
@@ -95,7 +93,7 @@ Route::middleware('auth')->group(function () {
     //Word
     Route::resource('admin/word', WordController::class);
     //Contact
-    Route::resource('admin/contact', ContactController::class);
+    // Route::resource('/contact', ContactController::class);
     //Job Application
     Route::resource('admin/application', \App\Http\Controllers\backend\JobApplicationController::class);
     Route::post('/job-applications/{id}/promote-to-candidate', [\App\Http\Controllers\backend\JobApplicationController::class, 'promoteToCandidate'])->name('job_applications.promote');
