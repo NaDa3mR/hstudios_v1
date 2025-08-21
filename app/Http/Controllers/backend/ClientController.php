@@ -96,4 +96,6 @@ class ClientController extends Controller
             ->with('success_message', 'CLient has been deleted successfully!');
         ;
     }
+
+    
 }

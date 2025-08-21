@@ -56,11 +56,11 @@
                 </div>
                 <div class="col-xl-3 col-lg-2 col-sm-6">
                     <div class="footer-widget">
-                        <div class="widget-title">
+                        <div class="widget-title ">
                             <h3>Company</h3>
                         </div>
                         <ul class="widget-list">
-                            <li><a href="about.html">About us</a></li>
+                            <li><a href="{{ route('about') }}">About us</a></li>
                             <li><a href="team.html">Our Team</a></li>
                             <li><a href="portfolio.html">Our Portfolio</a></li>
                             <li><a href="career.html">Careers <span>Hiring</span></a></li>
@@ -68,7 +68,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-sm-6 d-flex justify-content-lg-end">
+                {{-- <div class="col-xl-2 col-lg-3 col-sm-6 d-flex justify-content-lg-end">
                     <div class="footer-widget">
                         <div class="widget-title">
                             <h3>Industries</h3>
@@ -81,7 +81,7 @@
                             <li><a href="industry-details.html">Travel & Hospitality</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <a href="{{ asset('website-assets/company-desk.pdf') }}" class="file-download-btn" download>
@@ -103,10 +103,13 @@
                 <img src="{{ asset('website-assets/logo.png') }}" alt="" width="200px">
             </a>
             <ul class="service-list">
-                <li><a href="service.html">Product Development</a></li>
+                @foreach ( $footservices as $service )
+                <li><a href="{{ route('service.show',$service->id) }}">{{ $service->name }}</a></li>
+                @endforeach
+                {{-- <li><a href="service.html">Product Development</a></li>
                 <li><a href="service.html">Design Department</a></li>
                 <li><a href="service.html">Cloud Solution</a></li>
-                <li><a href="service.html">Data Analytics</a></li>
+                <li><a href="service.html">Data Analytics</a></li> --}}
             </ul>
         </div>
         <div class="copyright-and-social-area">

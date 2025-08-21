@@ -1,7 +1,7 @@
  <!-- Contact Page Start -->
     <div class="contact-page-top mb-80">
         <div class="container">
-            {{-- <div class="row g-4"> --}}
+               {{-- <div class="row g-4"> --}}
                     <div class="single-contact">
                         <h4>Australia</h4>
                         <a href="https://www.google.com/maps">123 Innovation Road, Suite 101Tech City, State, ZIP CodeCountry</a>
@@ -26,9 +26,8 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        {{-- </div> --}}
+            {{-- </div> --}}
+        </div>
     </div>
     <div class="contact-form-area mb-130">
         <div class="container">

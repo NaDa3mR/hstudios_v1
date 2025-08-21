@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //Route::get('/service', [ServiceController::class, ''])->name('profile.edit');
     //Clients
-    Route::resource('/client', ClientController::class);
+    // Route::resource('/client', controller: ClientController::class);
     //Blogs
     Route::resource('admin/blog', BlogController::class);
     Route::post('admin/blog/toggle-status', [BlogController::class, 'toggleStatus'])->name('blog.toggleStatus');

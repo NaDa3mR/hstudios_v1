@@ -4,9 +4,9 @@
 @include('frontend.main.meta')
 </head>
 <body>
+    @include('frontend.main.topbar')
     @include('frontend.sections.contacts.breadcrumb')
     @include('frontend.sections.contacts.ContactForm')
-    @include('frontend.main.topbar')
     @include('frontend.main.footer')
     @include('frontend.main.scripts')
 </body>
