@@ -36,6 +36,11 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+    public function show()
+    {
+        $user = Auth::user();
+        return view('admin.profile', compact('user'));
+    }
 
     /**
      * Delete the user's account.
@@ -55,6 +60,7 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::to('/dashboard');
     }
+
 }

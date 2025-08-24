@@ -12,11 +12,29 @@
             flex-direction: column;
             justify-content: space-between;
         }
+
+        a {
+            color: #1C1A1E;
+            text-decoration: none;
+            /* removes underline */
+        }
+
+        On hover
+        a:hover {
+            color: #8b422e;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            a {
+                color: white;
+            }
+        }
+        
     </style>
 </head>
 
 <body>
-    
+
     @include('frontend.main.topbar')
     @include('frontend.sections.home.banner')
     @include('frontend.sections.home.feature')

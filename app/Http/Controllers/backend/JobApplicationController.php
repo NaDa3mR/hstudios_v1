@@ -55,6 +55,28 @@ class JobApplicationController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+    public function storeNewApp(StoreJobApplicationRequest $request)
+    {
+        try {
+            $validated = $request->validated();
+            $application = Job_Application::create($validated);
+
+            if ($request->hasFile('image')) {
+                $application->addMediaFromRequest('image')->toMediaCollection('application_images');
+            }
+
+            if ($request->hasFile('cv')) {
+                $application->addMediaFromRequest('cv')->toMediaCollection('application_cv');
+            }
+            //return redirect()->route('Job_app.index');
+            return redirect()->view('frontend.sections.careers.ShowSingleCareer')
+                ->with('success_message', 'Application has been created successfully!');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+    }
+
+
 
     /**
      * Display the specified resource.

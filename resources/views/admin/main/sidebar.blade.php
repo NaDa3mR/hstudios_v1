@@ -1,14 +1,15 @@
 <div class="hk-menu">
     <div class="main-menu">
         <div class="menu-header">
-            <a class="navbar-brand" href="/">
-                <img class="brand-img" style="width: 6vh" src="{{ URL::asset('icon.png') }}" alt="brand">
+            <a class="navbar-brand" href="{{ route('dashboard') }}">
+                <img class="brand-img" style="width: 6vh" src="{{ asset('website-assets/favicon.png') }}" alt="brand">
             </a>
         </div>
         @php
-            $pages = ['blogs','service','career','about'];
+            $pages = ['blogs','service','career', 'application', 'employees'];
             $user_arr = ['admin','roles','users'];
-            $crm_arr = ['deals','companies','contacts','leads','pipelines','stages','custom-email'];
+            $crm_arr = ['deals','clients', 'meetings','calender', 'candidates', 'service_requests', 'interview'];
+            $finance = ['expenses', 'expense_source', 'income_source', 'incomes', 'account']
         @endphp
         <div data-simplebar class="nicescroll-bar">
             <div class="menu-content-wrap">
@@ -16,17 +17,17 @@
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item {{in_array(Request::segment(2), $pages) ? 'active' : '' }} {{Request::segment(2) == NULL ? 'active' : '' }}">
                             <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="website pages" data-bs-trigger="hover" data-target="#submenu_3">
-                                <i class="bi bi-cash-coin fs-3"></i>
+                                <i class="bi bi-window fs-3"></i>
                             </a>
                         </li>
                         <li class="nav-item {{in_array(Request::segment(2), $crm_arr) ? 'active' : '' }} {{Request::segment(2) == NULL ? 'active' : '' }}">
                             <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="CRM" data-bs-trigger="hover" data-target="#submenu_2">
-                                <i class="bi bi-cash-coin fs-3"></i>
+                                <i class="bi bi-people fs-3"></i>
                             </a>
                         </li>
                         <li class="nav-item {{in_array(Request::segment(2) , $user_arr) ? 'active' : '' }}">
-                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="User Mangement" data-bs-trigger="hover" data-target="#submenu_1">
-                           <i class="ri-user-settings-line fs-5"></i>
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Finance Mangement" data-bs-trigger="hover" data-target="#submenu_1">
+                                <i class="bi bi-cash-coin fs-3"></i>
                             </a>
                         </li>
                     </ul>
@@ -64,7 +65,7 @@
             <div class="menu-content-wrap">
                 <div class="menu-group">
                     <ul class="navbar-nav flex-column">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link dropdown-toggle no-caret" href="#">
                                 <span class="nav-icon-wrap">
                                     <span class="svg-icon">
@@ -92,7 +93,7 @@
                                     </span>
                                 </span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item nav-link">
                             <a href="javascript:void(0)" class="mx-auto d-block avatar avatar-xs avatar-primary avatar-rounded dropdown-toggle no-caret" data-bs-toggle="dropdown">
                                 <span class="initial-wrap">{{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}</span>
@@ -107,10 +108,10 @@
                                             </div>
                                         </div>
                                         <div class="media-body mw-175p">
-                                            <a href="#" class="d-block name">{{auth()->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
-                                            <a href="#" class="d-block fs-7 link-secondary text-truncate">{{auth()->user()->email}}</a>
+                                            <a href="{{ route('profile.show') }}" class="d-block name">{{auth()->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
+                                            <a href="{{ route('profile.show') }}" class="d-block fs-7 link-secondary text-truncate">{{auth()->user()->email}}</a>
                                             <div class="dropdown-divider"></div>
-                                            <form action="#" method="POST">
+                                            <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
                                                 <button type="submit" class="dropdown-item" href="#">Logout </button>
                                             </form>

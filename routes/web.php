@@ -25,16 +25,17 @@ Route::get('/home', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile/show', [ProfileController::class, 'show'])->name('profile.show');
     //Route::get('/service', [ServiceController::class, ''])->name('profile.edit');
     //Clients
-    Route::resource('/client', ClientController::class);
+    // Route::resource('/client', controller: ClientController::class);
     //Blogs
     Route::resource('admin/blog', BlogController::class);
     Route::post('admin/blog/toggle-status', [BlogController::class, 'toggleStatus'])->name('blog.toggleStatus');

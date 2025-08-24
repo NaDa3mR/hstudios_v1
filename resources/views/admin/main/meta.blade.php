@@ -4,8 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>dashboard template</title>
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{ URL::asset('icon.png') }}">
-<link rel="icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('website-assets/favicon.png') }}">
+<link rel="icon" href="{{ asset('website-assets/favicon.png') }}" type="image/x-icon">
 <!-- Perfect Scrollbar CSS -->
 <link href="{{ URL::asset('dist/css/perfect-scrollbar.css') }}" rel="stylesheet" type="text/css">
 <!-- Dragula CSS -->

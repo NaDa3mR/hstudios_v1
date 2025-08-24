@@ -34,7 +34,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <a href="https://www.google.com/maps" class="primary-btn1 transparent">
+                        <a href="https://www.google.com/maps/place/HossamX+studios/@30.107298,31.369899,19z/data=!4m6!3m5!1s0x1458176c2fe37a6f:0x455d5754795dfc8!8m2!3d30.1072977!4d31.3698991!16s%2Fg%2F11v3xgwwpx?hl=ar&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D" class="primary-btn1 transparent">
                             <span>View Site Map
                                 <svg width="10" height="10" viewBox="0 0 10 10"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -56,14 +56,13 @@
                 </div>
                 <div class="col-xl-3 col-lg-2 col-sm-6">
                     <div class="footer-widget">
-                        <div class="widget-title">
+                        <div class="widget-title ">
                             <h3>Company</h3>
                         </div>
                         <ul class="widget-list">
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="team.html">Our Team</a></li>
-                            <li><a href="portfolio.html">Our Portfolio</a></li>
-                            <li><a href="career.html">Careers <span>Hiring</span></a></li>
+                            <li><a href="{{ route('about') }}">About us</a></li>
+                            <li><a href="{{ route('team.showAll') }}">Our Team</a></li>
+                            <li><a href="{{ route('career.showAll') }}">Careers <span>Hiring</span></a></li>
                             <li><a href="{{ route('contact.create') }}">Contact Us</a></li>
                         </ul>
                     </div>
@@ -71,14 +70,16 @@
                 <div class="col-xl-2 col-lg-3 col-sm-6 d-flex justify-content-lg-end">
                     <div class="footer-widget">
                         <div class="widget-title">
-                            <h3>Industries</h3>
+                            <h3>Our Projects</h3>
                         </div>
                         <ul class="widget-list">
-                            <li><a href="industry-details.html">Finance & Fintech</a></li>
-                            <li><a href="industry-details.html">Healthcare & Life</a></li>
+                            @foreach ( $headerProjects as $project )
+                            <li><a href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></li>
+                            @endforeach
+                            {{-- <li><a href="industry-details.html">Healthcare & Life</a></li>
                             <li><a href="industry-details.html">Retail & Ecommerce</a></li>
                             <li><a href="industry-details.html">Government & Public</a></li>
-                            <li><a href="industry-details.html">Travel & Hospitality</a></li>
+                            <li><a href="industry-details.html">Travel & Hospitality</a></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -103,10 +104,11 @@
                 <img src="{{ asset('website-assets/logo.png') }}" alt="" width="200px">
             </a>
             <ul class="service-list">
-                <li><a href="service.html">Product Development</a></li>
-                <li><a href="service.html">Design Department</a></li>
-                <li><a href="service.html">Cloud Solution</a></li>
-                <li><a href="service.html">Data Analytics</a></li>
+                @foreach ( $footservices as $service )
+                <li><a href="{{ route('service.show',$service->id) }}">{{ $service->name }}</a></li>
+                @endforeach
+                {{-- <li><a href="service.html">Cloud Solution</a></li>
+                <li><a href="service.html">Data Analytics</a></li> --}}
             </ul>
         </div>
         <div class="copyright-and-social-area">

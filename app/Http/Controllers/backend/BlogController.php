@@ -79,7 +79,9 @@ class BlogController extends Controller
 
     public function showAll()
     {
-        $blogs = Blog::paginate(4);
+        $blogs = Blog::where('is_active', 1)->paginate(4);
+    //    $blogs = Blog::paginate(4);
+        // $blogs = Blog::where('is_active', 1)->get();
         return view('frontend.blog', compact('blogs'));
     }
 

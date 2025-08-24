@@ -32,6 +32,12 @@ class EmployeeController extends Controller
       $employee = Employee::findOrFail($request->id);
       return view('frontend.employee.ShowEmployee', compact('employee'));
     }
+    public function ShowAll(Request $request)
+    {
+      //Pagination
+      $employees = Employee::all();
+      return view('frontend.team', compact('employees'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -80,7 +86,7 @@ class EmployeeController extends Controller
             $validated = $request->validated();
             $employee = Employee::findOrFail($request->id);
             $employee->update($validated);
-            
+
             if ($request->hasFile('image')) {
                 $employee->addMediaFromRequest('image')->toMediaCollection('employee_images');
             }
