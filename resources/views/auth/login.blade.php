@@ -14,7 +14,7 @@
         }
 
         .form-signin {
-            width: 500px;
+            width: 400px;
             padding: 2rem;
             background: #fff;
             border-radius: 1rem;
@@ -77,6 +77,9 @@
                     Remember me
                 </label>
             </div>
+
+            <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+
             <div class="mt-3">
                 <small>
                     Don’t have an account?
@@ -87,8 +90,6 @@
                     <a href="{{ route('password.request') }}">Forgot your password?</a>
                 </small>
             </div>
-
-            <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
         </form>
     </main>
 

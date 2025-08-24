@@ -50,11 +50,11 @@
         }
 
         .btn-link {
-            color: #33475b;
+            color: #8b422e;
         }
 
         .btn-link:hover {
-            color: rgba(74, 96, 156, 1);
+            color: #8b422e;
         }
 
         #datable_4c_filter {
@@ -62,7 +62,7 @@
         }
 
         .avatar.avatar-info>.initial-wrap {
-            background-color: rgba(74, 96, 156, 1) !important;
+            background-color: #8b422e !important;
             color: #fff;
         }
 
@@ -72,7 +72,7 @@
 
         /* Enhanced Table Styling */
         #datable_4c thead th {
-            border-bottom: 2px solid rgba(74, 96, 156, 1) !important;
+            border-bottom: 2px solid #8b422e !important;
             font-weight: 600;
             padding: 12px 15px;
         }
@@ -93,7 +93,7 @@
         }
 
         .role-dropdown:hover {
-            border-color: rgba(74, 96, 156, 1) !important;
+            border-color: #8b422e !important;
         }
 
         .role-item.active {
@@ -102,7 +102,7 @@
         }
 
         .role-item:hover {
-            color: rgba(74, 96, 156, 1);
+            color: #8b422e;
         }
 
         /* Loading animation */
@@ -111,7 +111,7 @@
             width: 16px;
             height: 16px;
             border: 2px solid rgba(0, 0, 0, 0.1);
-            border-left-color: rgba(74, 96, 156, 1);
+            border-left-color: #8b422e;
             border-radius: 50%;
             animation: role-spin 1s linear infinite;
             margin-left: 5px;

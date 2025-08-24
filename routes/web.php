@@ -20,9 +20,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\backend\ServiceController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', function () {
-    return view('frontend.home');
-});
+// Route::get('/', function () {
+//     return view('frontend.home');
+// });
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');

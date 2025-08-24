@@ -13,7 +13,7 @@
         }
 
         .form-register {
-            width: 500px;
+            width: 400px;
             padding: 2rem;
             background: #fff;
             border-radius: 1rem;
