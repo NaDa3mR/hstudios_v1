@@ -38,7 +38,8 @@ class DatabaseSeeder extends Seeder
             EmployeeTableSeeder::class,
             DealServiceTableSeeder::class,
             ServiceRequestServiceSeeder::class,
-
+            ProjectSeeder::class,
+            ProjectServiceSeeder::class,
 
         ]);
 

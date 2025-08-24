@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\backend\BlogController;
+use App\Http\Controllers\backend\CareerController;
+use App\Http\Controllers\backend\EmployeeController;
+use App\Http\Controllers\backend\JobApplicationController;
 use App\Http\Controllers\backend\ServiceController;
+use App\Http\Controllers\backend\ProjectController;
 use App\Http\Controllers\Client\Auth\AuthenticatedClientController;
 use App\Http\Controllers\Client\Auth\RegisteredClientController;
 use App\Http\Controllers\Client\ProfileController;
@@ -17,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about', function () {
-         return view('frontend.aboutus');
-     })->name('about');
+    return view('frontend.aboutus');
+})->name('about');
 
 Route::get('/service', [ServiceController::class, 'showAll'])->name('service.showAll');
 Route::get('/service/{id}', [ServiceController::class, 'show'])->name('service.show');
@@ -26,8 +30,17 @@ Route::get('/service/{id}', [ServiceController::class, 'show'])->name('service.s
 Route::get('/blog', [BlogController::class, 'showAll'])->name('blog.showAll');
 Route::get('/blog/{id}', [BlogController::class, 'showSingleBlog'])->name('blog.showSingle');
 
+Route::get('/career', [CareerController::class, 'showAll'])->name('career.showAll');
+Route::get('/career/{id}', [CareerController::class, 'show'])->name('career.show');
+Route::post('/newapplication', [JobApplicationController::class, 'storeNewApp'])->name('application.storeNew');
+
+
 Route::resource('/contact', ContactController::class);
 
+Route::get('/team', [EmployeeController::class, 'showAll'])->name('team.showAll');
+
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 Route::prefix('client')->name('client.')->group(function () {
     Route::get('register', [RegisteredClientController::class, 'create'])->name('register');
     Route::post('register', [RegisteredClientController::class, 'store']);

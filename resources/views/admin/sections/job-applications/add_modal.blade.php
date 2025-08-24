@@ -56,11 +56,11 @@
                         </div>
                         <div class="col-12">
                             <label for="github" class="form-label">GitHub</label>
-                            <input type="text" name="github" id="github" class="form-control" required>
+                            <input type="text" name="github" id="github" class="form-control">
                         </div>
                         <div class="col-12">
                             <label for="behance" class="form-label">Behance</label>
-                            <input type="text" name="behance" id="behance" class="form-control" required>
+                            <input type="text" name="behance" id="behance" class="form-control">
                         </div>
                         <div class="col-md-12">
                             <label for="image" class="form-label">Image</label>

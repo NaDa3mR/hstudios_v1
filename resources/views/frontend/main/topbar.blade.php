@@ -1,3 +1,10 @@
+<style>
+    header.style-1 .main-menu>ul>li .mega-menu2 .menu-row .menu-single-item ul {
+    padding: 0;
+    margin-bottom: 273px;
+    list-style: none;
+}
+</style>
 <div class="tt-style-switch index-dark">
     <i class="bi bi-brightness-low-fill"></i>
 </div>
@@ -40,7 +47,7 @@
                             Home</a>
                     </li>
                     <li class="menu-item-has-children position-inherit">
-                        <a href="{{ route('service.showAll') }}">Solution
+                        <a href="{{ route('service.showAll') }}">Our Services
                         </a>
                         <i class="bi bi-plus dropdown-icon"></i>
                         <div class="mega-menu2">
@@ -48,7 +55,7 @@
                                 <div class="row align-items-lg-end justify-content-between">
                                     <div class="col-xl-7 col-lg-8">
                                         <div class="title-area">
-                                            <h2>Challenge We Tackle</h2>
+                                            <h2>Tailored Services for Your Needs</h2>
                                             <div class="icon">
                                                 <svg width="10" height="10" viewBox="0 0 10 10"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -71,21 +78,23 @@
                                                     </h6>
                                                 </div>
                                                 <ul>
-                                                    <li>
-                                                        <a href="service-details.html">
-                                                            <svg width="22" height="22" viewBox="0 0 22 22"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <g>
-                                                                    <path
-                                                                        d="M19.25 1.375C19.6147 1.375 19.9644 1.51987 20.2223 1.77773C20.4801 2.03559 20.625 2.38533 20.625 2.75V19.25C20.625 19.6147 20.4801 19.9644 20.2223 20.2223C19.9644 20.4801 19.6147 20.625 19.25 20.625H2.75C2.38533 20.625 2.03559 20.4801 1.77773 20.2223C1.51987 19.9644 1.375 19.6147 1.375 19.25V2.75C1.375 2.38533 1.51987 2.03559 1.77773 1.77773C2.03559 1.51987 2.38533 1.375 2.75 1.375H19.25ZM2.75 0C2.02065 0 1.32118 0.289731 0.805456 0.805456C0.289731 1.32118 0 2.02065 0 2.75L0 19.25C0 19.9793 0.289731 20.6788 0.805456 21.1945C1.32118 21.7103 2.02065 22 2.75 22H19.25C19.9793 22 20.6788 21.7103 21.1945 21.1945C21.7103 20.6788 22 19.9793 22 19.25V2.75C22 2.02065 21.7103 1.32118 21.1945 0.805456C20.6788 0.289731 19.9793 0 19.25 0L2.75 0Z" />
-                                                                    <path
-                                                                        d="M9.42426 6.38826C9.48828 6.45212 9.53908 6.52799 9.57374 6.61151C9.6084 6.69504 9.62624 6.78458 9.62624 6.87501C9.62624 6.96544 9.6084 7.05498 9.57374 7.1385C9.53908 7.22203 9.48828 7.2979 9.42426 7.36176L5.78463 11L9.42426 14.6383C9.55335 14.7674 9.62588 14.9424 9.62588 15.125C9.62588 15.3076 9.55335 15.4827 9.42426 15.6118C9.29516 15.7409 9.12007 15.8134 8.93751 15.8134C8.75494 15.8134 8.57985 15.7409 8.45076 15.6118L4.32576 11.4868C4.26173 11.4229 4.21094 11.347 4.17628 11.2635C4.14162 11.18 4.12378 11.0904 4.12378 11C4.12378 10.9096 4.14162 10.82 4.17628 10.7365C4.21094 10.653 4.26173 10.5771 4.32576 10.5133L8.45076 6.38826C8.51462 6.32423 8.59049 6.27344 8.67401 6.23878C8.75754 6.20412 8.84708 6.18628 8.93751 6.18628C9.02794 6.18628 9.11748 6.20412 9.201 6.23878C9.28453 6.27344 9.3604 6.32423 9.42426 6.38826ZM12.5758 6.38826C12.5117 6.45212 12.4609 6.52799 12.4263 6.61151C12.3916 6.69504 12.3738 6.78458 12.3738 6.87501C12.3738 6.96544 12.3916 7.05498 12.4263 7.1385C12.4609 7.22203 12.5117 7.2979 12.5758 7.36176L16.2154 11L12.5758 14.6383C12.4467 14.7674 12.3741 14.9424 12.3741 15.125C12.3741 15.3076 12.4467 15.4827 12.5758 15.6118C12.7049 15.7409 12.8799 15.8134 13.0625 15.8134C13.2451 15.8134 13.4202 15.7409 13.5493 15.6118L17.6743 11.4868C17.7383 11.4229 17.7891 11.347 17.8237 11.2635C17.8584 11.18 17.8762 11.0904 17.8762 11C17.8762 10.9096 17.8584 10.82 17.8237 10.7365C17.7891 10.653 17.7383 10.5771 17.6743 10.5133L13.5493 6.38826C13.4854 6.32423 13.4095 6.27344 13.326 6.23878C13.2425 6.20412 13.1529 6.18628 13.0625 6.18628C12.9721 6.18628 12.8825 6.20412 12.799 6.23878C12.7155 6.27344 12.6396 6.32423 12.5758 6.38826Z" />
-                                                                </g>
-                                                            </svg>
-                                                            Product Development
-                                                        </a>
-                                                    </li>
-                                                    <li>
+                                                    @foreach ($headerservices as $service)
+                                                        <li>
+                                                            <a href="{{ route('service.show', $service->id) }}">
+                                                                <svg width="22" height="22" viewBox="0 0 22 22"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path
+                                                                            d="M19.25 1.375C19.6147 1.375 19.9644 1.51987 20.2223 1.77773C20.4801 2.03559 20.625 2.38533 20.625 2.75V19.25C20.625 19.6147 20.4801 19.9644 20.2223 20.2223C19.9644 20.4801 19.6147 20.625 19.25 20.625H2.75C2.38533 20.625 2.03559 20.4801 1.77773 20.2223C1.51987 19.9644 1.375 19.6147 1.375 19.25V2.75C1.375 2.38533 1.51987 2.03559 1.77773 1.77773C2.03559 1.51987 2.38533 1.375 2.75 1.375H19.25ZM2.75 0C2.02065 0 1.32118 0.289731 0.805456 0.805456C0.289731 1.32118 0 2.02065 0 2.75L0 19.25C0 19.9793 0.289731 20.6788 0.805456 21.1945C1.32118 21.7103 2.02065 22 2.75 22H19.25C19.9793 22 20.6788 21.7103 21.1945 21.1945C21.7103 20.6788 22 19.9793 22 19.25V2.75C22 2.02065 21.7103 1.32118 21.1945 0.805456C20.6788 0.289731 19.9793 0 19.25 0L2.75 0Z" />
+                                                                        <path
+                                                                            d="M9.42426 6.38826C9.48828 6.45212 9.53908 6.52799 9.57374 6.61151C9.6084 6.69504 9.62624 6.78458 9.62624 6.87501C9.62624 6.96544 9.6084 7.05498 9.57374 7.1385C9.53908 7.22203 9.48828 7.2979 9.42426 7.36176L5.78463 11L9.42426 14.6383C9.55335 14.7674 9.62588 14.9424 9.62588 15.125C9.62588 15.3076 9.55335 15.4827 9.42426 15.6118C9.29516 15.7409 9.12007 15.8134 8.93751 15.8134C8.75494 15.8134 8.57985 15.7409 8.45076 15.6118L4.32576 11.4868C4.26173 11.4229 4.21094 11.347 4.17628 11.2635C4.14162 11.18 4.12378 11.0904 4.12378 11C4.12378 10.9096 4.14162 10.82 4.17628 10.7365C4.21094 10.653 4.26173 10.5771 4.32576 10.5133L8.45076 6.38826C8.51462 6.32423 8.59049 6.27344 8.67401 6.23878C8.75754 6.20412 8.84708 6.18628 8.93751 6.18628C9.02794 6.18628 9.11748 6.20412 9.201 6.23878C9.28453 6.27344 9.3604 6.32423 9.42426 6.38826ZM12.5758 6.38826C12.5117 6.45212 12.4609 6.52799 12.4263 6.61151C12.3916 6.69504 12.3738 6.78458 12.3738 6.87501C12.3738 6.96544 12.3916 7.05498 12.4263 7.1385C12.4609 7.22203 12.5117 7.2979 12.5758 7.36176L16.2154 11L12.5758 14.6383C12.4467 14.7674 12.3741 14.9424 12.3741 15.125C12.3741 15.3076 12.4467 15.4827 12.5758 15.6118C12.7049 15.7409 12.8799 15.8134 13.0625 15.8134C13.2451 15.8134 13.4202 15.7409 13.5493 15.6118L17.6743 11.4868C17.7383 11.4229 17.7891 11.347 17.8237 11.2635C17.8584 11.18 17.8762 11.0904 17.8762 11C17.8762 10.9096 17.8584 10.82 17.8237 10.7365C17.7891 10.653 17.7383 10.5771 17.6743 10.5133L13.5493 6.38826C13.4854 6.32423 13.4095 6.27344 13.326 6.23878C13.2425 6.20412 13.1529 6.18628 13.0625 6.18628C12.9721 6.18628 12.8825 6.20412 12.799 6.23878C12.7155 6.27344 12.6396 6.32423 12.5758 6.38826Z" />
+                                                                    </g>
+                                                                </svg>
+                                                                {{ $service->name }}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                    {{-- <li>
                                                         <a href="service-details.html">
                                                             <svg width="22" height="22" viewBox="0 0 22 22"
                                                                 xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +173,7 @@
                                                             </svg>
                                                             Technical Support
                                                         </a>
-                                                    </li>
+                                                    </li> --}}
                                                 </ul>
 
                                                 {{-- @foreach ($services as $service)
@@ -252,64 +261,51 @@
                         </div>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="case-study.html" class="drop-down">Company</a>
+                        <a href="{{ route('about') }}" class="drop-down">Company</a>
                         <i class="bi bi-plus dropdown-icon"></i>
                         <ul class="sub-menu">
                             <li><a href="{{ route('about') }}">Company</a></li>
                             <li>
-                                <a href="team.html">Our Team</a>
-                                <i class="d-lg-flex d-none bi-caret-right-fill dropdown-icon"></i>
+                                <a href="{{ route('team.showAll') }}">Our Team</a>
+                                {{-- <i class="d-lg-flex d-none bi-caret-right-fill dropdown-icon"></i>
                                 <i class="d-lg-none d-flex bi bi-plus dropdown-icon"></i>
                                 <ul class="sub-menu">
                                     <li><a href="team.html">Team Style 01</a></li>
                                     <li><a href="team2.html">Team Style 02</a></li>
                                     <li><a href="team3.html">Team Style 03</a></li>
                                     <li><a href="team-details.html">Team Details</a></li>
-                                </ul>
+                                </ul> --}}
                             </li>
-                            <li><a href="award-recognitions.html">Award & Recognitions</a></li>
-                            <li><a href="social-responsibility.html">Social Responsibility</a></li>
                             <li>
                                 <a href="{{ route('service.showAll') }}">Services</a>
                             </li>
                             <li>
-                                <a href="case-study.html">Projects</a>
+                                <a href="{{ route('projects.index') }}">Projects</a>
                                 <i class="d-lg-flex d-none bi-caret-right-fill dropdown-icon"></i>
                                 <i class="d-lg-none d-flex bi bi-plus dropdown-icon"></i>
                                 <ul class="sub-menu">
-                                    <li><a href="case-study.html">Case Study Style 01</a></li>
+                                    {{-- <li><a href="case-study.html">Case Study Style 01</a></li>
                                     <li><a href="case-study2.html">Case Study Style 02</a></li>
-                                    <li><a href="case-study-details.html">Case Study Details</a></li>
-                                    {{-- @foreach ($projects as $project)
-                                    <li><a href="{{ route('projects.view', $project->id) }}">{{ $project->name }}</a></li>
-                                    @endforeach --}}
+                                    <li><a href="case-study-details.html">Case Study Details</a></li> --}}
+                                    @foreach ($headerProjects as $project)
+                                        <li><a
+                                                href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </li>
                             <li>
                                 <a href="{{ route('blog.showAll') }}">Blogs</a>
                             </li>
-                            <li><a href="pricing.html">Pricing Plan</a></li>
                             <li>
-                                <a href="career.html">Career</a>
-                                <i class="d-lg-flex d-none bi-caret-right-fill dropdown-icon"></i>
+                                <a href="{{ route('career.showAll') }}">Career</a>
+                                {{-- <i class="d-lg-flex d-none bi-caret-right-fill dropdown-icon"></i>
                                 <i class="d-lg-none d-flex bi bi-plus dropdown-icon"></i>
                                 <ul class="sub-menu">
                                     <li><a href="career.html">Career</a></li>
                                     <li><a href="career-details.html">Career Details</a></li>
-                                </ul>
+                                </ul> --}}
                             </li>
-                            <li>
-                                <a href="shop.html">Shop</a>
-                                <i class="d-lg-flex d-none bi-caret-right-fill dropdown-icon"></i>
-                                <i class="d-lg-none d-flex bi bi-plus dropdown-icon"></i>
-                                <ul class="sub-menu">
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="product-details.html">Product Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="faq.html">FAQ’s</a></li>
                             <li><a href="{{ route('contact.create') }}">Contact Us</a></li>
                         </ul>
                     </li>

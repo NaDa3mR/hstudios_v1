@@ -23420,7 +23420,7 @@ header.style-7 .primary-btn3.four svg {
   32. Home3 Scroll Text CSS
 ========================================*/
 .home3-scroll-text-area {
-    background-image: url(../img/home3/home3-scroll-text-bg.png), linear-gradient(180deg, #5956E9 0%, #5956E9 100%);
+    background-image: linear-gradient(180deg, #8b422e 0%, #8b422e 100%);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 72px 0;
@@ -35748,7 +35748,7 @@ header.style-7 .primary-btn3.four svg {
 .job-form-modal .modal-dialog .modal-content .modal-header {
     padding: 35px 20px;
     border-bottom: 1px solid var(--borders-color);
-    background-image: url(../img/innerpages/job-form-modal-header-bg.png), linear-gradient(180deg, #5956E9 0%, #5956E9 100%);
+    background-image:linear-gradient(180deg, #8b422e 0%, #8b422e 100%);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 20px 20px 0 0;

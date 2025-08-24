@@ -3,21 +3,22 @@
         <div class="container">
                {{-- <div class="row g-4"> --}}
                     <div class="single-contact">
-                        <h4>Australia</h4>
-                        <a href="https://www.google.com/maps">123 Innovation Road, Suite 101Tech City, State, ZIP CodeCountry</a>
+                        <h4>Cairo</h4>
+                        <a href="https://www.google.com/maps/place/HossamX+studios/@30.107298,31.369899,19z/data=!4m6!3m5!1s0x1458176c2fe37a6f:0x455d5754795dfc8!8m2!3d30.1072977!4d31.3698991!16s%2Fg%2F11v3xgwwpx?hl=ar&entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D">
+                            Sheraton, 30 Saqr Quraish, Second Floor, Cairo Governorate 11799</a>
                         <ul class="contact-list">
                             <li>
                                 <div class="icon">
-                                    <img src="assets/img/home1/icon/contact-call-icon.svg" alt="">
+                                    <img src="{{ asset('website-assets/img/home1/icon/contact-call-icon.svg') }}" alt="">
                                 </div>
                                 <div class="content">
                                     <span>Call 24/7 Hours</span>
-                                    <h6><a href="tel:+997636844563">+99-763 684 4563 </a></h6>
+                                    <h6><a href="tel:+201151948786">+201151948786 </a></h6>
                                 </div>
                             </li>
                             <li>
                                 <div class="icon">
-                                    <img src="assets/img/home1/icon/contact-mail-icon.svg" alt="">
+                                    <img src="{{ asset('website-assets/img/home1/icon/contact-mail-icon.svg') }}" alt="">
                                 </div>
                                 <div class="content">
                                     <span>Send Us Mail</span>

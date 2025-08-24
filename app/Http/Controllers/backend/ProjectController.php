@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProjectController extends Controller
 {
@@ -13,7 +14,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::paginate(4);
+        return view('frontend.projects', compact('projects'));
+
     }
 
     /**
@@ -35,10 +38,32 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
+    // public function show(Project $project)
+    // {
+    //     $view = $project->view_name;
+    //     $view = preg_replace('/\.blade\.php$/i', '', $view);
+    //     $view = str_replace(['/', '\\'], '.', $view);
+    //     $view = ltrim($view, '.');
+    //     $view = "frontend.sections.projects." . $view;
+
+    //     if (!view()->exists($view)) {
+    //         abort(404, "View not found: {$view}");
+    //     }
+
+    //     return view($view, ['project' => $project]);
+    // }
     public function show(Project $project)
-    {
-        //
+{
+    $view = 'frontend.sections.projects.' . $project->view_name;
+
+    if (!view()->exists($view)) {
+        abort(404, "View not found: {$view}");
     }
+
+    return view($view, ['project' => $project]);
+}
+
+
 
     /**
      * Show the form for editing the specified resource.

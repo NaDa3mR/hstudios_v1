@@ -30,6 +30,17 @@ class CareerController extends Controller
         //
     }
 
+    public function show($id)
+    {
+      $career = Career::findOrFail($id);
+      return view('frontend.sections.careers.ShowSingleCareer', compact('career'));
+    }
+    public function showAll(Request $request)
+    {
+      $careers = Career::all();
+      return view('frontend.career', compact('careers'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -62,15 +73,6 @@ class CareerController extends Controller
         $career->save();
 
         return response()->json(['success' => true]);
-    }
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Career $career)
-    {
-        //
     }
 
     /**
