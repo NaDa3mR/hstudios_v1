@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.home');
 // })->name('home');
 
+Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about', function () {
