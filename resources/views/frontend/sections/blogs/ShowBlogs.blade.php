@@ -17,13 +17,13 @@
                         <div class="col-lg-6 col-md-7 col-sm-6">
                             <div class="blog-content-wrap">
                                 <ul class="blog-meta">
-                                    <li><a href="news-insight-grid.html">{{ $blog->sub_title }}</a></li>
+                                    <li><a href="{{ route('blog.showSingle', $blog->id) }}">{{ $blog->sub_title }}</a></li>
                                     <li>
                                         <img src="{{ asset('website-assets/img/icons/arrow.svg') }}" alt="">
                                     </li>
-                                    <li class="blog-date"><a href="news-insight-grid.html">{{$blog->created_at->format('F j, Y')}}</a></li>
+                                    <li class="blog-date"><a href="{{ route('blog.showSingle', $blog->id) }}">{{$blog->created_at->format('F j, Y')}}</a></li>
                                 </ul>
-                                <h3><a href="news-insight-details.html">{{ $blog->title }}</a></h3>
+                                <h3><a href="{{ route('blog.showSingle', $blog->id) }}">{{ $blog->title }}</a></h3>
                                 <a href="{{ route('blog.showSingle', $blog->id) }}" class="primary-btn3 three transparent btn-hover">
                                     Read More
                                     <img src="{{ asset('website-assets/img/icons/btn-arrow.svg') }}" alt="">

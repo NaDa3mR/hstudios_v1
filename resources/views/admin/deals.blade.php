@@ -8,6 +8,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.main.meta')
     <style>
+        html,
+        body {
+            height: auto !important;
+            min-height: 100%;
+            overflow-y: auto !important;
+        }
+
         .btn-link {
             color: #33475b;
         }
@@ -81,6 +88,11 @@
             to {
                 transform: rotate(360deg);
             }
+        }
+
+        .hk-pg-wrapper {
+            height: 100%;
+            overflow: hidden;
         }
     </style>
 </head>
