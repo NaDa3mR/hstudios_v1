@@ -49,14 +49,14 @@
         }
 
         .portfolio-carousel-slider-page .portfolio-carousel-slider-item ul li {
-            color: var(--dark-title-color);
             font-family: var(--font-dmsans);
             font-weight: 600;
             font-size: 16px;
             line-height: 1;
             padding: 8px 16px;
             border-radius: 50px;
-            background-color: #F4DE9B;
+            background-color: rgb(33 77 134);
+            color: #fff;
             transition: 0.5s;
         }
 
@@ -109,7 +109,10 @@
             color: var(--dark-title-color);
         }
 
-        /* .home5-service-section .service-wrapper .single-service {
+        .home2-contact-section {
+            background-image: url('{{ asset('website-assets/img/home2/home2-contact-bg.png') }}'), linear-gradient(180deg, #fff 0%, #fff 100%);
+        }
+            /* .home5-service-section .service-wrapper .single-service {
             padding: 65px 70px;
             background-color: #D2E8D9 ;
             position: relative;
@@ -207,57 +210,6 @@
         </div>
     </div>
     <!-- home7 Banner Section End -->
-
-    <!-- Social Responsibility Section Start -->
-    <div class="social-responsibility-section mb-130">
-        <div class="container">
-            <div class="title-area wow" data-wow-delay="200ms" data-wow-duration="1500ms">
-                <svg class="divider" width="1320" height="6" viewBox="0 0 1320 6"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M5 2.5L0 0.113249V5.88675L5 3.5V2.5ZM1315 3.5L1320 5.88675V0.113249L1315 2.5V3.5ZM4.5 3.5H1315.5V2.5H4.5V3.5Z" />
-                </svg>
-                <h2>Sustainable Digital Practices.</h2>
-                <svg class="divider" width="1320" height="6" viewBox="0 0 1320 6"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M5 2.5L0 0.113249V5.88675L5 3.5V2.5ZM1315 3.5L1320 5.88675V0.113249L1315 2.5V3.5ZM4.5 3.5H1315.5V2.5H4.5V3.5Z" />
-                </svg>
-            </div>
-            <div class="content-and-img-wrap">
-                <div class="row gy-md-5 gy-4">
-                    <div class="col-lg-6 wow animate fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
-                        <div class="content-area">
-                            <p>For ExCraft Academy, we designed and developed a complete digital learning ecosystem
-                                tailored to their vision of shaping future export professionals, <span>we
-                                    Our team built a modern Learning Management System (LMS) that allows seamless course
-                                    delivery, student enrollment, and progress tracking.</span></p>
-                            <p>We integrated user and instructor management tools, interactive features like online
-                                exams and certifications, and a powerful admin dashboard for real-time insights and
-                                content control. By combining functionality with a user-friendly interface, we helped
-                                ExCraft Academy provide an engaging, efficient, and scalable educational platform that
-                                supports their mission of preparing the next generation of global trade experts.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow animate fadeInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
-                        <div class="row g-4">
-                            {{-- <div class="col-sm-6">
-                                <img  style="height: 305px" src="{{ asset('website-assets/excraftacademy-logo.png') }}"
-                                    alt="">
-                            </div> --}}
-                            <div class="col-sm-6">
-                                <img src="{{ asset('website-assets/excraftacademy-logo.png') }}"
-                                    alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Social Responsibility Section End -->
-
-
     <!-- home4 Feature Section Start -->
     <div class="home4-feature-section mb-130">
         <div class="container">
@@ -267,7 +219,8 @@
                         <div class="col-xl-5 col-lg-6 wow animate fadeInLeft" data-wow-delay="200ms"
                             data-wow-duration="1500ms">
                             <div class="section-title2">
-                                <h2><strong>ExCraft</strong> at a Glance.</h2>
+                                <h2> <strong style="color:  #c81e43">Ex</strong><strong
+                                        style="color:  rgb(33 77 134) ">Craft</strong> at a Glance.</h2>
                                 <p>We designed ExCraft with powerful tools to simplify operations, enhance learning, and
                                     support business growth.</p>
                             </div>
@@ -844,7 +797,6 @@
             <div class="portfolio-carousel-slider-wrap">
                 <div class="swiper portfolio-carousel-slider">
                     <div class="swiper-wrapper">
-
                         <div class="swiper-slide">
                             <div class="portfolio-carousel-slider-item">
                                 <div class="row gy-md-5 gy-4 align-items-center justify-content-between">
@@ -852,67 +804,12 @@
                                         <div class="portfolio-slider-content">
                                             <div class="title-area">
                                                 <ul>
-                                                    <li>Branding & Graphics</li>
+                                                    <li>Dashboard</li>
                                                     <li>2024</li>
                                                 </ul>
-                                                <h1>Strategic Web Creations.</h1>
-                                            </div>
-                                            {{-- <div class="social-area d-lg-block d-none">
-                                                =Visit More Portfolio
-                                                    <svg width="10" height="10" viewBox="0 0 10 10"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
-                                                            stroke-width="1.5" stroke-linecap="round" />
-                                                    </svg>
-                                                </a>
-                                                <ul class="social-list">
-                                                    <li><a href="https://dribbble.com/">Dribbble</a></li>
-                                                    <li><a href="https://www.behance.net/">Behance</a></li>
-                                                    <li><a href="https://www.pinterest.com/">Pinterest</a></li>
-                                                    <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
-                                                </ul>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="portfolio-slider-img">
-                                            <img src="{{ asset('website-assets/excraft-vendors.png') }}"
-                                                alt="">
-                                            <span></span>
-                                            <strong>01</strong>
-                                        </div>
-                                        {{-- <div class="social-area d-lg-none d-block">
-                                            =Visit More Portfolio
-                                                <svg width="10" height="10" viewBox="0 0 10 10"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
-                                                        stroke-width="1.5" stroke-linecap="round" />
-                                                </svg>
-                                            </a>
-                                            <ul class="social-list">
-                                                <li><a href="https://dribbble.com/">Dribbble</a></li>
-                                                <li><a href="https://www.behance.net/">Behance</a></li>
-                                                <li><a href="https://www.pinterest.com/">Pinterest</a></li>
-                                                <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
-                                            </ul>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="portfolio-carousel-slider-item">
-                                <div class="row gy-md-5 gy-4 align-items-center justify-content-between">
-                                    <div class="col-xxl-5 col-lg-6">
-                                        <div class="portfolio-slider-content">
-                                            <div class="title-area">
-                                                <ul>
-                                                    <li>Branding & Graphics</li>
-                                                    <li>2024</li>
-                                                </ul>
-                                                <h1>Strategic Web Creations.</h1>
+                                                <h1><strong style="color:  #c81e43">Ex</strong><strong
+                                                        style="color:  rgb(33 77 134) ">Craft</strong><br>Dasboard.
+                                                </h1>
                                             </div>
                                             {{-- <div class="social-area d-lg-block d-none">
                                                 =Visit More Portfolio
@@ -966,10 +863,10 @@
                                         <div class="portfolio-slider-content">
                                             <div class="title-area">
                                                 <ul>
-                                                    <li>Branding & Graphics</li>
+                                                    <li>Dashboard</li>
                                                     <li>2024</li>
                                                 </ul>
-                                                <h1>Strategic Web Creations.</h1>
+                                                <h1>Vendors in Dashboard.</h1>
                                             </div>
                                             {{-- <div class="social-area d-lg-block d-none">
                                                 =Visit More Portfolio
@@ -991,121 +888,7 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="portfolio-slider-img">
-                                            <img src="{{ asset('website-assets/excraft-products.png') }}"
-                                                alt="">
-                                            <span></span>
-                                            <strong>01</strong>
-                                        </div>
-                                        {{-- <div class="social-area d-lg-none d-block">
-                                            =Visit More Portfolio
-                                                <svg width="10" height="10" viewBox="0 0 10 10"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
-                                                        stroke-width="1.5" stroke-linecap="round" />
-                                                </svg>
-                                            </a>
-                                            <ul class="social-list">
-                                                <li><a href="https://dribbble.com/">Dribbble</a></li>
-                                                <li><a href="https://www.behance.net/">Behance</a></li>
-                                                <li><a href="https://www.pinterest.com/">Pinterest</a></li>
-                                                <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
-                                            </ul>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="portfolio-carousel-slider-item">
-                                <div class="row gy-md-5 gy-4 align-items-center justify-content-between">
-                                    <div class="col-xxl-5 col-lg-6">
-                                        <div class="portfolio-slider-content">
-                                            <div class="title-area">
-                                                <ul>
-                                                    <li>Branding & Graphics</li>
-                                                    <li>2024</li>
-                                                </ul>
-                                                <h1>Strategic Web Creations.</h1>
-                                            </div>
-                                            {{-- <div class="social-area d-lg-block d-none">
-                                                =Visit More Portfolio
-                                                    <svg width="10" height="10" viewBox="0 0 10 10"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
-                                                            stroke-width="1.5" stroke-linecap="round" />
-                                                    </svg>
-                                                </a>
-                                                <ul class="social-list">
-                                                    <li><a href="https://dribbble.com/">Dribbble</a></li>
-                                                    <li><a href="https://www.behance.net/">Behance</a></li>
-                                                    <li><a href="https://www.pinterest.com/">Pinterest</a></li>
-                                                    <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
-                                                </ul>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="portfolio-slider-img">
-                                            <img src="{{ asset('website-assets/excraft-reporting.png') }}"
-                                                alt="">
-                                            <span></span>
-                                            <strong>01</strong>
-                                        </div>
-                                        {{-- <div class="social-area d-lg-none d-block">
-                                            =Visit More Portfolio
-                                                <svg width="10" height="10" viewBox="0 0 10 10"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
-                                                        stroke-width="1.5" stroke-linecap="round" />
-                                                </svg>
-                                            </a>
-                                            <ul class="social-list">
-                                                <li><a href="https://dribbble.com/">Dribbble</a></li>
-                                                <li><a href="https://www.behance.net/">Behance</a></li>
-                                                <li><a href="https://www.pinterest.com/">Pinterest</a></li>
-                                                <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
-                                            </ul>
-                                        </div> --}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="portfolio-carousel-slider-item">
-                                <div class="row gy-md-5 gy-4 align-items-center justify-content-between">
-                                    <div class="col-xxl-5 col-lg-6">
-                                        <div class="portfolio-slider-content">
-                                            <div class="title-area">
-                                                <ul>
-                                                    <li>UI/UX Design</a></li>
-                                                    <li>2024</a></li>
-                                                </ul>
-                                                <h1>Innovative Digital Creations</h1>
-                                            </div>
-                                            {{-- <div class="social-area d-lg-block d-none">
-                                                =Visit More Portfolio
-                                                    <svg width="10" height="10" viewBox="0 0 10 10"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
-                                                            stroke-width="1.5" stroke-linecap="round" />
-                                                    </svg>
-                                                </a>
-                                                <ul class="social-list">
-                                                    <li><a href="https://dribbble.com/">Dribbble</a></li>
-                                                    <li><a href="https://www.behance.net/">Behance</a></li>
-                                                    <li><a href="https://www.pinterest.com/">Pinterest</a></li>
-                                                    <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
-                                                </ul>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="portfolio-slider-img">
-                                            <img src="{{ asset('website-assets/excraft-website.png') }}"
+                                            <img src="{{ asset('website-assets/excraft-vendors.png') }}"
                                                 alt="">
                                             <span></span>
                                             <strong>02</strong>
@@ -1137,10 +920,184 @@
                                         <div class="portfolio-slider-content">
                                             <div class="title-area">
                                                 <ul>
-                                                    <li>Creative Art</li>
+                                                    <li>Dasboard</li>
                                                     <li>2024</li>
                                                 </ul>
-                                                <h1>Engaging User Experience</h1>
+                                                <h1>Products in Dashboard.</h1>
+                                            </div>
+                                            {{-- <div class="social-area d-lg-block d-none">
+                                                =Visit More Portfolio
+                                                    <svg width="10" height="10" viewBox="0 0 10 10"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                                            stroke-width="1.5" stroke-linecap="round" />
+                                                    </svg>
+                                                </a>
+                                                <ul class="social-list">
+                                                    <li><a href="https://dribbble.com/">Dribbble</a></li>
+                                                    <li><a href="https://www.behance.net/">Behance</a></li>
+                                                    <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+                                                    <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
+                                                </ul>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="portfolio-slider-img">
+                                            <img src="{{ asset('website-assets/excraft-products.png') }}"
+                                                alt="">
+                                            <span></span>
+                                            <strong>03</strong>
+                                        </div>
+                                        {{-- <div class="social-area d-lg-none d-block">
+                                            =Visit More Portfolio
+                                                <svg width="10" height="10" viewBox="0 0 10 10"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                                        stroke-width="1.5" stroke-linecap="round" />
+                                                </svg>
+                                            </a>
+                                            <ul class="social-list">
+                                                <li><a href="https://dribbble.com/">Dribbble</a></li>
+                                                <li><a href="https://www.behance.net/">Behance</a></li>
+                                                <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+                                                <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
+                                            </ul>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="portfolio-carousel-slider-item">
+                                <div class="row gy-md-5 gy-4 align-items-center justify-content-between">
+                                    <div class="col-xxl-5 col-lg-6">
+                                        <div class="portfolio-slider-content">
+                                            <div class="title-area">
+                                                <ul>
+                                                    <li>Dasboard</li>
+                                                    <li>2024</li>
+                                                </ul>
+                                                <h1>Reporting in Dashboard.</h1>
+                                            </div>
+                                            {{-- <div class="social-area d-lg-block d-none">
+                                                =Visit More Portfolio
+                                                    <svg width="10" height="10" viewBox="0 0 10 10"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                                            stroke-width="1.5" stroke-linecap="round" />
+                                                    </svg>
+                                                </a>
+                                                <ul class="social-list">
+                                                    <li><a href="https://dribbble.com/">Dribbble</a></li>
+                                                    <li><a href="https://www.behance.net/">Behance</a></li>
+                                                    <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+                                                    <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
+                                                </ul>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="portfolio-slider-img">
+                                            <img src="{{ asset('website-assets/excraft-reporting.png') }}"
+                                                alt="">
+                                            <span></span>
+                                            <strong>04</strong>
+                                        </div>
+                                        {{-- <div class="social-area d-lg-none d-block">
+                                            =Visit More Portfolio
+                                                <svg width="10" height="10" viewBox="0 0 10 10"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                                        stroke-width="1.5" stroke-linecap="round" />
+                                                </svg>
+                                            </a>
+                                            <ul class="social-list">
+                                                <li><a href="https://dribbble.com/">Dribbble</a></li>
+                                                <li><a href="https://www.behance.net/">Behance</a></li>
+                                                <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+                                                <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
+                                            </ul>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="portfolio-carousel-slider-item">
+                                <div class="row gy-md-5 gy-4 align-items-center justify-content-between">
+                                    <div class="col-xxl-5 col-lg-6">
+                                        <div class="portfolio-slider-content">
+                                            <div class="title-area">
+                                                <ul>
+                                                    <li>Website</a></li>
+                                                    <li>2024</a></li>
+                                                </ul>
+                                                <h1><strong style="color:  #c81e43">Ex</strong><strong
+                                                        style="color:  rgb(33 77 134) ">Craft</strong><br>Website</h1>
+                                            </div>
+                                            {{-- <div class="social-area d-lg-block d-none">
+                                                =Visit More Portfolio
+                                                    <svg width="10" height="10" viewBox="0 0 10 10"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                                            stroke-width="1.5" stroke-linecap="round" />
+                                                    </svg>
+                                                </a>
+                                                <ul class="social-list">
+                                                    <li><a href="https://dribbble.com/">Dribbble</a></li>
+                                                    <li><a href="https://www.behance.net/">Behance</a></li>
+                                                    <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+                                                    <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
+                                                </ul>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="portfolio-slider-img">
+                                            <img src="{{ asset('website-assets/excraft-website.png') }}"
+                                                alt="">
+                                            <span></span>
+                                            <strong>05</strong>
+                                        </div>
+                                        {{-- <div class="social-area d-lg-none d-block">
+                                            =Visit More Portfolio
+                                                <svg width="10" height="10" viewBox="0 0 10 10"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                                        stroke-width="1.5" stroke-linecap="round" />
+                                                </svg>
+                                            </a>
+                                            <ul class="social-list">
+                                                <li><a href="https://dribbble.com/">Dribbble</a></li>
+                                                <li><a href="https://www.behance.net/">Behance</a></li>
+                                                <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+                                                <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
+                                            </ul>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="portfolio-carousel-slider-item">
+                                <div class="row gy-md-5 gy-4 align-items-center justify-content-between">
+                                    <div class="col-xxl-5 col-lg-6">
+                                        <div class="portfolio-slider-content">
+                                            <div class="title-area">
+                                                <ul>
+                                                    <li>Website</li>
+                                                    <li>2024</li>
+                                                </ul>
+                                                <h1><strong style="color:  #c81e43">Ex</strong><strong
+                                                        style="color:  rgb(33 77 134) ">Craft</strong><br>Academy
+                                                    Website</h1>
                                             </div>
                                             {{-- <div class="social-area d-lg-block d-none">
                                                 =Visit More Portfolio
@@ -1165,7 +1122,7 @@
                                             <img src="{{ asset('website-assets/excraft-academy.png') }}"
                                                 alt="">
                                             <span></span>
-                                            <strong>03</strong>
+                                            <strong>06</strong>
                                         </div>
                                         {{-- <div class="social-area d-lg-none d-block">
                                             =Visit More Portfolio
@@ -1214,7 +1171,7 @@
                                                     <li><a href="https://www.pinterest.com/">Pinterest</a></li>
                                                     <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
                                                 </ul>
-                                            </div> 
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -1269,6 +1226,87 @@
         </div>
     </div>
     <!-- Portfolio Carousal Slider Page End -->
+    <!-- Social Responsibility Section Start -->
+    <div class="social-responsibility-section mb-130">
+        <div class="container">
+            <div class="title-area wow" data-wow-delay="200ms" data-wow-duration="1500ms">
+                <svg class="divider" width="1320" height="6" viewBox="0 0 1320 6"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5 2.5L0 0.113249V5.88675L5 3.5V2.5ZM1315 3.5L1320 5.88675V0.113249L1315 2.5V3.5ZM4.5 3.5H1315.5V2.5H4.5V3.5Z" />
+                </svg>
+                <h2> <strong style="color:  #c81e43">Ex</strong><strong
+                        style="color:  rgb(33 77 134) ">Craft</strong><br>Academy</h2>
+                <svg class="divider" width="1320" height="6" viewBox="0 0 1320 6"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5 2.5L0 0.113249V5.88675L5 3.5V2.5ZM1315 3.5L1320 5.88675V0.113249L1315 2.5V3.5ZM4.5 3.5H1315.5V2.5H4.5V3.5Z" />
+                </svg>
+            </div>
+            <div class="content-and-img-wrap">
+                <div class="row gy-md-5 gy-4">
+                    <div class="col-lg-6 wow animate fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
+                        <div class="content-area">
+                            <p>For ExCraft Academy, we designed and developed a complete digital learning ecosystem
+                                tailored to their vision of shaping future export professionals, <span>we
+                                    Our team built a modern Learning Management System (LMS) that allows seamless course
+                                    delivery, student enrollment, and progress tracking.</span></p>
+                            <p>We integrated user and instructor management tools, interactive features like online
+                                exams and certifications, and a powerful admin dashboard for real-time insights and
+                                content control. By combining functionality with a user-friendly interface, we helped
+                                ExCraft Academy provide an engaging, efficient, and scalable educational platform that
+                                supports their mission of preparing the next generation of global trade experts.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow animate fadeInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+                        <img src="{{ asset('website-assets/excraftacademy-logo.png') }}" alt="ExCraft Academy Logo"
+                            style="height: 500px">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Social Responsibility Section End -->
+
+    <!-- home2 Contact Section Start -->
+    <div class="home2-contact-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10 d-flex justify-content-center text-center">
+                    <div class="contact-content">
+                        <div class="section-title two text-center wow animate fadeInDown" data-wow-delay="200ms"
+                            data-wow-duration="1500ms">
+                            <span style="background-color: rgb(33 77 134) ; color: #fff;">Help Line</span>
+                            <h2>Let’s Begin Your Journey Today!</h2>
+                            <p>To get user friendly spport, hit the contact us button.</p>
+                        </div>
+                        <a href="{{ route('contact.create') }}" class="primary-btn2"
+                            style="background-color:  rgb(33 77 134); color:#fff">
+                            <span>Contact Us
+                                <svg width="10" height="10" viewBox="0 0 10 10"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                        stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            <span>Contact Us
+                                <svg width="10" height="10" viewBox="0 0 10 10"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                        stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- home2 Contact Section End -->
 
     @include('frontend.main.footer')
     @include('frontend.main.scripts')

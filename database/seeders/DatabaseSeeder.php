@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             BlogSeeder::class,
+            
             AccountTableSeeder::class,
             IncomeSourceTableSeeder::class,
             IncomeTableSeeder::class,
