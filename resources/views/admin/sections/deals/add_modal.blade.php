@@ -38,6 +38,10 @@
                             <input type="text" name="name" id="name" class="form-control" required>
                         </div>
                         <div class="col-12">
+                            <label for="price" class="form-label">Deal Price</label>
+                            <input type="text" name="price" id="price" class="form-control" required>
+                        </div>
+                        <div class="col-12">
                             <label for="status" class="form-label">Status</label>
                             <select name="status" class="form-select" required>
                                 <option value="pending" selected>Pending</option>

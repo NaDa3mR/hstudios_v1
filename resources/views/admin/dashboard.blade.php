@@ -378,22 +378,6 @@
                                     </div>
                                     <div class="row" style="padding-bottom: 50px;">
                                         <div class="col-lg-3 col-6"> <!-- small box -->
-                                            <div class="small-box text-bg-primary">
-                                                <div class="inner">
-                                                    <h3 class="color-white">{{ $InsourcesCount }}</h3>
-                                                    <p class="color-white">Income Source</p>
-                                                </div>
-                                                <svg class="small-box-icon" fill="#fff" viewBox="0 0 24 24"
-                                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                                    <path
-                                                        d="M16 11c1.657 0 3-1.567 3-3.5S17.657 4 16 4s-3 1.567-3 3.5 1.343 3.5 3 3.5zM8 11c1.657 0 3-1.567 3-3.5S9.657 4 8 4 5 5.567 5 7.5 6.343 11 8 11zm0 2c-2.33 0-7 1.17-7 3.5V19a1 1 0 001 1h12a1 1 0 001-1v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.06 1.16.84 1.97 2.06 1.97 3.44V19c0 .34-.04.67-.1.99H22a1 1 0 001-1v-2.5C23 14.17 18.33 13 16 13z" />
-                                                </svg>
-                                                <a href="{{ route('in-source.index') }}"
-                                                    class=" small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover color-white">
-                                                    More info <i class="bi bi-link-45deg"></i> </a>
-                                            </div>
-                                        </div> <!-- ./col -->
-                                        <div class="col-lg-3 col-6"> <!-- small box -->
                                             <div class="small-box text-bg-success">
                                                 <div class="inner">
                                                     <h3 style="font-size:large">{{ $totalIncome }} EGP</h3>
@@ -428,8 +412,8 @@
                                         <div class="col-lg-3 col-6"> <!-- small box -->
                                             <div class="small-box text-bg-danger">
                                                 <div class="inner">
-                                                    <h3>{{ $ExsourcesCount }}</h3>
-                                                    <p>Expenses</p>
+                                                    <h3 style="font-size:large">{{ $totaldealprice }} EGP</h3>
+                                                    <p>Total of Deals</p>
                                                 </div> <svg class="small-box-icon" fill="currentColor"
                                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                                     aria-hidden="true">
@@ -439,8 +423,24 @@
                                                     <path clip-rule="evenodd" fill-rule="evenodd"
                                                         d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z">
                                                     </path>
-                                                </svg> <a href="{{ route('ex-source.index') }}"
+                                                </svg> <a href="{{ route('deal.index') }}"
                                                     class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                                                    More info <i class="bi bi-link-45deg"></i> </a>
+                                            </div>
+                                        </div> <!-- ./col -->
+                                        <div class="col-lg-3 col-6"> <!-- small box -->
+                                            <div class="small-box text-bg-primary">
+                                                <div class="inner">
+                                                    <h3 class="color-white">{{ $InsourcesCount }}</h3>
+                                                    <p class="color-white">Income Source</p>
+                                                </div>
+                                                <svg class="small-box-icon" fill="#fff" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <path
+                                                        d="M16 11c1.657 0 3-1.567 3-3.5S17.657 4 16 4s-3 1.567-3 3.5 1.343 3.5 3 3.5zM8 11c1.657 0 3-1.567 3-3.5S9.657 4 8 4 5 5.567 5 7.5 6.343 11 8 11zm0 2c-2.33 0-7 1.17-7 3.5V19a1 1 0 001 1h12a1 1 0 001-1v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.06 1.16.84 1.97 2.06 1.97 3.44V19c0 .34-.04.67-.1.99H22a1 1 0 001-1v-2.5C23 14.17 18.33 13 16 13z" />
+                                                </svg>
+                                                <a href="{{ route('in-source.index') }}"
+                                                    class=" small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover color-white">
                                                     More info <i class="bi bi-link-45deg"></i> </a>
                                             </div>
                                         </div> <!-- ./col -->
@@ -497,6 +497,7 @@
                                                                 <th>Deal</th>
                                                                 <th>Client</th>
                                                                 <th>Service</th>
+                                                                <th>Price</th>
                                                                 <th>Status</th>
                                                             </tr>
                                                         </thead>
@@ -512,6 +513,7 @@
                                                                             {{ $service->name }}<br>
                                                                         @endforeach
                                                                     </td>
+                                                                    <td>{{ $deal->price }}</td>
                                                                     <td>{{ $deal->status }}</td>
                                                                 </tr>
                                                             @endforeach

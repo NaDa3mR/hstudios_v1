@@ -287,7 +287,7 @@
 
                                         </div>
                                         <div class="text-end mt-4">
-                                            <button type="submit" class="btn btn-lg btn-primary">Edit Blog</button>
+                                            <button type="submit" class="btn btn-lg btn-dark">Edit Blog</button>
                                         </div>
                                     </div>
                                 </form>

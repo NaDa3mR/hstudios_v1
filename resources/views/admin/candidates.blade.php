@@ -13,7 +13,7 @@
         }
 
         .btn-link:hover {
-            color:#8b422e;
+            color: #8b422e;
         }
 
         #datable_4c_filter {
@@ -21,7 +21,7 @@
         }
 
         .avatar.avatar-info>.initial-wrap {
-            background-color:#8b422e !important;
+            background-color: #8b422e !important;
             color: #fff;
         }
 
@@ -52,7 +52,7 @@
         }
 
         .role-dropdown:hover {
-            border-color:#8b422e !important;
+            border-color: #8b422e !important;
         }
 
         .role-item.active {
@@ -61,7 +61,7 @@
         }
 
         .role-item:hover {
-            color:#8b422e;
+            color: #8b422e;
         }
 
         /* Loading animation */
@@ -70,7 +70,7 @@
             width: 16px;
             height: 16px;
             border: 2px solid rgba(0, 0, 0, 0.1);
-            border-left-color:#8b422e;
+            border-left-color: #8b422e;
             border-radius: 50%;
             animation: role-spin 1s linear infinite;
             margin-left: 5px;
@@ -81,6 +81,31 @@
             to {
                 transform: rotate(360deg);
             }
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #8b422e;
+            border-color: #8b422e;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: rgba(0, 0, 0);
+            border-color: rgba(0, 0, 0);
+        }
+
+        .btn-outline-primary {
+            color: #8b422e !important;
+            background-color: transparent;
+            background-image: none;
+            border-color: #8b422e !important;
+        }
+
+        .btn-outline-primary:hover {
+            color: #f0f0f0 !important;
+            background-color: #8b422e !important;
+
         }
     </style>
 </head>
@@ -114,8 +139,8 @@
 
     <script>
         /* -----------------------------
-                   Country -> City (works for many forms/modals)
-                   ----------------------------- */
+                       Country -> City (works for many forms/modals)
+                       ----------------------------- */
         document.addEventListener("DOMContentLoaded", function() {
             const citiesByCountry = {
                 "Egypt": ["Cairo", "Alexandria", "Giza", "Luxor", "Aswan", "Port Said"],

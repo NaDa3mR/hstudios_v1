@@ -86,8 +86,8 @@ class EmployeeController extends Controller
             $validated = $request->validated();
             $employee = Employee::findOrFail($request->id);
             $employee->update($validated);
-
             if ($request->hasFile('image')) {
+                $employee->clearMediaCollection('employee_images');
                 $employee->addMediaFromRequest('image')->toMediaCollection('employee_images');
             }
             //return redirect()->route('employee.index');

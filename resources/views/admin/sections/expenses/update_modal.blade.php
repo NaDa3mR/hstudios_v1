@@ -40,7 +40,7 @@
                             <input type="text" name="amount" id="amount" class="form-control" value="{{ $expense->amount }}" required>
                         </div>
                         <div class="col-12">
-                            <label for="expense_date" class="form-label">Expense Date/label>
+                            <label for="expense_date" class="form-label">Expense Date</label>
                             <input type="date" name="expense_date" id="expense_date" class="form-control" value="{{ $expense->expense_date }}" required>
                         </div>
                         <div class="col-12">
@@ -51,7 +51,7 @@
                     </div><!--end row-->
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-dark">Save Changes</button>
                 </div>
             </form>
         </div>

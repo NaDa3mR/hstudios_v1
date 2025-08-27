@@ -105,12 +105,14 @@ class JobApplicationController extends Controller
             $application = Job_Application::findOrFail($request->id);
             $application->update($validated);
 
-            if ($request->hasFile('image')) {
-                $application->addMediaFromRequest('image')->toMediaCollection('application_images');
+            if ($request->hasFile('cv')) {
+                $application->clearMediaCollection('application_cv');
+                $application->addMediaFromRequest('cv')->toMediaCollection('application_cv');
             }
 
-            if ($request->hasFile('cv')) {
-                $application->addMediaFromRequest('cv')->toMediaCollection('application_cv');
+            if ($request->hasFile('image')) {
+                $application->clearMediaCollection('application_images'); 
+                $application->addMediaFromRequest('image')->toMediaCollection('application_images');
             }
             //return redirect()->route('Job_app.index');
             return redirect()->route('application.index')

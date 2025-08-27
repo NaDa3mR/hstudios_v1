@@ -29,6 +29,7 @@ class StoreDealRequest extends FormRequest
             'name' => 'required|string|max:255',
             'services' => 'required|array',
             'services.*' => 'exists:services,id',
+            'price' => 'required|numeric|min:0',
         ];
     }
 
@@ -41,6 +42,10 @@ class StoreDealRequest extends FormRequest
 
             'details.string' => 'Details must be text.',
             'details.max' => 'Details may not exceed 1000 characters.',
+
+            'price.required' => 'Price is required.',
+            'price.numeric' => 'Price must be a number.',
+            'price.min' => 'Price must be at least 0.',
         ];
     }
 }

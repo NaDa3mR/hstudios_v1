@@ -45,7 +45,7 @@ class ServiceRequestController extends Controller
                 'client_id' => $validated['client_id'],
                 'details' => $validated['details'],
             ]);
-            
+
             if ($request->hasFile('request_file')) {
                 $service_request->addMediaFromRequest('request_file')->toMediaCollection('service_file');
             }
@@ -82,8 +82,9 @@ class ServiceRequestController extends Controller
             $validated = $request->validated();
             $service_request = Service_Request::findOrFail($request->id);
             $service_request->update($validated);
-
+            
             if ($request->hasFile('request_file')) {
+                $service_request->clearMediaCollection('service_file');
                 $service_request->addMediaFromRequest('request_file')->toMediaCollection('service_file');
             }
             if ($request->has('services')) {

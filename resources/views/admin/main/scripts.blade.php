@@ -53,6 +53,8 @@
 
 <script src="{{ URL::asset('vendors/sweetalert2/dist/sweetalert2.min.js') }}"></script>
 <script src="{{ URL::asset('dist/js/sweetalert-data.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
     document.addEventListener('focusin', function (e) {
         if (e.target.closest('.select2-search__field') !== null) {

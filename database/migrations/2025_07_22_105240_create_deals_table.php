@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             //$table->unsignedBigInteger('service_request_id');
             $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
-            $table->string('name')->nullable();
             $table->foreignId('service_request_id')->unique()->constrained('service_requests')->onDelete('cascade');
+            $table->string('name')->nullable();
+            $table->decimal('price', 15, 1);
             $table->string('status');
             $table->text('details')->nullable();
             $table->timestamps();

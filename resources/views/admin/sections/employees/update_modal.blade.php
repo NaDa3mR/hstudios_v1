@@ -62,7 +62,7 @@
                     </div><!--end row-->
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-dark">Save Changes</button>
                 </div>
             </form>
         </div>

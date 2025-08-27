@@ -83,12 +83,14 @@ class CandidateController extends Controller
             $validated = $request->validated();
             $candidate = Candidate::findOrFail($request->id);
             $candidate->update($validated);
-            
+
             if ($request->hasFile('cv')) {
+                $candidate->clearMediaCollection('candidate_cv'); // delete old cv
                 $candidate->addMediaFromRequest('cv')->toMediaCollection('candidate_cv');
             }
 
             if ($request->hasFile('image')) {
+                $candidate->clearMediaCollection('candidate_images'); // delete old image
                 $candidate->addMediaFromRequest('image')->toMediaCollection('candidate_images');
             }
 

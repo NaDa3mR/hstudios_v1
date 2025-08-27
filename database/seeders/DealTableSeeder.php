@@ -22,6 +22,7 @@ class DealTableSeeder extends Seeder
                 'client_id' => $request->client_id,
                 'service_request_id' => $request->id,
                 'name' => 'Website Redesign',
+                'price' => '10000.0',
                 'status' => 'pending',
                 'details' => 'This deal is automatically generated for testing.',
             ]);
