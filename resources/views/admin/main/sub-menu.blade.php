@@ -175,6 +175,12 @@
                                 <span class="nav-link-text">employees</span>
                             </a>
                         </li>
+                        <li class="nav-item {{ request()->url() == route('contact.index') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('contact.index') }}">
+                                <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <span class="nav-link-text">contacts</span>
+                            </a>
+                        </li>
                         {{-- <li class="nav-item {{ request()->url() == route('deals.index') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('deals.index') }}">
                                         <i class="ri-award-line fs-5" style="margin-right: 15px;"></i>

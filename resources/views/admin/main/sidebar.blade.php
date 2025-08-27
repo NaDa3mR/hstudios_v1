@@ -6,7 +6,7 @@
             </a>
         </div>
         @php
-            $pages = ['blogs','service','career', 'application', 'employees'];
+            $pages = ['blogs','service','career', 'application', 'employees', 'contacts'];
             $user_arr = ['admin','roles','users'];
             $crm_arr = ['deals','clients', 'meetings','calender', 'candidates', 'service_requests', 'interview'];
             $finance = ['expenses', 'expense_source', 'income_source', 'incomes', 'account']

@@ -19,7 +19,7 @@ class ContactController extends Controller
       //$Contacts = Contact::paginate(5);
       //return view('backend.contact.show', compact('Contacts'))
       $contacts = Contact::all();
-      return view('backend.contact.show',compact('contacts'));
+      return view('admin.contacts',compact('contacts'));
     }
 
     /**
@@ -84,6 +84,6 @@ class ContactController extends Controller
          Contact::findOrFail($request->id)->delete();
         //return redirect()->route('contact.index');
         return redirect()->route('contact.index')
-        ->with('success_message', 'Contact has been deleted successfully!');
+        ->with('success_message', 'Contact Info has been deleted successfully!');
     }
 }

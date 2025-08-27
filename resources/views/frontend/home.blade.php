@@ -29,7 +29,12 @@
                 color: white;
             }
         }
-        
+
+        .home3-banner-section .banner-content-wrap .banner-content h1 span {
+            background-image: linear-gradient(180deg, #8b422e 0%, #8b422e 100%);
+            color: white ;
+        }
+
     </style>
 </head>
 

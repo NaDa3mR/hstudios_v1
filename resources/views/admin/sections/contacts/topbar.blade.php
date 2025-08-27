@@ -16,9 +16,9 @@
             <div class="d-flex flex-wrap justify-content-between flex-1">
                 <div>
                     <div class="pg-subtitle">Overview</div>
-                    <h5 class="pg-title fs-5">Services Board</h5>
+                    <h5 class="pg-title fs-5">Contacts Board</h5>
                 </div>
-                <div class="pg-header-action-wrap position-relative">
+                {{-- <div class="pg-header-action-wrap position-relative">
                     <div class="d-md-flex d-none ms-auto align-items-center">
                         <button class="btn btn-custom btn-white text-primary btn-floating rounded-8 ms-3" data-bs-toggle="modal" data-bs-target="#addModal" >
                             <span>
@@ -35,7 +35,7 @@
                             </span>
                         </button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <ul class="nav nav-tabs nav-line nav-icon nav-light mt-3">
@@ -51,7 +51,7 @@
                             <line x1="7" y1="16" x2="17" y2="16"></line>
                         </svg>
                     </span></span>
-                    <span class="nav-link-text">All Services</span>
+                    <span class="nav-link-text">All Contacts</span>
                 </a>
             </li>
         </ul>

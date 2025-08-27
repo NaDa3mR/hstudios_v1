@@ -8,13 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.main.meta')
     <style>
-        html,
-        body {
-            height: auto !important;
-            min-height: 100%;
-            overflow-y: auto !important;
-        }
-
         .btn-link {
             color: #33475b;
         }
@@ -89,11 +82,6 @@
                 transform: rotate(360deg);
             }
         }
-
-        .hk-pg-wrapper {
-            height: 100%;
-            overflow: hidden;
-        }
     </style>
 </head>
 
@@ -105,17 +93,14 @@
                 <div class="taskboardapp-wrap">
                     <div class="taskboardapp-content">
                         <div class="taskboardapp-detail-wrap">
-                            @include('admin.sections.deals.topbar')
-                            @section('blog-header-action')
-                            @endsection
+                            @include('admin.sections.contacts.topbar')
+                            {{-- @section('blog-header-action')
+                        @endsection --}}
 
-                            @include('admin.sections.deals.table')
+                            @include('admin.sections.contacts.table')
                         </div>
-
-                        @include('admin.sections.deals.add_modal')
-                        @foreach ($deals as $deal)
-                            @include('admin.sections.deals.update_modal')
-                            @include('admin.sections.deals.delete_modal')
+                        @foreach ($contacts as $contact)
+                            @include('admin.sections.contacts.delete_modal')
                         @endforeach
                     </div>
                 </div>
@@ -123,31 +108,7 @@
         </div>
     </div>
     @include('admin.main.scripts')
-
     <script>
-        document.getElementById('service_request_id').addEventListener('change', function() {
-            const requestId = this.value;
-            if (!requestId) return;
-
-            fetch(`/get-service-request-data/${requestId}`)
-                .then(res => res.json())
-                .then(data => {
-                    // Show client name
-                    document.getElementById('client_name').value = data.client.name;
-
-                    // Populate services
-                    const servicesSelect = document.getElementById('services');
-                    servicesSelect.innerHTML = '';
-
-                    data.services.forEach(service => {
-                        const option = document.createElement('option');
-                        option.value = service.id;
-                        option.text = service.name;
-                        servicesSelect.appendChild(option);
-                    });
-                });
-        });
-
         document.addEventListener("DOMContentLoaded", function() {
             feather.replace();
         });
