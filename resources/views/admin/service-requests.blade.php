@@ -82,6 +82,22 @@
                 transform: rotate(360deg);
             }
         }
+
+        .bg-primary {
+            background-color: #8b422e !important;
+        }
+
+        .btn-outline-primary {
+            color: #8b422e !important;
+            background-color: transparent;
+            background-image: none;
+            border-color: #8b422e !important;
+        }
+        .btn-outline-primary:hover {
+            color: #f0f0f0 !important;
+            background-color: #8b422e;
+
+        }
     </style>
 </head>
 

@@ -36,7 +36,10 @@ class ClientController extends Controller
     {
         try {
             $validated = $request->validated();
-            Client::create($validated);
+            $client = Client::create($validated);
+            if ($request->hasFile('image')) {
+                $client->addMediaFromRequest('image')->toMediaCollection('client_images');
+            }
             return redirect()->route('client.index')
                 ->with('success_message', 'Client has been created successfully!');
         } catch (\Exception $e) {
@@ -77,8 +80,13 @@ class ClientController extends Controller
             $validated = $request->validated();
             $client = Client::findOrFail($request->id);
             $client->update($validated);
+
+            if ($request->hasFile('image')) {
+                $client->clearMediaCollection('client_images'); 
+                $client->addMediaFromRequest('image')->toMediaCollection('client_images');
+            }
             return redirect()->route('client.index')
-                ->with('success_message', 'CLient has been updated successfully!');
+                ->with('success_message', 'Client has been updated successfully!');
             ;
         } catch
         (\Exception $e) {
@@ -97,5 +105,5 @@ class ClientController extends Controller
         ;
     }
 
-    
+
 }

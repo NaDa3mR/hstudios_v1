@@ -37,6 +37,7 @@
                                         <tr>
                                             <th class="fw-bold">Service Request</th>
                                             <th class="fw-bold">Client</th>
+                                            <th class="fw-bold">Price</th>
                                             <th class="fw-bold">Service</th>
                                             <th class="fw-bold">Status</th>
                                             <th class="fw-bold">Details</th>
@@ -77,6 +78,13 @@
                                                         <i data-feather="mail" class="text-muted me-2"
                                                             style="width: 16px; height: 16px;"></i>
                                                         <span>{{ $deal->client->name ?? 'N/A' }}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i data-feather="mail" class="text-muted me-2"
+                                                            style="width: 16px; height: 16px;"></i>
+                                                        <span>{{ $deal->price ?? 'N/A' }}</span>
                                                     </div>
                                                 </td>
                                                 <td>

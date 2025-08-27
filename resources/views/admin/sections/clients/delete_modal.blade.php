@@ -16,7 +16,7 @@
                                 <label for="id" class="form-label">Are you sure?</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-danger">submit</button>
+                        <button type="submit" class="btn btn-dark">submit</button>
                     </div><!--end row-->
                 </div>
             </form>

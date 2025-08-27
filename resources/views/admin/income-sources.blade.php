@@ -82,6 +82,18 @@
                 transform: rotate(360deg);
             }
         }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #8b422e;
+            border-color: #8b422e;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: rgba(0, 0, 0);
+            border-color: rgba(0, 0, 0);
+        }
     </style>
 </head>
 

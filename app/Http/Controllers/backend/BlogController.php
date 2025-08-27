@@ -119,6 +119,7 @@ class BlogController extends Controller
             $blog->update($validated);
             //return redirect()->route('blog.index');
             if ($request->hasFile('image')) {
+                $blog->clearMediaCollection('blog_images');
                 $blog->addMediaFromRequest('image')->toMediaCollection('blog_images');
             }
             return redirect()->route('blog.index')

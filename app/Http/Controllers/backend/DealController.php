@@ -114,6 +114,7 @@ class DealController extends Controller
             $deal->status = $request->status;
             $deal->details = $request->details;
             $deal->name = $request->name;
+            $deal->price = $request->price;
             $deal->save();
             $deal->services()->sync($request->services);
 
@@ -152,6 +153,7 @@ class DealController extends Controller
                 'status'              => 'pending',
                 'details'             => $serviceRequest->details,
                 // 'service_request_name'=> $serviceRequest->name,
+                'price' => '0.0',
                 'name' => $serviceRequest->name,
 
             ]);

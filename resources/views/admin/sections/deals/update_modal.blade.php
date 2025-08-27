@@ -58,9 +58,13 @@
                         <label for="name" class="form-label">Deal Name</label>
                         <input type="text" name="name" class="form-control" value="{{ $deal->name ?? 'Deleted' }}" required>
                     </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Deal Price</label>
+                        <input type="text" name="price" class="form-control" value="{{ $deal->price ?? 'Deleted' }}" required>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-dark">Save Changes</button>
                 </div>
             </form>
         </div>

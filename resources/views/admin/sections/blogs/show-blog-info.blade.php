@@ -277,7 +277,7 @@
                                                 <span class="text-muted small">Created at:
                                                     {{ $blog->created_at->format('M d, Y') }}</span>
                                                 <a href="{{ route('blog.index') }}"
-                                                    class="btn btn-outline-primary btn-sm">← Back to Blogs</a>
+                                                    class="btn btn-outline-dark btn-sm">← Back to Blogs</a>
                                             </div>
                                         </div>
                                     </div>

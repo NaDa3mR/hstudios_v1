@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalgridLabel">Delete the Servive : {{$meeting->name}}</h5>
+                <h5 class="modal-title" id="deleteModalgridLabel">Delete meeting with {{ $meeting->client->name }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{route('meeting.destroy' , $meeting->id)}}" method="POST">
@@ -16,7 +16,7 @@
                                 <label for="id" class="form-label"> Are you sure?</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-danger">submit</button>
+                        <button type="submit" class="btn btn-dark">submit</button>
                     </div><!--end row-->
                 </div>
             </form>

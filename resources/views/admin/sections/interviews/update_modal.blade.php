@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Update Interview</button>
+                    <button type="submit" class="btn btn-dark">Update Interview</button>
                 </div>
             </form>
         </div>

@@ -34,8 +34,7 @@ class DashboardController extends Controller
         $totalIncome = Income::sum('amount');
         $InsourcesCount = Income::count();
         $totalExpense = Income::sum('amount');
-        $ExsourcesCount = Income::count();
-
+        $totaldealprice = Deal::sum('price');
         $totalDeals = Deal::count();
 
         $pendingDeals = Deal::where('status', 'pending')->count();
@@ -56,7 +55,8 @@ class DashboardController extends Controller
             'totalIncome',
             'totalExpense',
             'InsourcesCount',
-            'ExsourcesCount',
+            'totaldealprice',
+            // 'ExsourcesCount',
             'totalDeals',
             'pendingDeals',
             'inProgressDeals',

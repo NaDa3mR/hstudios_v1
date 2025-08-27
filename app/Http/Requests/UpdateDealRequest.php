@@ -27,6 +27,7 @@ class UpdateDealRequest extends FormRequest
             'name' => 'required|string|max:255',
             'services' => 'required|array',
             'services.*' => 'exists:services,id',
+            'price' => 'required|numeric|min:0',
         ];
     }
 
@@ -42,6 +43,10 @@ class UpdateDealRequest extends FormRequest
 
             'services.required' => 'At least one service must be selected.',
             'services.*.exists' => 'Selected service is invalid.',
+            
+            'price.required' => 'Price is required.',
+            'price.numeric' => 'Price must be a number.',
+            'price.min' => 'Price must be at least 0.',
         ];
     }
 }

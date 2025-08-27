@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Deal extends Model
 {
 
-    protected $fillable = ['service_request_id', 'client_id', 'name', 'service_id', 'status', 'details'];
+    protected $fillable = ['service_request_id', 'client_id', 'service_id', 'name', 'price', 'status', 'details'];
     protected $table = 'deals';
     public $timestamps = true;
 
