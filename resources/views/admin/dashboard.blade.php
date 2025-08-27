@@ -318,6 +318,133 @@
                                             </div>
                                         </div> <!-- ./col -->
                                     </div>
+                                    <div class="row">
+                                        <div class="col-12 mb-4">
+                                            <div class="card card-flush rounded-8 mb-0">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <!-- Stats Section -->
+                                                        <div class="col-md-6 mb-4 mb-md-0">
+                                                            <div class="row gx-0">
+
+                                                                <div class="col-sm-6 p-3 border">
+                                                                    <h6>Total Deals</h6>
+                                                                    <span class="fs-3 fw-medium">{{ $totalDeals }}</span>
+                                                                    <span>Deals</span>
+                                                                </div>
+
+                                                                <div class="col-sm-6 p-3 border">
+                                                                    <h6>Pending Deals</h6>
+                                                                    <span class="fs-3 fw-medium">{{ $pendingDeals }}</span>
+                                                                    <span>Deals</span>
+                                                                </div>
+
+                                                                <div class="col-sm-6 p-3 border">
+                                                                    <h6>In Progress Deals</h6>
+                                                                    <span class="fs-3 fw-medium">{{ $inProgressDeals }}</span>
+                                                                    <span>Deals</span>
+                                                                </div>
+
+                                                                <div class="col-sm-6 p-3 border">
+                                                                    <h6>Completed Deals</h6>
+                                                                    <span class="fs-3 fw-medium">{{ $completedDeals }}</span>
+                                                                    <span>Deals</span>
+                                                                </div>
+
+                                                                <div class="col-sm-6 p-3 border">
+                                                                    <h6>Won Deals</h6>
+                                                                    <span class="fs-3 fw-medium">{{ $wonDeals }}</span>
+                                                                    <span>Deals</span>
+                                                                </div>
+
+                                                                <div class="col-sm-6 p-3 border">
+                                                                    <h6>Lost Deals</h6>
+                                                                    <span class="fs-3 fw-medium">{{ $lostDeals }}</span>
+                                                                    <span>Deals</span>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Chart Section -->
+                                                        <div class="col-md-6">
+                                                            <h6 class="mb-3">Overview</h6>
+                                                            <div id="pie_chart_1" style="width:100%; min-height: 350px;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding-bottom: 50px;">
+                                        <div class="col-lg-3 col-6"> <!-- small box -->
+                                            <div class="small-box text-bg-primary">
+                                                <div class="inner">
+                                                    <h3 class="color-white">{{ $InsourcesCount }}</h3>
+                                                    <p class="color-white">Income Source</p>
+                                                </div>
+                                                <svg class="small-box-icon" fill="#fff" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <path
+                                                        d="M16 11c1.657 0 3-1.567 3-3.5S17.657 4 16 4s-3 1.567-3 3.5 1.343 3.5 3 3.5zM8 11c1.657 0 3-1.567 3-3.5S9.657 4 8 4 5 5.567 5 7.5 6.343 11 8 11zm0 2c-2.33 0-7 1.17-7 3.5V19a1 1 0 001 1h12a1 1 0 001-1v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.06 1.16.84 1.97 2.06 1.97 3.44V19c0 .34-.04.67-.1.99H22a1 1 0 001-1v-2.5C23 14.17 18.33 13 16 13z" />
+                                                </svg>
+                                                <a href="{{ route('in-source.index') }}"
+                                                    class=" small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover color-white">
+                                                    More info <i class="bi bi-link-45deg"></i> </a>
+                                            </div>
+                                        </div> <!-- ./col -->
+                                        <div class="col-lg-3 col-6"> <!-- small box -->
+                                            <div class="small-box text-bg-success">
+                                                <div class="inner">
+                                                    <h3>{{ $totalIncome }} <span style="font-size:large">EGP</span></h3>
+                                                    <p>Total Incomes</p>
+                                                </div> <svg class="small-box-icon" fill="currentColor"
+                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                                    aria-hidden="true">
+                                                    <path
+                                                        d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
+                                                    </path>
+                                                </svg> <a href="{{ route('income.index') }}"
+                                                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                                                    More info <i class="bi bi-link-45deg"></i> </a>
+                                            </div>
+                                        </div> <!-- ./col -->
+                                        <div class="col-lg-3 col-6"> <!-- small box -->
+                                            <div class="small-box text-bg-warning">
+                                                <div class="inner">
+                                                    <h3>{{ $totalExpense }} <span style="font-size:large">EGP</span></h3>
+                                                    <p>Total Expenses</p>
+                                                </div> <svg class="small-box-icon" fill="#fff" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <path
+                                                        d="M6 2a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM10 17.5l-3.5-3.5 1.41-1.41L10 14.67l6.09-6.09L17.5 10 10 17.5z" />
+                                                </svg>
+
+                                                <a href="{{ route('expense.index') }}"
+                                                    class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
+                                                    More info <i class="bi bi-link-45deg"></i> </a>
+                                            </div>
+                                        </div> <!-- ./col -->
+                                        <div class="col-lg-3 col-6"> <!-- small box -->
+                                            <div class="small-box text-bg-danger">
+                                                <div class="inner">
+                                                    <h3>{{ $ExsourcesCount }}</h3>
+                                                    <p>Expenses</p>
+                                                </div> <svg class="small-box-icon" fill="currentColor"
+                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                                    aria-hidden="true">
+                                                    <path clip-rule="evenodd" fill-rule="evenodd"
+                                                        d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z">
+                                                    </path>
+                                                    <path clip-rule="evenodd" fill-rule="evenodd"
+                                                        d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z">
+                                                    </path>
+                                                </svg> <a href="{{ route('ex-source.index') }}"
+                                                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                                                    More info <i class="bi bi-link-45deg"></i> </a>
+                                            </div>
+                                        </div> <!-- ./col -->
+                                    </div>
                                     <!-- /.row -->
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -524,190 +651,8 @@
                                             </div>
                                         </div> <!-- /.col-md-6 --> --}}
                                     </div>
-                                    <div class="row" style="padding-bottom: 50px;">
-                                        <div class="col-lg-3 col-6"> <!-- small box -->
-                                            <div class="small-box text-bg-primary">
-                                                <div class="inner">
-                                                    <h3 class="color-white">{{ $InsourcesCount}}</h3>
-                                                    <p class="color-white">Income Source</p>
-                                                </div>
-                                                <svg class="small-box-icon" fill="#fff" viewBox="0 0 24 24"
-                                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                                    <path
-                                                        d="M16 11c1.657 0 3-1.567 3-3.5S17.657 4 16 4s-3 1.567-3 3.5 1.343 3.5 3 3.5zM8 11c1.657 0 3-1.567 3-3.5S9.657 4 8 4 5 5.567 5 7.5 6.343 11 8 11zm0 2c-2.33 0-7 1.17-7 3.5V19a1 1 0 001 1h12a1 1 0 001-1v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.06 1.16.84 1.97 2.06 1.97 3.44V19c0 .34-.04.67-.1.99H22a1 1 0 001-1v-2.5C23 14.17 18.33 13 16 13z" />
-                                                </svg>
-                                                <a href="{{ route('in-source.index') }}"
-                                                    class=" small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover color-white">
-                                                    More info <i class="bi bi-link-45deg"></i> </a>
-                                            </div>
-                                        </div> <!-- ./col -->
-                                        <div class="col-lg-3 col-6"> <!-- small box -->
-                                            <div class="small-box text-bg-success">
-                                                <div class="inner">
-                                                    <h3>{{ $totalIncome }} EGP</h3>
-                                                    <p>Total Incomes</p>
-                                                </div> <svg class="small-box-icon" fill="currentColor"
-                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                                    aria-hidden="true">
-                                                    <path
-                                                        d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
-                                                    </path>
-                                                </svg> <a href="{{ route('income.index') }}"
-                                                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                                                    More info <i class="bi bi-link-45deg"></i> </a>
-                                            </div>
-                                        </div> <!-- ./col -->
-                                        <div class="col-lg-3 col-6"> <!-- small box -->
-                                            <div class="small-box text-bg-warning">
-                                                <div class="inner">
-                                                    <h3>{{ $totalExpense }} EGP</h3>
-                                                    <p>Total Expenses</p>
-                                                </div> <svg class="small-box-icon" fill="#fff" viewBox="0 0 24 24"
-                                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                                    <path
-                                                        d="M6 2a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM10 17.5l-3.5-3.5 1.41-1.41L10 14.67l6.09-6.09L17.5 10 10 17.5z" />
-                                                </svg>
 
-                                                <a href="{{ route('expense.index') }}"
-                                                    class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                                                    More info <i class="bi bi-link-45deg"></i> </a>
-                                            </div>
-                                        </div> <!-- ./col -->
-                                        <div class="col-lg-3 col-6"> <!-- small box -->
-                                            <div class="small-box text-bg-danger">
-                                                <div class="inner">
-                                                    <h3>{{ $ExsourcesCount }}</h3>
-                                                    <p>Expenses</p>
-                                                </div> <svg class="small-box-icon" fill="currentColor"
-                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                                    aria-hidden="true">
-                                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                                        d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z">
-                                                    </path>
-                                                    <path clip-rule="evenodd" fill-rule="evenodd"
-                                                        d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z">
-                                                    </path>
-                                                </svg> <a href="{{ route('ex-source.index') }}"
-                                                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                                                    More info <i class="bi bi-link-45deg"></i> </a>
-                                            </div>
-                                        </div> <!-- ./col -->
-                                    </div>
-                                    {{-- <div style="height: 100px"></div> --}}
-                                    {{-- <div class="row">
-                                        <div class="d-flex flex-1 overflow-hidden">
-                                            <div data-simplebar class="nicescroll-bar" id="tab_1">
-                                                <div class="container-fluid px-5 pt-5">
-                                                    <div
-                                                        class="d-flex justify-content-between align-items-center mb-5">
-                                                        <h5 class="mb-0">Deal Statictics</h5>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-9 mb-4">
-                                                            <div class="row">
-                                                                <div class="col-xxl-12 mb-4">
-                                                                    <div class="card card-flush rounded-8 mb-0">
-                                                                        <div class="card-body">
-                                                                            <div class="row">
-                                                                                <div class="col-lg-6 wdg-1">
-                                                                                    <div class="row gx-0">
-                                                                                        <div class="col-sm-6 p-0">
-                                                                                            <div
-                                                                                                class="p-sm-3  pb-4 border-end border-xl-0 border-bottom border-light">
-                                                                                                <h6>Total Deals</h6>
-                                                                                                <div
-                                                                                                    class="d-flex align-items-center">
-                                                                                                    <span
-                                                                                                        class="d-block fs-3 fw-medium text-dark mb-0">1</span>
 
-                                                                                                </div>
-                                                                                                <span>Deals</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-sm-6 p-0">
-                                                                                            <div
-                                                                                                class="p-sm-3  pb-4 border-bottom border-light">
-                                                                                                <h6>Lost Deals</h6>
-                                                                                                <div
-                                                                                                    class="d-flex align-items-center">
-                                                                                                    <span
-                                                                                                        class="d-block fs-3 fw-medium text-dark mb-0">0</span>
-
-                                                                                                </div>
-                                                                                                <span>Deals</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-sm-6 p-0">
-                                                                                            <div
-                                                                                                class="p-sm-3  pb-4 border-end border-xl-0 border-bottom border-light">
-                                                                                                <h6>Won Deals</h6>
-                                                                                                <div
-                                                                                                    class="d-flex align-items-center">
-                                                                                                    <span
-                                                                                                        class="d-block fs-3 fw-medium text-dark mb-0">0</span>
-
-                                                                                                </div>
-                                                                                                <span>Deals</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-sm-6 p-0">
-                                                                                            <div
-                                                                                                class="p-sm-3  pb-4 border-bottom border-light">
-                                                                                                <h6>Pending Deals</h6>
-                                                                                                <div
-                                                                                                    class="d-flex align-items-center">
-                                                                                                    <span
-                                                                                                        class="d-block fs-3 fw-medium text-dark mb-0">1</span>
-
-                                                                                                </div>
-                                                                                                <span>Deals</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-sm-6 p-0">
-                                                                                            <div
-                                                                                                class="p-sm-3  pb-4 border-end border-light">
-                                                                                                <h6>Paid Deals</h6>
-                                                                                                <div
-                                                                                                    class="d-flex align-items-center">
-                                                                                                    <span
-                                                                                                        class="d-block fs-3 fw-medium text-dark mb-0">0</span>
-                                                                                                </div>
-                                                                                                <span>Deals</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-sm-6 p-0">
-                                                                                            <div class="p-sm-3  pb-4">
-                                                                                                <h6>Unpaid Deals</h6>
-                                                                                                <div
-                                                                                                    class="d-flex align-items-center">
-                                                                                                    <span
-                                                                                                        class="d-block fs-3 fw-medium text-dark mb-0">1</span>
-                                                                                                </div>
-                                                                                                <span>Deals</span>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-lg-6">
-                                                                                    <div
-                                                                                        class="d-flex align-items-center justify-content-between pt-3">
-                                                                                        <h6>Overview</h6>
-                                                                                    </div>
-                                                                                    <div id="pie_chart_1"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> --}}
                                     {{-- <div class="row">
                                         <div class="col-lg-6">
                                             <!-- /.card -->
@@ -937,6 +882,43 @@
                         </div>
                     </div>
                     @include('admin.main.scripts')
+                    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.2"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.2"></script>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            var options = {
+                                series: [
+                                    {{ (int) $pendingDeals }},
+                                    {{ (int) $inProgressDeals }},
+                                    {{ (int) $completedDeals }},
+                                    {{ (int) $wonDeals }},
+                                    {{ (int) $lostDeals }}
+                                ],
+                                chart: {
+                                    type: 'pie',
+                                    height: 350
+                                },
+                                labels: ['Pending', 'In Progress', 'Completed', 'Won', 'Lost'],
+                                colors: [
+                                    '#8b422e', // أصلي
+                                    '#a94f39', // أفتح درجة
+                                    '#c65c45', // أفتح أكتر
+                                    '#6f3424', // أغمق درجة
+                                    '#53271a' // أغمق قوي
+                                ],
+                                legend: {
+                                    position: 'bottom'
+                                }
+                            };
+
+                            var chartElement = document.querySelector("#pie_chart_1");
+                            if (chartElement) {
+                                var chart = new ApexCharts(chartElement, options);
+                                chart.render();
+                            }
+                        });
+                    </script>
 
 </body>
 
