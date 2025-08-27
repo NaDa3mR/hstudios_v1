@@ -396,7 +396,7 @@
                                         <div class="col-lg-3 col-6"> <!-- small box -->
                                             <div class="small-box text-bg-success">
                                                 <div class="inner">
-                                                    <h3>{{ $totalIncome }} <span style="font-size:large">EGP</span></h3>
+                                                    <h3 style="font-size:large">{{ $totalIncome }} EGP</h3>
                                                     <p>Total Incomes</p>
                                                 </div> <svg class="small-box-icon" fill="currentColor"
                                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -412,7 +412,7 @@
                                         <div class="col-lg-3 col-6"> <!-- small box -->
                                             <div class="small-box text-bg-warning">
                                                 <div class="inner">
-                                                    <h3>{{ $totalExpense }} <span style="font-size:large">EGP</span></h3>
+                                                    <h3 style="font-size:large">{{ $totalExpense }} EGP</h3>
                                                     <p>Total Expenses</p>
                                                 </div> <svg class="small-box-icon" fill="#fff" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
