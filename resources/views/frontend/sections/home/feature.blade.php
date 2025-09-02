@@ -11,12 +11,12 @@
         <div class="feature-card-area">
             <div class="company-icon-and-arrow">
                 <div class="company-icon">
-                    <svg width="39" height="32" viewBox="0 0 39 32" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M23.0486 7.61239V31.8748H15.1009V7.62068H7.94773V31.8748H0V7.17171H7.5924V0.00829411H15.1847V7.17172H22.6875V0H30.2798V7.17184H38.1493V31.875H30.2015V7.61239H23.0486Z"/>
-                        </g>
-                    </svg>
+                    <svg width="36" height="50" viewBox="0 0 36 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M5 0 L18 18 L31 0 L36 7 L22 25 L36 43 L31 50 L18 32 L5 50 L0 43 L14 25 L0 7 Z"
+                              fill="#8b422e"/>
+                      </svg>
+
+
                 </div>
                 <div class="arrow">
                     <svg height="64" viewBox="0 0 1014 64" xmlns="http://www.w3.org/2000/svg">

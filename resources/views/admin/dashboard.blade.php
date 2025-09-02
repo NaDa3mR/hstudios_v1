@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title> dashboard template </title>
+    <title> Hossam X Studios | Digital Agency - Web Design & Development </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.main.meta')
     <style>
         .btn-link {
-            color: #33475b;
+            color: #8b422e;
         }
 
         .btn-link:hover {
