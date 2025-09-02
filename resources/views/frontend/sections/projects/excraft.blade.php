@@ -109,10 +109,27 @@
             color: var(--dark-title-color);
         }
 
+        .single-service {
+            background-color: var(background-color);
+
+        }
+
         .home2-contact-section {
             background-image: url('{{ asset('website-assets/img/home2/home2-contact-bg.png') }}'), linear-gradient(180deg, #fff 0%, #fff 100%);
         }
-            /* .home5-service-section .service-wrapper .single-service {
+
+        .home6-feature2-section .feature-wrapper .single-feature .feature-content-wrap .feature-content ul li {
+            margin-bottom: 0px;
+        }
+
+        .carousel-img {
+            height: 500px;
+            /* تحددي الارتفاع المناسب */
+            object-fit: contain;
+            /* الصورة تغطي الحيز بالكامل بدون تشويه */
+        }
+
+        /* .home5-service-section .service-wrapper .single-service {
             padding: 65px 70px;
             background-color: #D2E8D9 ;
             position: relative;
@@ -484,6 +501,255 @@
         </div>
     </div>
     <!-- home4 Feature Section End -->
+    <!-- home6 Feature Section Start -->
+    <div class="home6-feature2-section mb-130">
+        <img src="{{ asset('website-assets/img/home6/home6-feature2-top-shape.png') }}" alt=""
+            class="shape light">
+        <img src="{{ asset('website-assets/img/home6/home6-feature2-top-shape-dark.png') }}" alt=""
+            class="shape dark">
+        <div class="feature-wrapper">
+            <div class="container">
+                <div class="feature-area">
+                    <div class="single-feature">
+                        <div class="row gy-md-5 gy-4">
+                            <div class="col-xl-5 col-lg-6">
+                                <div class="feature-content-wrap">
+                                    <div class="icon">
+                                        <img src="{{ asset('website-assets/img/home6/home6-feature2-icon1.png') }}"
+                                            alt="">
+                                    </div>
+                                    <div class="feature-content wow animate fadeInLeft" data-wow-delay="200ms"
+                                        data-wow-duration="1500ms">
+                                        {{-- <h2>Your Success, <br> Our Commitment.</h2>
+                                        <span>"Grow Faster, Risk Less"</span>
+                                        <p>It conveys reliability and a sense of responsibility, making it a great
+                                            choice for businesses.</p> --}}
+                                        <section class="digital-solutions">
+                                            <h1>Our Digital Solutions for ExCraft</h1>
+                                            <p>
+                                                We built a complete platform that helps ExCraft provide smooth services and connect globally.
+                                            </p>
+
+                                            <ul>
+                                                <li>
+
+                                                        <li><strong>Website:</strong></li>
+                                                        <li> A sleek, responsive platform for showcasing services and
+                                                            enabling online bookings.</li>
+
+                                                </li>
+
+                                                <li>
+
+                                                        <li><strong>Admin Panel:</strong></li>
+                                                        <li> A centralized dashboard to manage
+                                                            clients, courses, and finances with ease.</li>
+
+                                                </li>
+                                                <li>
+
+                                                        <li><strong>Mobile App:</strong></li>
+                                                        <li> Learning and services on-the-go,
+                                                            accessible anytime, anywhere.</li>
+
+                                                </li>
+                                            </ul>
+                                        </section>
+
+                                        <a href= "https://excraft.co/en" class="primary-btn3 three btn-hover">
+                                            Visit ExCraft
+                                            <svg width="10" height="10" viewBox="0 0 10 10"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                                    stroke-width="1.5" stroke-linecap="round"></path>
+                                            </svg>
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-6 d-flex justify-content-lg-end wow animate fadeInRight"
+                                data-wow-delay="200ms" data-wow-duration="1500ms">
+                                {{-- <div class="feature-img magnetic-item">
+                                    <img src="{{ asset('website-assets/img/home6/home6-feature2-img1.png' )}}" alt="">
+                                </div> --}}
+                                {{-- <div class="container my-5">
+                                    <!-- Section Title -->
+                                    <h2 class="text-center mb-4">Our Work for ExCraft</h2>
+
+                                    <!-- Carousel -->
+                                    <div id="excraftCarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+
+                                            <!-- Image 1 -->
+                                            <div class="carousel-item active">
+                                                <img src="{{ asset('website-assets/excraft-academy.png') }}"
+                                                    class="d-block w-100 rounded" alt="ExCraft Website">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>ExCraft Website</h5>
+                                                    <p>A modern responsive website showcasing services.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Image 2 -->
+                                            <div class="carousel-item">
+                                                <img src="{{ asset('website-assets/excraft-academy.png') }}"
+                                                    class="d-block w-100 rounded" alt="ExCraft Mobile App">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>ExCraft Mobile App</h5>
+                                                    <p>Seamless mobile experience for global users.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Image 3 -->
+                                            <div class="carousel-item">
+                                                <img src="{{ asset('website-assets/excraft-academy.png') }}"
+                                                    class="d-block w-100 rounded" alt="ExCraft Branding">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>ExCraft Branding</h5>
+                                                    <p>Complete brand identity with consistent visuals.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Controls -->
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#excraftCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon"></span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#excraftCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon"></span>
+                                        </button>
+                                    </div>
+                                </div> --}}
+                                <div class="container my-5">
+                                    <!-- Section Title -->
+                                    <h2 class="text-center mb-4">Our Work for ExCraft</h2>
+
+                                    <!-- Carousel -->
+                                    <div id="excraftCarousel" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+
+                                            <!-- Image 1 -->
+                                            <div class="carousel-item active">
+                                                <img src="{{ asset('website-assets/excraft-dashboard.png') }}"
+                                                    class="d-block w-100 rounded" alt="ExCraft Website">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    {{-- <h5>ExCraft Website</h5>
+                                                    <p>A modern responsive website showcasing services.</p> --}}
+                                                </div>
+                                            </div>
+
+                                            <!-- Image 2 -->
+                                            <div class="carousel-item">
+                                                <img src="{{ asset('website-assets/app-page.webp') }}"
+                                                    class="d-block w-100 rounded carousel-img"
+                                                    alt="ExCraft Mobile App">
+                                            </div>
+
+                                            <!-- Image 3 -->
+                                            <div class="carousel-item">
+                                                <img src="{{ asset('website-assets/excraft-website.png') }}"
+                                                    class="d-block w-100 rounded" alt="ExCraft Branding">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    {{-- <h5>ExCraft Branding</h5>
+                                                    <p>Complete brand identity with consistent visuals.</p> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Controls -->
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#excraftCarousel" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon"
+                                                style="background-color:  #c81e43"></span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#excraftCarousel" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon"
+                                                style="background-color:  #c81e43"></span>
+                                        </button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-feature">
+                        <div class="row gy-md-5 gy-4">
+                            <div class="col-xl-5 col-lg-6">
+                                <div class="feature-content-wrap">
+                                    <div class="icon">
+                                        <img src="{{ asset('website-assets/img/home6/home6-feature2-icon2.png') }}"
+                                            alt="">
+                                    </div>
+                                    <div class="feature-content wow animate fadeInLeft" data-wow-delay="200ms"
+                                        data-wow-duration="1500ms">
+                                        <h2>Branding & <br>Identity .</h2>
+                                        <span>"Design that Defines"</span>
+                                        <p>Beyond technology, we shaped ExCraft’s brand to reflect trust, professionalism, and global excellence.</p>
+                                        {{-- <ul>
+                                            <li>
+                                                <svg width="20" height="20" viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.65353 11.6968L7.56353 14.463C8.74893 12.7506 14.0179 4.386 17.0475 0.5C13.9099 6.4268 11.1823 12.6098 8.72913 18.823C8.37712 19.7142 7.12192 19.7294 6.75232 18.8454C5.58372 16.0514 4.32732 13.2748 2.95312 10.577C3.94112 10.3794 4.99472 10.7088 5.65332 11.6968H5.65353Z" />
+                                                </svg>
+                                                Time Response &lt;&lt; 5 Minutes
+                                            </li>
+                                            <li>
+                                                <svg width="20" height="20" viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                                        d="M5.65353 11.6968L7.56353 14.463C8.74893 12.7506 14.0179 4.386 17.0475 0.5C13.9099 6.4268 11.1823 12.6098 8.72913 18.823C8.37712 19.7142 7.12192 19.7294 6.75232 18.8454C5.58372 16.0514 4.32732 13.2748 2.95312 10.577C3.94112 10.3794 4.99472 10.7088 5.65332 11.6968H5.65353Z" />
+                                                </svg>
+                                                CSAT Score on Average 98%
+                                            </li>
+                                        </ul> --}}
+                                        <ul>
+                                            <li><strong>Complete Branding:</strong></li><li> Visual identity that aligns with their values.</li>
+                                            <li><strong>Design Consistency:</strong></li><li> From website to mobile app, a unified look and feel.</li>
+                                            <li><strong>Professional Presence:</strong></li><li> A brand image that resonates with international clients.</li>
+                                        </ul>
+                                        <a href= "https://excraft.co/en" class="primary-btn3 three btn-hover">
+                                            Visit ExCraft
+                                            <svg width="10" height="10" viewBox="0 0 10 10"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M1 9L9 1M9 1C7.22222 1.33333 3.33333 2 1 1M9 1C8.66667 2.66667 8 6.33333 9 9"
+                                                    stroke-width="1.5" stroke-linecap="round"></path>
+                                            </svg>
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-6 d-flex justify-content-lg-end wow animate fadeInRight"
+                                data-wow-delay="200ms" data-wow-duration="1500ms">
+                                <div class="feature-img magnetic-item">
+                                    <img src="{{ asset('website-assets/excraft-branding.png') }}"
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <svg class="line" width="6" height="572" viewBox="0 0 6 572"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0.333333 3C0.333333 4.47276 1.52724 5.66667 3 5.66667C4.47276 5.66667 5.66667 4.47276 5.66667 3C5.66667 1.52724 4.47276 0.333333 3 0.333333C1.52724 0.333333 0.333333 1.52724 0.333333 3ZM0.333333 569C0.333333 570.473 1.52724 571.667 3 571.667C4.47276 571.667 5.66667 570.473 5.66667 569C5.66667 567.527 4.47276 566.333 3 566.333C1.52724 566.333 0.333333 567.527 0.333333 569ZM2.5 3V3.99648H3.5V3H2.5ZM2.5 5.98944V7.98239H3.5V5.98944H2.5ZM2.5 9.97535V11.9683H3.5V9.97535H2.5ZM2.5 13.9613V15.9542H3.5V13.9613H2.5ZM2.5 17.9472V19.9401H3.5V17.9472H2.5ZM2.5 21.9331V23.9261H3.5V21.9331H2.5ZM2.5 25.919V27.912H3.5V25.919H2.5ZM2.5 29.9049V31.8979H3.5V29.9049H2.5ZM2.5 33.8908V35.8838H3.5V33.8908H2.5ZM2.5 37.8768V39.8697H3.5V37.8768H2.5ZM2.5 41.8627V43.8556H3.5V41.8627H2.5ZM2.5 45.8486V47.8416H3.5V45.8486H2.5ZM2.5 49.8345V51.8275H3.5V49.8345H2.5ZM2.5 53.8204V55.8134H3.5V53.8204H2.5ZM2.5 57.8063V59.7993H3.5V57.8063H2.5ZM2.5 61.7923V63.7852H3.5V61.7923H2.5ZM2.5 65.7782V67.7711H3.5V65.7782H2.5ZM2.5 69.7641V71.757H3.5V69.7641H2.5ZM2.5 73.75V75.743H3.5V73.75H2.5ZM2.5 77.7359V79.7289H3.5V77.7359H2.5ZM2.5 81.7218V83.7148H3.5V81.7218H2.5ZM2.5 85.7078V87.7007H3.5V85.7078H2.5ZM2.5 89.6937V91.6866H3.5V89.6937H2.5ZM2.5 93.6796V95.6725H3.5V93.6796H2.5ZM2.5 97.6655V99.6585H3.5V97.6655H2.5ZM2.5 101.651V103.644H3.5V101.651H2.5ZM2.5 105.637V107.63H3.5V105.637H2.5ZM2.5 109.623V111.616H3.5V109.623H2.5ZM2.5 113.609V115.602H3.5V113.609H2.5ZM2.5 117.595V119.588H3.5V117.595H2.5ZM2.5 121.581V123.574H3.5V121.581H2.5ZM2.5 125.567V127.56H3.5V125.567H2.5ZM2.5 129.553V131.546H3.5V129.553H2.5ZM2.5 133.539V135.532H3.5V133.539H2.5ZM2.5 137.525V139.518H3.5V137.525H2.5ZM2.5 141.511V143.503H3.5V141.511H2.5ZM2.5 145.496V147.489H3.5V145.496H2.5ZM2.5 149.482V151.475H3.5V149.482H2.5ZM2.5 153.468V155.461H3.5V153.468H2.5ZM2.5 157.454V159.447H3.5V157.454H2.5ZM2.5 161.44V163.433H3.5V161.44H2.5ZM2.5 165.426V167.419H3.5V165.426H2.5ZM2.5 169.412V171.405H3.5V169.412H2.5ZM2.5 173.398V175.391H3.5V173.398H2.5ZM2.5 177.384V179.377H3.5V177.384H2.5ZM2.5 181.37V183.363H3.5V181.37H2.5ZM2.5 185.355V187.348H3.5V185.355H2.5ZM2.5 189.341V191.334H3.5V189.341H2.5ZM2.5 193.327V195.32H3.5V193.327H2.5ZM2.5 197.313V199.306H3.5V197.313H2.5ZM2.5 201.299V203.292H3.5V201.299H2.5ZM2.5 205.285V207.278H3.5V205.285H2.5ZM2.5 209.271V211.264H3.5V209.271H2.5ZM2.5 213.257V215.25H3.5V213.257H2.5ZM2.5 217.243V219.236H3.5V217.243H2.5ZM2.5 221.229V223.222H3.5V221.229H2.5ZM2.5 225.214V227.207H3.5V225.214H2.5ZM2.5 229.2V231.193H3.5V229.2H2.5ZM2.5 233.186V235.179H3.5V233.186H2.5ZM2.5 237.172V239.165H3.5V237.172H2.5ZM2.5 241.158V243.151H3.5V241.158H2.5ZM2.5 245.144V247.137H3.5V245.144H2.5ZM2.5 249.13V251.123H3.5V249.13H2.5ZM2.5 253.116V255.109H3.5V253.116H2.5ZM2.5 257.102V259.095H3.5V257.102H2.5ZM2.5 261.088V263.081H3.5V261.088H2.5ZM2.5 265.073V267.066H3.5V265.073H2.5ZM2.5 269.059V271.052H3.5V269.059H2.5ZM2.5 273.045V275.038H3.5V273.045H2.5ZM2.5 277.031V279.024H3.5V277.031H2.5ZM2.5 281.017V283.01H3.5V281.017H2.5ZM2.5 285.003V286.996H3.5V285.003H2.5ZM2.5 288.989V290.982H3.5V288.989H2.5ZM2.5 292.975V294.968H3.5V292.975H2.5ZM2.5 296.961V298.954H3.5V296.961H2.5ZM2.5 300.947V302.94H3.5V300.947H2.5ZM2.5 304.932V306.925H3.5V304.932H2.5ZM2.5 308.918V310.911H3.5V308.918H2.5ZM2.5 312.904V314.897H3.5V312.904H2.5ZM2.5 316.89V318.883H3.5V316.89H2.5ZM2.5 320.876V322.869H3.5V320.876H2.5ZM2.5 324.862V326.855H3.5V324.862H2.5ZM2.5 328.848V330.841H3.5V328.848H2.5ZM2.5 332.834V334.827H3.5V332.834H2.5ZM2.5 336.82V338.813H3.5V336.82H2.5ZM2.5 340.806V342.799H3.5V340.806H2.5ZM2.5 344.792V346.784H3.5V344.792H2.5ZM2.5 348.777V350.77H3.5V348.777H2.5ZM2.5 352.763V354.756H3.5V352.763H2.5ZM2.5 356.749V358.742H3.5V356.749H2.5ZM2.5 360.735V362.728H3.5V360.735H2.5ZM2.5 364.721V366.714H3.5V364.721H2.5ZM2.5 368.707V370.7H3.5V368.707H2.5ZM2.5 372.693V374.686H3.5V372.693H2.5ZM2.5 376.679V378.672H3.5V376.679H2.5ZM2.5 380.665V382.658H3.5V380.665H2.5ZM2.5 384.651V386.643H3.5V384.651H2.5ZM2.5 388.636V390.629H3.5V388.636H2.5ZM2.5 392.622V394.615H3.5V392.622H2.5ZM2.5 396.608V398.601H3.5V396.608H2.5ZM2.5 400.594V402.587H3.5V400.594H2.5ZM2.5 404.58V406.573H3.5V404.58H2.5ZM2.5 408.566V410.559H3.5V408.566H2.5ZM2.5 412.552V414.545H3.5V412.552H2.5ZM2.5 416.538V418.531H3.5V416.538H2.5ZM2.5 420.524V422.517H3.5V420.524H2.5ZM2.5 424.51V426.503H3.5V424.51H2.5ZM2.5 428.495V430.488H3.5V428.495H2.5ZM2.5 432.481V434.474H3.5V432.481H2.5ZM2.5 436.467V438.46H3.5V436.467H2.5ZM2.5 440.453V442.446H3.5V440.453H2.5ZM2.5 444.439V446.432H3.5V444.439H2.5ZM2.5 448.425V450.418H3.5V448.425H2.5ZM2.5 452.411V454.404H3.5V452.411H2.5ZM2.5 456.397V458.39H3.5V456.397H2.5ZM2.5 460.383V462.376H3.5V460.383H2.5ZM2.5 464.369V466.361H3.5V464.369H2.5ZM2.5 468.354V470.347H3.5V468.354H2.5ZM2.5 472.34V474.333H3.5V472.34H2.5ZM2.5 476.326V478.319H3.5V476.326H2.5ZM2.5 480.312V482.305H3.5V480.312H2.5ZM2.5 484.298V486.291H3.5V484.298H2.5ZM2.5 488.284V490.277H3.5V488.284H2.5ZM2.5 492.27V494.263H3.5V492.27H2.5ZM2.5 496.256V498.249H3.5V496.256H2.5ZM2.5 500.242V502.235H3.5V500.242H2.5ZM2.5 504.228V506.22H3.5V504.228H2.5ZM2.5 508.213V510.206H3.5V508.213H2.5ZM2.5 512.199V514.192H3.5V512.199H2.5ZM2.5 516.185V518.178H3.5V516.185H2.5ZM2.5 520.171V522.164H3.5V520.171H2.5ZM2.5 524.157V526.15H3.5V524.157H2.5ZM2.5 528.143V530.136H3.5V528.143H2.5ZM2.5 532.129V534.122H3.5V532.129H2.5ZM2.5 536.115V538.108H3.5V536.115H2.5ZM2.5 540.101V542.094H3.5V540.101H2.5ZM2.5 544.087V546.08H3.5V544.087H2.5ZM2.5 548.073V550.066H3.5V548.073H2.5ZM2.5 552.059V554.052H3.5V552.059H2.5ZM2.5 556.045V558.038H3.5V556.045H2.5ZM2.5 560.031V562.024H3.5V560.031H2.5ZM2.5 564.017V566.01H3.5V564.017H2.5ZM2.5 568.003V569H3.5V568.003H2.5Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <img src="{{ asset('website-assets/img/home6/home6-feature2-bottom-shape.png') }}" alt=""
+            class="shape light">
+        <img src="{{ asset('website-assets/img/home6/home6-feature2-bottom-shape-dark.png') }}" alt=""
+            class="shape dark">
+    </div>
+    <!-- home6 Feature Section End -->
 
     <div class="home5-service-section mb-130">
         <div class="container">
@@ -558,8 +824,8 @@
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-6 d-lg-block d-none">
-                            <div class="service-img">
-                                <img src="{{ asset('website-assets/img/home5/service-img1.jpg') }}" alt="">
+                            <div>
+                                <img src="{{ asset('website-assets/excraft-website.png') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -630,8 +896,8 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 d-lg-block d-none">
-                            <div class="service-img">
-                                <img src="{{ asset('website-assets/img/home5/service-img2.jpg') }}" alt="">
+                            <div>
+                                <img src="{{ asset('website-assets/excraft-academy.png') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -699,8 +965,8 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 d-lg-block d-none">
-                            <div class="service-img">
-                                <img src="{{ asset('website-assets/img/home5/service-img3.jpg') }}" alt="">
+                            <div>
+                                <img src="{{ asset('website-assets/excraft-dashboard.png') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -771,8 +1037,8 @@
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 d-lg-block d-none">
-                            <div class="service-img">
-                                <img src="{{ asset('website-assets/img/home5/service-img4.jpg') }}" alt="">
+                            <div>
+                                <img src="{{ asset('website-assets/excraft-reporting.png') }}"alt="">
                             </div>
                         </div>
                     </div>
@@ -1310,6 +1576,7 @@
 
     @include('frontend.main.footer')
     @include('frontend.main.scripts')
+
 </body>
 
 </html>

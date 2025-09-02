@@ -9,7 +9,7 @@
     @include('admin.main.meta')
     <style>
         .btn-link {
-            color: #33475b;
+            color: #8b422e;
         }
 
         .btn-link:hover {
