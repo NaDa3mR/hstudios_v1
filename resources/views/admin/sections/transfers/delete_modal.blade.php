@@ -1,18 +1,18 @@
-<div class="modal fade" id="deleteModal{{$service->id}}" tabindex="-1" aria-labelledby="deleteModalgridLabel" aria-modal="true">
+<div class="modal fade" id="deleteModal{{$transfer->id}}" tabindex="-1" aria-labelledby="deleteModalgridLabel" aria-modal="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalgridLabel">Delete the Servive : {{$service->name}}</h5>
+                <h5 class="modal-title" id="deleteModalgridLabel">Delete the Transfer : {{$transfer->name}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('service.destroy' , $service->id)}}" method="POST">
+            <form action="{{route('transfer.destroy' , $transfer->id)}}" method="POST">
                 @method('Delete')
                 @csrf
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-xxl-6">
                             <div>
-                                <input type="hidden" name="id" value="{{ $service->id }}">
+                                <input type="hidden" name="id" value="{{ $transfer->id }}">
                                 <label for="id" class="form-label"> Are you sure?</label>
                             </div>
                         </div>
