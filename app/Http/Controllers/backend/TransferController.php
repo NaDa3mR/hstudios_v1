@@ -16,9 +16,10 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $transfers = Transfer::paginate(5);
+        // $transfers = Transfer::paginate( 5);
         $transfers = Transfer::all();
-        return view('admin.transfers', compact('tranfers'));
+        $accounts = Account::where('is_active', 1)->get();
+        return view('admin.transfers', compact('transfers', 'accounts'));
     }
 
     /**
@@ -32,25 +33,46 @@ class TransferController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(StoreTransferRequest $request)
+    // {
+    //     $validated = $request->validated();
+    //     $from = Account::find($validated['account_id_from']);
+    //     $to = Account::find($validated['account_id_to']);
+    //     if($from->balance < $validated['amount']){
+    //         return back()->withErrors(['amount' => 'your balance is not enough to complete the process.']);
+    //     }
+
+    //     DB::transaction(function () use ($from, $to, $validated){
+    //         $from->balance -= $validated['amount'];
+    //         $from->save();
+    //         $to->balance += $validated['amount'];
+    //         $to->save();
+
+    //         Transfer::create($validated);
+    //     });
+
+    //     return redirect()->route('transfers.index')->with('success_message', 'Transfer completed!');
+
+    // }
+
     public function store(StoreTransferRequest $request)
     {
         $validated = $request->validated();
-        $from = Account::find($validated['account_id_from']);
-        $to = Account::find($validated['account_id_to']);
-        if($from->balance < $validated['amount']){
-            return back()->withErrors(['amount' => 'your balance is not enough to complete the process.']);
+        $fromAccount = Account::findOrFail($request->account_id_from);
+        $toAccount = Account::findOrFail($request->account_id_to);
+
+        if ($fromAccount->balance < $request->amount) {
+            return redirect()->route('transfer.index')->withErrors(['amount' => 'Insufficient balance in From Account']);
         }
+        $transfer = Transfer::create($validated);
 
-        DB::transaction(function () use ($from, $to, $validated){
-            $from->balance -= $validated['amount'];
-            $from->save();
-            $to->balance += $validated['amount'];
-            $to->save();
+        $fromAccount->balance -= $request->amount;
+        $fromAccount->save();
 
-            Transfer::create($validated);
-        });
+        $toAccount->balance += $request->amount;
+        $toAccount->save();
+        return redirect()->route('transfer.index')->with('success_message', 'Transfer created successfully');
 
-        return redirect()->route('transfers.index')->with('success_message', 'Transfer completed!');
 
     }
 

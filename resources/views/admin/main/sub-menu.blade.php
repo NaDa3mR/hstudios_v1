@@ -52,6 +52,12 @@
                                         <span class="nav-link-text">Account</span>
                                     </a>
                                 </li>
+                                <li class="nav-item {{ request()->url() == route('transfer.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('transfer.index') }}">
+                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">Transfer</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
