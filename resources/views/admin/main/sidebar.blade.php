@@ -9,7 +9,7 @@
             $pages = ['blogs','service','career', 'application', 'employees', 'contacts'];
             $user_arr = ['admin','roles','users'];
             $crm_arr = ['deals','clients', 'meetings','calender', 'candidates', 'service_requests', 'interview'];
-            $finance = ['expenses', 'expense_source', 'income_source', 'incomes', 'account', 'transfer']
+            $finance = ['expenses', 'expense_source', 'income_source', 'incomes', 'account', 'transfer','invoices']
         @endphp
         <div data-simplebar class="nicescroll-bar">
             <div class="menu-content-wrap">
@@ -113,7 +113,7 @@
                                             <div class="dropdown-divider"></div>
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item" href="#">Logout </button>
+                                                <button type="submit" class="dropdown-item">Logout </button>
                                             </form>
                                         </div>
                                     </div>

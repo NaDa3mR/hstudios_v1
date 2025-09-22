@@ -99,7 +99,7 @@
             Company Desk
         </a>
         <div class="logo-and-sevice-menu-wrap">
-            <a href="index.html" class="footer-logo">
+            <a href="{{ route('home') }}" class="footer-logo">
 
                 <img src="{{ asset('website-assets/logo.png') }}" alt="" width="200px">
             </a>

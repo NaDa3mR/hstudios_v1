@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\ExpenseSourceController;
 use App\Http\Controllers\backend\IncomeController;
 use App\Http\Controllers\backend\IncomeSourceController;
 use App\Http\Controllers\backend\InterviewController;
+use App\Http\Controllers\backend\InvoiceController;
 use App\Http\Controllers\backend\MeetingController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\TransferController;
@@ -60,6 +61,9 @@ Route::middleware('auth')->group(function () {
 
     //Client
     Route::resource('admin/client', ClientController::class);
+    //Invoice
+    Route::resource('admin/invoice', InvoiceController::class);
+    Route::get('/clients/{id}/deals', [InvoiceController::class, 'getClientDeals'])->name('clients.deals');
     //Deal
     Route::resource('admin/deal', DealController::class);
     // Route::post('admin/deal/from-request/{serviceRequest}', [DealController::class, 'createFromServiceRequest'])->name('deals.create.fromRequest');

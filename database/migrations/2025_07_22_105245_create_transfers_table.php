@@ -16,11 +16,11 @@ return new class extends Migration
             //$table->unsignedBigInteger('account_id_from');
             $table->foreignId(column: 'account_id_from')->constrained('accounts')->onDelete('cascade');
             //$table->unsignedBigInteger('account_id_to');
-            $table->foreignId(column: 'account_id_to')->constrained('accounts')->onDelete('cascade');
+            $table->foreignId(column: 'account_id_to')->constrained('accounts')->onDelete(action: 'cascade');
             $table->string('title');
             $table->decimal('amount', 15, 2);
             $table->date('transfer_date');
-            $table->text('details')->nullable();      
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }

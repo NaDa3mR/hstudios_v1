@@ -58,6 +58,12 @@
                                         <span class="nav-link-text">Transfer</span>
                                     </a>
                                 </li>
+                                <li class="nav-item {{ request()->url() == route('invoice.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('invoice.index') }}">
+                                        <i class="ri-bill-line fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">Invoice</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -153,37 +159,37 @@
                     <ul class="nav nav-light navbar-nav flex-column">
                         <li class="nav-item {{ request()->url() == route('blog.index') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('blog.index') }}">
-                                <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <i class="ri-article-line fs-5" style="margin-right: 15px;"></i>
                                 <span class="nav-link-text">blogs</span>
                             </a>
                         </li>
                         <li class="nav-item {{ request()->url() == route('service.index') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('service.index') }}">
-                                <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <i class="ri-stack-line" style="margin-right: 15px;"></i>
                                 <span class="nav-link-text">services</span>
                             </a>
                         </li>
                         <li class="nav-item {{ request()->url() == route('career.index') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('career.index') }}">
-                                <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <i class="ri-briefcase-line fs-5" style="margin-right: 15px;"></i>
                                 <span class="nav-link-text">careers</span>
                             </a>
                         </li>
                         <li class="nav-item {{ request()->url() == route('application.index') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('application.index') }}">
-                                <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <i class="ri-file-list-3-line fs-5" style="margin-right: 15px;"></i>
                                 <span class="nav-link-text">job applications</span>
                             </a>
                         </li>
                         <li class="nav-item {{ request()->url() == route('employee.index') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('employee.index') }}">
-                                <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <i class="ri-team-line fs-5" style="margin-right: 15px;"></i>
                                 <span class="nav-link-text">employees</span>
                             </a>
                         </li>
                         <li class="nav-item {{ request()->url() == route('contact.index') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('contact.index') }}">
-                                <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <i class="ri-contacts-book-2-line fs-5" style="margin-right: 15px;"></i>
                                 <span class="nav-link-text">contacts</span>
                             </a>
                         </li>

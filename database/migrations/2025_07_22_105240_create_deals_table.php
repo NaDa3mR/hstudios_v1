@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('deals', function (Blueprint $table) {
             $table->id();
             //$table->unsignedBigInteger('service_request_id');
-            $table->foreignId('client_id')->constrained('clients')->onDelete('cascade');
+            $table->foreignId('client_id')->constrained('clients')->onDelete(action: 'cascade');
             $table->foreignId('service_request_id')->unique()->constrained('service_requests')->onDelete('cascade');
             $table->string('name')->nullable();
             $table->decimal('price', 15, 1);

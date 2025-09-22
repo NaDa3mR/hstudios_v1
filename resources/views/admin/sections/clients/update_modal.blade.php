@@ -29,7 +29,7 @@
                             <input type="password" name="password" id="password" class="form-control"
                                 value="{{ $client->password }}">
                         </div>
-                        <div class="col-12">
+                        <div class="col-12"> 
                             <label for="company_name" class="form-label">Company Name</label>
                             <input type="text" name="company_name" id="company_name" class="form-control"
                                 value="{{ $client->company_name }}">

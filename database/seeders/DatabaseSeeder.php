@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             BlogSeeder::class,
-            
+
             AccountTableSeeder::class,
             IncomeSourceTableSeeder::class,
             IncomeTableSeeder::class,
@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
             ServiceRequestServiceSeeder::class,
             ProjectSeeder::class,
             ProjectServiceSeeder::class,
+            InvoiceTableSeeder::class,
 
         ]);
 

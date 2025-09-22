@@ -10,7 +10,7 @@ class AuthenticatedClientController extends Controller
 {
     public function create()
     {
-        return view('frontend.sections.clients.auth.login');
+        return view('clients-dashboard.auth.login');
     }
 
     public function store(Request $request)
@@ -22,7 +22,7 @@ class AuthenticatedClientController extends Controller
 
         if (Auth::guard('client')->attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
-            return redirect()->route('home');
+            return redirect()->route('client.dashboard');
         }
 
         return back()->withErrors([
