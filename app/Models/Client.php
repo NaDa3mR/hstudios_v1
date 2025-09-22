@@ -28,10 +28,7 @@ class Client extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Meeting::class);
     }
-    public function payments()
-    {
-        return $this->hasMany(Payment::class);
-    }
+
     public function serviceRequests()
     {
         return $this->hasMany(Service_Request::class);
@@ -41,6 +38,10 @@ class Client extends Authenticatable implements HasMedia
         return $this->hasMany(Service::class);
     }
 
+    public function deals()
+    {
+        return $this->hasMany(Deal::class);
+    }
 
 
 }

@@ -1,56 +1,56 @@
 <div class="hk-menu">
     <div class="main-menu">
         <div class="menu-header">
-            <a class="navbar-brand" href="{{ route('dashboard') }}">
+            <a class="navbar-brand" href="{{ route('client.dashboard') }}">
                 <img class="brand-img" style="width: 6vh" src="{{ asset('website-assets/favicon.png') }}" alt="brand">
             </a>
         </div>
         @php
-            $pages = ['blogs','service','career', 'application', 'employees', 'contacts'];
-            $user_arr = ['admin','roles','users'];
-            $crm_arr = ['deals','clients', 'meetings','calender', 'candidates', 'service_requests', 'interview'];
-            $finance = ['expenses', 'expense_source', 'income_source', 'incomes', 'account', 'transfer']
+            $pages = ['profile','service','career', 'application', 'employees', 'contacts'];
+            // $user_arr = ['admin','roles','users'];
+            $crm_arr = ['deals', 'meetings','calender','service_requests'];
+            $finance = ['invoice']
         @endphp
         <div data-simplebar class="nicescroll-bar">
             <div class="menu-content-wrap">
                 <div class="menu-group">
                     <ul class="navbar-nav flex-column">
-                        <li class="nav-item {{in_array(Request::segment(2), $pages) ? 'active' : '' }} {{Request::segment(2) == NULL ? 'active' : '' }}">
+                        {{-- <li class="nav-item {{in_array(Request::segment(2), $pages) ? 'active' : '' }} {{Request::segment(2) == NULL ? 'active' : '' }}">
                             <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="website pages" data-bs-trigger="hover" data-target="#submenu_3">
                                 <i class="bi bi-window fs-3"></i>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item {{in_array(Request::segment(2), $crm_arr) ? 'active' : '' }} {{Request::segment(2) == NULL ? 'active' : '' }}">
-                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="CRM" data-bs-trigger="hover" data-target="#submenu_2">
-                                <i class="bi bi-people fs-3"></i>
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Options" data-bs-trigger="hover" data-target="#submenu_2">
+                                <i class="bi bi-list fs-3"></i>
                             </a>
                         </li>
-                        <li class="nav-item {{in_array(Request::segment(2) , $user_arr) ? 'active' : '' }}">
+                        {{-- <li class="nav-item {{in_array(Request::segment(2) , $user_arr) ? 'active' : '' }}">
                             <a class="nav-link" href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Finance Mangement" data-bs-trigger="hover" data-target="#submenu_1">
                                 <i class="bi bi-cash-coin fs-3"></i>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <ul class="navbar-nav flex-column d-lg-none">
                         <li class="nav-item nav-link">
                             <a href="javascript:void(0)" class="mx-auto d-block avatar avatar-xs avatar-primary avatar-rounded dropdown-toggle no-caret" data-bs-toggle="dropdown">
-                                <span class="initial-wrap">{{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}</span>
+                                <span class="initial-wrap">{{ strtoupper(substr(auth('client')->user()->name ?? 'U', 0, 1)) }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right w-250p position-fixed">
                                 <div class="py-2 dropdown-item rounded-3">
                                     <div class="media align-items-center">
                                         <div class="media-head me-2">
                                             <div class="avatar avatar-xs avatar-primary avatar-rounded">
-                                                <span class="initial-wrap">{{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}</span>
+                                                <span class="initial-wrap">{{ strtoupper(substr(auth('client')->user()->name ?? 'U', 0, 1)) }}</span>
                                             </div>
                                         </div>
                                         <div class="media-body mw-175p">
-                                            <a href="#" class="d-block name">{{auth()->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
-                                            <a href="#" class="d-block fs-7 link-secondary text-truncate">{{auth()->user()->email}}</a>
+                                            <a href="#" class="d-block name">{{auth('client')->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
+                                            <a href="#" class="d-block fs-7 link-secondary text-truncate">{{auth('client')->user()->email}}</a>
                                             <div class="dropdown-divider"></div>
-                                            <form action="#" method="POST">
+                                            <form action="{{ route('client.logout')}}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item" href="#">Logout </button>
+                                                <button type="submit" class="dropdown-item">Logout</button>
                                             </form>
                                         </div>
                                     </div>
@@ -111,9 +111,9 @@
                                             <a href="{{ route('profile.show') }}" class="d-block name">{{auth()->user()->name}} <i class="ri-checkbox-circle-fill fs-7 text-primary"></i></a>
                                             <a href="{{ route('profile.show') }}" class="d-block fs-7 link-secondary text-truncate">{{auth()->user()->email}}</a>
                                             <div class="dropdown-divider"></div>
-                                            <form action="{{ route('logout') }}" method="POST">
+                                            <form action="{{ route('client.logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="dropdown-item">Logout </button>
+                                                <button type="submit" class="dropdown-item">Logout</button>
                                             </form>
                                         </div>
                                     </div>
@@ -125,6 +125,6 @@
             </div>
         </div>
     </div>
-  @include('admin.main.sub-menu')
+  @include('clients-dashboard.main.sub-menu')
 <div id="hk_menu_backdrop" class="hk-menu-backdrop"></div>
 </div>

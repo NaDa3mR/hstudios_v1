@@ -9,7 +9,7 @@
     @include('admin.main.meta')
     <style>
         .btn-link {
-            color: #33475b;
+            color: #8b422e;
         }
 
         .btn-link:hover {
@@ -81,7 +81,25 @@
 
         .card-body strong {
             font-size: 1.1rem;
-            color: #33475b;
+            color: #8b422e;
+        }
+
+        .bg-primary {
+            --bs-bg-opacity: 1;
+            background-color: #8b422e !important;
+            color: #f0f0f0;
+        }
+        .btn-primary {
+            --bs-bg-opacity: 1;
+            background-color: #8b422e !important;
+            color: #f0f0f0;
+            border-color: #8b422e;
+        }
+        .btn-primary:hover {
+            --bs-bg-opacity: 1;
+            background-color: #000000 !important;
+            color: #f0f0f0;
+            border-color: #8b422e;
         }
 
         .card-body .badge {
@@ -209,9 +227,9 @@
                                     </ul> --}}
                                 </div>
                             </header>
-                            <div class="container py-4">
-                                <div class="row justify-content-center">
-                                    <div class="col-12 col-lg-12 col-xl-11">
+                            <div class="container-fluid py-4 ">
+                                {{-- <div class="row justify-content-center"> --}}
+                                    <div class="mb-3 col-md-12 mb-md-4">
                                         <!-- Blog Card -->
                                         <div class="card shadow-sm border-0">
                                             <div class="card-body p-4">
@@ -226,7 +244,8 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-sm btn-primary"
-                                                                onclick="return confirm('Are you sure you want to delete this image?')">Delete image</button>
+                                                                onclick="return confirm('Are you sure you want to delete this image?')">Delete
+                                                                image</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -281,7 +300,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                {{-- </div> --}}
                             </div>
                         </div>
                         <div>

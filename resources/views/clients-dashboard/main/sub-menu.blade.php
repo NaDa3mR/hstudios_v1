@@ -1,6 +1,6 @@
 <div class="sub-menu">
     <div class="menu-header">
-        <a class="navbar-brand" href="{{ route('dashboard') }}">
+        <a class="navbar-brand" href="{{ route('client.dashboard') }}">
             <img class="p-5 brand-img img-fluid" src="{{ asset('website-assets/logo.png') }}" alt="brand">
         </a>
     </div>
@@ -28,36 +28,6 @@
                                         <span class="nav-link-text">Expense</span>
                                     </a>
                                 </li>
-                                <li class="nav-item {{ request()->url() == route('ex-source.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('ex-source.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Expense Source</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item {{ request()->url() == route('income.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('income.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Income</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item {{ request()->url() == route('in-source.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('in-source.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Income Source</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item {{ request()->url() == route('account.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('account.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Account</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item {{ request()->url() == route('transfer.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('transfer.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Transfer</span>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -73,60 +43,57 @@
                                 <div class="d-flex align-items-center">
                                     <div class="avatar avatar-icon avatar-xxs avatar-soft-pink me-2">
                                         <span class="initial-wrap">
-                                            <span class="feather-icon"><i data-feather="briefcase"></i></span>
+                                            <span class="feather-icon"><i data-feather="users"></i></span>
                                         </span>
                                     </div>
-                                    <span class="fs-6 text-dark fw-medium">CRM Management</span>
+                                    <span class="fs-6 text-dark fw-medium">Client Dachboard</span>
                                 </div>
                             </div>
                             <ul class="nav nav-light navbar-nav flex-column">
-                                <li class="nav-item {{ request()->url() == route('deal.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('deal.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <li
+                                    class="nav-item {{ request()->url() == route('client.profile') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('client.profile') }}">
+                                        <i class="ri-user-3-line fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">Profile</span>
+                                    </a>
+                                </li>
+                                <li
+                                    class="nav-item {{ request()->url() == route('client.deal.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('client.deal.index') }}">
+                                        <i class="ri-briefcase-line fs-5" style="margin-right: 15px;"></i>
                                         <span class="nav-link-text">Deals</span>
                                     </a>
                                 </li>
-                                <li class="nav-item {{ request()->url() == route('client.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('client.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Clients</span>
+                                <li
+                                    class="nav-item {{ request()->url() == route('client.dashboard') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('client.dashboard') }}">
+                                        <i class="ri-dashboard-line fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">Dashboard</span>
                                     </a>
                                 </li>
-                                <li class="nav-item {{ request()->url() == route('meeting.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('meeting.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                <li
+                                    class="nav-item {{ request()->url() == route('client.meeting.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('client.meeting.index') }}">
+                                        <i class="ri-team-line fs-5" style="margin-right: 15px;"></i>
                                         <span class="nav-link-text">Meeting</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                 <li
-                                    class="nav-item {{ request()->url() == route('meetings.calendar') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('meetings.calendar') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                    class="nav-item {{ request()->url() == route('client.meeting.calendar') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('client.meeting.calendar') }}">
+                                        <i class="ri-calendar-line fs-5" style="margin-right: 15px;"></i>
                                         <span class="nav-link-text">Calender</span>
                                     </a>
                                 </li>
                                 <li
-                                    class="nav-item {{ request()->url() == route('candidate.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('candidate.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Candidates</span>
-                                    </a>
-                                </li>
-                                <li
-                                    class="nav-item {{ request()->url() == route('service-request.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('service-request.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
+                                    class="nav-item {{ request()->url() == route('client.request.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('client.request.index') }}">
+                                        <i class="ri-stack-line fs-5" style="margin-right: 15px;"></i>
                                         <span class="nav-link-text">Service Request</span>
                                     </a>
                                 </li>
-                                <li
-                                    class="nav-item {{ request()->url() == route('interview.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('interview.index') }}">
-                                        <i class="ri-contacts-book-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Interview</span>
-                                    </a>
-                                </li>
+
 
             </li>
         </ul>
@@ -187,19 +154,6 @@
                                 <span class="nav-link-text">contacts</span>
                             </a>
                         </li>
-                        {{-- <li class="nav-item {{ request()->url() == route('deals.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('deals.index') }}">
-                                        <i class="ri-award-line fs-5" style="margin-right: 15px;"></i>
-
-                                        <span class="nav-link-text">Deals</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item {{ request()->url() == route('pipelines.index') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('pipelines.index') }}">
-                                        <i class="ri-filter-2-line fs-5" style="margin-right: 15px;"></i>
-                                        <span class="nav-link-text">Pipelines</span>
-                                    </a>
-                                </li> --}}
                     </ul>
                 </div>
             </div>

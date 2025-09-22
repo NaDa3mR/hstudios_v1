@@ -12,7 +12,7 @@ class RegisteredClientController extends Controller
 {
     public function create()
     {
-        return view('frontend.sections.clients.auth.register');
+        return view('clients-dashboard.auth.register');
     }
 
     public function store(Request $request)
@@ -35,6 +35,6 @@ class RegisteredClientController extends Controller
 
         Auth::guard('client')->login($client);
 
-        return redirect()->route('frontend.home');
+        return redirect()->route('client.dashboard');
     }
 }

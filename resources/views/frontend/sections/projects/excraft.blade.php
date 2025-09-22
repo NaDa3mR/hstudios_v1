@@ -4,6 +4,17 @@
 <head>
     @include('frontend.main.meta')
     <style>
+        /* .service-content.dark {
+            --title-color-opc: #1C1A1E;
+            --title-color: #1C1A1E;
+        } */
+        .dark .home7-banner-section {
+            background-image: linear-gradient(180deg, #1c1a1e 0%, #2a2a2d 100%);
+        }
+        .dark .home7-banner-section .banner-content-wrap .banner-content .content-and-btn-area p {
+           color: white;
+        }
+
         .fixed-card {
             width: 320px;
             height: 384.03px;
@@ -111,7 +122,6 @@
 
         .single-service {
             background-color: var(background-color);
-
         }
 
         .home2-contact-section {
@@ -127,6 +137,15 @@
             /* تحددي الارتفاع المناسب */
             object-fit: contain;
             /* الصورة تغطي الحيز بالكامل بدون تشويه */
+        }
+
+        .dark .home5-service-section .service-wrapper .single-service h2,
+        .dark .home5-service-section .service-wrapper .single-service ul li {
+            color: #29272c;
+        }
+
+        .dark .service-content svg path {
+            fill: #29272c;
         }
 
         /* .home5-service-section .service-wrapper .single-service {
@@ -527,30 +546,31 @@
                                         <section class="digital-solutions">
                                             <h1>Our Digital Solutions for ExCraft</h1>
                                             <p>
-                                                We built a complete platform that helps ExCraft provide smooth services and connect globally.
+                                                We built a complete platform that helps ExCraft provide smooth services
+                                                and connect globally.
                                             </p>
 
                                             <ul>
                                                 <li>
 
-                                                        <li><strong>Website:</strong></li>
-                                                        <li> A sleek, responsive platform for showcasing services and
-                                                            enabling online bookings.</li>
+                                                <li><strong>Website:</strong></li>
+                                                <li> A sleek, responsive platform for showcasing services and
+                                                    enabling online bookings.</li>
 
                                                 </li>
 
                                                 <li>
 
-                                                        <li><strong>Admin Panel:</strong></li>
-                                                        <li> A centralized dashboard to manage
-                                                            clients, courses, and finances with ease.</li>
+                                                <li><strong>Admin Panel:</strong></li>
+                                                <li> A centralized dashboard to manage
+                                                    clients, courses, and finances with ease.</li>
 
                                                 </li>
                                                 <li>
 
-                                                        <li><strong>Mobile App:</strong></li>
-                                                        <li> Learning and services on-the-go,
-                                                            accessible anytime, anywhere.</li>
+                                                <li><strong>Mobile App:</strong></li>
+                                                <li> Learning and services on-the-go,
+                                                    accessible anytime, anywhere.</li>
 
                                                 </li>
                                             </ul>
@@ -690,7 +710,8 @@
                                         data-wow-duration="1500ms">
                                         <h2>Branding & <br>Identity .</h2>
                                         <span>"Design that Defines"</span>
-                                        <p>Beyond technology, we shaped ExCraft’s brand to reflect trust, professionalism, and global excellence.</p>
+                                        <p>Beyond technology, we shaped ExCraft’s brand to reflect trust,
+                                            professionalism, and global excellence.</p>
                                         {{-- <ul>
                                             <li>
                                                 <svg width="20" height="20" viewBox="0 0 20 20"
@@ -710,9 +731,12 @@
                                             </li>
                                         </ul> --}}
                                         <ul>
-                                            <li><strong>Complete Branding:</strong></li><li> Visual identity that aligns with their values.</li>
-                                            <li><strong>Design Consistency:</strong></li><li> From website to mobile app, a unified look and feel.</li>
-                                            <li><strong>Professional Presence:</strong></li><li> A brand image that resonates with international clients.</li>
+                                            <li><strong>Complete Branding:</strong></li>
+                                            <li> Visual identity that aligns with their values.</li>
+                                            <li><strong>Design Consistency:</strong></li>
+                                            <li> From website to mobile app, a unified look and feel.</li>
+                                            <li><strong>Professional Presence:</strong></li>
+                                            <li> A brand image that resonates with international clients.</li>
                                         </ul>
                                         <a href= "https://excraft.co/en" class="primary-btn3 three btn-hover">
                                             Visit ExCraft
@@ -730,8 +754,7 @@
                             <div class="col-xl-7 col-lg-6 d-flex justify-content-lg-end wow animate fadeInRight"
                                 data-wow-delay="200ms" data-wow-duration="1500ms">
                                 <div class="feature-img magnetic-item">
-                                    <img src="{{ asset('website-assets/excraft-branding.png') }}"
-                                        alt="">
+                                    <img src="{{ asset('website-assets/excraft-branding.png') }}" alt="">
                                 </div>
                             </div>
                         </div>

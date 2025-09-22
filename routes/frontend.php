@@ -43,17 +43,5 @@ Route::get('/team', [EmployeeController::class, 'showAll'])->name('team.showAll'
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
-Route::prefix('client')->name('client.')->group(function () {
-    Route::get('register', [RegisteredClientController::class, 'create'])->name('register');
-    Route::post('register', [RegisteredClientController::class, 'store']);
 
-    Route::get('login', [AuthenticatedClientController::class, 'create'])->name('login');
-    Route::post('login', [AuthenticatedClientController::class, 'store']);
-
-    Route::post('logout', [AuthenticatedClientController::class, 'destroy'])->name('logout');
-
-    Route::middleware('auth:client')->group(function () {
-        Route::get('profile', [ProfileController::class, 'show'])->name('profile');
-    });
-});
 require __DIR__ . '/auth.php';
