@@ -58,6 +58,12 @@
                                         <span class="nav-link-text">Transfer</span>
                                     </a>
                                 </li>
+                                <li class="nav-item {{ request()->url() == route('invoice.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('invoice.index') }}">
+                                        <i class="ri-bill-line fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">Invoice</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

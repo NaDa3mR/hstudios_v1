@@ -93,6 +93,13 @@
                                         <span class="nav-link-text">Service Request</span>
                                     </a>
                                 </li>
+                                <li
+                                    class="nav-item {{ request()->url() == route('client.invoice.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('client.invoice.index') }}">
+                                        <i class="ri-receipt-line fs-5" style="margin-right: 15px;"></i>
+                                        <span class="nav-link-text">Invoice</span>
+                                    </a>
+                                </li>
 
 
             </li>

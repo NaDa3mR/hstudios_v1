@@ -43,5 +43,10 @@ class Client extends Authenticatable implements HasMedia
         return $this->hasMany(Deal::class);
     }
 
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
+    }
+
 
 }

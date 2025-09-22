@@ -128,7 +128,6 @@
         }
 
         .app-content .row a,
-        .app-content .row h3,
         .app-content .row i {
             color: white !important;
         }
@@ -141,6 +140,53 @@
         .gradient-custom {
             background: #8b422e;
 
+        }
+
+        .fc .fc-button-group button {
+            background-color: #8b422e;
+        }
+
+        .fc .fc-button-group button:hover {
+            background-color: #ffffff;
+            color: #000000
+        }
+
+        .fc .fc-button-group button:active {
+            background-color: #ffffff;
+            color: #000000
+        }
+
+        .small-box {
+            width: 309.2px;
+            height: 155.51px;
+            border-radius: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #8b422e !important;
+        }
+
+        .small-box .inner {
+            flex: 1;
+        }
+
+        .row .small-box {
+            margin-top: 10px;
+            margin-left: -30px;
+        }
+
+        .small-box h3,
+        .small-box p
+        {
+            color: #f0f0f0;
+
+        }
+
+        .card-body .p-4 {
+           height: 550px;
         }
 
         .hk-wrapper,
@@ -211,7 +257,7 @@
                             </header>
                             <div class="app-content"> <!--begin::Container-->
                                 <div class="container-fluid"> <!-- Small Box (Stat card) -->
-                                    <div class="row d-flex justify-content-center align-items-center h-100">
+                                    <div class="row g-3 d-flex justify-content-center align-items-start h-100">
                                         <div class="col col-lg-6 mb-4 mb-lg-0">
                                             <div class="card mb-3" style="border-radius: .5rem;">
                                                 <div class="row g-0">
@@ -245,15 +291,60 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
+                                                </div>
+                                            </div>
+                                            {{-- put a card --}}
+                                            <div class="row" style="padding-bottom: 10px;">
+                                                <div class="col-lg-6 col-6"> <!-- small box -->
+                                                    <div class="small-box text-bg-success">
+                                                        <div class="inner">
+                                                            <h3 style="font-size:large">{{ number_format($totalUnpaid, 2) }} EGP</h3>
+                                                            <p>Total Unpaid Invoices</p>
+                                                        </div> <svg class="small-box-icon" fill="#fff"
+                                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                                            aria-hidden="true">
+                                                            <path
+                                                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
+                                                            </path>
+                                                        </svg> <a href="{{ route('invoice.index') }}"
+                                                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                                                            More info <i class="bi bi-link-45deg"></i> </a>
+                                                    </div>
+                                                </div> <!-- ./col -->
+                                                <div class="col-lg-6 col-6"> <!-- small box -->
+                                                    <div class="small-box text-bg-warning">
+                                                        <div class="inner">
+                                                            <h3 style="font-size:large">{{ $countPending }} invoices</h3>
+                                                            <p>Total Pending Invoices</p>
+                                                        </div> <svg class="small-box-icon" fill="#fff"
+                                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                                            aria-hidden="true">
+                                                            <path
+                                                                d="M6 2a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM10 17.5l-3.5-3.5 1.41-1.41L10 14.67l6.09-6.09L17.5 10 10 17.5z" />
+                                                        </svg>
+
+                                                        <a href="{{ route('invoice.index') }}"
+                                                            class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
+                                                            More info <i class="bi bi-link-45deg"></i> </a>
+                                                    </div>
+                                                </div> <!-- ./col -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-4">
+                                            <div class="card mb-3" style="border-radius: .5rem;">
+                                                <div class="card-body p-4">
+                                                    <h5 class="fw-bold">Calendar</h5>
+                                                    <div id="client-calendar"></div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="col col-lg-6 mb-4 mb-lg-0">
+                                        <div class="col lg-6 mb-4">
                                             <div class="card mb-4">
                                                 <div class="card-header">
-                                                    <h3 class="card-title text-white">Deals</h3>
+                                                    <h3 class="card-title text-black">Deals</h3>
                                                 </div> <!-- /.card-header -->
                                                 <div class="card-body p-0">
                                                     <table class="table table-striped">
@@ -294,7 +385,7 @@
                                             </div>
                                             <div class="card mb-4">
                                                 <div class="card-header">
-                                                    <h3 class="card-title text-white">Deals</h3>
+                                                    <h3 class="card-title text-black">Service Requests</h3>
                                                 </div> <!-- /.card-header -->
                                                 <div class="card-body p-0">
                                                     <table class="table table-striped">
@@ -322,6 +413,51 @@
                                                     </table>
                                                 </div> <!-- /.card-body -->
                                             </div>
+                                            <!--begin::invoice card-->
+                                            <div class="card mb-4">
+                                                <div class="card-header">
+                                                    <h3 class="card-title text-black">Invoices</h3>
+                                                </div> <!-- /.card-header -->
+                                                <div class="card-body p-0">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Invoice Number</th>
+                                                                <th>Amount</th>
+                                                                <th>Status</th>
+                                                                <th>Date</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($invoices as $invoice)
+                                                                <tr class="align-middle">
+                                                                    <td>{{ $loop->iteration }}</td>
+                                                                    <td>{{ $invoice->invoice_number }}</td>
+                                                                    <td>{{ number_format($invoice->amount, 2) }} EGP
+                                                                    </td>
+                                                                    <td>
+                                                                        @php
+                                                                            $statusColors = [
+                                                                                'unpaid' => 'text-bg-danger',
+                                                                                'paid' => 'text-bg-success',
+                                                                                'pending' => 'text-bg-warning',
+                                                                            ];
+                                                                        @endphp
+                                                                        <span
+                                                                            class="badge {{ $statusColors[$invoice->status] ?? 'text-bg-secondary' }}">
+                                                                            {{ ucfirst($invoice->status) }}
+                                                                        </span>
+                                                                    </td>
+                                                                    <td>{{ $invoice->created_at->format('d M Y') }}
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!-- /.card-body -->
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -334,6 +470,33 @@
                     @include('clients-dashboard.main.scripts')
                     <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.2"></script>
                     <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.2"></script>
+                    <!-- FullCalendar JS -->
+                    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var calendarEl = document.getElementById('client-calendar');
+                            var calendar = new FullCalendar.Calendar(calendarEl, {
+                                initialView: 'dayGridMonth',
+                                height: 460,
+                                headerToolbar: {
+                                    left: 'prev,next today',
+                                    center: 'title',
+                                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                                },
+                                events: [{
+                                        title: 'Meeting with client',
+                                        start: '2025-09-23'
+                                    },
+                                    {
+                                        title: 'Project deadline',
+                                        start: '2025-09-25'
+                                    }
+                                ]
+                            });
+                            calendar.render();
+                        });
+                    </script>
+
 
 
 

@@ -11,7 +11,7 @@ class UpdateInvoiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,10 @@ class UpdateInvoiceRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        return (new StoreInvoiceRequest())->rules();
+    }
+    public function messages(): array
+    {
+        return (new StoreInvoiceRequest())->messages();
     }
 }

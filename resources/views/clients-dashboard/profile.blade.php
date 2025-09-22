@@ -109,6 +109,7 @@
                                 <div class="card-body">
                                     <form method="POST" action="{{ route('client.updatePassword') }}">
                                         @csrf
+                                        @method('PUT')
                                         <div class="mb-3">
                                             <label for="current_password" class="form-label">Current Password</label>
                                             <input type="password" class="form-control" id="current_password" name="current_password" required>

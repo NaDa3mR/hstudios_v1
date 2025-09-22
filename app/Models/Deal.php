@@ -26,8 +26,9 @@ class Deal extends Model
         return $this->belongsTo(Client::class);
     }
 
-    public function payments()
+    public function invoices()
     {
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Invoice::class);
     }
+
 }

@@ -8,7 +8,7 @@
         @php
             $pages = ['profile','service','career', 'application', 'employees', 'contacts'];
             // $user_arr = ['admin','roles','users'];
-            $crm_arr = ['deals', 'meetings','calender','service_requests'];
+            $crm_arr = ['deals', 'meetings','calender','service_requests','invoice'];
             $finance = ['invoice']
         @endphp
         <div data-simplebar class="nicescroll-bar">
