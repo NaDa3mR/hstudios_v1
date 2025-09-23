@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addModal">Add Deal</h5>
+                <h5 class="modal-title" id="addModalLabel">Add Deal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('deal.store') }}" method="POST">
@@ -15,23 +15,25 @@
                                 <option value="">-- Select Service Request --</option>
                                 @foreach ($service_requests as $service_request)
                                     <option value="{{ $service_request->id }}"
-                                        data-client-id="{{ $service_request->client->id }}"
-                                        data-services='@json($service_request->services->pluck('id', 'name'))'>
-                                        {{ $service_request->name ?? 'Deleted' }}
+    data-client-id="{{ $service_request->client->id }}"
+    data-client-name="{{ $service_request->client->name }}"
+    data-services='@json($service_request->services->pluck("name", "id"))'>
+    {{ $service_request->name ?? 'Deleted' }}
+</option>
 
-                                    </option>
                                 @endforeach
 
                             </select>
                         </div>
-                        <input type="hidden" name="client_id" id="clientHidden">
+                        <input type="hidden" name="client_id" id="client_id">
                         <div class="col-12">
                             <input type="text" id="client_name" class="form-control" readonly>
                         </div>
                         <div class="col-12">
                             <label for="service_id" class="control-label">Choose Client Service</label>
                             <select name="services[]" id="services" multiple class="form-control" required>
-                            </select>
+</select>
+
                         </div>
                         <div class="col-12">
                             <label for="name" class="form-label">Deal Name</label>

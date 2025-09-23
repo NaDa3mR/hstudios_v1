@@ -156,34 +156,35 @@
             color: #000000
         }
 
-        .small-box {
-            width: 309.2px;
-            height: 155.51px;
-            border-radius: 0.5rem;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px;
-            background-color: #8b422e !important;
-        }
+       .small-box {
+    width: 100%;           /* responsive width */
+    height: 155.51px;      /* keep your height */
+    border-radius: 10px;   /* optional rounded corners */
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
 
-        .small-box .inner {
-            flex: 1;
-        }
+.small-box .inner h3 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+}
 
-        .row .small-box {
-            margin-top: 10px;
-            margin-left: -30px;
-        }
+.small-box .inner p {
+    margin: 0;
+    font-size: 1.1rem;
+}
 
-        .small-box h3,
-        .small-box p
-        {
-            color: #f0f0f0;
-
-        }
+.small-box .icon {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    font-size: 2.5rem;
+    fill: #fff; 
+    opacity: 1; ;
+}
 
         .card-body .p-4 {
            height: 550px;
@@ -296,41 +297,58 @@
                                                 </div>
                                             </div>
                                             {{-- put a card --}}
-                                            <div class="row" style="padding-bottom: 10px;">
-                                                <div class="col-lg-6 col-6"> <!-- small box -->
-                                                    <div class="small-box text-bg-success">
-                                                        <div class="inner">
-                                                            <h3 style="font-size:large">{{ number_format($totalUnpaid, 2) }} EGP</h3>
-                                                            <p>Total Unpaid Invoices</p>
-                                                        </div> <svg class="small-box-icon" fill="#fff"
-                                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                                            aria-hidden="true">
-                                                            <path
-                                                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
-                                                            </path>
-                                                        </svg> <a href="{{ route('invoice.index') }}"
-                                                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                                                            More info <i class="bi bi-link-45deg"></i> </a>
-                                                    </div>
-                                                </div> <!-- ./col -->
-                                                <div class="col-lg-6 col-6"> <!-- small box -->
-                                                    <div class="small-box text-bg-warning">
-                                                        <div class="inner">
-                                                            <h3 style="font-size:large">{{ $countPending }} invoices</h3>
-                                                            <p>Total Pending Invoices</p>
-                                                        </div> <svg class="small-box-icon" fill="#fff"
-                                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                                            aria-hidden="true">
-                                                            <path
-                                                                d="M6 2a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM10 17.5l-3.5-3.5 1.41-1.41L10 14.67l6.09-6.09L17.5 10 10 17.5z" />
-                                                        </svg>
+                                           <div class="row g-3">
+    <div class="col-lg-6 col-6">
+        <div class="small-box bg-success text-white">
+            <div class="inner">
+                <h3>{{ number_format($totalUnpaid, 2) }} EGP</h3>
+                <p>Total Unpaid Invoices</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+    </div>
 
-                                                        <a href="{{ route('invoice.index') }}"
-                                                            class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                                                            More info <i class="bi bi-link-45deg"></i> </a>
-                                                    </div>
-                                                </div> <!-- ./col -->
-                                            </div>
+    <div class="col-lg-6 col-6">
+        <div class="small-box bg-warning text-white">
+            <div class="inner">
+                <h3>{{ $countPending }} invoices</h3>
+                <p>Pending Invoices</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mt-3">
+    <div class="col-lg-6 col-6">
+        <div class="small-box bg-info text-white">
+            <div class="inner">
+                <h3>{{ number_format($totalPending, 2) }} EGP</h3>
+                <p>Total Pending Invoices</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-tasks"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-6">
+        <div class="small-box bg-danger text-white">
+            <div class="inner">
+                <h3>{{ $countUnpaid }} invoices</h3>
+                <p>Unpaid Invoices</p>
+            </div>
+            <div class="icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
                                         </div>
                                         <div class="col-lg-6 mb-4">
                                             <div class="card mb-3" style="border-radius: .5rem;">
@@ -473,29 +491,39 @@
                     <!-- FullCalendar JS -->
                     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
                     <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            var calendarEl = document.getElementById('client-calendar');
-                            var calendar = new FullCalendar.Calendar(calendarEl, {
-                                initialView: 'dayGridMonth',
-                                height: 460,
-                                headerToolbar: {
-                                    left: 'prev,next today',
-                                    center: 'title',
-                                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                                },
-                                events: [{
-                                        title: 'Meeting with client',
-                                        start: '2025-09-23'
-                                    },
-                                    {
-                                        title: 'Project deadline',
-                                        start: '2025-09-25'
-                                    }
-                                ]
-                            });
-                            calendar.render();
-                        });
-                    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let meetings = @json($meetings);
+        let calendarEl = document.getElementById('client-calendar');
+
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            editable: false,
+            events: meetings.map(m => ({
+                id: m.id,
+                title: m.subject,
+                start: m.meet_date,
+                allDay: true
+            })),
+            eventClick: function(info) {
+                let meeting = meetings.find(m => m.id == info.event.id);
+                if (!meeting) return;
+
+                document.getElementById('modalSubject').innerText = meeting.subject;
+                document.getElementById('modalDeal').innerText = meeting.deal?.name || 'N/A';
+                document.getElementById('modalType').innerText = meeting.type;
+                document.getElementById('modalAddress').innerText = meeting.address;
+                document.getElementById('modalDate').innerText = meeting.meet_date;
+                document.getElementById('modalDetails').innerText = meeting.details || '';
+
+                let modal = new bootstrap.Modal(document.getElementById('meetingModal'));
+                modal.show();
+            }
+        });
+
+        calendar.render();
+    });
+</script>
+
 
 
 

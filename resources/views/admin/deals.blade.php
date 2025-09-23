@@ -125,32 +125,30 @@
     @include('admin.main.scripts')
 
     <script>
-        document.getElementById('service_request_id').addEventListener('change', function() {
-            const requestId = this.value;
-            if (!requestId) return;
+       document.getElementById('service_request_id').addEventListener('change', function() {
+    const selectedOption = this.options[this.selectedIndex];
+    if (!selectedOption.value) return;
 
-            fetch(`/get-service-request-data/${requestId}`)
-                .then(res => res.json())
-                .then(data => {
-                    // Show client name
-                    document.getElementById('client_name').value = data.client.name;
+    // Fill client ID
+    document.getElementById('client_id').value = selectedOption.dataset.clientId;
 
-                    // Populate services
-                    const servicesSelect = document.getElementById('services');
-                    servicesSelect.innerHTML = '';
+    // Fill client name
+    document.getElementById('client_name').value = selectedOption.dataset.clientName;
 
-                    data.services.forEach(service => {
-                        const option = document.createElement('option');
-                        option.value = service.id;
-                        option.text = service.name;
-                        servicesSelect.appendChild(option);
-                    });
-                });
-        });
+    // Get services
+    const services = JSON.parse(selectedOption.dataset.services);
+    const servicesSelect = document.getElementById('services');
+    servicesSelect.innerHTML = '';
 
-        document.addEventListener("DOMContentLoaded", function() {
-            feather.replace();
-        });
+    Object.entries(services).forEach(([id, name]) => {
+        const option = document.createElement('option');
+        option.value = id;
+        option.text = name; // ✅ this will now display the service name
+        servicesSelect.appendChild(option);
+    });
+});
+
+
     </script>
 
 </body>

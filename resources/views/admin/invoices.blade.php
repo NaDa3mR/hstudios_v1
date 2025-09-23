@@ -123,32 +123,44 @@
         </div>
     </div>
     @include('admin.main.scripts')
-    @push('scripts')
-    <script>
-        document.getElementById('client_id').addEventListener('change', function() {
-            let clientId = this.value;
-            let dealSelect = document.getElementById('deal_id');
+    <!-- @push('scripts') -->
+   <script>
+document.getElementById('client_id').addEventListener('change', function() {
+    let clientId = this.value;
+    let dealSelect = document.getElementById('deal_id');
 
-            dealSelect.innerHTML = '<option value="">-- Select Deal --</option>';
+    dealSelect.innerHTML = '<option value="">-- Select Deal --</option>';
 
-            if (clientId) {
-                fetch(`/clients/${clientId}/deals`)
-                    .then(response => response.json())
-                    .then(data => {
-                        data.forEach(deal => {
-                            let option = document.createElement('option');
-                            option.value = deal.id;
-                            option.textContent = deal.name;
-                            dealSelect.appendChild(option);
-                        });
+    if (clientId) {
+        let url = "{{ route('clients.deals', ['id' => ':id']) }}".replace(':id', clientId);
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                console.log("Deals received:", data);
+
+                if (data.length === 0) {
+                    let option = document.createElement('option');
+                    option.value = "";
+                    option.textContent = "No deals found for this client";
+                    dealSelect.appendChild(option);
+                } else {
+                    data.forEach(deal => {
+                        let option = document.createElement('option');
+                        option.value = deal.id;
+                        option.textContent = deal.name;
+                        dealSelect.appendChild(option);
                     });
-            }
-        });
+                }
+            })
+            .catch(err => console.error("Fetch error:", err));
+    }
+});
+</script>
 
-        document.addEventListener("DOMContentLoaded", function() {
-            feather.replace();
-        });
-    </script>
 
 </body>
 

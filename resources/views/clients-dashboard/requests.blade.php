@@ -73,6 +73,14 @@
             color: #8b422e;
         }
 
+       .btn.btn-sm {
+    background-color: #8b422e;
+    color: #f0f0f0;
+}
+       .btn.btn-sm:hover {
+    background-color: #f0f0f0;
+    color: #8b422e;
+}
         /* Loading animation */
         .role-loading {
             display: inline-block;
